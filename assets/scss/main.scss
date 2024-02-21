@@ -1,0 +1,12 @@
+// use these to create a big main.scss
+@import 'atoms/variables';
+//@import 'atoms/breakpoints';
+@import 'atoms/scroll';
+@import 'atoms/fonts';
+@import 'atoms/texts';
+@import 'atoms/buttons';
+@import 'atoms/animations';
+@import 'atoms/global';
+
+// pages
+@import 'pages/home';
