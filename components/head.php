@@ -37,4 +37,4 @@
 		</head>
 
 		<body>
-			<main id='main-content' class='<?php echo($currentPage); ?>'>
+			<main id='main-content' class='<?php echo($currentPage); ?>' style='opacity: 0'>

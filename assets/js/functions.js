@@ -8,8 +8,9 @@ const vw = (coef) => window.innerWidth * (coef/100)
 
 // page load animation
 function initOpening() {
+    const tl = gsap.timeline()
 
-    const words = selectAll('.words')
+    const words = select('.words')
     const lines = selectAll('.lines')
 
     const splitWords = new SplitText(words, {
@@ -21,8 +22,6 @@ function initOpening() {
         type: 'lines',
         linesClass: 'split-line'
     })
-
-    const tl = gsap.timeline()
 
     tl.to('#main-content', {
         opacity: 1,
@@ -56,11 +55,18 @@ function initOpening() {
         ease: 'back.out(1.7)'
     }, '-=1')
 
-    tl.from('.arrow', {
+    tl.fromTo('.sliding-link', {
         y: -25,
-        opacity: 0,
+        autoAlpha: 0
+    }, {
+        y: 0,
+        autoAlpha: 1,
         duration: .75
     }, '-=1.5')
+
+    tl.call(function(){
+        select('.sliding-link').style.transition = "all 0.3s ease-in-out";
+    })
 
     const images = document.querySelectorAll('.image')
     let currentIndex = 0
@@ -90,13 +96,13 @@ function scrollTriggerAnimations() {
                 var scrolled = document.documentElement.scrollTop || document.body.scrollTop
 
                 if (scrolled >= vh(45)) {
-                    document.querySelector('.scroll').classList.add('hidden')
-                    document.querySelector('.arrow svg').classList.add('reverse')
-                    document.querySelector('.arrow').setAttribute('href', '#home')
+                    select('.scroll').classList.add('hidden')
+                    select('.arrow svg').classList.add('reverse')
+                    select('.arrow').setAttribute('href', '#home')
                 } else {
-                    document.querySelector('.scroll').classList.remove('hidden')
-                    document.querySelector('.arrow svg').classList.remove('reverse')
-                    document.querySelector('.arrow').setAttribute('href', '#about')
+                    select('.scroll').classList.remove('hidden')
+                    select('.arrow svg').classList.remove('reverse')
+                    select('.arrow').setAttribute('href', '#about')
                 }
 
                 timeout = null
@@ -149,4 +155,6 @@ function initScripts() {
 }
 
 // init
-initScripts()
+document.fonts.ready.then(() => {
+    initScripts()
+})
