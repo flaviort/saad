@@ -1,5 +1,4 @@
-// register scrolltrigger and split text plugins
-gsap.registerPlugin(ScrollTrigger, SplitText)
+gsap.registerPlugin(SplitText)
 
 const select = (e) => document.querySelector(e)
 const selectAll = (e) => document.querySelectorAll(e)
@@ -10,8 +9,8 @@ const vw = (coef) => window.innerWidth * (coef/100)
 // page load animation
 function initOpening() {
 
-    const words = $('.words')
-    const lines = $('.lines')
+    const words = selectAll('.words')
+    const lines = selectAll('.lines')
 
     const splitWords = new SplitText(words, {
         type: 'lines, words',
@@ -25,18 +24,23 @@ function initOpening() {
 
     const tl = gsap.timeline()
 
+    tl.to('#main-content', {
+        opacity: 1,
+        duration: 0
+    })
+
     tl.from(splitWords.words, {
         y: 10,
         opacity: 0,
         duration: .75,
-        stagger: 0.05,
+        stagger: 0.05
     })
 
     tl.from(splitLines.lines, {
         y: 10,
         opacity: 0,
         duration: .75,
-        stagger: 0.05,
+        stagger: 0.05
     }, '-=.75')
 
     tl.from('#logo svg path', {
@@ -78,29 +82,27 @@ function initOpening() {
 // here goes all the scroll related animations
 function scrollTriggerAnimations() {
 
-    var timeout
-	
-    $(window).scroll(function() {
+    var timeout = null
+
+    window.addEventListener('scroll', function() {
         if (!timeout) {
             timeout = setTimeout(function() {
+                var scrolled = document.documentElement.scrollTop || document.body.scrollTop
 
-                var scrolled = $(document).scrollTop()
-    
                 if (scrolled >= vh(45)) {
-                    $('.scroll').addClass('hidden')
-                    $('.arrow svg').addClass('reverse')
-                    $('.arrow').attr('href', '#home')
+                    document.querySelector('.scroll').classList.add('hidden')
+                    document.querySelector('.arrow svg').classList.add('reverse')
+                    document.querySelector('.arrow').setAttribute('href', '#home')
                 } else {
-                    $('.scroll').removeClass('hidden')
-                    $('.arrow svg').removeClass('reverse')
-                    $('.arrow').attr('href', '#about')
+                    document.querySelector('.scroll').classList.remove('hidden')
+                    document.querySelector('.arrow svg').classList.remove('reverse')
+                    document.querySelector('.arrow').setAttribute('href', '#about')
                 }
-    
+
                 timeout = null
             }, 500)
         }
     })
-
     
 }
 
@@ -108,11 +110,18 @@ function scrollTriggerAnimations() {
 function initClickAndKeyFunctions() {
 
 	// make anchor links scroll smoothy
-	$('.sliding-link').click(function(e) {
-		e.preventDefault()
-		var aid = $(this).attr('href')
-		$('html, body').animate({ scrollTop: $(aid).offset().top }, 600)
-	})
+	document.querySelectorAll('.sliding-link').forEach(function(link) {
+        link.addEventListener('click', function(e) {
+            e.preventDefault()
+            var aid = this.getAttribute('href')
+            var targetOffsetTop = document.querySelector(aid).offsetTop
+            var scrollOptions = {
+                top: targetOffsetTop,
+                behavior: 'smooth'
+            }
+            window.scrollTo(scrollOptions)
+        })
+    })    
 }
 
 // disable console warnings and show the copyright message
@@ -122,10 +131,19 @@ function initCopyright() {
 	console.log(`%c${message}`, style)
 }
 
+// init lazyload
+function initLazyLoad() {
+	const lazyLoadInstance = new LazyLoad({ 
+		elements_selector: '.lazy',
+		container: selectId('main-content')
+	})
+}
+
 // fire all scripts on page load
 function initScripts() {
     initOpening()
 	scrollTriggerAnimations()
+    initLazyLoad()
 	initClickAndKeyFunctions()
 	initCopyright()
 }

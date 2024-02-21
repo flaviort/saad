@@ -5,8 +5,6 @@
 
 <div id='home'></div>
 
-<div id='canvas'></div>
-
 <section id='background'>
 	<div class='wrapper'>
 
@@ -94,23 +92,23 @@
 			<div class='images'>
 
 				<div class='image' style='opacity: 1'>
-					<img src='assets/img/01.jpg' alt='Image 01' class='cover'>
+					<img data-src='assets/img/01.jpg' alt='Image 01' class='cover lazy'>
 				</div>
 
 				<div class='image'>
-					<img src='assets/img/02.jpg' alt='Image 02' class='cover'>
+					<img data-src='assets/img/02.jpg' alt='Image 02' class='cover lazy'>
 				</div>
 
 				<div class='image'>
-					<img src='assets/img/03.jpg' alt='Image 03' class='cover'>
+					<img data-src='assets/img/03.jpg' alt='Image 03' class='cover lazy'>
 				</div>
 
 				<div class='image'>
-					<img src='assets/img/04.jpg' alt='Image 04' class='cover'>
+					<img data-src='assets/img/04.jpg' alt='Image 04' class='cover lazy'>
 				</div>
 
 				<div class='image'>
-					<img src='assets/img/05.jpg' alt='Image 05' class='cover'>
+					<img src='assets/img/05.jpg' alt='Image 05' class='cover lazy'>
 				</div>
 
 			</div>

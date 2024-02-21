@@ -25,8 +25,8 @@
 			<meta property='og:description' content='Saad® is an internationally award-winning boutique brand consultancy specialized in building and transforming the future of businesses.'/>
 			<meta property='og:url' content='<?php echo($siteUrl); ?>/' />
 			<meta property='og:site_name' content='Saad®' />
-			<meta property='og:image' content='<?php echo($siteUrl); ?>/assets/img/og-image.jpg' />
-			<meta property='og:image:secure_url' content='<?php echo($siteUrl); ?>/assets/img/og-image.jpg' />
+			<meta property='og:image' content='<?php echo($siteUrl); ?>/assets/img/og-image.png' />
+			<meta property='og:image:secure_url' content='<?php echo($siteUrl); ?>/assets/img/og-image.png' />
 			<meta property='og:image:width' content='1200' />
 			<meta property='og:image:height' content='630' />
 
