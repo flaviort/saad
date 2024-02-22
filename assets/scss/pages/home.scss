@@ -2,10 +2,14 @@
     &.home {
         #background {
             position: fixed;
-            z-index: 0;
+            z-index: 5;
             top: 0;
             left: 0;
             width: 100vw;
+
+            @media #{$mq-sm-min} {
+                z-index: 0;
+            }
 
             .wrapper {
                 display: flex;
@@ -139,6 +143,27 @@
                         }
                     }
                 }
+            }
+        }
+
+        #bottom {
+            position: fixed;
+            z-index: 0;
+            top: 0;
+            left: 0;
+            width: 100vw;
+
+            .wrapper {
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+                width: 100%;
+                min-height: 100lvh;
+                padding: 1.25rem 1.5rem;
+
+                @media #{$mq-sm-min} {
+                    padding: 2rem;
+                }
 
                 .bottom {
                     position: relative;
@@ -207,7 +232,7 @@
                     }
 
                     &:after {
-                        content: '';
+                        //content: '';
                         position: absolute;
                         z-index: 2;
                         bottom: 0;

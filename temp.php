@@ -64,6 +64,11 @@
 
 		</div>
 
+	</div>
+</section>
+
+<section id='bottom'>
+	<div class='wrapper'>
 		<div class='bottom'>
 
 			<div id='logo' class='logo'>
@@ -75,7 +80,6 @@
 			</a>
 
 		</div>
-
 	</div>
 </section>
 
@@ -84,10 +88,10 @@
 
 		<div class='image-slider'>
 
-			<p>
+			<!--p>
 				Until our new website is ready, <br />
 				<a href='#' target='_blank'>download our portfolio here.</a>
-			</p>
+			</p-->
 
 			<div class='images'>
 

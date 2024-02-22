@@ -12,7 +12,7 @@
 
 			<meta name='author' content='Senz Design'>
 
-			<title>Saad® <?php echo htmlspecialchars($page);?></title>
+			<title>Saad Brand Consultancy | Consultoria de Branding e Inovação</title>
 
 			<!-- google -->
 			<meta name='description' content='Saad® is an internationally award-winning boutique brand consultancy specialized in building and transforming the future of businesses.'/>
@@ -21,10 +21,10 @@
 			<!-- facebook -->
 			<meta property='og:locale' content='en_US' />
 			<meta property='og:type' content='website' />
-			<meta property='og:title' content='Saad®' />
+			<meta property='og:title' content='Saad Brand Consultancy | Consultoria de Branding e Inovação' />
 			<meta property='og:description' content='Saad® is an internationally award-winning boutique brand consultancy specialized in building and transforming the future of businesses.'/>
 			<meta property='og:url' content='<?php echo($siteUrl); ?>/' />
-			<meta property='og:site_name' content='Saad®' />
+			<meta property='og:site_name' content='Saad Brand Consultancy | Consultoria de Branding e Inovação' />
 			<meta property='og:image' content='<?php echo($siteUrl); ?>/assets/img/og-image.png' />
 			<meta property='og:image:secure_url' content='<?php echo($siteUrl); ?>/assets/img/og-image.png' />
 			<meta property='og:image:width' content='1200' />
