@@ -2,8 +2,13 @@
 import type { Metadata } from 'next'
 
 // import fonts
-import { Inter } from 'next/font/google'
-const inter = Inter({ subsets: ['latin'] })
+import localFont from 'next/font/local'
+
+const antarctica = localFont({
+    src: '../fonts/Antarctica-Regular.woff2',
+	display: 'swap',
+	variable: '--font-antarctica'
+})
 
 // define metadata
 export const metadata: Metadata = {
@@ -23,7 +28,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang='en'>
-			<body className={inter.className}>
+			<body className={antarctica.className}>
 				{children}
 			</body>
 		</html>
