@@ -28,9 +28,15 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang='en'>
+			
+			<head>
+				<link rel='shortcut icon' href='/img/favicon.svg' />
+			</head>
+
 			<body className={antarctica.className}>
 				{children}
 			</body>
+
 		</html>
 	)
 }
