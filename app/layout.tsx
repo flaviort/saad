@@ -1,6 +1,9 @@
 // import libraries
 import type { Metadata } from 'next'
 
+// import components
+
+
 // import fonts
 import localFont from 'next/font/local'
 
@@ -17,15 +20,16 @@ export const metadata: Metadata = {
 }
 
 // import css
-//import '@/styles/plugins/normalize.min.css'
-//import '@/styles/plugins/bootstrap-grid.css'
+import '@/styles/plugins/normalize.min.css'
 import '@/styles/main.scss'
+import TopMenu from '@/components/TopMenu'
 
-export default function RootLayout({
-	children,
-}: Readonly<{
-	children: React.ReactNode
-}>) {
+// interface
+interface RootLayoutProps {
+    children: React.ReactNode
+}
+
+export default function RootLayout({ children } : RootLayoutProps) {
 	return (
 		<html lang='en'>
 			
@@ -34,7 +38,11 @@ export default function RootLayout({
 			</head>
 
 			<body className={antarctica.className}>
+
+				<TopMenu />
+				
 				{children}
+				
 			</body>
 
 		</html>
