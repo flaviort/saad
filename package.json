@@ -1,17 +1,19 @@
 {
-  "name": "nuxt-app",
-  "private": true,
+  "name": "Saad",
   "type": "module",
+  "version": "0.0.1",
   "scripts": {
-    "build": "nuxt build",
-    "dev": "nuxt dev",
-    "generate": "nuxt generate",
-    "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
   },
   "dependencies": {
-    "nuxt": "^3.11.1",
-    "vue": "^3.4.21",
-    "vue-router": "^4.3.0"
+    "@swup/astro": "^1.4.0",
+    "astro": "^4.5.6",
+    "astro-icon": "^1.1.0",
+    "gsap": "npm:@gsap/business@^3.12.5",
+    "sass": "^1.72.0"
   }
 }

@@ -1,0 +1,116 @@
+---
+
+// libraries
+import { Icon } from 'astro-icon/components'
+
+---
+
+<section id='top-menu'>
+    <div class='container'>
+        <div class='grid-container'>
+
+            <a href='/' class='logo'>
+                <Icon name='logo/logo' />
+            </a>
+
+            <div class='grid-md-2-6 middle'>
+                
+                <div class='text-01'>
+                    <p>
+                        Saad® is an internationally award-winning boutique brand consultancy <br />
+                        specialized in building and transforming the future of businesses.
+                    </p>
+                </div>
+
+                <div class='text-02'>
+                    <p>
+                        Business <span>•</span> Branding <span>•</span> Design
+                    </p>
+                </div>
+
+            </div>
+
+            <div class='grid-md-6-7 last'>
+
+                <button class='open-fs'>
+                    
+                    <span class='text'>
+                        Menu
+                    </span>
+
+                    <span class='block'></span>
+
+                </button>
+
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+<style lang='scss'>
+    #top-menu {
+        padding-top: 1rem;
+        
+        @media #{$mq-2xl-min} {
+            padding-top: 2rem;
+        }
+
+        .grid-container {
+            @media #{$mq-md-max} {
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .logo {
+                display: flex;
+                width: 6rem;
+
+                @media #{$mq-sm-min} {
+                    width: 5rem;
+                }
+
+                @media #{$mq-xl-min} {
+                    width: 4rem;
+                }
+
+                @media #{$mq-md-min} {
+                    display: inline-block;
+                }
+
+                svg {
+                    height: auto;
+                }
+            }
+
+            .middle {
+                @media #{$mq-sm-max} {
+                    display: none;
+                }
+                
+                .text-01 {
+                    @media #{$mq-lg-max} {
+                        display: none;
+                    }
+                }
+
+                .text-02 {
+                    @media #{$mq-lg-min} {
+                        display: none;
+                    }
+
+                    span {
+                        display: inline-block;
+                        vertical-align: middle;
+                        font-size: 50%;
+                        padding: 0 .5rem;
+                    }
+                }
+            }
+
+            .last {
+                justify-self: flex-end;
+            }
+        }
+    }
+</style>
