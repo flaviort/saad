@@ -1,7 +1,7 @@
 ---
 
 // libraries
-import { Icon } from 'astro-icon/components'
+import Icon from '@/components/Icon.astro';
 
 ---
 
@@ -10,23 +10,49 @@ import { Icon } from 'astro-icon/components'
         <div class='grid-container'>
 
             <a href='/' class='logo'>
-                <Icon name='logo/logo' />
+
+                <div class='original'>
+                    <Icon name='logos/logo' />
+                </div>
+
+                <div class='hover'>
+                    <Icon name='logos/logo' />
+                </div>
+
             </a>
 
             <div class='grid-md-2-6 middle'>
                 
-                <div class='text-01'>
-                    <p>
-                        Saad® is an internationally award-winning boutique brand consultancy <br />
-                        specialized in building and transforming the future of businesses.
-                    </p>
+                <div class='texts'>
+
+                    <div class='text-01'>
+                        <p>
+                            Saad® is an internationally award-winning boutique brand consultancy <br />
+                            specialized in building and transforming the future of businesses.
+                        </p>
+                    </div>
+
+                    <div class='text-02'>
+                        <p>
+                            Business <span>•</span> Branding <span>•</span> Design
+                        </p>
+                    </div>
+
                 </div>
 
-                <div class='text-02'>
-                    <p>
-                        Business <span>•</span> Branding <span>•</span> Design
-                    </p>
-                </div>
+                <ul class='language'>
+                    <li>
+                        <a href='/' class='active'>
+                            English
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href='./pt-br'>
+                            Portuguese
+                        </a>
+                    </li>
+                </ul>
 
             </div>
 
@@ -50,6 +76,11 @@ import { Icon } from 'astro-icon/components'
 
 <style lang='scss'>
     #top-menu {
+        position: fixed;
+        z-index: 11;
+        top: 0;
+        left: 0;
+        width: 100%;
         padding-top: 1rem;
         
         @media #{$mq-2xl-min} {
@@ -63,8 +94,11 @@ import { Icon } from 'astro-icon/components'
             }
 
             .logo {
+                position: relative;
+                overflow: hidden;
                 display: flex;
                 width: 6rem;
+                height: fit-content;
 
                 @media #{$mq-sm-min} {
                     width: 5rem;
@@ -79,7 +113,6 @@ import { Icon } from 'astro-icon/components'
                 }
 
                 @media #{$mq-xl-min} {
-                    width: 4rem;
                     transform: translateY(.25rem);
                 }
 
@@ -87,39 +120,166 @@ import { Icon } from 'astro-icon/components'
                     display: inline-block;
                 }
 
-                svg {
+                .original {
+                    display: flex;
                     height: auto;
+                }
+
+                .hover {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: auto;
+                    display: flex;
+                    transform: translateY(110%);
                 }
             }
 
             .middle {
-                @media #{$mq-sm-max} {
-                    display: none;
-                }
+                position: relative;
                 
-                .text-01 {
-                    @media #{$mq-lg-max} {
+                .texts {
+                    @media #{$mq-sm-max} {
                         display: none;
+                    }
+
+                    .text-01 {
+                        @media #{$mq-lg-max} {
+                            display: none;
+                        }
+                    }
+
+                    .text-02 {
+                        @media #{$mq-lg-min} {
+                            display: none;
+                        }
+
+                        span {
+                            display: inline-block;
+                            vertical-align: middle;
+                            font-size: 50%;
+                            padding: 0 .5rem;
+                        }
                     }
                 }
 
-                .text-02 {
-                    @media #{$mq-lg-min} {
-                        display: none;
-                    }
+                .language {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    display: flex;
+                    align-items: center;
+                    gap: 1rem;
+                    opacity: 0;
+                    visibility: hidden;
 
-                    span {
-                        display: inline-block;
-                        vertical-align: middle;
-                        font-size: 50%;
-                        padding: 0 .5rem;
+                    li {
+                        a {
+                            opacity: .5;
+                            transition: .3s ease-in-out;
+
+                            &.active,
+                            &:hover {
+                                opacity: 1;
+                            }
+                        }
                     }
                 }
             }
 
             .last {
                 justify-self: flex-end;
+                align-self: center;
+
+                .open-fs {
+                    position: relative;
+                    display: flex;
+
+                    @media #{$mq-lg-min} {
+                        transform: translateY(-.5rem);
+                    }
+
+                    &:hover {
+                        .text {
+                            opacity: 1;
+                            right: 1.5rem;
+                        }
+
+                        .block {
+                            animation: none;
+                            transform: rotate(180deg);
+                        }
+                    }
+
+                    .text {
+                        position: absolute;
+                        z-index: 0;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        right: 0;
+                        opacity: 0;
+                        transition: .3s ease-in-out
+                    }
+
+                    .block {
+                        position: relative;
+                        z-index: 2;
+                        display: block;
+                        width: 1rem;
+                        height: 1rem;
+                        background-color: $white;
+                        animation: blink 4s infinite linear;
+                        transition: .3s ease-in-out
+                    }
+                }
             }
         }
     }
+
+    @keyframes blink {
+        0% {
+            opacity: 1;
+        }
+
+        30% {
+            opacity: 0;
+        }
+
+        60% {
+            opacity: 1;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
 </style>
+
+<script>
+    import { gsap } from 'gsap'
+
+    document.querySelector('#top-menu .logo').addEventListener('mouseenter', () => {
+        gsap.to('#top-menu .logo .original svg', {
+            yPercent: -110,
+            stagger: .05,
+            duration: .3,
+            ease: 'power2.inOut',
+        })
+
+        gsap.to('#top-menu .logo .hover svg', {
+            yPercent: -110,
+            stagger: .05,
+            duration: .3,
+            ease: 'power2.inOut',
+        })
+    })
+
+    document.querySelector('#top-menu .logo').addEventListener('mouseleave', () => {
+        gsap.set('#top-menu .logo svg', {
+            clearProps: true
+        })
+    })
+
+</script>
