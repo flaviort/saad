@@ -1,4 +1,5 @@
 ---
+// libraries
 import { Image } from 'astro:assets'
 
 // css
@@ -68,9 +69,7 @@ const global = {
 		</header>
 
 		<main id='swup'>
-			<div class='wrapper'>
-				<slot />
-			</div>
+			<slot />
 		</main>
 
 	</body>

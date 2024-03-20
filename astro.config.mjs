@@ -8,7 +8,18 @@ const __dirname = dirname(__filename)
 
 export default defineConfig({
     integrations: [
-        icon()
+        icon({
+            svgoOptions: {
+                plugins: [{
+                    name: 'preset-default',
+                    params: {
+                        overrides: {
+                            mergePaths: false
+                        }
+                    }
+                }]
+            }
+        })
     ],
     vite: {
         resolve: {
@@ -19,7 +30,6 @@ export default defineConfig({
         css: {
             preprocessorOptions: {
                 scss: {
-                    // path to your scss variables
                     additionalData: `@import '@/styles/atoms/variables.scss';`
                 }
             }

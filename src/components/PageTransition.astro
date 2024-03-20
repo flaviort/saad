@@ -1,10 +1,141 @@
 ---
+// libraries
+import { Icon } from 'astro-icon/components'
+
 ---
 
-<section id='page-transition'>
-    asdadasd
-</section>
+<aside id='loader'>
+    
+    <div class='loader-bg'></div>
+
+    <div class='loader-logo'>
+        <Icon name='logo/logo' />
+    </div>
+
+</aside>
 
 <style lang='scss'>
+    #loader {
+        position: fixed;
+        z-index: 999999999;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        clip-path: inset(0 0 100% 0);
 
+        .loader-bg {
+            position: absolute;
+            z-index: 0;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: $pure-black;
+        }
+
+        .loader-logo {
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 30vw;
+
+            @media #{$mq-md-min} {
+                width: 20vw;
+            }
+            
+            svg {
+                height: auto;
+            }
+        }
+    }
 </style>
+
+<script>
+    import { gsap } from 'gsap'
+    import Swup from 'swup'
+    import SwupHeadPlugin from '@swup/head-plugin'
+    import SwupScriptsPlugin from '@swup/scripts-plugin'
+    import SwupBodyClassPlugin from '@swup/body-class-plugin'
+    import SwupJsPlugin from '@swup/js-plugin'
+    import SwupPreloadPlugin from '@swup/preload-plugin'
+
+    const swup = new Swup({
+        animateHistoryBrowsing: true,
+        plugins: [
+            new SwupHeadPlugin(),
+            new SwupScriptsPlugin(),
+            new SwupBodyClassPlugin(),
+            new SwupPreloadPlugin(),
+            new SwupJsPlugin({ animations: [
+                {
+                    from: '(.*)',
+                    to: '(.*)',
+                    out: async () => {
+
+                        const tl = gsap.timeline({
+                            paused: true
+                        })
+
+                        tl.to('#swup', {
+                            y: 50,
+                            duration: 1,
+                            ease: 'power1.inOut',
+                        })
+
+                        tl.to('#loader', {
+                            clipPath: 'inset(0% 0% 0% 0%)',
+                            ease: 'power2.inOut',
+                            duration: 1
+                        }, '-=1')
+
+                        tl.from('.loader-logo', {
+                            y: -50,
+                            duration: .7,
+                            ease: 'power2.inOut',
+                        }, '-=.8')
+
+                        await tl.play()
+
+                    },
+                    in: async () => {
+                        
+                        const tl = gsap.timeline({
+                            paused: true,
+                            onComplete: () => gsap.set('#loader, .loader-logo', {
+                                clearProps: true
+                            })
+                        })
+
+                        tl.to('.loader-logo', {
+                            y: 50,
+                            duration: .7,
+                            ease: 'power2.inOut',
+                        })
+
+                        tl.to('#loader', {
+                            clipPath: 'inset(100% 0% 0% 0%)',
+                            duration: .7,
+                            ease: 'power2.inOut',
+                        }, '-=.7')
+
+                        tl.from('#swup', {
+                            y: -40,
+                            duration: .7,
+                            ease: 'power2.inOut',
+                        }, '-=.8')
+
+                        await tl.play()
+
+                    }
+                }
+            ]})
+        ]
+    })
+</script>

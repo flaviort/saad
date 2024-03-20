@@ -8,12 +8,6 @@
 	object-fit: cover;
 }
 
-.main-wrap {
-	@media #{$mq-lg-min} {
-		will-change: transform;
-	}
-}
-
 .relative {
 	position: relative;
 }

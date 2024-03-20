@@ -70,8 +70,17 @@ import { Icon } from 'astro-icon/components'
                     width: 5rem;
                 }
 
+                @media #{$mq-md-min} {
+                    transform: translateY(.15rem);
+                }
+
+                @media #{$mq-lg-min} {
+                    transform: translateY(.25rem);
+                }
+
                 @media #{$mq-xl-min} {
                     width: 4rem;
+                    transform: translateY(.25rem);
                 }
 
                 @media #{$mq-md-min} {
