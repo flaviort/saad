@@ -1,7 +1,7 @@
 ---
 
 // components
-import Icon from '@/components/Icon.astro';
+import Icon from '@/components/utils/Icon.astro';
 
 ---
 
@@ -81,7 +81,21 @@ import Icon from '@/components/Icon.astro';
                     out: async () => {
 
                         const tl = gsap.timeline({
-                            paused: true
+                            paused: true,
+                            onComplete: () => {
+                                document.body.classList.remove('no-scroll')
+                                document.querySelector('#top-menu')?.classList.remove('active')
+
+                                // dispatch an event to the Menu component to close the menu
+                                document.dispatchEvent(new Event('closeFsMenu'))
+
+                                // dispatch an event to update ScrollTrigger
+                                document.dispatchEvent(new Event('updateScrollTrigger'))
+                            }
+                        })
+
+                        tl.call(function(){
+                            document.body.classList.add('no-scroll')
                         })
 
                         tl.to('#swup', {
@@ -109,9 +123,11 @@ import Icon from '@/components/Icon.astro';
                         
                         const tl = gsap.timeline({
                             paused: true,
-                            onComplete: () => gsap.set('#loader, .loader-logo', {
-                                clearProps: true
-                            })
+                            onComplete: () => {
+                                gsap.set('#loader, .loader-logo', {
+                                    clearProps: true
+                                })
+                            }
                         })
 
                         tl.to('.loader-logo', {
@@ -127,10 +143,10 @@ import Icon from '@/components/Icon.astro';
                         }, '-=.7')
 
                         tl.from('#swup', {
-                            y: -40,
-                            duration: .7,
+                            y: -70,
+                            duration: 1,
                             ease: 'power2.inOut',
-                        }, '-=.8')
+                        }, '-=.9')
 
                         await tl.play()
 

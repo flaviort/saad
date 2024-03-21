@@ -67,9 +67,13 @@ const global = {
 			<Menu />
 		</header>
 
-		<main id='swup'>
-			<slot />
-		</main>
+		<div id='smooth-wrapper'>
+			<div id='smooth-content'>
+				<main id='swup'>
+					<slot />
+				</main>
+			</div>
+		</div>
 
 	</body>
 

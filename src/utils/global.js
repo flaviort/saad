@@ -1,3 +1,10 @@
+import { gsap } from 'gsap'
+import { ScrollSmoother } from 'gsap/ScrollSmoother'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+gsap.registerPlugin(ScrollSmoother, ScrollTrigger)
+
+let smoother
+
 // init copyright
 function initCopyright() {
     const message = 'Design Gabriel Leon 🔗 www.behance.net/leonngabr \nCode Senz Design 🔗 www.senzdsn.com'
@@ -5,7 +12,35 @@ function initCopyright() {
     console.log(`%c${message}`, style)
 }
 
+// init scroll smoother
+function initScrollSmoother() {
+    if (ScrollTrigger.isTouch !== 1) {
+
+		// create scroll smoother
+		smoother = ScrollSmoother.create({
+			smooth: 2,
+			speed: .75,
+			smoothTouch: .1,
+			effects: true,
+			normalizeScroll: true
+		})
+
+		// parallax effect
+		smoother.effects('.parallax-img', {
+			speed: 'auto'
+		})
+
+        // listen to the event emitted from the PageTransition component
+        document.addEventListener('updateScrollTrigger', function() {
+            smoother.scrollTo(0, false)
+            ScrollTrigger.refresh()
+            
+        })
+	}
+}
+
 function initEverything(){
+    initScrollSmoother()
     initCopyright()
 }
 

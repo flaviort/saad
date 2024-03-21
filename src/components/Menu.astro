@@ -1,7 +1,7 @@
 ---
 
 // components
-import Icon from '@/components/Icon.astro'
+import Icon from '@/components/utils/Icon.astro'
 
 // utils
 import routes from '@/utils/routes'
@@ -245,6 +245,14 @@ const menu = [
                 .open-fs {
                     position: relative;
                     display: flex;
+                    width: 4.5rem;
+                    height: 1.5rem;
+                    align-items: center;
+                    justify-content: flex-end;
+
+                    @media #{$mq-sm-min} {
+                        height: 2rem;
+                    }
 
                     @media #{$mq-lg-min} {
                         transform: translateY(-.5rem);
@@ -385,7 +393,11 @@ const menu = [
     })
 
     // open / close fs menu
-    const fsmenu = gsap.timeline().reversed(true)
+    let isOpen = false
+
+    const fsmenu = gsap.timeline({
+        paused: true
+    })
 
     fsmenu.to('#fs-menu', {
         clipPath: 'inset(0% 0% 0% 0%)',
@@ -416,13 +428,23 @@ const menu = [
     }, '-=.7')
 
     document.querySelector('.open-fs')?.addEventListener('click', () => {
-        
-        document.body.classList.toggle('no-scroll')
+        if (!isOpen) {
+            isOpen = true
+            document.body.classList.add('no-scroll')
+            document.querySelector('#top-menu')?.classList.add('active')
+            fsmenu.play()
+        } else {
+            isOpen = false
+            document.body.classList.remove('no-scroll')
+            document.querySelector('#top-menu')?.classList.remove('active')
+            fsmenu.reverse()
+        }
+    })
 
-        document.querySelector('#top-menu')?.classList.toggle('active')
-
-        fsmenu.reversed( !fsmenu.reversed() )
-
+    // listen to the event emitted from the PageTransition component
+    document.addEventListener('closeFsMenu', function() {
+        isOpen = false
+        fsmenu.seek(0).pause()
     })
 
 </script>
