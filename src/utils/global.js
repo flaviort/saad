@@ -5,11 +5,6 @@ function initCopyright() {
     console.log(`%c${message}`, style)
 }
 
-// init menu
-document.querySelector('.open-fs').addEventListener('click', () => {
-    
-})
-
 function initEverything(){
     initCopyright()
 }
