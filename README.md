@@ -1,47 +1,34 @@
-# Astro Starter Kit: Minimal
+# Saad's Website
 
-```sh
-npm create astro@latest -- --template minimal
+Welcome to Saad's website! This platform is built with [Astro.js](https://astro.build/).
+
+## Getting Started
+
+To start exploring and contributing to this project, follow these steps:
+
+1. **Clone the Repository:** Begin by cloning this repository to your local machine.
+2. **Install Dependencies:** Navigate to the project directory and install the necessary dependencies using `npm install`. Please note that it's recommended to use Node.js version 18.18.0 or higher for optimal compatibility and performance.
+3. **Run the Development Server:** Once dependencies are installed, start the development server by running `npm run dev`.
+4. **Start Prismic SliceMachine:** Open another tab on the terminal and launch Prismic using `npm run slicemachine`.
+5. **Edit the content:** Navigate to [Prismic Dashboard](https://go2world.prismic.io/) and login with github to edit the content.
+
+```bash
+npm install
+npm run dev
+npm run slicemachine
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/minimal)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/minimal)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/minimal/devcontainer.json)
+## Front-end Dependencies
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+This website leverages the following front-end dependencies:
 
-## 🚀 Project Structure
+- [Sass](https://sass-lang.com/): Sass is utilized for compiling SCSS stylesheets, offering a robust and efficient way to manage styles.
+- [GSAP](https://greensock.com/gsap/): GSAP powers various animations across the website, delivering smooth and visually appealing effects.
+- [SWUP](https://swup.js.org/): SWUP handles page transitions, enhancing the browsing experience with seamless navigation.
+- [Prismic](https://prismic.io/): Prismic serves as the headless CMS for this website, offering robust control over all content, including multiple languages, ensuring efficient content management and delivery.
 
-Inside of your Astro project, you'll see the following folders and files:
+## Deployment
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+The website is deployed using the [Vercel Platform](https://vercel.com/), ensuring fast and reliable hosting for a smooth user experience.
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+For more information about Saad, visit [saad.cx](https://saad.cx/).

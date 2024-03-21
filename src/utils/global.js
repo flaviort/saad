@@ -20,9 +20,9 @@ function initScrollSmoother() {
 		smoother = ScrollSmoother.create({
 			smooth: 2,
 			speed: .75,
-			smoothTouch: .1,
 			effects: true,
-			normalizeScroll: true
+            //smoothTouch: .1,
+			//normalizeScroll: true
 		})
 
 		// parallax effect
