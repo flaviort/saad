@@ -16,6 +16,7 @@
     "@swup/preload-plugin": "^3.2.10",
     "@swup/scripts-plugin": "^2.1.0",
     "astro": "^4.5.6",
+    "astro-icon": "^1.1.0",
     "gsap": "npm:@gsap/business@^3.12.5",
     "sass": "^1.72.0",
     "swup": "^4.6.0"

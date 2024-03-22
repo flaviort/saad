@@ -1,7 +1,9 @@
 ---
 
+// libraries
+import { Icon } from 'astro-icon/components'
+
 // components
-import Icon from '@/components/utils/Icon.astro';
 
 ---
 
@@ -10,7 +12,7 @@ import Icon from '@/components/utils/Icon.astro';
     <div class='loader-bg'></div>
 
     <div class='loader-logo'>
-        <Icon name='logos/logo' />
+        <Icon name='logos/logo' is:inline />
     </div>
 
 </aside>

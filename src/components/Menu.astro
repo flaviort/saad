@@ -1,7 +1,9 @@
 ---
 
+// libraries
+import { Icon } from 'astro-icon/components'
+
 // components
-import Icon from '@/components/utils/Icon.astro'
 
 // utils
 import routes from '@/utils/routes'
@@ -35,11 +37,11 @@ const menu = [
             <a href='/' class='logo'>
 
                 <div class='original'>
-                    <Icon name='logos/logo' />
+                    <Icon name='logos/logo' is:inline />
                 </div>
 
                 <div class='hover'>
-                    <Icon name='logos/logo' />
+                    <Icon name='logos/logo' is:inline />
                 </div>
 
             </a>
