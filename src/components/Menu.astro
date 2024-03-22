@@ -5,6 +5,7 @@ import { Icon } from 'astro-icon/components'
 
 // components
 
+
 // utils
 import routes from '@/utils/routes'
 
@@ -34,7 +35,7 @@ const menu = [
     <div class='container'>
         <div class='grid-container'>
 
-            <a href='/' class='logo'>
+            <a href={routes.home} class='logo'>
 
                 <div class='original'>
                     <Icon name='logos/logo' is:inline />
