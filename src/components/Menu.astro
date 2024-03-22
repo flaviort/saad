@@ -1,0 +1,452 @@
+---
+
+// libraries
+import { Icon } from 'astro-icon/components'
+
+// components
+
+// utils
+import routes from '@/utils/routes'
+
+// menu
+const menu = [
+    {
+        name: 'Home',
+        url: routes.home
+    },
+    {
+        name: 'Work',
+        url: routes.work
+    },
+    {
+        name: 'About',
+        url: routes.about
+    },
+    {
+        name: 'Contact',
+        url: routes.contact
+    }
+]
+
+---
+
+<section id='top-menu'>
+    <div class='container'>
+        <div class='grid-container'>
+
+            <a href='/' class='logo'>
+
+                <div class='original'>
+                    <Icon name='logos/logo' is:inline />
+                </div>
+
+                <div class='hover'>
+                    <Icon name='logos/logo' is:inline />
+                </div>
+
+            </a>
+
+            <div class='grid-md-2-6 middle'>
+                
+                <div class='texts'>
+
+                    <div class='text-01'>
+                        <p>
+                            Saad® is an internationally award-winning boutique brand consultancy <br />
+                            specialized in building and transforming the future of businesses.
+                        </p>
+                    </div>
+
+                    <div class='text-02'>
+                        <p>
+                            Business <span>•</span> Branding <span>•</span> Design
+                        </p>
+                    </div>
+
+                </div>
+
+                <ul class='language'>
+                    <li>
+                        <a href={routes.home} class='active'>
+                            English
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href='./pt-br'>
+                            Portuguese
+                        </a>
+                    </li>
+                </ul>
+
+            </div>
+
+            <div class='grid-md-6-7 last'>
+
+                <button class='open-fs'>
+                    
+                    <span class='text'>
+                        Menu
+                    </span>
+
+                    <span class='block'></span>
+
+                </button>
+
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+<section id='fs-menu'>
+    <div class='container'>
+        <div class='grid-container'>
+            <ul class='menu grid-md-2-7'>
+                {menu.map(item => (
+                   <li>
+                        <a href={item.url}>
+                            {item.name}
+                        </a>
+                    </li> 
+                ))}
+            </ul>
+        </div>
+    </div>
+</section>
+
+<style lang='scss'>
+    #top-menu {
+        position: fixed;
+        z-index: 11;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding-top: 1rem;
+        transition: .3s ease-in-out;
+        
+        @media #{$mq-2xl-min} {
+            padding-top: 2rem;
+        }
+
+        &.active {
+            color: $black;
+        }
+
+        .grid-container {
+            @media #{$mq-md-max} {
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .logo {
+                position: relative;
+                overflow: hidden;
+                display: flex;
+                width: 6rem;
+                height: fit-content;
+
+                @media #{$mq-sm-min} {
+                    width: 5rem;
+                }
+
+                @media #{$mq-md-min} {
+                    transform: translateY(.15rem);
+                }
+
+                @media #{$mq-lg-min} {
+                    transform: translateY(.25rem);
+                }
+
+                @media #{$mq-xl-min} {
+                    transform: translateY(.25rem);
+                }
+
+                @media #{$mq-md-min} {
+                    display: inline-block;
+                }
+
+                .original {
+                    display: flex;
+                    height: auto;
+                }
+
+                .hover {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: auto;
+                    display: flex;
+                    transform: translateY(110%);
+                }
+            }
+
+            .middle {
+                position: absolute;
+                top: 95dvh;
+
+                @media #{$mq-sm-min} {
+                    position: relative;
+                    top: auto;
+                }
+                
+                .texts {
+                    @media #{$mq-sm-max} {
+                        display: none;
+                    }
+
+                    .text-01 {
+                        @media #{$mq-lg-max} {
+                            display: none;
+                        }
+                    }
+
+                    .text-02 {
+                        @media #{$mq-lg-min} {
+                            display: none;
+                        }
+
+                        span {
+                            display: inline-block;
+                            vertical-align: middle;
+                            font-size: 50%;
+                            padding: 0 .5rem;
+                        }
+                    }
+                }
+
+                .language {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    display: flex;
+                    align-items: center;
+                    gap: 1rem;
+                    opacity: 0;
+                    visibility: hidden;
+
+                    li {
+                        a {
+                            opacity: .5;
+                            transition: .3s ease-in-out;
+
+                            &.active,
+                            &:hover {
+                                opacity: 1;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .last {
+                justify-self: flex-end;
+                align-self: center;
+
+                .open-fs {
+                    position: relative;
+                    display: flex;
+                    width: 4.5rem;
+                    height: 1.5rem;
+                    align-items: center;
+                    justify-content: flex-end;
+
+                    @media #{$mq-sm-min} {
+                        height: 2rem;
+                    }
+
+                    @media #{$mq-lg-min} {
+                        transform: translateY(-.5rem);
+                    }
+
+                    &:hover {
+                        .text {
+                            opacity: 1;
+                            right: 1.5rem;
+                        }
+
+                        .block {
+                            animation: none;
+                            transform: rotate(180deg);
+                        }
+                    }
+
+                    .text {
+                        position: absolute;
+                        z-index: 0;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        right: 0;
+                        opacity: 0;
+                        transition: .3s ease-in-out
+                    }
+
+                    .block {
+                        position: relative;
+                        z-index: 2;
+                        display: block;
+                        width: 1rem;
+                        height: 1rem;
+                        background-color: currentColor;
+                        animation: blink 4s infinite linear;
+                        transition: .3s ease-in-out
+                    }
+                }
+            }
+        }
+    }
+
+    #fs-menu {
+        position: fixed;
+        z-index: 10;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: $white;
+        color: $black;
+        padding-top: 6rem;
+        clip-path: inset(0 0 100% 0);
+
+        .menu {
+            @media #{$mq-md-min} {
+                margin-left: -.5rem;
+            }
+
+            a {
+                position: relative;
+                display: inline-block;
+                font-size: 15vw;
+                line-height: 1;
+                text-transform: uppercase;
+
+                @media #{$mq-xl-min} {
+                    font-size: 20vh;
+                }
+
+                &:hover {
+                    &:before {
+                        transform: translateY(-47.5%);
+                        border-color: $black;
+                    }
+                }
+
+                &:before {
+                    content: '';
+                    position: absolute;
+                    z-index: 2;
+                    top: 100%;
+                    left: 0;
+                    width: 100vw;
+                    height: 100%;
+                    background-color: $white;
+                    transition: .3s ease-in-out;
+                    border-top: 1px solid transparent;
+                }
+            }
+        }
+    }
+
+    @keyframes blink {
+        0% {
+            opacity: 1;
+        }
+
+        30% {
+            opacity: 0;
+        }
+
+        60% {
+            opacity: 1;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+</style>
+
+<script>
+    import { gsap } from 'gsap'
+
+    // hover logo animation
+    document.querySelector('#top-menu .logo')?.addEventListener('mouseenter', () => {
+        gsap.to('#top-menu .logo .original svg', {
+            yPercent: -110,
+            stagger: .05,
+            duration: .3,
+            ease: 'power2.inOut',
+        })
+
+        gsap.to('#top-menu .logo .hover svg', {
+            yPercent: -110,
+            stagger: .05,
+            duration: .3,
+            ease: 'power2.inOut',
+        })
+    })
+
+    document.querySelector('#top-menu .logo')?.addEventListener('mouseleave', () => {
+        gsap.set('#top-menu .logo svg', {
+            clearProps: true
+        })
+    })
+
+    // open / close fs menu
+    let isOpen = false
+
+    const fsmenu = gsap.timeline({
+        paused: true
+    })
+
+    fsmenu.to('#fs-menu', {
+        clipPath: 'inset(0% 0% 0% 0%)',
+        ease: 'power2.inOut',
+        duration: 1
+    })
+
+    fsmenu.to('#top-menu .middle .texts', {
+        y: 50,
+        autoAlpha: 0
+    }, '-=.9')
+
+    fsmenu.fromTo('#top-menu .middle .language', {
+        y: -50,
+        autoAlpha: 0
+    }, {
+        y: 0,
+        autoAlpha: 1
+    }, '-=.5')
+
+    fsmenu.fromTo('#fs-menu .menu li', {
+        y: -100,
+        autoAlpha: 0
+    }, {
+        y: 0,
+        autoAlpha: 1,
+        stagger: .1
+    }, '-=.7')
+
+    document.querySelector('.open-fs')?.addEventListener('click', () => {
+        if (!isOpen) {
+            isOpen = true
+            document.body.classList.add('no-scroll')
+            document.querySelector('#top-menu')?.classList.add('active')
+            fsmenu.play()
+        } else {
+            isOpen = false
+            document.body.classList.remove('no-scroll')
+            document.querySelector('#top-menu')?.classList.remove('active')
+            fsmenu.reverse()
+        }
+    })
+
+    // listen to the event emitted from the PageTransition component
+    document.addEventListener('closeFsMenu', function() {
+        isOpen = false
+        fsmenu.seek(0).pause()
+    })
+
+</script>

@@ -1,0 +1,24 @@
+{
+  "name": "Saad",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@swup/body-class-plugin": "^3.2.0",
+    "@swup/head-plugin": "^2.2.0",
+    "@swup/js-plugin": "^3.1.1",
+    "@swup/preload-plugin": "^3.2.10",
+    "@swup/scripts-plugin": "^2.1.0",
+    "astro": "^4.5.6",
+    "astro-icon": "^1.1.0",
+    "gsap": "npm:@gsap/business@^3.12.5",
+    "sass": "^1.72.0",
+    "swup": "^4.6.0"
+  }
+}
