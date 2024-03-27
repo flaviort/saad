@@ -135,6 +135,7 @@ const global = {
 		}
 	}
 
+	// init scroll to top
 	function scrollToTop() {
 		document.addEventListener('scrollTop', function() {
 			if (ScrollTrigger.isTouch !== 1) {
@@ -148,9 +149,27 @@ const global = {
 		})
 	}
 
+	function scrollDirection(){
+		let currentScroll = 0
+
+		window.addEventListener('scroll', function(){
+	
+			if ( window.scrollY > currentScroll ) {
+				document.dispatchEvent(new Event('scrollingUp'))
+			} else {
+				document.dispatchEvent(new Event('scrollingDown'))
+			}
+			
+			currentScroll = window.scrollY
+			
+		})
+	}
+
+	// init everything
 	function initEverything(){
 		initScrollSmoother()
 		scrollToTop()
+		scrollDirection()
 		initCopyright()
 	}
 
