@@ -84,8 +84,10 @@ import routes from '@/utils/routes'
     import { gsap } from 'gsap'
 	import { ScrollTrigger } from 'gsap/ScrollTrigger'
 	gsap.registerPlugin(ScrollTrigger)
+
+    console.log('init')
     
-    let tl = gsap.to('#contact-marquee .marquee span', {
+    const tl = gsap.to('#contact-marquee .marquee span', {
         xPercent: -100,
         duration: 20,
         ease: 'none',
@@ -93,12 +95,14 @@ import routes from '@/utils/routes'
     }).totalProgress(.5)
 
     document.addEventListener('scrollingUp', function() {
+        console.log('up')
         gsap.to(tl, {
 			timeScale: -1
 		})
     })
 
     document.addEventListener('scrollingDown', function() {
+        console.log('down')
         gsap.to(tl, {
 			timeScale: 1
 		})

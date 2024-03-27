@@ -155,9 +155,9 @@ const global = {
 		window.addEventListener('scroll', function(){
 	
 			if ( window.scrollY > currentScroll ) {
-				document.dispatchEvent(new Event('scrollingUp'))
-			} else {
 				document.dispatchEvent(new Event('scrollingDown'))
+			} else {
+				document.dispatchEvent(new Event('scrollingUp'))
 			}
 			
 			currentScroll = window.scrollY
