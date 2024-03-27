@@ -1,6 +1,8 @@
 ---
 // libraries
 import { Image } from 'astro:assets'
+import { Schema } from 'astro-seo-schema'
+import { GoogleAnalytics } from 'astro-google-analytics'
 
 // css
 import '@/styles/plugins/normalize.min.css'
@@ -9,20 +11,24 @@ import '@/styles/main.scss'
 // components
 import PageTransition from '@/components/PageTransition.astro'
 import Menu from '@/components/Menu.astro'
-//import FsMenu from '@/components/FsMenu.astro'
-//import Footer from '@/components/Footer.astro'
+import Footer from '@/components/Footer.astro'
 
-// props
+// routes / utils
+import routes from '@/utils/routes'
+
+// layout props
 const {
-	title='Saad®',
+	website_title='Saad®',
+	title=website_title,
 	description='Saad® is an internationally award-winning boutique brand consultancy specialized in building and transforming the future of businesses.',
 	page_class=''
 } = Astro.props
 
 // global
 const global = {
+	site_url: Astro.site,
 	author: 'Senz Design',
-	site_url: 'https://saad.vercel.app'
+	google_analytics: 'G-XXXXXXXXXX',
 }
 
 ---
@@ -45,17 +51,23 @@ const global = {
 		<meta name='description' content={description}/>
 		<link rel='canonical' href={global.site_url} />
 
+		<!-- schema -->
+		<slot name='schema' />
+
 		<!-- facebook -->
 		<meta property='og:locale' content='en_US' />
 		<meta property='og:type' content='website' />
 		<meta property='og:title' content={title} />
 		<meta property='og:description' content={description}/>
 		<meta property='og:url' content={global.site_url} />
-		<meta property='og:site_name' content={title} />
+		<meta property='og:site_name' content={website_title} />
 		<meta property='og:image' content={global.site_url + '/img/og-image.jpg'} />
 		<meta property='og:image:secure_url' content={global.site_url + '/img/og-image.jpg'} />
 		<meta property='og:image:width' content='1200' />
 		<meta property='og:image:height' content='630' />
+
+		<!-- google analytics -->
+		<GoogleAnalytics id={global.google_analytics} />
 
 	</head>
 
@@ -69,9 +81,13 @@ const global = {
 
 		<div id='smooth-wrapper'>
 			<div id='smooth-content'>
+				
 				<main id='swup'>
 					<slot />
 				</main>
+
+				<Footer />
+
 			</div>
 		</div>
 
@@ -113,16 +129,28 @@ const global = {
 			})
 
 			// listen to the event emitted from the PageTransition component
-			document.addEventListener('updateScrollTrigger', function() {
+			document.addEventListener('resetScroll', function() {
 				smoother.scrollTo(0, false)
-				ScrollTrigger.refresh()
-				
 			})
 		}
 	}
 
+	function scrollToTop() {
+		document.addEventListener('scrollTop', function() {
+			if (ScrollTrigger.isTouch !== 1) {
+				smoother.scrollTo(0, 1000)
+			} else {
+				window.scrollTo({
+					top: 0,
+					behavior: 'smooth'
+				})
+			}
+		})
+	}
+
 	function initEverything(){
 		initScrollSmoother()
+		scrollToTop()
 		initCopyright()
 	}
 

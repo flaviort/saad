@@ -1,7 +1,12 @@
 ---
+// libraries
+import { Schema } from 'astro-seo-schema'
 
 // components
 import Layout from '@/layouts/Layout.astro'
+
+// routes / utils
+import routes from '@/utils/routes'
 
 ---
 
@@ -10,6 +15,25 @@ import Layout from '@/layouts/Layout.astro'
 	description='Saad® is an internationally award-winning boutique brand consultancy specialized in building and transforming the future of businesses.'
 	page_class='about'
 >
+	<Schema
+		slot='schema'
+		item={{
+			'@context': 'https://schema.org',
+			'@type': 'Person',
+			name: 'Lucas Saad',
+			jobTitle: 'CEO',
+			url: 'https://saad.cx',
+			sameAs: [
+				routes.instagram,
+				routes.linkedin
+			],
+			worksFor: {
+				'@type': 'Organization',
+				name: 'Saad®'
+			}
+		}}
+	/>
+
 	<section id='about'>
 
 		<p>

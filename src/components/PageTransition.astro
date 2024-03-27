@@ -62,6 +62,9 @@ import { Icon } from 'astro-icon/components'
 
 <script>
     import { gsap } from 'gsap'
+    import { ScrollTrigger } from 'gsap/ScrollTrigger'
+	gsap.registerPlugin(ScrollTrigger)
+
     import Swup from 'swup'
     import SwupHeadPlugin from '@swup/head-plugin'
     import SwupScriptsPlugin from '@swup/scripts-plugin'
@@ -91,8 +94,12 @@ import { Icon } from 'astro-icon/components'
                                 // dispatch an event to the Menu component to close the menu
                                 document.dispatchEvent(new Event('closeFsMenu'))
 
-                                // dispatch an event to update ScrollTrigger
-                                document.dispatchEvent(new Event('updateScrollTrigger'))
+                                // dispatch an event to scroll all the way up to the top
+                                document.dispatchEvent(new Event('resetScroll'))
+
+                                setTimeout(() => {
+                                    ScrollTrigger.refresh()
+                                }, 50)
                             }
                         })
 
