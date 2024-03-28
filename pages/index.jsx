@@ -70,7 +70,7 @@ export default function Home() {
 			<p style={{
 				height: '100vh'
 			}}>
-
+				asdasdasd
 			</p>
 
 			<ContactMarquee />
