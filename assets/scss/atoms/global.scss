@@ -1,0 +1,177 @@
+sub,
+sup {
+    font-size: 65%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+
+sub {
+    bottom: -0.25em;
+}
+
+sup {
+    top: -0.5em;
+}
+
+*,
+*:after,
+*:before {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+li,
+ul,
+ol,
+figure { 
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+
+.cf::after {
+	visibility: hidden;
+	display: block;
+	font-size: 0;
+	content: '';
+	clear: both;
+	height: 0;
+}
+
+canvas,
+img,
+video,
+picture,
+figure {
+	max-width: 100%;
+	height: auto;
+	box-sizing: border-box;
+	display: block;
+ }
+
+svg {
+    width: 100%;
+    height: 100%;
+    fill: currentColor;
+}
+
+button {
+	appearance: none;
+	outline: none;
+	border: none;
+	background-color: transparent;
+	cursor: pointer;
+	padding: 0;
+}
+
+a,
+a:hover {
+	text-decoration: none;
+	color: currentColor;
+}
+
+textarea,
+input,
+select {
+	appearance: none;
+	outline: none;
+}
+
+textarea {
+	resize: vertical;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 0) { 
+    input,
+    input:focus,
+    select,
+    select:focus,
+    textarea,
+    textarea:focus {
+        font-size: 16px;
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+li,
+ul,
+ol,
+span,
+strong,
+em {
+	font-size: inherit;
+	padding: 0;
+	margin: 0;
+	margin-block-start: 0;
+    margin-block-end: 0;
+	letter-spacing: normal;
+	font-weight: inherit;
+	line-height: inherit;
+}
+
+a {
+	font-weight: inherit;
+}
+
+strong,
+b {
+	font-weight: $bold;
+}
+
+br {
+	line-height: inherit;
+}
+
+section,
+main {
+	position: relative;
+}
+
+main {
+	overflow: hidden;
+}
+
+section {
+	z-index: 3;
+}
+
+html,
+body {
+	-webkit-font-smoothing: antialiased;
+    background-color: $black;
+	font-family: $antarctica;
+	color: $white;
+	font-size: 16px;
+	font-size: clamp(16px, 1.33vw, 18px);
+	line-height: 1.6;
+}
+
+body {
+	&.no-scroll {
+		overflow: hidden;
+	}
+}
+
+:root {
+    --section-space: 6vh;
+
+	@media #{$mq-md-min} {
+		--section-space: 5rem;
+	}
+
+	@media #{$mq-lg-min} {
+		--section-space: 6rem;
+	}
+
+	--black: #0d0e13;
+	--white: #e4dcd1;
+}
