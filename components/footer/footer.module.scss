@@ -1,0 +1,101 @@
+.top {
+    padding-top: 3rem;
+
+    @media #{$mq-md-min} {
+        padding-top: 4rem;
+    }
+
+    .grid {
+        position: relative;
+        align-items: flex-end;
+        justify-content: space-between;
+
+        @media #{$mq-md-max} {
+            padding-top: 4rem;
+        }
+
+        .backToTop {
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            border: 1px solid $white;
+            color: $white;
+            padding: .5rem;
+            transition: .3s ease-in-out;
+
+            @media #{$mq-md-max} {
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+
+            &:hover {
+                background-color: $white;
+
+                svg {
+                    &:first-child {
+                        transform: translateY(-150%);
+                    }
+
+                    &:last-child {
+                        transform: translate(-50%, -50%);
+                    }
+                }
+            }
+
+            svg {
+                transition: .3s ease-in-out;
+
+                &:last-child {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, 150%);
+                    width: .9rem;
+                    height: .9rem;
+                    color: $black;
+                }
+            }
+        }
+
+        .texts {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+    }
+}
+
+.bottom {
+    padding-top: 10vh;
+
+    @media #{$mq-sm-min} {
+        padding-top: 15vh;
+    }
+
+    @media #{$mq-md-min} {
+        padding-top: 30vh;
+    }
+
+    @media #{$mq-lg-min} {
+        height: 100svh;
+        padding-top: 0;
+        display: flex;
+        align-items: flex-end;
+    }
+
+    .logo {
+        position: relative;
+        overflow: hidden;
+        display: flex;
+
+        svg {
+            margin-bottom: -7vw;
+        }
+    }
+}

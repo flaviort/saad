@@ -1,32 +1,32 @@
 {
-  "name": "Saad",
-  "type": "module",
-  "version": "0.0.1",
+  "name": "skyline-nextjs-boilerplate",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
   "dependencies": {
-    "@astrojs/sitemap": "^3.1.2",
-    "@swup/body-class-plugin": "^3.2.0",
-    "@swup/head-plugin": "^2.2.0",
-    "@swup/js-plugin": "^3.1.1",
-    "@swup/preload-plugin": "^3.2.10",
-    "@swup/scripts-plugin": "^2.1.0",
-    "astro": "^4.5.6",
-    "astro-google-analytics": "^1.0.3",
-    "astro-icon": "^1.1.0",
-    "astro-robots-txt": "^1.0.0",
-    "astro-seo-schema": "^4.0.0",
+    "@gsap/react": "^2.1.0",
+    "@sendgrid/mail": "^8.1.0",
+    "@studio-freight/react-lenis": "^0.0.43",
+    "clsx": "^2.1.0",
     "gsap": "npm:@gsap/business@^3.12.5",
-    "sass": "^1.72.0",
-    "schema-dts": "^1.1.2",
-    "swup": "^4.6.0"
+    "next": "14.1.0",
+    "react": "^18",
+    "react-dom": "^18",
+    "react-hook-form": "^7.50.0",
+    "recoil": "^0.7.7",
+    "sharp": "^0.33.2",
+    "swiper": "^11.0.5"
   },
   "devDependencies": {
-    "astro-compress": "2.2.17"
+    "@svgr/webpack": "6.5.1",
+    "eslint": "^8",
+    "eslint-config-next": "14.1.0",
+    "node-sass": "^9.0.0",
+    "sass": "^1.70.0"
   }
 }

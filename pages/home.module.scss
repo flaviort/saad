@@ -1,0 +1,14 @@
+.services {
+    .slider {
+        overflow: visible;
+
+        .box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 20rem;
+            background-color: $gray-lightest;
+        }
+    }
+}
