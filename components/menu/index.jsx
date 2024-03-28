@@ -2,7 +2,7 @@
 import clsx from 'clsx'
 import Link from 'next/link'
 import { useEffect, useState, useRef } from 'react'
-import { useRecoilState } from 'recoil'
+import { useLenis } from '@studio-freight/react-lenis'
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
@@ -10,7 +10,7 @@ gsap.registerPlugin(ScrollTrigger)
 
 // routes / utils
 import routes from '@/utils/routes'
-import { fsMenuState } from '@/utils/atoms'
+import { debounce } from '@/utils/functions'
 
 // components
 import AnimatedLink from '@/components/utils/animated-link'
@@ -25,6 +25,30 @@ export default function Menu() {
 
     // animation ref
     const menuAnimationRef = useRef(null)
+    
+    const lenis = useLenis(({progress}) => {
+        if(progress > .01) {
+            debounce(() => {
+                gsap.to('.top-menu-texts-static', {
+                    autoAlpha: 0
+                })
+    
+                gsap.to('.top-menu-texts-scroll', {
+                    autoAlpha: 1
+                })
+            }, 300)()
+        } else {
+            debounce(() => {
+                gsap.to('.top-menu-texts-static', {
+                    autoAlpha: 1
+                })
+
+                gsap.to('.top-menu-texts-scroll', {
+                    autoAlpha: 0
+                })
+            }, 300)()
+        }
+    })
 
     // menu items
 	const menuItems = [
@@ -47,31 +71,38 @@ export default function Menu() {
 	]
 
     // open / close fs menu
-    const [fsMenu, setFsMenu] = useRecoilState(fsMenuState)
     const [isShown, setIsShown] = useState(false)
 
 	const openCloseFsMenu = () => {
-		setFsMenu(!isShown)
+		setIsShown(!isShown)
+
+        if(!isShown) {
+            lenis.stop()
+            document.body.classList.add('no-scroll')
+        } else {
+            lenis.start()
+            document.body.classList.remove('no-scroll')
+        }
 	}
 
     const closeFsMenu = () => {
         setTimeout(() => {
-            setFsMenu(false)
+            setIsShown(false)
             menuAnimationRef.current.seek(0).pause()
         }, 1000)
 	}
 
     useEffect(() => {
-		setIsShown(fsMenu)
+		setIsShown(isShown)
 
         if (menuAnimationRef.current) {
-            if (fsMenu) {
+            if (isShown) {
                 menuAnimationRef.current.play()
             } else {
                 menuAnimationRef.current.reverse()
             }
         }
-	}, [fsMenu])
+	}, [isShown])
 
     // menu animation
     useGSAP(() => {
@@ -128,36 +159,6 @@ export default function Menu() {
         
         // store the animation timeline in the ref
         menuAnimationRef.current = menuAnimation
-    })
-
-    useEffect(() => {
-        let isScrolling = false
-    
-        window.addEventListener('scroll', function() {
-            if (window.scrollY > 0) {
-                isScrolling = true
-            } else {
-                isScrolling = false
-            }
-
-            if (isScrolling) {
-                gsap.to('.top-menu-texts-static', {
-                    autoAlpha: 0
-                })
-
-                gsap.to('.top-menu-texts-scroll', {
-                    autoAlpha: 1
-                })
-            } else {
-                gsap.to('.top-menu-texts-static', {
-                    autoAlpha: 1
-                })
-
-                gsap.to('.top-menu-texts-scroll', {
-                    autoAlpha: 0
-                })
-            }
-        })
     })
 
     return (

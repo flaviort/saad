@@ -2,13 +2,10 @@
 import clsx from 'clsx'
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
-import { useRecoilState } from 'recoil'
+import { useLenis } from '@studio-freight/react-lenis'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
-
-// routes / utils
-import { pageTransitionState } from '@/utils/atoms'
 
 // svgs
 import Logo from '@/assets/svg/logos/logo.svg'
@@ -20,7 +17,8 @@ export const PageTransitionAnimation = ({ href }) => {
 
     const router = useRouter()
     const [hasAnimated, setHasAnimated] = useState(false)
-    const [pageTransition, setPageTransition] = useRecoilState(pageTransitionState)
+
+    const lenis = useLenis()
 
     useEffect(() => {
         const animationWrapper = document.getElementById('loader')
@@ -33,12 +31,13 @@ export const PageTransitionAnimation = ({ href }) => {
                 onComplete: () => {
 
                     // clear all props
-                    gsap.set('.loader-logo, #loader, #website-wrapper', {
+                    gsap.set('.loader-logo, #loader', {
                         clearProps: true
                     })
 
-                    // restart lennis and remove the 'no-scroll' class from the body
-                    setPageTransition(false)
+                    // restart lenis and remove the 'no-scroll' class from the body
+                    lenis.start()
+                    document.body.classList.remove('no-scroll')
 
                     // reset ScrollTrigger
                     ScrollTrigger.clearScrollMemory('manual')
@@ -49,14 +48,9 @@ export const PageTransitionAnimation = ({ href }) => {
             // page OUT animation
             pageOut.call(function() {
 
-                // stop lennis and add the class 'no-scroll' to the body
-                setPageTransition(true)
-            })
-
-            pageOut.to('#website-wrapper', {
-                y: 50,
-                duration: 1,
-                ease: 'power1.inOut',
+                // stop lenis and add the class 'no-scroll' to the body
+                lenis.stop()
+                document.body.classList.add('no-scroll')
             })
 
             pageOut.to('#loader', {
@@ -72,7 +66,7 @@ export const PageTransitionAnimation = ({ href }) => {
                         pageIn.play() // play the animation in
                     })
                 }
-            }, '-=1')
+            })
 
             pageOut.from('.loader-logo', {
                 y: -50,
@@ -95,15 +89,8 @@ export const PageTransitionAnimation = ({ href }) => {
                     setHasAnimated(true) // restart the animation
                 }
             }, '-=.7')
-
-            pageIn.from('#website-wrapper', {
-                y: -70,
-                duration: 1,
-                ease: 'power2.inOut',
-            }, '-=.9')
-
         }
-    }, [href, router, hasAnimated, setPageTransition])
+    }, [href, router, hasAnimated, lenis])
     
     return null
 }

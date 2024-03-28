@@ -9,6 +9,7 @@ import 'swiper/css'
 
 // components
 import SeoContainer from '@/components/utils/seo-container'
+import ContactMarquee from '@/components/contact-marquee'
 
 // css
 import styles from './home.module.scss'
@@ -71,6 +72,8 @@ export default function Home() {
 			}}>
 
 			</p>
+
+			<ContactMarquee />
 
 		</>
     )

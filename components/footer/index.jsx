@@ -1,6 +1,7 @@
 // libraries
 import clsx from 'clsx'
 import Link from 'next/link'
+import { useLenis } from '@studio-freight/react-lenis'
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
@@ -18,6 +19,8 @@ import UxArrowUp from '@/assets/svg/ux/arrow-up.svg'
 import styles from './footer.module.scss'
 
 export default function Footer() {
+
+	const lenis = useLenis()
 
 	// contact links
 	const contact_links = [
@@ -76,7 +79,12 @@ export default function Footer() {
 				<div className='container'>
 					<div className={clsx(styles.grid, 'grid-container')}>
 
-						<button className={styles.backToTop}>
+						<button
+							className={styles.backToTop}
+							onClick={() => lenis.scrollTo(0, {
+								lerp: .05
+							})}
+						>
 							<UxArrowUp />
 							<UxArrowUp />
 						</button>

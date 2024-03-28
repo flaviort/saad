@@ -29,15 +29,13 @@ export default function App({ Component, pageProps, router }) {
 				<Menu />
 
 				<SmoothScrolling>
-					<div id='website-wrapper'>
 
-						<main role='main'>
-							<Component key={router.route} {...pageProps} />
-						</main>
+					<main role='main'>
+						<Component key={router.route} {...pageProps} />
+					</main>
 
-						<Footer />
+					<Footer />
 
-					</div>
 				</SmoothScrolling>
 
 			</RecoilRoot>

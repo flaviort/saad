@@ -8,6 +8,7 @@ import routes from '@/utils/routes'
 import AnimatedLink from '@/components/utils/animated-link'
 import SeoContainer from '@/components/utils/seo-container'
 import MagneticButton from '@/components/utils/magnetic-button'
+import ContactMarquee from '@/components/contact-marquee'
 
 // css
 import styles from './about.module.scss'
@@ -37,6 +38,8 @@ export default function About() {
 
 				</div>
 			</section>
+
+			<ContactMarquee />
 		</>
     )
 }
