@@ -1,13 +1,13 @@
-import Image from 'next/image'
+// libraries
 import clsx from 'clsx'
 
-// import routes / services
-import routes from '@/utils/routes'
+// routes / utils
+import projects from '@/utils/projects'
 
 // components
-import AnimatedLink from '@/components/utils/animated-link'
 import SeoContainer from '@/components/utils/seo-container'
-import MagneticButton from '@/components/utils/magnetic-button'
+import FollowMouse from '@/components/utils/follow-mouse'
+import Project from '@/components/project'
 import ContactMarquee from '@/components/contact-marquee'
 
 // css
@@ -19,27 +19,41 @@ export default function Work() {
 		<>
 			<SeoContainer
 				pageTitle='Work'
-				pageDescription="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil culpa consectetur totam adipisci deleniti qui."
+				pageDescription='Creating the future for ambitious brands. We develop projects that transform visions and businesses.'
 			/>
 
-			<section>
+			<section className={clsx(styles.topPart, 'padding-top-bigger padding-bottom-big')}>
 				<div className='container'>
-
-					<h2 className='text-bigger'>
-						Work
-					</h2>
-
-					<p style={{
-						height: '400vh',
-						backgroundColor: '#111'
-					}}>
-						asdasdasd
-					</p>
-
+					<div className="grid-container">
+						<div className="grid-md-2-7">
+							<h2 className='font-big'>
+								Creating the future for ambitious brands. <br />
+								We develop projects that transform visions and businesses.
+							</h2>
+						</div>
+					</div>
 				</div>
 			</section>
 
+			<section className={styles.projects}>
+				<FollowMouse text='View'>
+					{projects.map((item, i) => (
+						<Project
+							key={i}
+							link={item.link}
+							image={item.image}
+							darkText={item.darkText}
+							client={item.client}
+							title={item.title}
+							category={item.category}
+							tags={item.tags}
+						/>
+					))}
+				</FollowMouse>
+			</section>
+
 			<ContactMarquee />
+
 		</>
     )
 }

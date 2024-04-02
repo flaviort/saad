@@ -55,8 +55,6 @@ export default function FollowMouse({ children, text, big, scrollTrigger }) {
                 duration: .5,
                 ease: 'circ.out'
             })
-
-            console.log('leave')
         }
 
         parent.addEventListener('mouseleave', () => leave())

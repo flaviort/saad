@@ -66,7 +66,13 @@
 
                 .fullLine {
                     position: relative;
-                    width: 100%;
+                    //width: 100%;
+
+                    h3 {
+                        @media #{$mq-sm-max} {
+                            font-size: 1rem;
+                        }
+                    }
                 }
 
                 .tags {
@@ -96,6 +102,22 @@
                 .hideMobile {
                     @media #{$mq-md-max} {
                         display: none;
+                    }
+                }
+
+                .viewMobile {
+                    display: flex;
+                    align-items: center;
+                    gap: .5rem;
+                    padding-bottom: .1rem;
+
+                    @media #{$mq-md-min} {
+                        display: none;
+                    }
+
+                    svg {
+                        width: .75rem;
+                        height: .75rem;
                     }
                 }
             }

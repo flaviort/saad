@@ -12,7 +12,6 @@ import AnimatedLink from '@/components/utils/animated-link'
 import Fancybox from '@/components/utils/fancybox'
 import Counter from '@/components/utils/counter'
 import AnimatedLine from '@/components/utils/animated-line'
-import FillTitle from '@/components/utils/fill-title'
 import FollowMouse from '@/components/utils/follow-mouse'
 import Project from '@/components/project'
 import StandFor from '@/components/stand-for'
@@ -103,9 +102,15 @@ export default function Home() {
 						<Fancybox options={{ dragToClose: false }}>
 							<a href='https://vimeo.com/875961835' data-fancybox='showreel' className={styles.video} ref={video}>
 								<FollowMouse text='Play' big scrollTrigger>
+
+									<div className={styles.play}>
+										Play
+									</div>
+
 									<video loop muted autoPlay playsInline className='cover'>
 										<source src='/videos/showreel.mp4' type='video/mp4' />
 									</video>
+
 								</FollowMouse>
 							</a>
 						</Fancybox>

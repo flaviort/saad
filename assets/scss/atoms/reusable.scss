@@ -32,108 +32,142 @@
 	will-change: transform, opacity;
 }
 
+:root {
+	--smaller: clamp(2rem, 4vw, 3rem);
+	--small: clamp(2.5rem, 6vw, 5rem);
+	--medium: clamp(3rem, 9vw, 7rem);
+	--big: clamp(4rem, 10vw, 9rem);
+	--bigger: clamp(7rem, 17vw, 15rem);
+}
+
 .padding-top-smaller {
-	padding-top: clamp(2rem, 4vw, 3rem);
+	padding-top: var(--smaller);
 }
 
 .padding-top-small {
-	padding-top: clamp(2.5rem, 6vw, 5rem);
+	padding-top: var(--small);
 }
 
 .padding-top {
-	padding-top: clamp(3rem, 9vw, 7rem);
+	padding-top: var(--medium);
 }
 
 .padding-top-big {
-	padding-top: clamp(5rem, 10vw, 9rem);
+	padding-top: var(--big);
+}
+
+.padding-top-bigger {
+	padding-top: var(--bigger);
 }
 
 .padding-bottom-smaller {
-	padding-bottom: clamp(2rem, 4vw, 3rem);
+	padding-bottom: var(--smaller);
 }
 
 .padding-bottom-small {
-	padding-bottom: clamp(2.5rem, 6vw, 5rem);
+	padding-bottom: var(--small);
 }
 
 .padding-bottom {
-	padding-bottom: clamp(3rem, 9vw, 7rem);
+	padding-bottom: var(--medium);
 }
 
 .padding-bottom-big {
-	padding-bottom: clamp(5rem, 10vw, 9rem);
+	padding-bottom: var(--big);
+}
+
+.padding-bottom-bigger {
+	padding-bottom: var(--bigger);
 }
 
 .padding-y-smaller {
-	padding-top: clamp(2rem, 4vw, 3rem);
-	padding-bottom: clamp(2rem, 4vw, 3rem);
+	padding-top: var(--smaller);
+	padding-bottom: var(--smaller);
 }
 
 .padding-y-small {
-	padding-top: clamp(2.5rem, 6vw, 5rem);
-	padding-bottom: clamp(2.5rem, 6vw, 5rem);
+	padding-top: var(--small);
+	padding-bottom: var(--small);
 }
 
 .padding-y {
-	padding-top: clamp(3rem, 9vw, 7rem);
-	padding-bottom: clamp(3rem, 9vw, 7rem);
+	padding-top: var(--medium);
+	padding-bottom: var(--medium);
 }
 
 .padding-y-big {
-	padding-top: clamp(5rem, 10vw, 9rem);
-	padding-bottom: clamp(5rem, 10vw, 9rem);
+	padding-top: var(--big);
+	padding-bottom: var(--big);
+}
+
+.padding-y-bigger {
+	padding-top: var(--bigger);
+	padding-bottom: var(--bigger);
 }
 
 .margin-top-smaller {
-	margin-top: clamp(2rem, 4vw, 3rem);
+	margin-top: var(--smaller);
 }
 
 .margin-top-small {
-	margin-top: clamp(2.5rem, 6vw, 5rem);
+	margin-top: var(--small);
 }
 
 .margin-top {
-	margin-top: clamp(3rem, 9vw, 7rem);
+	margin-top: var(--medium);
 }
 
 .margin-top-big {
-	margin-top: clamp(5rem, 9vw, 7rem);
+	margin-top: var(--big);
+}
+
+.margin-top-bigger {
+	margin-top: var(--bigger);
 }
 
 .margin-bottom-smaller {
-	margin-bottom: clamp(2rem, 4vw, 3rem);
+	margin-bottom: var(--smaller);
 }
 
 .margin-bottom-small {
-	margin-bottom: clamp(2.5rem, 6vw, 5rem);
+	margin-bottom: var(--small);
 }
 
 .margin-bottom {
-	margin-bottom: clamp(3rem, 9vw, 7rem);
+	margin-bottom: var(--medium);
 }
 
 .margin-bottom-big {
-	margin-bottom: clamp(5rem, 9vw, 7rem);
+	margin-bottom: var(--big);
+}
+
+.margin-bottom-bigger {
+	margin-bottom: var(--bigger);
 }
 
 .margin-y-smaller {
-	margin-top: clamp(2rem, 4vw, 3rem);
-	margin-bottom: clamp(2rem, 4vw, 3rem);
+	margin-top: var(--smaller);
+	margin-bottom: var(--smaller);
 }
 
 .margin-y-small {
-	margin-top: clamp(2.5rem, 6vw, 5rem);
-	margin-bottom: clamp(2.5rem, 6vw, 5rem);
+	margin-top: var(--small);
+	margin-bottom: var(--small);
 }
 
 .margin-y {
-	margin-top: clamp(3rem, 9vw, 7rem);
-	margin-bottom: clamp(3rem, 9vw, 7rem);
+	margin-top: var(--medium);
+	margin-bottom: var(--medium);
 }
 
 .margin-y-big {
-	margin-top: clamp(5rem, 9vw, 7rem);
-	margin-bottom: clamp(5rem, 9vw, 7rem);
+	margin-top: var(--big);
+	margin-bottom: var(--big);
+}
+
+.margin-y-bigger {
+	margin-top: var(--bigger);
+	margin-bottom: var(--bigger);
 }
 
 // colors

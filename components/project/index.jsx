@@ -6,6 +6,9 @@ import Image from 'next/image'
 import ScrollingImage from '@/components/utils/scrolling-image'
 import AnimatedLink from '@/components/utils/animated-link'
 
+// svgs
+import UxArrowRight from '@/assets/svg/ux/arrow-right.svg'
+
 // css
 import styles from './project.module.scss'
 
@@ -60,6 +63,10 @@ export default function Project({ link, image, darkText = false, client, title, 
                                 ))}
                             </p>
                         </div>
+
+                        <p className={clsx(styles.viewMobile, 'font-small')}>
+                            View <UxArrowRight />
+                        </p>
 
                     </div>
                 </div>
