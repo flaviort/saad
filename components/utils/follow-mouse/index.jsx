@@ -48,16 +48,21 @@ export default function FollowMouse({ children, text, big, scrollTrigger }) {
             }, 100)
         })
 
-        parent.addEventListener('mouseleave', () => {
+        function leave() {
             gsap.to(item, {
                 scale: 0,
                 opacity: 0,
                 duration: .5,
                 ease: 'circ.out'
             })
-        })
 
-    })
+            console.log('leave')
+        }
+
+        parent.addEventListener('mouseleave', () => leave())
+        document.addEventListener('scrollTop', leave())
+
+    }, [])
 
     return (
         <div className={styles.followMouseSection} ref={section}>

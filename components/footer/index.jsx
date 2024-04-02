@@ -22,6 +22,19 @@ export default function Footer() {
 
 	const lenis = useLenis()
 
+	const scrollTop = () => {
+
+		lenis.scrollTo(0, {
+			lerp: .05
+		})
+
+		document.body.classList.add('no-pointer-events')
+
+		setTimeout(() => {
+			document.body.classList.remove('no-pointer-events')
+		}, 1000)
+	}
+
 	// contact links
 	const contact_links = [
 		{
@@ -80,9 +93,7 @@ export default function Footer() {
 
 						<button
 							className={styles.backToTop}
-							onClick={() => lenis.scrollTo(0, {
-								lerp: .05
-							})}
+							onClick={scrollTop}
 						>
 							<UxArrowUp />
 							<UxArrowUp />
