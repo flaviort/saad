@@ -1,0 +1,29 @@
+.opening {
+    position: fixed;
+    z-index: 99999999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $black;
+    color: $white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+        display: block;
+        position: relative;
+        overflow: hidden;
+        width: 30vw;
+        height: auto;
+
+        @media #{$mq-md-min} {
+            width: 20vw;
+        }
+
+        path {
+            transform: translateY(110%);
+        }
+    }
+}

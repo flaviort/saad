@@ -51,7 +51,7 @@ export default function Home() {
 		})
 
 		gsap.from(video.current, {
-			scale: .5,
+			scale: .1,
 			scrollTrigger: {
 				anticipatePin: 1,
 				trigger: banner.current,
@@ -59,6 +59,14 @@ export default function Home() {
 				end: '+=' + vh(50),
 				scrub: 3
 			}
+		})
+
+		document.addEventListener('opening', () => {
+			gsap.from(title.current, {
+				yPercent: 100,
+				duration: 2,
+				ease: 'power2.out'
+			})
 		})
 	})
 
@@ -90,7 +98,6 @@ export default function Home() {
 			<section className={clsx(styles.banner, 'padding-bottom')} ref={banner}>
 				<div className='container'>
 
-				
 					<div className={styles.firstSection}>
 					
 						<Fancybox options={{ dragToClose: false }}>
@@ -104,7 +111,6 @@ export default function Home() {
 						</Fancybox>
 						
 					</div>
-					
 
 					<h1 ref={title}>
 						<OthersImpactfulTailoredBrands />

@@ -7,7 +7,6 @@ import routes from '@/utils/routes'
 // components
 import AnimatedLink from '@/components/utils/animated-link'
 import SeoContainer from '@/components/utils/seo-container'
-import MagneticButton from '@/components/utils/magnetic-button'
 import ContactMarquee from '@/components/contact-marquee'
 
 // css
@@ -18,8 +17,8 @@ export default function About() {
     return (
 		<>
 			<SeoContainer
-				pageTitle='About us'
-				pageDescription="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil culpa consectetur totam adipisci deleniti qui."
+				pageTitle='About'
+				pageDescription='We help visionary leaders drive change and growth inside and outside your organizations in a creative and audacious way.'
 			/>
 
 			<section>
