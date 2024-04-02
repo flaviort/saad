@@ -22,7 +22,7 @@ export default function SEOContainer({ pageTitle, pageDescription }) {
 			<meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no' />
 			<meta name='format-detection' content='telephone=no' />
 			<meta name='author' content='The Skyline Agency' />
-			<link rel='shortcut icon' href='/img/favicon.png' />
+			<link rel='shortcut icon' href='/favicon.svg' />
 
             <title>{siteName + ' | ' + (pageTitle ?? defaultPageTitle)}</title>
             <meta name='description' content={(pageDescription ?? defaultPageDesc)} />

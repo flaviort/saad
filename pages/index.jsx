@@ -20,13 +20,12 @@ import routes from '@/utils/routes'
 
 // svgs
 import UxArrowRight from '@/assets/svg/ux/arrow-right.svg'
+import OthersImpactfulTailoredBrands from '@/assets/svg/others/impactful-tailored-brands.svg'
 
 // css
 import styles from './home.module.scss'
 
 export default function Home() {
-
-	// projects
 
 	// counters
 	const counters = [
@@ -65,7 +64,7 @@ export default function Home() {
 					</div>
 
 					<h1>
-						<FillTitle text='Impactful Tailored Brands' />
+						<OthersImpactfulTailoredBrands />
 					</h1>
 
 				</div>
