@@ -1,0 +1,117 @@
+.standFor {
+    //border-bottom: 1px solid $white;
+
+    .topTitle {
+        display: block;
+        margin-bottom: 1rem;
+
+        @media #{$mq-sm-min} {
+            margin-bottom: 1.5rem;
+        }
+
+        @media #{$mq-md-min} {
+            margin-bottom: 2rem;
+        }
+    }
+
+    .accordion {
+        .item {
+            position: relative;
+            cursor: pointer;
+            display: block;
+            margin-bottom: 1.75rem;
+
+            @media #{$mq-md-min} {
+                margin-bottom: 4rem;
+            }
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+
+            &.active {
+                .flex {
+                    grid-template-rows: 1fr;
+
+                    > div {
+                        visibility: visible;
+                        opacity: 1;
+                    }
+                }
+
+                .last {
+                    button {
+                        opacity: 1;
+                        transform: rotate(180deg);
+                    }
+                }
+            }
+
+            .title {
+                text-transform: uppercase;
+                padding-bottom: .5rem;
+                max-width: calc(100% - 2rem);
+
+                @media #{$mq-md-min} {
+                    font-size: 8.5vw;
+                    line-height: 1;
+                    max-width: 100%;
+                    padding-bottom: 1rem;
+                }
+
+                @media #{$mq-sm-max} {
+                    font-size: 1.75rem;
+                    line-height: 1.2;
+                }
+            }
+
+            .flex {
+                display: grid;
+                grid-template-rows: 0fr;
+                transition: .3s ease-in-out;
+                position: relative;
+                overflow: hidden;
+
+                > div {
+                    min-height: 0;
+                    transition: .3s ease-in-out;
+
+                    p {
+                        padding-bottom: 1rem;
+                    }
+                }
+            }
+
+            .last {
+                position: absolute;
+                top: .6rem;
+                right: 0;
+                display: flex;
+                width: 100%;
+                justify-content: flex-end;
+
+                @media #{$mq-sm-min} {
+                    top: .675rem;
+                }
+
+                @media #{$mq-md-min} {
+                    position: relative;
+                    top: auto;
+                    right: auto;
+                    padding-top: 1rem;
+                    padding-bottom: 2rem;
+                }
+
+                button {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: .875rem;
+                    height: .875rem;
+                    opacity: .5;
+                    transition: .3s ease-in-out;
+                }
+            }
+        }
+    }
+}

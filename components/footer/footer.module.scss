@@ -1,10 +1,4 @@
 .top {
-    padding-top: 3rem;
-
-    @media #{$mq-md-min} {
-        padding-top: 4rem;
-    }
-
     .grid {
         position: relative;
         align-items: flex-end;

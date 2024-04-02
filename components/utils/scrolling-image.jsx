@@ -1,6 +1,5 @@
+// libraries
 import { useRef } from 'react'
-
-// gsap related imports
 import { gsap } from 'gsap'
 import { useGSAP } from '@gsap/react'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
@@ -9,6 +8,17 @@ gsap.registerPlugin(ScrollTrigger)
 export default function ScrollingImage ({ children }) {
 
     const item = useRef(null)
+
+    let calcSize
+    let size
+
+    if (typeof window !== 'undefined' && window.innerWidth > 768) {
+        calcSize = 'calc(100% + 10rem)'
+        size = '-10rem'
+    } else {
+        calcSize = 'calc(100% + 5rem)'
+        size = '-5rem'
+    }
 
     useGSAP(() => {
         if (item.current) {
@@ -19,12 +29,12 @@ export default function ScrollingImage ({ children }) {
             })
 
             gsap.set(children, {
-                height: '115%',
+                height: calcSize,
                 display: 'block'
             })
 
             gsap.to(children, {
-                yPercent: -10,
+                y: size,
                 scrollTrigger: {
                     trigger: item.current,
                     scrub: 3,

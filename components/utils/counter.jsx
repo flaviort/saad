@@ -38,8 +38,8 @@ export default function Counter({number}) {
 	})
 
     return (
-        <div ref={item}>
+        <span ref={item}>
             {number}
-        </div>
+        </span>
     )
 }

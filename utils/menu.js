@@ -1,4 +1,4 @@
-import routes from './routes'
+import routes from '@/utils/routes'
 
 const menu = [
 	{ name: 'Home', href: routes.home },

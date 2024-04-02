@@ -1,4 +1,4 @@
-This is a [Skyline Agency](https://theskylineagency.com/) boilerplate made specifically for [Next.js](https://nextjs.org/) projects bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This is a [Senz Design](https://senzdsn.com/) boilerplate made specifically for [Next.js](https://nextjs.org/) projects.
 
 ## Getting Started
 

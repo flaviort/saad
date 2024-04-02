@@ -2,76 +2,131 @@
 import { useEffect } from 'react'
 import clsx from 'clsx'
 
-// swiper
-import { register } from 'swiper/element/bundle'
-import { Swiper, SwiperSlide } from 'swiper/react'
-import 'swiper/css'
-
 // components
 import SeoContainer from '@/components/utils/seo-container'
+import AnimatedLink from '@/components/utils/animated-link'
+import Fancybox from '@/components/utils/fancybox'
+import Counter from '@/components/utils/counter'
+import AnimatedLine from '@/components/utils/animated-line'
+import FillTitle from '@/components/utils/fill-title'
+import Project from '@/components/project'
+import StandFor from '@/components/stand-for'
+import Testimonials from '@/components/testimonials'
 import ContactMarquee from '@/components/contact-marquee'
+
+// routes / utils
+import projects from '@/utils/projects'
+import routes from '@/utils/routes'
+
+// svgs
+import UxArrowRight from '@/assets/svg/ux/arrow-right.svg'
 
 // css
 import styles from './home.module.scss'
 
 export default function Home() {
 
-	const services = [
-		{ name: '01' },
-		{ name: '02' },
-		{ name: '03' },
-		{ name: '04' }
+	// projects
+
+	// counters
+	const counters = [
+		{
+			number: '13',
+			text: 'years of branding experience'
+		}, {
+			number: '16',
+			text: 'national and international awards'
+		}, {
+			number: '18',
+			text: 'talks and events in Brazil and abroad'
+		}, {
+			number: '50',
+			text: 'publications online and offline'
+		}
 	]
-	
-	useEffect(() => {
-
-		// this is needed for swiper
-		register()
-
-	}, [])
 
     return (
 		<>
 
 			<SeoContainer
-				pageTitle='Home'
-				pageDescription='Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda illo quos eius nostrum quas ipsam repellendus molestiae officia sequi est.'
+				pageTitle='Impactful Tailored Brands'
+				pageDescription='Saad® is an internationally award-winning boutique brand consultancy specialized in building and transforming the future of businesses.'
 			/>
 
-
-			<section className={styles.banner}>
+			<section className={clsx(styles.banner, 'padding-bottom')}>
 				<div className='container'>
+
+					<div className={styles.firstSection}>
+						<Fancybox options={{ dragToClose: false }}>
+							<a href='#' data-fancybox='showreel'>
+								
+							</a>
+						</Fancybox>
+					</div>
+
+					<h1>
+						<FillTitle text='Impactful Tailored Brands' />
+					</h1>
 
 				</div>
 			</section>
 
-			<section className={styles.services}>
+			<section className={styles.projects}>
+
+				{projects.slice(0, 3).map((item, i) => (
+					<Project
+						key={i}
+						link={item.link}
+						image={item.image}
+						darkText={item.darkText}
+						client={item.client}
+						title={item.title}
+						category={item.category}
+						tags={item.tags}
+					/>
+				))}
+
+				<AnimatedLink className={clsx(styles.viewAll, 'padding-y-smaller', 'font-medium')} href={routes.work}>
+					View all projects <UxArrowRight />
+				</AnimatedLink>
+
+				<AnimatedLine />
+
+			</section>
+
+			<section className={clsx(styles.counters, 'padding-top')}>
 				<div className='container'>
-					<Swiper
-						className={styles.slider}
-						spaceBetween={10}
-						slidesPerView={1.3}
-						freeMode={true}
-						mousewheel={{  
-							forceToAxis: true
-						}}
-					>
-						{services.map((item, i) => (
-							<SwiperSlide key={i}>
-								<div className={styles.box}>
-									{ item.name }
+					<div className={clsx(styles.grid, 'grid-container')}>
+
+						<p className={clsx(styles.left, 'grid-md-1-3')}>
+							Who we are
+						</p>
+
+						<div className={clsx(styles.right, 'grid-md-3-7')}>
+							{counters.map((item, i) => (
+								<div className={styles.box} key={i}>
+									
+									<p className={clsx(styles.number, 'font-biggest')}>
+										<Counter number={item.number} />
+									</p>
+
+									<p className={clsx(styles.text, 'font-medium')}>
+										{item.text}
+									</p>
+
+									<AnimatedLine opacity={.5} />
+
 								</div>
-							</SwiperSlide>
-						))}
-					</Swiper>
+							))}
+						</div>
+
+					</div>
 				</div>
 			</section>
 
-			<p style={{
-				height: '100vh'
-			}}>
-				asdasdasd1111
-			</p>
+			<StandFor />
+
+			<Testimonials />
 
 			<ContactMarquee />
 

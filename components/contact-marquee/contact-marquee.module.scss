@@ -2,12 +2,7 @@
     background: $white;
     color: $black;
     border-bottom: 1px solid $white;
-    padding: 3.25rem 0 3rem 0;
     transition: .6s ease-in-out;
-
-    @media #{$mq-md-min} {
-        padding: 4rem 0;
-    }
 
     &:hover {
         color: $white;

@@ -9,10 +9,10 @@ export default function SEOContainer({ pageTitle, pageDescription }) {
     const origin = typeof window !== 'undefined' && window.location.origin ? window.location.origin : ''
     const urlAddress = `${origin}${asPath}`
 
-    const siteName = 'Client Name'
+    const siteName = 'Saad'
 
-	const defaultPageTitle = 'Default page title'
-	const defaultPageDesc = 'This is the default page description if nothing is defined inside each page.'
+	const defaultPageTitle = 'Impactful Tailored Brands'
+	const defaultPageDesc = 'Saad® is an internationally award-winning boutique brand consultancy specialized in building and transforming the future of businesses.'
 
 	const image = router.basePath + '/img/og-image.png'
 

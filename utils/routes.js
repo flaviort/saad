@@ -3,6 +3,7 @@ const routes = {
 	// pages
 	home: '/',
 	work: '/work',
+	workInner: '/work-inner',
 	about: '/about',
 	contact: '/contact',
 

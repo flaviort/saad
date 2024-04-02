@@ -5,6 +5,7 @@
     left: 0;
     width: 100%;
     padding-top: 1rem;
+    mix-blend-mode: exclusion;
     
     @media #{$mq-2xl-min} {
         padding-top: 2rem;

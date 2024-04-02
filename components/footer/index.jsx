@@ -60,8 +60,7 @@ export default function Footer() {
 			scrollTrigger: {
 				trigger: '#footer-logo',
 				toggleActions: 'restart none resume none',
-				start: '-10% 100%',
-				markers: true
+				start: '-10% 100%'
 			}
 		})
 	
@@ -69,13 +68,13 @@ export default function Footer() {
 			yPercent: 100,
 			stagger: .25,
 			duration: 1,
-			ease: 'power2.out',
+			ease: 'power2.out'
 		})
 	})
 
 	return (
 		<footer>
-			<section className={styles.top}>
+			<section className={clsx(styles.top, 'padding-top-smaller')}>
 				<div className='container'>
 					<div className={clsx(styles.grid, 'grid-container')}>
 

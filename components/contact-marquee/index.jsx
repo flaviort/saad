@@ -54,7 +54,7 @@ export default function ContactMarquee() {
     })
 
     return (
-        <section className={styles.contactMarquee}>
+        <section className={clsx(styles.contactMarquee, 'padding-y-smaller')}>
             <div className='container'>
                 <AnimatedLink href={routes.contact}>
 

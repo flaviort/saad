@@ -119,6 +119,7 @@ export default function Menu() {
 
         menuAnimation.to('#top-menu', {
             color: '#0d0e13',
+            mixBlendMode: 'normal',
             ease: 'power2.inOut',
             duration: .6
         }, '-=1')
