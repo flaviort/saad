@@ -1,6 +1,7 @@
 // libraries
 import { RecoilRoot } from 'recoil'
 import { useEffect } from 'react'
+import { GoogleTagManager } from '@next/third-parties/google'
 
 // components
 import SmoothScrolling from '@/components/utils/smooth-scrolling'
@@ -39,6 +40,7 @@ export default function App({ Component, pageProps, router }) {
 
 					<main role='main'>
 						<Component key={router.route} {...pageProps} />
+						<GoogleTagManager gtmId='GTM-W7HLMBNK' />
 					</main>
 
 					<Footer />

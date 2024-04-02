@@ -11,6 +11,7 @@
   "dependencies": {
     "@fancyapps/ui": "^5.0.35",
     "@gsap/react": "^2.1.0",
+    "@next/third-parties": "^14.1.4",
     "@sendgrid/mail": "^8.1.0",
     "@studio-freight/react-lenis": "^0.0.43",
     "clsx": "^2.1.0",
