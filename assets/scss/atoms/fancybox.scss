@@ -1,0 +1,25 @@
+.fancybox__slide {
+    overflow: hidden!important;
+
+    &.has-vimeo {
+        padding: 0!important;
+
+        &:before,
+        &:after {
+            content: none;
+        }
+
+        .fancybox__content {
+            width: 100%!important;
+            height: 100%!important;
+            aspect-ratio: unset!important;
+
+            .is-close-btn {
+                position: absolute;
+                z-index: 2;
+                top: 1rem;
+                right: 1rem;
+            }
+        }
+    }
+}

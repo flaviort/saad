@@ -7,7 +7,7 @@ import { useGSAP } from '@gsap/react'
 // css
 import styles from './follow-mouse.module.scss'
 
-export default function FollowMouse({ children, text, big }) {
+export default function FollowMouse({ children, text, big, scrollTrigger }) {
 
     const section = useRef(null)
     const object = useRef(null)
@@ -27,8 +27,8 @@ export default function FollowMouse({ children, text, big }) {
         function moveCircle(e) {
             gsap.to(item, {
                 position: 'fixed',
-                x: e.clientX - parent.offsetLeft,
-                y: e.clientY - parent.offsetTop,
+                x: scrollTrigger ? e.layerX : e.clientX - parent.offsetLeft,
+                y: scrollTrigger ? e.layerY : e.clientY - parent.offsetTop,
                 ease: 'power2.out',
                 duration: .6
             })

@@ -14,26 +14,21 @@ export default function FillTitle({ text }) {
     const item = useRef(null)
 
 	useGSAP(() => {
-        if (item.current) {
-            
-            const split = new SplitText(item.current, {
-                type: 'lines'
-            })
+		const split = new SplitText(item.current, {
+			type: 'lines'
+		})
 
-			split.lines.forEach((target) => {
-				gsap.to(target, {
-					backgroundPositionX: 0,
-					ease: 'none',
-					scrollTrigger: {
-						trigger: target,
-						scrub: 3,
-						start: 'top 80%',
-						end: 'bottom 60%'
-					}
-				})
-			})
-        }
-	}, [])
+		gsap.to(split.lines, {
+			backgroundPositionX: 0,
+			ease: 'none',
+			scrollTrigger: {
+				trigger: split.lines,
+				scrub: 3,
+				start: 'top 80%',
+				end: 'bottom 60%'
+			}
+		})
+	})
 
     return (
         <span ref={item} className={styles.fillTitle}>

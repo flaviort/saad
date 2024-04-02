@@ -1,6 +1,10 @@
 // libraries
-import { useEffect } from 'react'
+import { useRef } from 'react'
 import clsx from 'clsx'
+import gsap from 'gsap'
+import { useGSAP } from '@gsap/react'
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
+gsap.registerPlugin(ScrollTrigger)
 
 // components
 import SeoContainer from '@/components/utils/seo-container'
@@ -28,6 +32,36 @@ import styles from './home.module.scss'
 
 export default function Home() {
 
+	// scrolltrigger pin effect
+	const banner = useRef(null)
+	const video = useRef(null)
+	const title = useRef(null)
+
+	const vh = (coef) => window.innerHeight * (coef/100)
+	
+	useGSAP(() => {
+		ScrollTrigger.create({
+			pin: title.current,
+			trigger: banner.current,
+			start: 'top bottom',
+			end: '+=' + vh(210), // this value should be the same as the padding-bottom on home.module.scss
+			scrub: 3,
+			anticipatePin: 1,
+			pinSpacing: false // remove the padding-bottom (we need to setup this manually)
+		})
+
+		gsap.from(video.current, {
+			scale: .5,
+			scrollTrigger: {
+				anticipatePin: 1,
+				trigger: banner.current,
+				start: 'top bottom',
+				end: '+=' + vh(50),
+				scrub: 3
+			}
+		})
+	})
+
 	// counters
 	const counters = [
 		{
@@ -53,18 +87,26 @@ export default function Home() {
 				pageDescription='Saad® is an internationally award-winning boutique brand consultancy specialized in building and transforming the future of businesses.'
 			/>
 
-			<section className={clsx(styles.banner, 'padding-bottom')}>
+			<section className={clsx(styles.banner, 'padding-bottom')} ref={banner}>
 				<div className='container'>
 
+				
 					<div className={styles.firstSection}>
+					
 						<Fancybox options={{ dragToClose: false }}>
-							<a href='#' data-fancybox='showreel'>
-								
+							<a href='https://vimeo.com/875961835' data-fancybox='showreel' className={styles.video} ref={video}>
+								<FollowMouse text='Play' big scrollTrigger>
+									<video loop muted autoPlay playsInline className='cover'>
+										<source src='/videos/showreel.mp4' type='video/mp4' />
+									</video>
+								</FollowMouse>
 							</a>
 						</Fancybox>
+						
 					</div>
+					
 
-					<h1>
+					<h1 ref={title}>
 						<OthersImpactfulTailoredBrands />
 					</h1>
 
