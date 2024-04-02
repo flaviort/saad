@@ -9,6 +9,7 @@ import Fancybox from '@/components/utils/fancybox'
 import Counter from '@/components/utils/counter'
 import AnimatedLine from '@/components/utils/animated-line'
 import FillTitle from '@/components/utils/fill-title'
+import FollowMouse from '@/components/utils/follow-mouse'
 import Project from '@/components/project'
 import StandFor from '@/components/stand-for'
 import Testimonials from '@/components/testimonials'
@@ -71,19 +72,20 @@ export default function Home() {
 			</section>
 
 			<section className={styles.projects}>
-
-				{projects.slice(0, 3).map((item, i) => (
-					<Project
-						key={i}
-						link={item.link}
-						image={item.image}
-						darkText={item.darkText}
-						client={item.client}
-						title={item.title}
-						category={item.category}
-						tags={item.tags}
-					/>
-				))}
+				<FollowMouse text='View'>
+					{projects.slice(0, 3).map((item, i) => (
+						<Project
+							key={i}
+							link={item.link}
+							image={item.image}
+							darkText={item.darkText}
+							client={item.client}
+							title={item.title}
+							category={item.category}
+							tags={item.tags}
+						/>
+					))}
+				</FollowMouse>
 
 				<AnimatedLink className={clsx(styles.viewAll, 'padding-y-smaller', 'font-medium')} href={routes.work}>
 					View all projects <UxArrowRight />

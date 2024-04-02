@@ -4,14 +4,10 @@ import { useRef } from 'react'
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
 
-// svgs
-import UxArrowRight from '@/assets/svg/ux/arrow-right.svg'
-import OthersViewProject from '@/assets/svg/others/view-project.svg'
-
 // css
 import styles from './follow-mouse.module.scss'
 
-export default function FollowMouse({ children }) {
+export default function FollowMouse({ children, text, big }) {
 
     const section = useRef(null)
     const object = useRef(null)
@@ -66,14 +62,8 @@ export default function FollowMouse({ children }) {
     return (
         <div className={styles.followMouseSection} ref={section}>
 
-            <div className={clsx(styles.followMouse, 'font-small')} ref={object}>
-
-                <OthersViewProject />
-
-                <div className={styles.inner}>
-                    <UxArrowRight />
-                </div>
-
+            <div className={clsx(styles.followMouse, big && styles.big, 'font-small uppercase')} ref={object}>
+                {text}
             </div>
 
             <div className={styles.content}>

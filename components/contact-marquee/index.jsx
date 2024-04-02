@@ -11,6 +11,7 @@ gsap.registerPlugin(ScrollTrigger)
 
 // components
 import AnimatedLink from '@/components/utils/animated-link'
+import FollowMouse from '@/components/utils/follow-mouse'
 
 // routes / utils
 import routes from '@/utils/routes'
@@ -54,31 +55,33 @@ export default function ContactMarquee() {
     })
 
     return (
-        <section className={clsx(styles.contactMarquee, 'padding-y-smaller')}>
-            <div className='container'>
-                <AnimatedLink href={routes.contact}>
+        <section className={styles.contactMarquee}>
+            <FollowMouse text='Contact' big>
+                <div className='container padding-y-smaller'>
+                    <AnimatedLink href={routes.contact}>
 
-                    <div className={clsx(styles.marquee, 'uppercase')}>
-                        
-                        <span className='marquee-span'>
-                            Let's create the future of your brand.&nbsp;
-                        </span>
+                        <div className={clsx(styles.marquee, 'uppercase')}>
+                            
+                            <span className='marquee-span'>
+                                Let's create the future of your brand.&nbsp;
+                            </span>
 
-                        <span className='marquee-span'>
-                            Let's create the future of your brand.&nbsp;
-                        </span>
+                            <span className='marquee-span'>
+                                Let's create the future of your brand.&nbsp;
+                            </span>
 
-                    </div>
+                        </div>
 
-                    <div className={clsx(styles.grid, 'grid-container')}>
-                        <p className={clsx(styles.flex, 'grid-md-6-7')}>
-                            Contact us
-                            <UxArrowRight />
-                        </p>
-                    </div>
+                        <div className={clsx(styles.grid, 'grid-container')}>
+                            <p className={clsx(styles.flex, 'grid-md-6-7')}>
+                                Contact us
+                                <UxArrowRight />
+                            </p>
+                        </div>
 
-                </AnimatedLink>
-            </div>
+                    </AnimatedLink>
+                </div>
+            </FollowMouse>
         </section>
     )
 }
