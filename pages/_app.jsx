@@ -4,6 +4,7 @@ import { useEffect } from 'react'
 import { GoogleTagManager } from '@next/third-parties/google'
 
 // components
+import CustomScrollbar from '@/components/utils/custom-scrollbar'
 import SmoothScrolling from '@/components/utils/smooth-scrolling'
 import Opening from '@/components/opening'
 import PageTransition from '@/components/page-transition'
@@ -41,12 +42,17 @@ export default function App({ Component, pageProps, router }) {
 
 				<SmoothScrolling>
 
-					<main role='main' id='main'>
-						<Component key={router.route} {...pageProps} />
-						<GoogleTagManager gtmId='GTM-W7HLMBNK' />
-					</main>
+					<CustomScrollbar />
 
-					<Footer />
+					<main role='main' data-scroll-container>
+
+						<GoogleTagManager gtmId='GTM-W7HLMBNK' />
+
+						<Component key={router.route} {...pageProps} />
+
+						<Footer />
+
+					</main>
 
 				</SmoothScrolling>
 

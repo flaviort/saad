@@ -78,10 +78,8 @@ export default function Menu() {
 
         if(!isShown) {
             lenis.stop()
-            document.body.classList.add('no-scroll')
         } else {
             lenis.start()
-            document.body.classList.remove('no-scroll')
         }
 	}
 
@@ -106,7 +104,6 @@ export default function Menu() {
 
     // menu animation
     useGSAP(() => {
-        
         const menuAnimation = gsap.timeline({
             paused: true
         })

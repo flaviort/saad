@@ -9,6 +9,7 @@ gsap.registerPlugin(ScrollTrigger)
 // components
 import SeoContainer from '@/components/utils/seo-container'
 import AnimatedLink from '@/components/utils/animated-link'
+import Video from '@/components/utils/video'
 import Fancybox from '@/components/utils/fancybox'
 import Counter from '@/components/utils/counter'
 import AnimatedLine from '@/components/utils/animated-line'
@@ -107,9 +108,10 @@ export default function Home() {
 										Play
 									</div>
 
-									<video loop muted autoPlay playsInline className='cover'>
-										<source src='/videos/showreel.mp4' type='video/mp4' />
-									</video>
+									<Video
+										video='/videos/showreel.mp4'
+										className='cover'
+									/>
 
 								</FollowMouse>
 							</a>

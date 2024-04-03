@@ -179,3 +179,13 @@ body {
 	--black: #0d0e13;
 	--white: #e4dcd1;
 }
+
+.lenis-smooth.lenis-scrolling [data-scrollbar] {
+	opacity: 1;
+}
+
+@media #{$mq-lg-min} {
+	.lenis-smooth [data-scrollbar] {
+		display: flex;
+	}
+}

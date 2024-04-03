@@ -1,0 +1,32 @@
+.scrollbar {
+    position: fixed;
+    z-index: 9;
+    top: 5px;
+    right: 5px;
+    bottom: 5px;
+    width: 5px;
+    display: none;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity .3s ease-in-out, width .3s ease-in-out;
+
+    &:hover {
+        opacity: 1;
+        width: 7px;
+    }
+
+    &[data-scrollbar-drag='true'] {
+        opacity: 1;
+        width: 7px;
+    }
+
+    .thumb {
+        width: 100%;
+        min-height: 2em;
+        height: 4em;
+        background-color: $gray-light;
+        cursor: grab;
+        border-radius: 30px;
+        
+    }
+}
