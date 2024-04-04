@@ -1,0 +1,142 @@
+.banner {
+    position: relative;
+    z-index: 0;
+    overflow: hidden;
+    height: 120vh;
+
+    @media #{$mq-md-min} {
+        height: 150vh;
+    }
+
+    .bg {
+        position: absolute;
+        z-index: 0;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+    }
+}
+
+.projectDetails {
+    .grid {
+        align-items: flex-end;
+
+        .title {
+            @media #{$mq-xl-max} {
+                display: block;
+                margin-bottom: .5rem;
+            }
+        }
+
+        .category {
+            display: block;
+
+            @media #{$mq-md-max} {
+                margin-top: 1rem;
+            }
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            column-gap: .5rem;
+
+            span {
+                &:not(:last-child) {
+                    &:after {
+                        content: ',';
+                    }
+                }
+            }
+        }
+    }
+}
+
+.gallery {
+    .image {
+        position: relative;
+        display: block;
+        width: 100%;
+        height: 80vw;
+
+        @media #{$mq-xs-min} {
+            height: 70vw;
+        }
+
+        @media #{$mq-md-min} {
+            height: 60vw;
+        }
+
+        @media #{$mq-2xl-min} {
+            height: 110vh;
+        }
+    }
+}
+
+.previousNext {
+    .top {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        padding-bottom: 1rem;
+
+        @media #{$mq-sm-min} {
+            padding-bottom: 1.5rem;
+        }
+
+        a {
+            display: flex;
+            flex-direction: column;
+
+            &:hover {
+                .small {
+                    opacity: 1;
+                }
+            }
+
+            &:last-child {
+                text-align: right;
+            }
+
+            .small {
+                opacity: .5;
+                transition: .3s ease-in-out;
+            }
+
+            :not(.small) {
+                @media #{$mq-sm-max} {
+                    font-size: 1rem;
+                }
+            }
+        }
+    }
+
+    .bottom {
+        position: relative;
+        display: block;
+        width: 100%;
+        height: 50vw;
+
+        @media #{$mq-md-min} {
+            height: 30vw;
+        }
+
+        .flex {
+            display: flex;
+            justify-content: space-between;
+            height: 100%;
+
+            a {
+                display: block;
+                width: 100%;
+                height: 100%;
+                transition: opacity .3s ease-in-out;
+
+                &:hover {
+                    opacity: .5;
+                }
+            }
+        }
+    }
+}

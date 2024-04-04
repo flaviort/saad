@@ -15,7 +15,7 @@
         }
 
         @media #{$mq-sm-max} {
-            font-size: 1.5rem;
+            font-size: 1rem;
             line-height: 1;
             text-transform: uppercase;
         }
@@ -70,6 +70,18 @@
 
                     @media #{$mq-xl-min} {
                         column-count: 2;
+                    }
+
+                    &.singleColumn {
+                        column-count: 1;
+
+                        @media #{$mq-md-max} {
+                            grid-column: 1 / 7;
+                        }
+
+                        .item {
+                            margin-bottom: .5rem;
+                        }
                     }
 
                     &.small {

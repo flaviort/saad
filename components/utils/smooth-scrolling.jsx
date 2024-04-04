@@ -20,7 +20,7 @@ export default function SmoothScrolling({ children }) {
         gsap.ticker.lagSmoothing(0)
 
         ScrollTrigger.refresh()  
-    })
+    }, { dependencies: [lenisRef] })
 
     return (
         <ReactLenis

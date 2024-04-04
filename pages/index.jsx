@@ -87,6 +87,26 @@ export default function Home() {
 		}
 	]
 
+	// testimonials
+    const testimonials = [
+        {
+            company: 'Vuelo',
+            testimonial: "It's different from everything we're used to, the all white, lifeless packaging. It's an innovative vision. Vuelo's packaging makes you forget you have a problem.",
+            name: 'Viviane Oliveira',
+            position: 'Vuelo Client'
+        }, {
+            company: 'Vuelo 02',
+            testimonial: "It's different from everything we're used to, the all white, lifeless packaging. It's an innovative vision. Vuelo's packaging makes you forget you have a problem.",
+            name: 'Viviane Oliveira',
+            position: 'Vuelo Client'
+        }, {
+            company: 'Vuelo 03',
+            testimonial: "It's different from everything we're used to, the all white, lifeless packaging. It's an innovative vision. Vuelo's packaging makes you forget you have a problem.",
+            name: 'Viviane Oliveira',
+            position: 'Vuelo Client'
+        }
+    ]
+
     return (
 		<>
 
@@ -182,7 +202,7 @@ export default function Home() {
 
 			<StandFor />
 
-			<Testimonials />
+			<Testimonials testimonials={testimonials} />
 
 			<ContactMarquee />
 

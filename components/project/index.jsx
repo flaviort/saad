@@ -3,7 +3,7 @@ import clsx from 'clsx'
 import Image from 'next/image'
 
 // components
-import ScrollingImage from '@/components/utils/scrolling-image'
+import { ScrollingImage } from '@/components/utils/animations'
 import AnimatedLink from '@/components/utils/animated-link'
 
 // svgs

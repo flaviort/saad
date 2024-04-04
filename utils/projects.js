@@ -2,7 +2,7 @@ import routes from '@/utils/routes'
 
 const projects = [
 	{
-        link: routes.workInner,
+        link: routes.workInner('inner'),
         image: '/img/projects/9-6.jpg',
         darkText: false,
         client: '9-6',
@@ -10,7 +10,7 @@ const projects = [
         category: 'Human Resources',
         tags: ['Visual Identity', 'Strategy']
     }, {
-        link: routes.workInner,
+        link: routes.workInner('inner'),
         image: '/img/projects/nagueva.jpg',
         darkText: true,
         client: 'Nagüeva',
@@ -18,7 +18,7 @@ const projects = [
         category: 'Personal Branding',
         tags: ['Visual Identity', 'Strategy']
     }, {
-        link: routes.workInner,
+        link: routes.workInner('inner'),
         image: '/img/projects/vuelo.jpg',
         darkText: true,
         client: 'Vuelo',
@@ -26,7 +26,7 @@ const projects = [
         category: 'Pharmaceutical',
         tags: ['Visual Identity', 'Strategy']
     }, {
-        link: routes.workInner,
+        link: routes.workInner('inner'),
         image: '/img/projects/oigo.jpg',
         darkText: false,
         client: 'Oigo',
@@ -34,7 +34,7 @@ const projects = [
         category: 'Audiovisual',
         tags: ['Visual Identity', 'Strategy']
     }, {
-        link: routes.workInner,
+        link: routes.workInner('inner'),
         image: '/img/projects/re.jpg',
         darkText: false,
         client: 'RE',
@@ -42,7 +42,7 @@ const projects = [
         category: 'Sustainability',
         tags: ['Visual Identity', 'Strategy']
     }, {
-        link: routes.workInner,
+        link: routes.workInner('inner'),
         image: '/img/projects/ipiranga-seeds.jpg',
         darkText: false,
         client: 'Ipiranga Seeds',

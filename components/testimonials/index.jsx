@@ -15,27 +15,7 @@ import UxArrowRight from '@/assets/svg/ux/arrow-right.svg'
 // css
 import styles from './testimonials.module.scss'
 
-export default function Testimonials() {
-
-    // testimonials
-    const testimonials = [
-        {
-            company: 'Vuelo',
-            testimonial: "It's different from everything we're used to, the all white, lifeless packaging. It's an innovative vision. Vuelo's packaging makes you forget you have a problem.",
-            name: 'Viviane Oliveira',
-            position: 'Vuelo Client'
-        }, {
-            company: 'Vuelo 02',
-            testimonial: "It's different from everything we're used to, the all white, lifeless packaging. It's an innovative vision. Vuelo's packaging makes you forget you have a problem.",
-            name: 'Viviane Oliveira',
-            position: 'Vuelo Client'
-        }, {
-            company: 'Vuelo 03',
-            testimonial: "It's different from everything we're used to, the all white, lifeless packaging. It's an innovative vision. Vuelo's packaging makes you forget you have a problem.",
-            name: 'Viviane Oliveira',
-            position: 'Vuelo Client'
-        }
-    ]
+export default function Testimonials({ testimonials }) {
     return (
         <section className={clsx(styles.testimonials, 'padding-y')}>
             <div className='container'>

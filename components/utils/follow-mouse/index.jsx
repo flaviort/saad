@@ -1,5 +1,6 @@
 // libraries
 import clsx from 'clsx'
+import { useLenis } from '@studio-freight/react-lenis'
 import { useRef } from 'react'
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
@@ -9,6 +10,7 @@ import styles from './follow-mouse.module.scss'
 
 export default function FollowMouse({ children, text, big, scrollTrigger }) {
 
+    const lenis = useLenis()
     const section = useRef(null)
     const object = useRef(null)
 
@@ -60,7 +62,7 @@ export default function FollowMouse({ children, text, big, scrollTrigger }) {
         parent.addEventListener('mouseleave', () => leave())
         document.addEventListener('scrollTop', leave())
 
-    }, [])
+    }, { dependencies: [lenis] })
 
     return (
         <div className={styles.followMouseSection} ref={section}>

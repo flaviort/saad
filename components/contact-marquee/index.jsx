@@ -52,7 +52,7 @@ export default function ContactMarquee() {
         }).totalProgress(.5)
 
         directionRef.current = tl
-    })
+    }, { dependencies: [lenis] })
 
     return (
         <section className={styles.contactMarquee}>

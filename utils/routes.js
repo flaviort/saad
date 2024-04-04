@@ -3,7 +3,7 @@ const routes = {
 	// pages
 	home: '/',
 	work: '/work',
-	workInner: '/work-inner',
+	workInner: (id) => `/work/${id}`,
 	about: '/about',
 	contact: '/contact',
 

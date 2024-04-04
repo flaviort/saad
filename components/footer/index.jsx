@@ -86,7 +86,7 @@ export default function Footer() {
 	})
 
 	return (
-		<footer>
+		<footer className={styles.footer}>
 			<section className={clsx(styles.top, 'padding-top-smaller')}>
 				<div className='container'>
 					<div className={clsx(styles.grid, 'grid-container')}>

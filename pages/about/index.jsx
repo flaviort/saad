@@ -2,9 +2,6 @@
 import Image from 'next/image'
 import clsx from 'clsx'
 
-// import routes / services
-import routes from '@/utils/routes'
-
 // components
 import SeoContainer from '@/components/utils/seo-container'
 import AnimatedLine from '@/components/utils/animated-line'

@@ -17,13 +17,13 @@ import UxArrowRight from '@/assets/svg/ux/arrow-right.svg'
 // css
 import styles from './list-section.module.scss'
 
-export default function ListSection({ className, title, infos, small }) {
+export default function ListSection({ className, title, infos, small, singleColumn, noScroll }) {
 
     const section = useRef()
     const lenis = useLenis()
 
     useGSAP(() => {
-        if (window.innerWidth > 768) {
+        if (!noScroll && window.innerWidth > 768) {
             ScrollTrigger.create({
                 trigger: '.grid-md-1-2',
                 pin: '.title',
@@ -51,9 +51,11 @@ export default function ListSection({ className, title, infos, small }) {
 
                                 <div className={styles.innerGrid}>
 
-                                    <h3 className={styles.subTitle}>
-                                        <FillTitle text={item.subTitle} />
-                                    </h3>
+                                    {item.subTitle && (
+                                        <h3 className={styles.subTitle}>
+                                            <FillTitle text={item.subTitle} />
+                                        </h3>
+                                    )}
 
                                     { small ? (
                                         <div className={clsx(styles.list, styles.small)}>
@@ -70,15 +72,17 @@ export default function ListSection({ className, title, infos, small }) {
                                             ))}
                                         </div>
                                     ) : (
-                                        <div className={clsx(styles.list)}>
+                                        <div className={clsx(styles.list, singleColumn && styles.singleColumn)}>
                                             {item.items.map((subItem, i2) => (
                                                 <div className={styles.item} key={i2}>
 
                                                     <UxArrowRight />
 
-                                                    <p className={styles.year}>
-                                                        {subItem.year}
-                                                    </p>
+                                                    {subItem.year && (
+                                                        <p className={styles.year}>
+                                                            {subItem.year}
+                                                        </p>
+                                                    )}
 
                                                     <p className={styles.text}>
                                                         {subItem.text}
