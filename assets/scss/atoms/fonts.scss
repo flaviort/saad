@@ -23,6 +23,19 @@
 	}
 }
 
+.font-big-2 {
+	font-size: 1.2rem;
+	line-height: 1.3;
+
+	@media #{$mq-sm-min} {
+		font-size: 1.5rem;
+	}
+
+	@media #{$mq-md-min} {
+		font-size: 1.75rem;
+	}
+}
+
 .font-bigger {
 	font-size: 2.25rem;
 	line-height: 1.3;

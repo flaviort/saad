@@ -1,0 +1,25 @@
+.logosSlider {
+    & :global {
+        .swiper-wrapper {
+            display: flex;
+            align-items: center;
+        }
+    }
+
+    .slider {
+        @media #{$mq-md-max} {
+            overflow: visible;
+        }
+    }
+
+    img {
+        position: relative!important;
+        max-width: 7rem;
+        max-height: 3rem;
+
+        @media #{$mq-md-min} {
+            max-width: 12rem;
+            max-height: 3.5rem;
+        }
+    }
+}

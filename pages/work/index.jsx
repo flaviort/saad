@@ -24,9 +24,9 @@ export default function Work() {
 
 			<section className={clsx(styles.topPart, 'padding-top-bigger padding-bottom-big')}>
 				<div className='container'>
-					<div className="grid-container">
-						<div className="grid-md-2-7">
-							<h2 className='font-big'>
+					<div className='grid-container'>
+						<div className='grid-md-2-7'>
+							<h2 className='font-big-2'>
 								Creating the future for ambitious brands. <br />
 								We develop projects that transform visions and businesses.
 							</h2>

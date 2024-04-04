@@ -24,6 +24,10 @@
 		grid-template-columns: repeat(6, 1fr);
 		column-gap: 1rem;
 	}
+
+	div[class^='grid-'] {
+		width: 100%;
+	}
 }
 
 .grid-1-2 { grid-column: 1 / 2; }
