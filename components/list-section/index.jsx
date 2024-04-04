@@ -17,7 +17,7 @@ import UxArrowRight from '@/assets/svg/ux/arrow-right.svg'
 // css
 import styles from './list-section.module.scss'
 
-export default function ListSection({ className, title, infos, small, singleColumn, noScroll }) {
+export default function ListSection({ className, title, infos, small, about, singleColumn, noScroll }) {
 
     const section = useRef()
     const lenis = useLenis()
@@ -45,61 +45,70 @@ export default function ListSection({ className, title, infos, small, singleColu
                         </h2>
                     </div>
 
-                    <div className={clsx(styles.right, 'grid-md-2-7')}>
-                        {infos.map((item, i) => (
-                            <div className={styles.mapping} key={i}>
+                    { about ? (
+                        <div className={clsx(styles.right, 'grid-md-3-7')}>
+                            <div
+                                className={styles.about}
+                                dangerouslySetInnerHTML={{__html: about}}
+                            />
+                        </div>
+                    ): (
+                        <div className={clsx(styles.right, 'grid-md-2-7')}>
+                            { infos.map((item, i) => (
+                                <div className={styles.mapping} key={i}>
 
-                                <div className={styles.innerGrid}>
+                                    <div className={styles.innerGrid}>
 
-                                    {item.subTitle && (
-                                        <h3 className={styles.subTitle}>
-                                            <FillTitle text={item.subTitle} />
-                                        </h3>
-                                    )}
+                                        {item.subTitle && (
+                                            <h3 className={styles.subTitle}>
+                                                <FillTitle text={item.subTitle} />
+                                            </h3>
+                                        )}
 
-                                    { small ? (
-                                        <div className={clsx(styles.list, styles.small)}>
-                                            {item.items.map((subItem, i2) => (
-                                                <div className={styles.item} key={i2}>
+                                        { small ? (
+                                            <div className={clsx(styles.list, styles.small)}>
+                                                {item.items.map((subItem, i2) => (
+                                                    <div className={styles.item} key={i2}>
 
-                                                    <UxArrowRight />
+                                                        <UxArrowRight />
 
-                                                    <p>
-                                                        {subItem}
-                                                    </p>
-
-                                                </div>
-                                            ))}
-                                        </div>
-                                    ) : (
-                                        <div className={clsx(styles.list, singleColumn && styles.singleColumn)}>
-                                            {item.items.map((subItem, i2) => (
-                                                <div className={styles.item} key={i2}>
-
-                                                    <UxArrowRight />
-
-                                                    {subItem.year && (
-                                                        <p className={styles.year}>
-                                                            {subItem.year}
+                                                        <p>
+                                                            {subItem}
                                                         </p>
-                                                    )}
 
-                                                    <p className={styles.text}>
-                                                        {subItem.text}
-                                                    </p>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        ) : (
+                                            <div className={clsx(styles.list, singleColumn && styles.singleColumn)}>
+                                                {item.items.map((subItem, i2) => (
+                                                    <div className={styles.item} key={i2}>
 
-                                                </div>
-                                            ))}
-                                        </div>
-                                    )}
-                                    
+                                                        <UxArrowRight />
+
+                                                        {subItem.year && (
+                                                            <p className={styles.year}>
+                                                                {subItem.year}
+                                                            </p>
+                                                        )}
+
+                                                        <p className={styles.text}>
+                                                            {subItem.text}
+                                                        </p>
+
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        )}
+                                        
+                                    </div>
+
+                                    <AnimatedLine opacity={.5} />
+
                                 </div>
-
-                                <AnimatedLine opacity={.5} />
-
-                            </div>
-                        ))}
-                    </div>
+                            ))}
+                        </div>
+                    )}
 
                 </div>
             </div>

@@ -22,6 +22,25 @@
     }
 
     .right {
+        .about {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+
+            h3 {
+                font-size: 1.2rem;
+                line-height: 1.3;
+
+                @media #{$mq-sm-min} {
+                    font-size: 1.375rem;
+                }
+
+                @media #{$mq-md-min} {
+                    font-size: 1.5rem;
+                }
+            }
+        }
+
         .mapping {
             &:not(:last-child) {
                 padding-bottom: calc(var(--small) / 2);

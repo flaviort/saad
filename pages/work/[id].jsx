@@ -62,6 +62,12 @@ export default function WorkInner() {
         tags: ['Visual Identity', 'Strategy']
     }
 
+    // description
+    const about = {
+        title: 'About',
+        text: "<p>Guilherme “Nagüeva” é um profissional multidisciplinar que teve uma trajetória bastante incomum dentro do design: foi um dos pioneiros em WordPress e SEO no sul do Brasil, foi Chief Design Officer em uma startup de car sharing atuando em áreas comoservice design, business intelligence e design leadership e ocupou o cargo de Sênior UX Designer na Philips Brasil, sendo responsável pela automação de processos de design para o Tasy EMR, produto líder no setor de healthcare na América Latina.</p><p>A fim de se projetar profissionalmente, Nagüeva procurou a Saad para desenvolver um projeto de personal branding, entendendo seus diferenciais, explorando as oportunidades de mercado e definindo seu posicionamento.</p><h3>Dando uma voz às ideias</h3><p>No decorrer das pesquisas e workshops com o próprio profissional, além de entrevistas com pessoas próximas e parceiros de trabalho, o principal diferencial de Nagüeva se tornou claro: solucionar desafios complexos de forma incomum e eficaz através do design e da tecnologia traduzido através da brand idea “Cha(lle)nger” (changer + challenger).</p><p>Além disso, algumas características se destacaram: frases como “sou a síntese do excesso”, “não me encaixo em nada e, ao mesmo tempo, me adapto a tudo” e “fujo do que é mainstream”, juntamente com o significado do nome (“Nagüeva” surgiu de uma brincadeira entre amigos e significa “o que está na goela, o que eu quero falar”), conduziram a criação de uma identidade minimalista em preto e branco que utiliza somente textos (o principal elemento da marca, remetendo ao significado do nome) que se adaptam aos mais diferentes tamanhos, formatos e plataformas, traduzindo atributos como intensidade, transformação e experimentação de uma forma direta, cheia de personalidade e não convencional.</p><h3>Big new cha(lle)nges</h3><p>O projeto de personal branding contou com a definição de toda a plataforma da marca (buyer personas, drivers, arquétipo, propósito, posicionamento, missão e brand persona, além dos principais canais de comunicação, tom de voz e recomendações estratégicas) e menos de um ano após o projeto, Nagüeva foi promovido e transferido do Brasil para a sede global da Philips em Eindhoven – Holanda, onde ocupa o cargo de Senior Design Technologist.</p><p>Nas palavras do próprio Nagüeva: “Eu usei muito a marca na maneira como eu me posicionava em reuniões, conversas, como líder do time e líder de projeto e aquilo foi essencial para o que estou vivendo hoje. Aqui (na Europa) eu peguei os projetos que eram menos relevantes, que ninguém estava dando atenção e que ninguém queria e o primeiro deles acabou se tornando parte da estratégia da Philips global de escalabilidade e o  outro, um projeto com baixa prioridade no começo do ano, agora é um dos projetos prioritários e está atrelado diretamente a um dos KPIs da Philips Design. É uma jornada de um ano aqui na Holanda que é inacreditável e, se eu não tivesse um norte, se lá atrás nós não tivéssemos parado para pensar estrategicamente em como eu iria me posicionar, eu não tinha conquistado isso, sinceramente não tinha.”</p>"
+    }
+
     // awards
     const awards = {
 		title: 'Awards',
@@ -180,6 +186,18 @@ export default function WorkInner() {
 
             <AnimatedLine />
 
+            {about && (
+                <>
+                    <ListSection
+                        title={about.title}
+                        about={about.text}
+                        singleColumn
+                    />
+
+                    <AnimatedLine />
+                </>
+            )}
+
             {awards && (
                 <>
                     <ListSection
@@ -214,6 +232,7 @@ export default function WorkInner() {
                             src='/img/projects/nagueva/01.jpg'
                             alt='Nagüeva'
                             fill
+                            sizes='100vw'
                             className='cover'
                         />
                     </ScrollingImage>
@@ -225,6 +244,7 @@ export default function WorkInner() {
                             src='/img/projects/nagueva/02.jpg'
                             alt='Nagüeva'
                             fill
+                            sizes='100vw'
                             className='cover'
                         />
                     </ScrollingImage>
@@ -243,6 +263,7 @@ export default function WorkInner() {
                             src='/img/projects/nagueva/03.jpg'
                             alt='Nagüeva'
                             fill
+                            sizes='100vw'
                             className='cover'
                         />
                     </ScrollingImage>
@@ -254,6 +275,7 @@ export default function WorkInner() {
                             src='/img/projects/nagueva/04.jpg'
                             alt='Nagüeva'
                             fill
+                            sizes='100vw'
                             className='cover'
                         />
                     </ScrollingImage>
@@ -311,6 +333,7 @@ export default function WorkInner() {
                                         alt='Oigo'
                                         fill
                                         className='cover'
+                                        sizes='50vw'
                                     />
                                 </ScrollingImage>
                             </AnimatedLink>
@@ -322,6 +345,7 @@ export default function WorkInner() {
                                         alt='Vuelo'
                                         fill
                                         className='cover'
+                                        sizes='50vw'
                                     />
                                 </ScrollingImage>
                             </AnimatedLink>
