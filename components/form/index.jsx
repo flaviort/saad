@@ -6,12 +6,6 @@ import { useRef, useState, useEffect } from 'react'
 // utils
 import { slugify } from '@/utils/functions'
 
-// components
-
-
-// svgs
-import UxAngleDown from '@/assets/svg/ux/angle-down.svg'
-
 // css
 import styles from './form.module.scss'
 
@@ -28,13 +22,11 @@ export const Form = ({ className, children }) => {
 
     // close success modal
     const closeSuccessModal = () => {
-        modalSuccess?.current?.close()
         setRenderSuccessModal(false)
     }
 
     // close error modal
     const closeErrorModal = () => {
-        modalError?.current?.close()
         setRenderErrorModal(false)
     }
 
@@ -89,7 +81,6 @@ export const Form = ({ className, children }) => {
         <FormProvider {...methods}>
             <form
                 onSubmit={methods.handleSubmit(onSubmit)}
-                autoComplete='new-password'
                 className={className}
                 ref={form}
             >
@@ -150,6 +141,22 @@ export const Input = ({ label, type, placeholder, required, maxLength }) => {
         }
     }
 
+    const [minWidth, setMinWidth] = useState('');
+
+    useEffect(() => {
+        const handleResize = () => {
+            const width = window.innerWidth
+            const newMinWidth = width > 768 ? `calc(${placeholder.length}rem)` : `calc(${placeholder.length}rem - 4rem)`
+            setMinWidth(newMinWidth)
+        }
+
+        handleResize()
+
+        window.addEventListener('resize', handleResize)
+
+        return () => window.removeEventListener('resize', handleResize)
+    }, [placeholder.length])
+
     return (
         <div className={clsx(styles.inputWrapper, errors[label] && styles.error)}>
 
@@ -158,9 +165,7 @@ export const Input = ({ label, type, placeholder, required, maxLength }) => {
                 contentEditable='true'
                 suppressContentEditableWarning={true}
                 tabIndex={-1}
-                style={{
-                    minWidth: `calc(${placeholder.length}rem - 3.75rem)`,
-                }}
+                style={{ minWidth: minWidth }}
             >
                 {content || placeholder}
             </p>

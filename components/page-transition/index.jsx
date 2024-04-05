@@ -101,6 +101,7 @@ export default function PageTransition() {
 
     useEffect(() => {
         const refreshScrollTrigger = () => {
+            document.dispatchEvent(new Event('page-transition'))
             ScrollTrigger.refresh()
         }
 

@@ -23,10 +23,10 @@ export default function StandFor() {
             text: 'We look at all aspects of the business and delve into each of them to create business strategies. Clear, precise and distinct brands.'
         }, {
             title: 'Clever Design',
-            text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia reiciendis iusto voluptatibus laborum aspernatur soluta quidem animi neque ullam ipsum.'
+            text: 'We communicate your brand’s uniqueness to the world through sharp, smart and timeless design.'
         }, {
             title: 'Tailor-Made',
-            text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia reiciendis iusto voluptatibus laborum aspernatur soluta quidem animi neque ullam ipsum.'
+            text: 'We are a boutique, which means: working closer to our clients, more focus, quality over quantity, high attention to details and control throughout the whole process.'
         }
     ]
 
