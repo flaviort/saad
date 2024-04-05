@@ -1,5 +1,4 @@
 // libraries
-import { RecoilRoot } from 'recoil'
 import { useEffect } from 'react'
 import { GoogleTagManager } from '@next/third-parties/google'
 
@@ -32,31 +31,29 @@ export default function App({ Component, pageProps, router }) {
 
 	return (
 		<div className={antarctica.className}>
-			<RecoilRoot>
 
-				<Opening />
+			<Opening />
 
-				<PageTransition />
+			<PageTransition />
 
-				<Menu />
+			<Menu />
 
-				<SmoothScrolling>
+			<SmoothScrolling>
 
-					<CustomScrollbar />
+				<CustomScrollbar />
 
-					<main role='main' data-scroll-container>
+				<main role='main' data-scroll-container>
 
-						<GoogleTagManager gtmId='GTM-W7HLMBNK' />
+					<GoogleTagManager gtmId='GTM-W7HLMBNK' />
 
-						<Component key={router.route} {...pageProps} />
+					<Component key={router.route} {...pageProps} />
 
-						<Footer />
+					<Footer />
 
-					</main>
+				</main>
 
-				</SmoothScrolling>
+			</SmoothScrolling>
 
-			</RecoilRoot>
 		</div>
 	)
 }

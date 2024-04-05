@@ -3,12 +3,14 @@ import clsx from 'clsx'
 import { Fancybox } from '@fancyapps/ui'
 import { useRef, useState, useEffect } from 'react'
 import { useForm, FormProvider, useFormContext } from 'react-hook-form'
+import gsap from 'gsap'
+import { useGSAP } from '@gsap/react'
 
 // utils
-import { slugify } from '@/utils/functions'
+import { debounce, slugify } from '@/utils/functions'
 
 // svg
-import UxArrowRight from '@/assets/svg/ux/arrow-right.svg'
+import UxClose from '@/assets/svg/ux/close.svg'
 
 // css
 import styles from './form.module.scss'
@@ -20,7 +22,7 @@ export const Form = ({ className, children }) => {
     // form validations
     const methods = useForm({
         criteriaMode: 'all',
-        mode: 'all'
+        mode: 'onBlur'
     })
     
     // submit function
@@ -33,6 +35,8 @@ export const Form = ({ className, children }) => {
         })
 
         .then(response => {
+            //console.log(JSON.stringify(data))
+
             if (response.ok) {
                 return response.json()
             } else {
@@ -67,11 +71,6 @@ export const Form = ({ className, children }) => {
         })
     }
 
-    const closeFancybox = () => {
-        console.log('close?')
-        Fancybox.close()
-    }
-
     return (
         <FormProvider {...methods}>
             <form
@@ -85,7 +84,7 @@ export const Form = ({ className, children }) => {
             <div className={styles.popup} id='success'>
                 <div className={styles.wrapper}>
 
-                <p className={clsx(styles.title, 'font-big')}>
+                <p className={clsx(styles.title, 'font-bigger')}>
                         Success
                     </p>
 
@@ -94,8 +93,8 @@ export const Form = ({ className, children }) => {
                         We will contact you as soon as possible.
                     </p>
 
-                    <button className={styles.button} data-fancybox-close>
-                        Close <UxArrowRight />
+                    <button className={clsx(styles.button, 'font-small')} data-fancybox-close>
+                        Close <UxClose />
                     </button>
 
                 </div>
@@ -104,7 +103,7 @@ export const Form = ({ className, children }) => {
             <div className={styles.popup} id='error'>
                 <div className={styles.wrapper}>
 
-                    <p className={clsx(styles.title, 'font-big')}>
+                    <p className={clsx(styles.title, styles.error, 'font-bigger')}>
                         Error
                     </p>
 
@@ -113,8 +112,8 @@ export const Form = ({ className, children }) => {
                         Please wait a moment and try again.
                     </p>
 
-                    <button className={styles.button} data-fancybox-close>
-                        Close <UxArrowRight />
+                    <button className={clsx(styles.button, 'font-small')} data-fancybox-close>
+                        Close <UxClose />
                     </button>
 
                 </div>
@@ -126,7 +125,7 @@ export const Form = ({ className, children }) => {
 
 export const Input = ({ label, type, placeholder, required, maxLength }) => {
 
-    const { register, trigger, formState: { errors } } = useFormContext()
+    const { register, formState: { errors } } = useFormContext()
 
     let validations = {
         required: required && 'This field is required',
@@ -148,26 +147,19 @@ export const Input = ({ label, type, placeholder, required, maxLength }) => {
     }
 
     const [content, setContent] = useState('')
-    const [isTyping, setIsTyping] = useState(false)
 
     const handleContentChange = (e) => {
         let inputContent = e.target.value
         setContent(inputContent)
-        trigger(label)
-
-        if (inputContent.trim() !== '') {
-            setIsTyping(true)
-        } else {
-            setIsTyping(false)
-        }
     }
 
-    const [minWidth, setMinWidth] = useState('');
+    // set min width for input
+    const [minWidth, setMinWidth] = useState('')
 
     useEffect(() => {
         const handleResize = () => {
             const width = window.innerWidth
-            const newMinWidth = width > 768 ? `calc(${placeholder.length}rem)` : `calc(${placeholder.length}rem - 4rem)`
+            const newMinWidth = width > 768 ? `calc(${placeholder.length}rem)` : `calc(${placeholder.length}rem - 3.75rem)`
             setMinWidth(newMinWidth)
         }
 
@@ -178,11 +170,39 @@ export const Input = ({ label, type, placeholder, required, maxLength }) => {
         return () => window.removeEventListener('resize', handleResize)
     }, [placeholder.length])
 
+    // timeout
+    const scope = useRef()
+    const error = useRef()
+
+    useGSAP(() => {
+        if(error.current) {
+            const tl = gsap.timeline({
+                paused: true,
+                onComplete: () => {
+                    tl.seek(0).pause()
+                }
+            })
+
+            tl.to('.gsap-error', {
+                opacity: 1,
+                y: 0,
+            })
+            
+            tl.to('.gsap-error', {
+                opacity: 0,
+                y: -20,
+                delay: 2
+            })
+
+            tl.play()
+        }
+    }, { dependencies: [errors[label]], scope: scope })
+
     return (
-        <div className={clsx(styles.inputWrapper, errors[label] && styles.error)}>
+        <div className={clsx(styles.inputWrapper, errors[label] && styles.error)} ref={scope}>
 
             <p
-                className={clsx(styles.text, isTyping && styles.active)}
+                className={clsx(styles.text)}
                 contentEditable='true'
                 suppressContentEditableWarning={true}
                 tabIndex={-1}
@@ -194,16 +214,18 @@ export const Input = ({ label, type, placeholder, required, maxLength }) => {
             <input
                 type={type}
                 id={slugify(label)}
+                placeholder={placeholder}
                 className={styles.input}
                 onChange={handleContentChange}
                 onInput={handleContentChange}
                 autoComplete='none'
                 role='presentation'
+                style={{ minWidth: minWidth }}
                 {...register(label, validations)}
             />
 
             {errors[label] && (
-                <p className={clsx(styles.errorMsg, 'font-smaller')}>
+                <p ref={error} className={clsx(styles.errorMsg, 'gsap-error font-smaller')}>
                     {errors[label].message}
                 </p>
             )}

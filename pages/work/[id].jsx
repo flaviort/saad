@@ -28,22 +28,31 @@ import FillTitle from '@/components/utils/fill-title'
 
 export default function WorkInner() {
 
+    // define the bodyClass
+	const bodyClass = 'work-inner'
+
     const lenis = useLenis()
     const bannerRef = useRef()
 
     // banner animation
     useGSAP(() => {
-        gsap.to('.bg img', {
-            autoAlpha: .1,
-            scale: 1.1,
-            scrollTrigger: {
-                trigger: bannerRef.current,
-                start: 'top top',
-                anticipatePin: true,
-                pin: '.bg',
-                end: 'bottom top',
-                scrub: true,
-                pinSpacing: false
+		setTimeout(() => {
+			if (document.body.classList.contains(bodyClass)) {
+
+                gsap.to('.bg img', {
+                    autoAlpha: .1,
+                    scale: 1.1,
+                    scrollTrigger: {
+                        trigger: bannerRef.current,
+                        start: 'top top',
+                        anticipatePin: true,
+                        pin: '.bg',
+                        end: 'bottom top',
+                        scrub: true,
+                        pinSpacing: false
+                    }
+                })
+
             }
         })
     }, { scope: bannerRef, dependencies: [lenis] })
@@ -119,6 +128,7 @@ export default function WorkInner() {
         <>
 
             <SeoContainer
+                bodyClass={bodyClass}
 				pageTitle={projectDetails.title}
 				pageDescription={projectDetails.subTitle}
 			/>

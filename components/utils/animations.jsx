@@ -29,6 +29,7 @@ export function FadeIn({ children }) {
         <div
             ref={image}
             style={{
+                position: 'relative',
                 width: '100%',
                 height: '100%'
             }}

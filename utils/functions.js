@@ -22,6 +22,9 @@ export function debounce(func, delay) {
     };
 }
 
+// get vh
+export const vh = (coef) => window.innerHeight * (coef/100)
+
 // slugify
 export function slugify(str) {
     return String(str)

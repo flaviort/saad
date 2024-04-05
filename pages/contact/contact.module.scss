@@ -25,6 +25,11 @@
             margin-bottom: 2rem;
             line-height: 1.6;
 
+            @media #{$mq-sm-max} {
+                font-size: 1.1rem;
+                line-height: 1.5;
+            }
+
             > p {
                 margin-right: .5rem;
             }
@@ -34,7 +39,7 @@
 
                 p {
                     display: inline-block;
-                    margin-right: .5rem;
+                    margin-right: 1rem;
                 }
             }
         }

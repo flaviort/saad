@@ -1,7 +1,9 @@
+// libraries
 import Head from 'next/head'
 import { useRouter } from 'next/router'
+import { useEffect } from 'react'
 
-export default function SEOContainer({ pageTitle, pageDescription }) {
+export default function SEOContainer({ pageTitle, pageDescription, bodyClass }) {
 
     const router = useRouter()
     const { asPath } = useRouter()
@@ -15,6 +17,25 @@ export default function SEOContainer({ pageTitle, pageDescription }) {
 	const defaultPageDesc = 'Saad® is an internationally award-winning boutique brand consultancy specialized in building and transforming the future of businesses.'
 
 	const image = router.basePath + '/img/og-image.png'
+
+    // update body class
+    useEffect(() => {
+        document.body.classList.add(bodyClass)
+
+        const handlePageTransition = () => {
+            document.body.classList.value = ''
+    
+            setTimeout(() => {
+                document.body.classList.add(bodyClass)
+            }, 10)
+        }
+    
+        document.addEventListener('page-transition', handlePageTransition)
+    
+        return () => {
+            document.removeEventListener('page-transition', handlePageTransition)
+        }
+    }, [router, bodyClass])    
 
     return (
         <Head>

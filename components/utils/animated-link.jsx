@@ -27,6 +27,13 @@ export default function AnimatedLink({ href, children, onClick, ...props }) {
                 onClick(e)
             }
         }
+
+        // dispatch page transition event
+        router.events.on('routeChangeComplete', () => {
+            setTimeout(() => {
+                document.dispatchEvent(new Event('page-transition'))
+            }, 10)
+        })
     }
 
     return (

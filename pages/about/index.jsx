@@ -1,10 +1,14 @@
 // libraries
+import { useRef } from 'react'
 import Image from 'next/image'
 import clsx from 'clsx'
+import gsap from 'gsap'
+import { useGSAP } from '@gsap/react'
 
 // components
 import SeoContainer from '@/components/utils/seo-container'
 import AnimatedLine from '@/components/utils/animated-line'
+import FillTitle from '@/components/utils/fill-title'
 import { FadeIn } from '@/components/utils/animations'
 import ListSection from '@/components/list-section'
 import LogosSlider from '@/components/logos-slider'
@@ -15,9 +19,30 @@ import lucas from '@/assets/img/lucas.jpg'
 
 // css
 import styles from './about.module.scss'
-import FillTitle from '@/components/utils/fill-title'
 
 export default function About() {
+
+	// define the bodyClass
+	const bodyClass = 'about'
+
+	const fadeInRef = useRef()
+
+	useGSAP(() => {
+		setTimeout(() => {
+			if (document.body.classList.contains(bodyClass)) {
+
+				document.addEventListener('opening', () => {
+					gsap.from('.fadeIn', {
+						opacity: 0,
+						yPercent: 50,
+						duration: 1,
+						stagger: .3
+					})
+				})
+
+			}
+		})
+	})
 
 	const services = {
 		title: 'Services',
@@ -336,22 +361,23 @@ export default function About() {
     return (
 		<>
 			<SeoContainer
+				bodyClass={bodyClass}
 				pageTitle='About'
 				pageDescription='We help visionary leaders drive change and growth inside and outside your organizations in a creative and audacious way.'
 			/>
 
 			<section className={clsx(styles.topPart, 'padding-top-bigger padding-bottom-big')}>
 				<div className='container'>
-					<div className='grid-container'>
+					<div className='grid-container' ref={fadeInRef}>
 
 						<div className='grid-md-2-6'>
-							<h2 className='font-big-2'>
+							<h2 className='font-big-2 fadeIn'>
 								We help visionary leaders drive change and growth inside and outside their organizations in creative and bold ways.
 							</h2>
 						</div>
 
 						<div className='grid-md-2-5'>
-							<p>
+							<p className='fadeIn'>
 								We look for the uniqueness of each brand. Your authenticity. What makes you unique. Once we find it, we communicate it to the world through carefully crafted strategies, stories, design and experiences that people won't forget.<br /><br />
 
 								We believe that impactful brands can positively change the world – and we are here to help you build them through the perfect balance between strategy, design and technology, developing unique experiences for visionary brands.

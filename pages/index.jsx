@@ -22,6 +22,7 @@ import ContactMarquee from '@/components/contact-marquee'
 // routes / utils
 import projects from '@/utils/projects'
 import routes from '@/utils/routes'
+import { vh } from '@/utils/functions'
 
 // svgs
 import UxArrowRight from '@/assets/svg/ux/arrow-right.svg'
@@ -32,42 +33,53 @@ import styles from './home.module.scss'
 
 export default function Home() {
 
-	// scrolltrigger pin effect
-	const banner = useRef(null)
-	const video = useRef(null)
-	const title = useRef(null)
+	// define the bodyClass
+	const bodyClass = 'home'
 
-	const vh = (coef) => window.innerHeight * (coef/100)
+	// scrolltrigger pin effect
+	const bannerRef = useRef(null)
+	const videoRef = useRef(null)
+	const titleRef = useRef(null)
 	
 	useGSAP(() => {
-		ScrollTrigger.create({
-			pin: title.current,
-			trigger: banner.current,
-			start: 'top bottom',
-			end: '+=' + vh(210), // this value should be the same as the padding-bottom on home.module.scss
-			scrub: 3,
-			anticipatePin: 1,
-			pinSpacing: false // remove the padding-bottom (we need to setup this manually)
-		})
+		setTimeout(() => {
+			if (document.body.classList.contains(bodyClass)) {
 
-		gsap.from(video.current, {
-			scale: .1,
-			scrollTrigger: {
-				anticipatePin: 1,
-				trigger: banner.current,
-				start: 'top bottom',
-				end: '+=' + vh(50),
-				scrub: 3
+				const banner = bannerRef.current
+				const video = videoRef.current
+				const title = titleRef.current
+
+				ScrollTrigger.create({
+					pin: title,
+					trigger: banner,
+					start: 'top bottom',
+					end: '+=' + vh(210), // this value should be the same as the padding-bottom on home.module.scss
+					scrub: 3,
+					anticipatePin: 1,
+					pinSpacing: false // remove the padding-bottom (we need to setup this manually)
+				})
+
+				gsap.from(video, {
+					scale: .1,
+					scrollTrigger: {
+						anticipatePin: 1,
+						trigger: banner,
+						start: 'top bottom',
+						end: '+=' + vh(50),
+						scrub: 3
+					}
+				})
+
+				document.addEventListener('opening', () => {
+					gsap.from(title, {
+						yPercent: 100,
+						duration: 2,
+						ease: 'power2.out'
+					})
+				})
+
 			}
-		})
-
-		document.addEventListener('opening', () => {
-			gsap.from(title.current, {
-				yPercent: 100,
-				duration: 2,
-				ease: 'power2.out'
-			})
-		})
+		}, 1)
 	})
 
 	// counters
@@ -111,17 +123,18 @@ export default function Home() {
 		<>
 
 			<SeoContainer
+				bodyClass={bodyClass}
 				pageTitle='Impactful Tailored Brands'
 				pageDescription='Saad® is an internationally award-winning boutique brand consultancy specialized in building and transforming the future of businesses.'
 			/>
 
-			<section className={clsx(styles.banner, 'padding-bottom')} ref={banner}>
+			<section className={clsx(styles.banner, 'padding-bottom')} ref={bannerRef}>
 				<div className='container'>
 
 					<div className={styles.firstSection}>
 					
 						<Fancybox options={{ dragToClose: false }}>
-							<a href='https://vimeo.com/875961835' data-fancybox='showreel' className={styles.video} ref={video}>
+							<a href='https://vimeo.com/875961835' data-fancybox='showreel' className={styles.video} ref={videoRef}>
 								<FollowMouse text='Play' big scrollTrigger>
 
 									<div className={styles.play}>
@@ -139,7 +152,7 @@ export default function Home() {
 						
 					</div>
 
-					<h1 ref={title}>
+					<h1 ref={titleRef}>
 						<OthersImpactfulTailoredBrands />
 					</h1>
 

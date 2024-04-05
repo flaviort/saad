@@ -1,6 +1,7 @@
 // libraries
 import clsx from 'clsx'
 import { useRef } from 'react'
+import { useRouter } from 'next/router'
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
 import { SplitText } from 'gsap/dist/SplitText'
@@ -20,89 +21,93 @@ import styles from './contact.module.scss'
 
 export default function Contact() {
 
+	// define the bodyClass
+	const bodyClass = 'contact'
+
 	const stagger0 = useRef()
 	const stagger1 = useRef()
 	const stagger2 = useRef()
 	const stagger3 = useRef()
 
 	useGSAP(() => {
-		new SplitText('.break-word', {
-			type: 'word'
-		})
+		setTimeout(() => {
+			if (document.body.classList.contains(bodyClass)) {
+	
+				new SplitText('.break-word', {
+					type: 'word'
+				})
 
-		const children0 = stagger0.current
-		const children1 = stagger1.current
-		const children2 = stagger2.current
-		const children3 = stagger3.current
-
-		const tl = gsap.timeline({
-			paused: true
-		})
-
-		gsap.set(children0, {
-            opacity: 0,
-            y: '25vh'
-        })
-
-        gsap.set(children1, {
-            opacity: 0,
-            y: '25vh'
-        })
-
-		gsap.set(children2, {
-            opacity: 0,
-            y: '25vh'
-        })
-
-		gsap.set(children3, {
-            opacity: 0,
-            y: '25vh'
-        })
-
-		tl.to(children0, {
-			opacity: 1,
-			y: 0,
-			stagger: 0.05,
-			duration: .6
-		})
-
-		tl.to(children1, {
-			opacity: 1,
-			y: 0,
-			stagger: 0.05,
-			duration: .6
-		}, '-=.3')
-
-		tl.to(children2, {
-			opacity: 1,
-			y: 0,
-			stagger: 0.05,
-			duration: .6
-		}, '-=.3')
-
-		tl.to(children3, {
-			opacity: 1,
-			y: 0,
-			stagger: 0.05,
-			duration: .6
-		}, '-=.3')
-
-		document.addEventListener('opening', () => {
-			setTimeout(() => {
-				tl.play()	
-			}, 500)
-		})
-
-		document.addEventListener('page-transition', () => {
-			setTimeout(() => {
-				tl.play()	
-			})
-		})
+				document.addEventListener('opening', () => {
+	
+					const children0 = stagger0.current
+					const children1 = stagger1.current
+					const children2 = stagger2.current
+					const children3 = stagger3.current
+		
+					const tl = gsap.timeline({
+						paused: true
+					})
+			
+					gsap.set(children0, {
+						opacity: 0,
+						y: '25vh'
+					})
+			
+					gsap.set(children1, {
+						opacity: 0,
+						y: '25vh'
+					})
+			
+					gsap.set(children2, {
+						opacity: 0,
+						y: '25vh'
+					})
+			
+					gsap.set(children3, {
+						opacity: 0,
+						y: '25vh'
+					})
+			
+					tl.to(children0, {
+						opacity: 1,
+						y: 0,
+						stagger: 0.05,
+						duration: .6
+					})
+			
+					tl.to(children1, {
+						opacity: 1,
+						y: 0,
+						stagger: 0.05,
+						duration: .6
+					}, '-=.3')
+			
+					tl.to(children2, {
+						opacity: 1,
+						y: 0,
+						stagger: 0.05,
+						duration: .6
+					}, '-=.3')
+			
+					tl.to(children3, {
+						opacity: 1,
+						y: 0,
+						stagger: 0.05,
+						duration: .6
+					}, '-=.3')
+	
+					setTimeout(() => {
+						tl.play()	
+					}, 500)
+				})
+			}
+		}, 1)
 	})
 
     return (
 		<>
 			<SeoContainer
+				bodyClass={bodyClass}
 				pageTitle='Contact'
 				pageDescription='Simple, fast, and efficient. Fill out our form and get in touch with us.'
 			/>
@@ -126,7 +131,7 @@ export default function Contact() {
 
 									<Input
 										type='text'
-										label='Person Name'
+										label='Name'
 										placeholder='type your name'
 										required
 										maxLength={50}
@@ -138,7 +143,7 @@ export default function Contact() {
 
 									<Input
 										type='text'
-										label='Person Position'
+										label='Position'
 										placeholder='type your position'
 										required
 										maxLength={50}
@@ -150,7 +155,7 @@ export default function Contact() {
 
 									<Input
 										type='text'
-										label='Company Name'
+										label='Company'
 										placeholder='company name'
 										required
 										maxLength={50}
@@ -162,7 +167,7 @@ export default function Contact() {
 
 									<Input
 										type='text'
-										label='How Many Employees'
+										label='Employees'
 										placeholder='quantity'
 										required
 										maxLength={10}
@@ -174,7 +179,7 @@ export default function Contact() {
 
 									<Input
 										type='text'
-										label='Desired Service'
+										label='Service'
 										placeholder='type the service'
 										required
 										maxLength={100}
@@ -194,7 +199,7 @@ export default function Contact() {
 
 									<Input
 										type='email'
-										label='Corporate Email'
+										label='Email'
 										placeholder='name@email.com'
 										required
 										maxLength={50}
@@ -206,7 +211,7 @@ export default function Contact() {
 
 									<Input
 										type='tel'
-										label='Corporate Phone'
+										label='Phone'
 										placeholder='+1 (123) 456-7890'
 										required
 										maxLength={40}

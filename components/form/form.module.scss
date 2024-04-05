@@ -4,11 +4,14 @@
     &.error {
         color: $red;
 
-        .text {
-            border-bottom-color: $red;
-        }
-
         .input {
+            border-bottom-color: $red;
+            color: $red;
+
+            &::placeholder {
+                color: inherit;
+            }
+
             &:focus {
                 outline-color: $red;
             }
@@ -22,32 +25,33 @@
         outline: none;
         box-shadow: none;
         border-radius: 0;
-        opacity: .25;
+        opacity: 0;
         min-width: 2rem;
         cursor: text;
         border-bottom: 1px solid $black;
         pointer-events: none;
-
-        &.active {
-            opacity: 1;
-        }
     }
 
     .input {
         position: absolute;
+        z-index: 2;
         top: 0;
         left: 0;
-        z-index: 2;
-        color: transparentize($white, .9);
+        color: black;
         background-color: transparent;
-        font-size: 1px;
+        font-size: inherit;
         border: none;
+        border-bottom: 1px solid $black;
         outline: none;
         border-radius: 0;
         width: calc(100% - .5rem);
-        height: calc(2rem - 1px);
+        height: calc(2rem - 5px);
         appearance: textfield;
         min-width: 6rem;
+
+        @media #{$mq-xs-min} {
+            height: calc(2rem - 1px);
+        }
 
         @media #{$mq-sm-min} {
             height: calc(2rem + 1px);
@@ -83,6 +87,8 @@
         padding: .125rem .25rem;
         white-space: nowrap;
         border-radius: 2px;
+        opacity: 0;
+        transform: translateY(20px);
 
         &:after {
             content: '';
@@ -102,32 +108,75 @@
     display: none;
     background-color: $white;
     color: $black;
+    max-width: calc(100% - 1rem);
+
+    & :global {
+        .f-button.is-close-btn {
+            background-color: transparent;
+
+            @media #{$mq-sm-max} {
+                color: $black;
+            }
+        }
+    }
 
     .wrapper {
         width: 40rem;
         max-width: 100%;
         text-align: center;
-        padding: 1rem;
+
+        @media #{$mq-sm-min} {
+            padding: 1rem;
+        }
 
         .title {
+            text-transform: uppercase;
 
+            &.error {
+                color: $red;
+            }
         }
 
         .text {
             display: block;
-            margin: 2rem auto;
+            margin: .75rem auto 1.5rem auto;
+
+            @media #{$mq-sm-min} {
+                margin: 1.25rem auto 1.5rem auto;
+            }
+
+            br {
+                @media #{$mq-sm-max} {
+                    display: none;
+                }
+            }
         }
 
         .button {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 1rem;
+            gap: .5rem;
             margin: auto;
+            padding: .825rem 1.125rem;
+            border: 1px solid $black;
+            line-height: 1;
+            transition: .3s ease-in-out;
+
+            @media #{$mq-sm-min} {
+                padding: 1rem 1.5rem;
+                gap: .75rem;
+            }
+
+            &:hover {
+                background-color: $black;
+                color: $white;
+            }
 
             svg {
-                width: 1rem;
-                height: 1rem;
+                min-width: .75rem;
+                width: .75rem;
+                height: .75rem;
             }
         }
     }

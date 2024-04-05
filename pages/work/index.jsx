@@ -15,9 +15,13 @@ import styles from './work.module.scss'
 
 export default function Work() {
 
+	// define the bodyClass
+	const bodyClass = 'work'
+
     return (
 		<>
 			<SeoContainer
+				bodyClass={bodyClass}
 				pageTitle='Work'
 				pageDescription='Creating the future for ambitious brands. We develop projects that transform visions and businesses.'
 			/>
