@@ -28,7 +28,7 @@ export default function ListSection({ className, title, infos, small, about, sin
                 trigger: '.grid-md-1-2',
                 pin: '.title',
                 start: 'top 50%',
-                end: '96% 50%',
+                end: '97% 50%',
                 scrub: 3
             })
         }

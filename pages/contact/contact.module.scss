@@ -1,0 +1,23 @@
+.main {
+    background-color: $white;
+    color: $black;
+
+    .form {
+        display: block;
+        margin-top: 2rem;
+
+        .flex {
+            margin-bottom: 2rem;
+            line-height: 1.6;
+
+            > * {
+                display: inline;
+
+                p {
+                    display: inline-block;
+                    margin: 0 .5rem;
+                }
+            }
+        }
+    }
+}
