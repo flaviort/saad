@@ -1,34 +1,21 @@
 // libraries
 import clsx from 'clsx'
-import { useForm, FormProvider, useFormContext } from 'react-hook-form'
+import { Fancybox } from '@fancyapps/ui'
 import { useRef, useState, useEffect } from 'react'
+import { useForm, FormProvider, useFormContext } from 'react-hook-form'
 
 // utils
 import { slugify } from '@/utils/functions'
+
+// svg
+import UxArrowRight from '@/assets/svg/ux/arrow-right.svg'
 
 // css
 import styles from './form.module.scss'
 
 export const Form = ({ className, children }) => {
-    
-    // define all refs
-    const modalSuccess = useRef(null)
-    const modalError = useRef(null)
+
     const form = useRef(null)
-
-    // useState to make the Modals invisible
-    const [ renderSuccessModal, setRenderSuccessModal ] = useState(false)
-    const [ renderErrorModal, setRenderErrorModal ] = useState(false)
-
-    // close success modal
-    const closeSuccessModal = () => {
-        setRenderSuccessModal(false)
-    }
-
-    // close error modal
-    const closeErrorModal = () => {
-        setRenderErrorModal(false)
-    }
 
     // form validations
     const methods = useForm({
@@ -38,10 +25,9 @@ export const Form = ({ className, children }) => {
     
     // submit function
     const onSubmit = (data) => {
-
         form.current.classList.add('sending')
 
-        fetch('/api/sendgrid', {
+        fetch('../api/sendgrid', {
             method: 'post',
             body: JSON.stringify(data)
         })
@@ -56,10 +42,11 @@ export const Form = ({ className, children }) => {
 
         // if success
         .then(() => {
-            setRenderSuccessModal(true)
-
             setTimeout(() => {
-                modalSuccess.current.showModal()
+                Fancybox.show([{
+                    src: '#success',
+                    type: 'inline',
+                }])
                 form.current.classList.remove('sending')
                 form.current.reset()
             }, 500)
@@ -68,13 +55,21 @@ export const Form = ({ className, children }) => {
         // if error
         .catch(error => {
             console.error('Error:', error)
-            setRenderErrorModal(true)
 
             setTimeout(() => {
-                modalError.current.showModal()
+                Fancybox.show([{
+                    src: '#error',
+                    type: 'inline',
+                    contentClick: true
+                }])
                 form.current.classList.remove('sending')
             }, 500)
         })
+    }
+
+    const closeFancybox = () => {
+        console.log('close?')
+        Fancybox.close()
     }
 
     return (
@@ -87,18 +82,44 @@ export const Form = ({ className, children }) => {
                 {children}
             </form>
 
-            {renderSuccessModal && 
-                <p>
-                    Success
-                </p>
-            }
+            <div className={styles.popup} id='success'>
+                <div className={styles.wrapper}>
 
-            { renderErrorModal &&
-                <p>
-                    Error
-                </p>
-            }
-            
+                <p className={clsx(styles.title, 'font-big')}>
+                        Success
+                    </p>
+
+                    <p className={styles.text}>
+                        Your message has been sent! <br />
+                        We will contact you as soon as possible.
+                    </p>
+
+                    <button className={styles.button} data-fancybox-close>
+                        Close <UxArrowRight />
+                    </button>
+
+                </div>
+            </div>
+
+            <div className={styles.popup} id='error'>
+                <div className={styles.wrapper}>
+
+                    <p className={clsx(styles.title, 'font-big')}>
+                        Error
+                    </p>
+
+                    <p className={styles.text}>
+                        An error occurred while sending your message! <br />
+                        Please wait a moment and try again.
+                    </p>
+
+                    <button className={styles.button} data-fancybox-close>
+                        Close <UxArrowRight />
+                    </button>
+
+                </div>
+            </div>
+
         </FormProvider>
     )
 }

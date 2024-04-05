@@ -13,6 +13,7 @@ import { Form, Input } from '@/components/form'
 
 // svgs
 import UxArrowRight from '@/assets/svg/ux/arrow-right.svg'
+import UxSpinner from '@/assets/svg/ux/spinner.svg'
 
 // css
 import styles from './contact.module.scss'
@@ -176,7 +177,7 @@ export default function Contact() {
 										label='Desired Service'
 										placeholder='type the service'
 										required
-										maxLength={30}
+										maxLength={100}
 									/>
 
 									<p className='break-word'>
@@ -222,9 +223,15 @@ export default function Contact() {
 								</div>
 								
 								<button type='submit' className={styles.submit}>
-									<span className='font-big'>
+									
+									<span className='submit-text font-big'>
 										Submit form <UxArrowRight />
 									</span>
+
+									<span className={clsx(styles.spinner, 'spinner')} tabIndex={-1}>
+										<UxSpinner />
+									</span>
+
 								</button>
 
 							</Form>

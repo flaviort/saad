@@ -17,50 +17,57 @@ export default function CustomScrollbar() {
     const lenis = useLenis()
 
     useGSAP(() => {
-        let scrollbarHeight = scrollbar?.current?.getBoundingClientRect().height
-        let thumbHeight = thumb?.current?.getBoundingClientRect().height
-        let content = document.querySelector('[data-scroll-container]')
-        let contentHeight = content.getBoundingClientRect().height
-
-        if(document.querySelector('[data-scrollbar-thumb-height="variable"]')) {
-            gsap.set(thumb.current, {
-                height: (scrollbarHeight / contentHeight * scrollbarHeight)
+        function updateScroll() {
+            let scrollbarHeight = scrollbar?.current?.getBoundingClientRect().height
+            let thumbHeight = thumb?.current?.getBoundingClientRect().height
+            let content = document.querySelector('[data-scroll-container]')
+            let contentHeight = content.getBoundingClientRect().height
+    
+            if(document.querySelector('[data-scrollbar-thumb-height="variable"]')) {
+                gsap.set(thumb.current, {
+                    height: (scrollbarHeight / contentHeight * scrollbarHeight)
+                })
+    
+                thumbHeight = (scrollbarHeight / contentHeight * scrollbarHeight)
+            }
+    
+            let scrollTween = gsap.to(thumb.current, {
+                y: scrollbarHeight - thumbHeight,
+                ease: 'none',
+                scrollTrigger: {
+                    start: 'top top',
+                    end: 'bottom bottom',
+                    scrub: true
+                }
             })
-
-            thumbHeight = (scrollbarHeight / contentHeight * scrollbarHeight)
+            
+            Draggable.create(thumb.current, {
+                type: 'y',
+                bounds: scrollbar.current,
+                inertia: false,
+                onDrag() {
+                    setTimeout(() => {
+                        let progress = gsap.utils.normalize(this.minY, this.maxY, this.y)
+                        lenis.scrollTo((contentHeight - scrollbarHeight) * progress, {
+                            immediate: true
+                        })
+                        scrollbar.current.setAttribute('data-scrollbar-drag', 'true')    
+                    }, 1)
+                    
+                },
+                onRelease() {
+                    let progress = gsap.utils.normalize(this.minY, this.maxY, this.y)
+                    scrollTween.scrollTrigger.enable()
+                    scrollTween.progress(progress)
+                    scrollbar.current.setAttribute('data-scrollbar-drag', 'false')
+                }
+            })
         }
 
-        let scrollTween = gsap.to(thumb.current, {
-            y: scrollbarHeight - thumbHeight,
-            ease: 'none',
-            scrollTrigger: {
-                start: 'top top',
-                end: 'bottom bottom',
-                scrub: true
-            }
-        })
-        
-        Draggable.create(thumb.current, {
-            type: 'y',
-            bounds: scrollbar.current,
-            inertia: false,
-            onDrag() {
-                setTimeout(() => {
-                    let progress = gsap.utils.normalize(this.minY, this.maxY, this.y)
-                    lenis.scrollTo((contentHeight - scrollbarHeight) * progress, {
-                        immediate: true
-                    })
-                    scrollbar.current.setAttribute('data-scrollbar-drag', 'true')    
-                }, 1)
-                
-            },
-            onRelease() {
-                let progress = gsap.utils.normalize(this.minY, this.maxY, this.y)
-                scrollTween.scrollTrigger.enable()
-                scrollTween.progress(progress)
-                scrollbar.current.setAttribute('data-scrollbar-drag', 'false')
-            }
-        })
+        updateScroll()
+
+        document.addEventListener('page-transition', updateScroll)
+
     }, { dependencies: [lenis] })
 
     return (
