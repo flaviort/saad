@@ -150,13 +150,6 @@ export const Input = ({ label, type, placeholder, required, maxLength }) => {
         }
     }
 
-    useEffect(() => {
-        setTimeout(() => {
-            document.querySelector('input').setAttribute('autocomplete','none11');
-            console.log('done')
-        }, 100)
-    })
-
     return (
         <div className={clsx(styles.inputWrapper, errors[label] && styles.error)}>
 
