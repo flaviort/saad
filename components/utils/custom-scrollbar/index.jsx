@@ -1,6 +1,6 @@
 // libraries
 import { useRef } from 'react'
-import { useLenis, LenisInstance } from '@studio-freight/react-lenis'
+import { useLenis } from '@studio-freight/react-lenis'
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
 import ScrollTrigger from 'gsap/dist/ScrollTrigger'

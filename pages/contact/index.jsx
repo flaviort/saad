@@ -1,14 +1,13 @@
 // libraries
 import clsx from 'clsx'
 import { useRef } from 'react'
-import { useRouter } from 'next/router'
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
 import { SplitText } from 'gsap/dist/SplitText'
 gsap.registerPlugin(SplitText)
 
 // components
-import SeoContainer from '@/components/utils/seo-container'
+import Layout from '@/layout'
 import Fancybox from '@/components/utils/fancybox'
 import { Form, Input } from '@/components/form'
 
@@ -21,109 +20,96 @@ import styles from './contact.module.scss'
 
 export default function Contact() {
 
-	// define the bodyClass
-	const bodyClass = 'contact'
-
-	const stagger0 = useRef()
-	const stagger1 = useRef()
-	const stagger2 = useRef()
-	const stagger3 = useRef()
+	const scope = useRef()
 
 	useGSAP(() => {
-		setTimeout(() => {
-			if (document.body.classList.contains(bodyClass)) {
 	
-				new SplitText('.break-word', {
-					type: 'word'
-				})
+		new SplitText('.break-word', {
+			type: 'word'
+		})
 
-				document.addEventListener('opening', () => {
-	
-					const children0 = stagger0.current
-					const children1 = stagger1.current
-					const children2 = stagger2.current
-					const children3 = stagger3.current
-		
-					const tl = gsap.timeline({
-						paused: true
-					})
-			
-					gsap.set(children0, {
-						opacity: 0,
-						y: '25vh'
-					})
-			
-					gsap.set(children1, {
-						opacity: 0,
-						y: '25vh'
-					})
-			
-					gsap.set(children2, {
-						opacity: 0,
-						y: '25vh'
-					})
-			
-					gsap.set(children3, {
-						opacity: 0,
-						y: '25vh'
-					})
-			
-					tl.to(children0, {
-						opacity: 1,
-						y: 0,
-						stagger: 0.05,
-						duration: .6
-					})
-			
-					tl.to(children1, {
-						opacity: 1,
-						y: 0,
-						stagger: 0.05,
-						duration: .6
-					}, '-=.3')
-			
-					tl.to(children2, {
-						opacity: 1,
-						y: 0,
-						stagger: 0.05,
-						duration: .6
-					}, '-=.3')
-			
-					tl.to(children3, {
-						opacity: 1,
-						y: 0,
-						stagger: 0.05,
-						duration: .6
-					}, '-=.3')
-	
-					setTimeout(() => {
-						tl.play()	
-					}, 500)
-				})
-			}
-		}, 1)
-	})
+		const tl = gsap.timeline({
+			paused: true
+		})
+
+		gsap.set('.stagger-0', {
+			opacity: 0,
+			y: '25vh'
+		})
+
+		gsap.set('.stagger-1', {
+			opacity: 0,
+			y: '25vh'
+		})
+
+		gsap.set('.stagger-2', {
+			opacity: 0,
+			y: '25vh'
+		})
+
+		gsap.set('.stagger-3', {
+			opacity: 0,
+			y: '25vh'
+		})
+
+		tl.to('.stagger-0', {
+			opacity: 1,
+			y: 0,
+			stagger: 0.05,
+			duration: .6
+		})
+
+		tl.to('.stagger-1', {
+			opacity: 1,
+			y: 0,
+			stagger: 0.05,
+			duration: .6
+		}, '-=.3')
+
+		tl.to('.stagger-2', {
+			opacity: 1,
+			y: 0,
+			stagger: 0.05,
+			duration: .6
+		}, '-=.3')
+
+		tl.to('.stagger-3', {
+			opacity: 1,
+			y: 0,
+			stagger: 0.05,
+			duration: .6
+		}, '-=.3')
+
+		document.addEventListener('opening', () => {
+			setTimeout(() => {
+				tl.play()	
+			}, 500)
+		})
+
+		document.addEventListener('page-transition', () => {
+			tl.play()	
+		})
+	}, { scope: scope })
 
     return (
-		<>
-			<SeoContainer
-				bodyClass={bodyClass}
-				pageTitle='Contact'
-				pageDescription='Simple, fast, and efficient. Fill out our form and get in touch with us.'
-			/>
+		<Layout
+			bodyClass='contact'
+			pageTitle='Contact'
+			pageDescription='Simple, fast, and efficient. Fill out our form and get in touch with us.'
+		>
 
-			<section className={clsx(styles.main, 'padding-top-bigger')}>
+			<section className={clsx(styles.main, 'padding-top-bigger')} ref={scope}>
 				<div className='container'>
 					<div className='grid-container'>
 						<div className='grid-md-2-7 grid-xl-2-6'>
 
-							<p className='font-big-2' ref={stagger0}>
+							<p className='font-big-2 stagger-0'>
 								Olá Saad!
 							</p>
 
 							<Form className={styles.form}>
 								
-								<div className={clsx(styles.flex, 'font-big')} ref={stagger1}>
+								<div className={clsx(styles.flex, 'stagger-1 font-big')}>
 
 									<p className='break-word'>
 										My name is
@@ -191,7 +177,7 @@ export default function Contact() {
 
 								</div>
 
-								<div className={clsx(styles.flex, 'font-big')} ref={stagger2}>
+								<div className={clsx(styles.flex, 'font-big stagger-2')}>
 
 									<p className='break-word'>
 										My corporate email is
@@ -223,7 +209,7 @@ export default function Contact() {
 
 								</div>
 
-								<div className={clsx(styles.consent, 'font-small')} ref={stagger3}>
+								<div className={clsx(styles.consent, 'font-small stagger-3')}>
 									By clicking the “Submit form” button, I agree to&nbsp;<Fancybox><a className='hover-underline-white' href='#' data-fancybox>consent</a></Fancybox>.
 								</div>
 								
@@ -246,6 +232,6 @@ export default function Contact() {
 				</div>
 			</section>
 
-		</>
+		</Layout>
     )
 }

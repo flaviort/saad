@@ -1,6 +1,5 @@
 // libraries
 import { useRef } from 'react'
-import { useLenis } from '@studio-freight/react-lenis'
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
 import ScrollTrigger from 'gsap/dist/ScrollTrigger'
@@ -9,7 +8,6 @@ gsap.registerPlugin(ScrollTrigger)
 // fadeIn effect
 export function FadeIn({ children }) {
 
-    const lenis = useLenis()
     const image = useRef()
 
     useGSAP(() => {
@@ -23,7 +21,7 @@ export function FadeIn({ children }) {
             }
         })
 
-    }, { dependencies: [lenis] })
+    })
 
     return (
         <div
@@ -43,7 +41,6 @@ export function FadeIn({ children }) {
 export function ScrollingImage({ children }) {
 
     const item = useRef()
-    const lenis = useLenis()
 
     let calcSize
     let size
@@ -76,7 +73,7 @@ export function ScrollingImage({ children }) {
                 end: 'bottom top'
             }
         })
-	}, { dependencies: [lenis]})
+	})
 
     return (
         <div
@@ -89,40 +86,6 @@ export function ScrollingImage({ children }) {
             }}
         >
             {children}
-        </div>
-    )
-}
-
-// stagger up effect
-export function StaggerUp(props) {
-    
-    const lenis = useLenis()
-    const item = useRef()
-
-	useGSAP(() => {
-        const children = item.current.children
-
-        gsap.set(children, {
-            opacity: 0,
-            y: '25vh'
-        })
-
-        ScrollTrigger.batch(children, {
-            start: '-50% 100%',
-            onEnter: elements => {
-                gsap.to(elements, {
-                    opacity: 1,
-                    y: 0,
-                    stagger: 0.25,
-                    duration: 1
-                })
-            }
-        })
-	}, { dependencies: [lenis]})
-
-    return (
-        <div ref={item} {...props} data-stagger>
-            {props.children}
         </div>
     )
 }

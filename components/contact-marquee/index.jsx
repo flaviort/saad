@@ -1,7 +1,6 @@
-'use client'
-
 // libraries
 import clsx from 'clsx'
+import Link from 'next/link'
 import { useLenis } from '@studio-freight/react-lenis'
 import { useRef } from 'react'
 import gsap from 'gsap'
@@ -10,7 +9,6 @@ import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
 
 // components
-import AnimatedLink from '@/components/utils/animated-link'
 import FollowMouse from '@/components/utils/follow-mouse'
 
 // routes / utils
@@ -25,7 +23,7 @@ import styles from './contact-marquee.module.scss'
 
 export default function ContactMarquee() {
 
-    const directionRef = useRef(null)
+    const directionRef = useRef()
 
     const lenis = useLenis(({direction}) => {
         if(direction < 0) {
@@ -44,6 +42,7 @@ export default function ContactMarquee() {
     })
 
     useGSAP(() => {
+
         const tl = gsap.to('.marquee-span', {
             xPercent: -100,
             duration: 20,
@@ -52,13 +51,14 @@ export default function ContactMarquee() {
         }).totalProgress(.5)
 
         directionRef.current = tl
+
     }, { dependencies: [lenis] })
 
     return (
         <section className={styles.contactMarquee}>
             <FollowMouse text='Contact' big>
                 <div className='container padding-y-smaller'>
-                    <AnimatedLink href={routes.contact}>
+                    <Link scroll={false} href={routes.contact}>
 
                         <div className={clsx(styles.marquee, 'uppercase')}>
                             
@@ -79,7 +79,7 @@ export default function ContactMarquee() {
                             </p>
                         </div>
 
-                    </AnimatedLink>
+                    </Link>
                 </div>
             </FollowMouse>
         </section>

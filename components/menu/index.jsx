@@ -1,6 +1,7 @@
 // libraries
 import clsx from 'clsx'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 import { useEffect, useState, useRef } from 'react'
 import { useLenis } from '@studio-freight/react-lenis'
 import gsap from 'gsap'
@@ -11,9 +12,6 @@ gsap.registerPlugin(ScrollTrigger)
 // routes / utils
 import routes from '@/utils/routes'
 import { debounce } from '@/utils/functions'
-
-// components
-import AnimatedLink from '@/components/utils/animated-link'
 
 // svgs
 import Logo from '@/assets/svg/logos/logo.svg'
@@ -83,11 +81,30 @@ export default function Menu() {
         }
 	}
 
-    const closeFsMenu = () => {
-        setTimeout(() => {
-            setIsShown(false)
-            menuAnimationRef.current.seek(0).pause()
-        }, 1000)
+    const router = useRouter()
+
+    const closeFsMenu = (e) => {
+        const { pathname } = router
+        const hrefParts = e.currentTarget.href.split('/')
+        const currentPageName = hrefParts[hrefParts.length - 1]
+        const pathnameWithoutSlash = pathname.substring(1)
+
+        if (currentPageName  === pathnameWithoutSlash) {
+            setIsShown(!isShown)
+
+            if (!isShown) {
+                lenis.stop()
+            } else {
+                lenis.start()
+            }
+        } else {
+            setTimeout(() => {
+                setIsShown(false)
+                if (menuAnimationRef.current) {
+                    menuAnimationRef.current.seek(0).pause()
+                }
+            }, 1000)
+        }
 	}
 
     useEffect(() => {
@@ -165,9 +182,11 @@ export default function Menu() {
 				<div className='container'>
 					<div className={clsx(styles.grid, 'grid-container')}>
 
-						<AnimatedLink
+						<Link
+                            scroll={false}
 							href={routes.home}
 							className={styles.logo}
+                            onClick={closeFsMenu}
 						>
 
 							<div className={styles.original}>
@@ -178,7 +197,7 @@ export default function Menu() {
 								<Logo />
 							</div>
 
-						</AnimatedLink>
+						</Link>
 
 						<div className={clsx(styles.middle, 'grid-md-2-6')}>
 							
@@ -202,20 +221,22 @@ export default function Menu() {
 							<ul id='top-menu-language' className={styles.language}>
 
 								<li>
-									<AnimatedLink
+									<Link
+                                        scroll={false}
 										href={routes.home}
 										className={styles.active}
 									>
 										English
-									</AnimatedLink>
+									</Link>
 								</li>
 
 								<li>
-									<AnimatedLink
+									<Link
+                                        scroll={false}
 										href='./pt-br'
 									>
 										Portuguese
-									</AnimatedLink>
+									</Link>
 								</li>
 							</ul>
 
@@ -244,12 +265,13 @@ export default function Menu() {
                         <ul className={clsx(styles.menu, 'grid-md-2-7')}>
                             {menuItems.map((item, i) => (
                                 <li key={i} className='fsMenuLi'>
-                                    <AnimatedLink
+                                    <Link
+                                        scroll={false}
                                         href={item.url}
                                         onClick={closeFsMenu}
                                     >
                                         {item.name}
-                                    </AnimatedLink>
+                                    </Link>
                                 </li> 
                             ))}
                         </ul>

@@ -1,3 +1,4 @@
+// libraries
 import { useRef } from 'react'
 import { gsap } from 'gsap'
 import { useGSAP } from '@gsap/react'
@@ -6,7 +7,7 @@ gsap.registerPlugin(ScrollTrigger)
 
 export default function Counter({number}) {
 
-    const item = useRef(null)
+    const item = useRef()
 
     useGSAP(() => {
         gsap.from(item.current, {

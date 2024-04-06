@@ -5,7 +5,7 @@ import clsx from 'clsx'
 import projects from '@/utils/projects'
 
 // components
-import SeoContainer from '@/components/utils/seo-container'
+import Layout from '@/layout'
 import FollowMouse from '@/components/utils/follow-mouse'
 import Project from '@/components/project'
 import ContactMarquee from '@/components/contact-marquee'
@@ -14,17 +14,12 @@ import ContactMarquee from '@/components/contact-marquee'
 import styles from './work.module.scss'
 
 export default function Work() {
-
-	// define the bodyClass
-	const bodyClass = 'work'
-
     return (
-		<>
-			<SeoContainer
-				bodyClass={bodyClass}
-				pageTitle='Work'
-				pageDescription='Creating the future for ambitious brands. We develop projects that transform visions and businesses.'
-			/>
+		<Layout
+			bodyClass='work'
+			pageTitle='Work'
+			pageDescription='Creating the future for ambitious brands. We develop projects that transform visions and businesses.'
+		>
 
 			<section className={clsx(styles.topPart, 'padding-top-bigger padding-bottom-big')}>
 				<div className='container'>
@@ -58,6 +53,6 @@ export default function Work() {
 
 			<ContactMarquee />
 
-		</>
+		</Layout>
     )
 }

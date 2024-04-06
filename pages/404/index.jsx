@@ -1,3 +1,5 @@
+// libraries
+import Link from 'next/link'
 import { useEffect } from 'react'
 import { useRouter } from 'next/router'
 
@@ -5,8 +7,7 @@ import { useRouter } from 'next/router'
 import routes from '@/utils/routes'
 
 // components
-import AnimatedLink from '@/components/utils/animated-link'
-import SeoContainer from '@/components/utils/seo-container'
+import Layout from '@/layout'
 
 // svgs
 import UxArrowRight from '@/assets/svg/ux/arrow-right.svg'
@@ -15,14 +16,12 @@ import UxArrowRight from '@/assets/svg/ux/arrow-right.svg'
 import styles from './404.module.scss'
 
 export default function FourOhFour() {
-
     return (
-		<>
-
-			<SeoContainer
-				pageTitle='Page not found'
-				pageDescription="Oops! We've searched high and low, but unfortunately, what you're seeking seems to elude us."
-			/>
+		<Layout
+			bodyClass='error-404'
+			pageTitle='Page not found'
+			pageDescription="Oops! We've searched high and low, but unfortunately, what you're seeking seems to elude us."
+		>
 
 			<section className={styles.main}>
 				<div className='container'>
@@ -40,12 +39,15 @@ export default function FourOhFour() {
 						Oops! We've searched high and low, but unfortunately, what you're seeking seems to elude us.
 					</p>
 
-					<AnimatedLink href={routes.home}>
+					<Link
+						scroll={false}
+						href={routes.home}
+					>
 						Back to home
-					</AnimatedLink>
+					</Link>
 
 				</div>
 			</section>
-		</>
+		</Layout>
     )
 }

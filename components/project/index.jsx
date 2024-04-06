@@ -1,10 +1,10 @@
 // libraries
 import clsx from 'clsx'
 import Image from 'next/image'
+import Link from 'next/link'
 
 // components
 import { ScrollingImage } from '@/components/utils/animations'
-import AnimatedLink from '@/components/utils/animated-link'
 
 // svgs
 import UxArrowRight from '@/assets/svg/ux/arrow-right.svg'
@@ -15,7 +15,11 @@ import styles from './project.module.scss'
 export default function Project({ link, image, darkText = false, client, title, category, tags }) {
 
     return (
-        <AnimatedLink href={link} className={styles.project}>
+        <Link
+            scroll={false}
+            href={link}
+            className={styles.project}
+        >
             <div className={clsx(styles.inner, darkText && styles.dark)}>
 
                 <div className={styles.bgImage}>
@@ -72,6 +76,6 @@ export default function Project({ link, image, darkText = false, client, title, 
                 </div>
 
             </div>
-        </AnimatedLink>
+        </Link>
     )
 }

@@ -105,6 +105,7 @@ export default function Footer() {
 									{item.li.map((subItem, i2) => (
 										<li key={i2}>
 											<Link
+												scroll={false}
 												href={subItem.url}
 												target={subItem.external ? '_blank' : null}
 												className='hover-underline'

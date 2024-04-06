@@ -1,8 +1,8 @@
 // libraries
+import Link from 'next/link'
 import clsx from 'clsx'
 import Image from 'next/image'
 import { useRef } from 'react'
-import { useLenis } from '@studio-freight/react-lenis'
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
 import ScrollTrigger from 'gsap/dist/ScrollTrigger'
@@ -12,8 +12,7 @@ gsap.registerPlugin(ScrollTrigger)
 import routes from '@/utils/routes'
 
 // components
-import SeoContainer from '@/components/utils/seo-container'
-import AnimatedLink from '@/components/utils/animated-link'
+import Layout from '@/layout'
 import FollowMouse from '@/components/utils/follow-mouse'
 import AnimatedLine from '@/components/utils/animated-line'
 import { ScrollingImage } from '@/components/utils/animations'
@@ -28,34 +27,24 @@ import FillTitle from '@/components/utils/fill-title'
 
 export default function WorkInner() {
 
-    // define the bodyClass
-	const bodyClass = 'work-inner'
-
-    const lenis = useLenis()
     const bannerRef = useRef()
 
     // banner animation
     useGSAP(() => {
-		setTimeout(() => {
-			if (document.body.classList.contains(bodyClass)) {
-
-                gsap.to('.bg img', {
-                    autoAlpha: .1,
-                    scale: 1.1,
-                    scrollTrigger: {
-                        trigger: bannerRef.current,
-                        start: 'top top',
-                        anticipatePin: true,
-                        pin: '.bg',
-                        end: 'bottom top',
-                        scrub: true,
-                        pinSpacing: false
-                    }
-                })
-
+        gsap.to('.bg img', {
+            autoAlpha: .1,
+            scale: 1.1,
+            scrollTrigger: {
+                trigger: bannerRef.current,
+                start: 'top top',
+                anticipatePin: true,
+                pin: '.bg',
+                end: 'bottom top',
+                scrub: true,
+                pinSpacing: false
             }
         })
-    }, { scope: bannerRef, dependencies: [lenis] })
+    }, { scope: bannerRef })
 
     // banner
     const banner = {
@@ -125,13 +114,11 @@ export default function WorkInner() {
     ]
 
     return (
-        <>
-
-            <SeoContainer
-                bodyClass={bodyClass}
-				pageTitle={projectDetails.title}
-				pageDescription={projectDetails.subTitle}
-			/>
+        <Layout
+            bodyClass='work-inner'
+            pageTitle={projectDetails.title}
+            pageDescription={projectDetails.subTitle}
+        >
 
             <section className={styles.banner} ref={bannerRef}>
                 <FollowMouse text='Scroll'>
@@ -305,7 +292,11 @@ export default function WorkInner() {
                 <div className='container'>
                     <div className={styles.top}>
 
-                        <AnimatedLink className={styles.link} href={routes.workInner('inner')}>
+                        <Link
+                            scroll={false}
+                            href={routes.workInner('inner')}
+                            className={styles.link}
+                        >
                             
                             <span className={clsx(styles.small, 'font-small')}>
                                 Previous
@@ -315,9 +306,13 @@ export default function WorkInner() {
                                 Oigo
                             </span>
 
-                        </AnimatedLink>
+                        </Link>
 
-                        <AnimatedLink className={styles.link} href={routes.workInner('inner')}>
+                        <Link
+                            scroll={false}
+                            href={routes.workInner('inner')}
+                            className={styles.link}
+                        >
                             
                             <span className={clsx(styles.small, 'font-small')}>
                                 Next
@@ -327,7 +322,7 @@ export default function WorkInner() {
                                 Vuelo
                             </span>
 
-                        </AnimatedLink>
+                        </Link>
 
                     </div>
                 </div>
@@ -336,7 +331,11 @@ export default function WorkInner() {
                     <FollowMouse text='View'>
                         <div className={styles.flex}>
 
-                            <AnimatedLink className={styles.link} href={routes.workInner('inner')}>
+                            <Link
+                                scroll={false}
+                                href={routes.workInner('inner')}
+                                className={styles.link}
+                            >
                                 <ScrollingImage>
                                     <Image
                                         src='/img/projects/oigo.jpg'
@@ -346,9 +345,13 @@ export default function WorkInner() {
                                         sizes='50vw'
                                     />
                                 </ScrollingImage>
-                            </AnimatedLink>
+                            </Link>
 
-                            <AnimatedLink className={styles.link} href={routes.workInner('inner')}>
+                            <Link
+                                scroll={false}
+                                href={routes.workInner('inner')}
+                                className={styles.link}
+                            >
                                 <ScrollingImage>
                                     <Image
                                         src='/img/projects/vuelo.jpg'
@@ -358,7 +361,7 @@ export default function WorkInner() {
                                         sizes='50vw'
                                     />
                                 </ScrollingImage>
-                            </AnimatedLink>
+                            </Link>
 
                         </div>
                     </FollowMouse>
@@ -368,6 +371,6 @@ export default function WorkInner() {
 
             <ContactMarquee />
 
-        </>
+        </Layout>
     )
 }
