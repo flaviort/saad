@@ -21,9 +21,9 @@ export default function Video({ id }) {
     const lenis = useLenis()
 
     useGSAP(() => {
-        const trigger = videoRef.current;
-        const onEnter = () => setPlay(true);
-        const onLeave = () => setPlay(false);
+        const trigger = videoRef.current
+        const onEnter = () => setPlay(true)
+        const onLeave = () => setPlay(false)
 
         ScrollTrigger.create({
             trigger: trigger,

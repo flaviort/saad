@@ -248,10 +248,7 @@ export default function WorkInner() {
                 </div>
 
                 <div className={styles.video}>
-                    <Video
-                        className='video'
-                        id='385588398'
-                    />
+                    <Video id='385588398' />
                 </div>
 
                 <div className={styles.image}>
