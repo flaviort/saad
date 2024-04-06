@@ -1,8 +1,9 @@
 // libraries
 import { useEffect } from 'react'
-import { useNextCssRemovalPrevention } from '@madeinhaus/nextjs-page-transition'
-
 import { GoogleTagManager } from '@next/third-parties/google'
+
+// hooks
+import { usePageTransitionFix } from '@/utils/transition-fix'
 
 // components
 import CustomScrollbar from '@/components/utils/custom-scrollbar'
@@ -25,8 +26,7 @@ const antarctica = localFont({
 
 export default function App({ Component, pageProps, router }) {
 
-	const { phase } = useTransitionState()
-	const transitionClass = cx(styles.main, styles[`transition-${phase}`])
+	usePageTransitionFix()
 
 	useEffect(() => {
 		const message = 'Design Gabriel Leon 🔗 www.behance.net/leonngabr \nCode Senz Design 🔗 www.senzdsn.com'
@@ -51,7 +51,7 @@ export default function App({ Component, pageProps, router }) {
 
 					<GoogleTagManager gtmId='GTM-W7HLMBNK' />
 
-					<PageTransition className={transitionClass}>
+					<PageTransition>
 						<Component key={router.route} {...pageProps} />
 					</PageTransition>
 
