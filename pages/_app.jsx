@@ -2,9 +2,6 @@
 import { useEffect } from 'react'
 import { GoogleTagManager } from '@next/third-parties/google'
 
-// hooks
-import { usePageTransitionFix } from '@/utils/transition-fix'
-
 // components
 import CustomScrollbar from '@/components/utils/custom-scrollbar'
 import SmoothScrolling from '@/components/utils/smooth-scrolling'
@@ -25,8 +22,6 @@ const antarctica = localFont({
 })
 
 export default function App({ Component, pageProps, router }) {
-
-	usePageTransitionFix()
 
 	useEffect(() => {
 		const message = 'Design Gabriel Leon 🔗 www.behance.net/leonngabr \nCode Senz Design 🔗 www.senzdsn.com'

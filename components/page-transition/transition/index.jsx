@@ -2,6 +2,7 @@
 import { SwitchTransition, Transition } from 'react-transition-group'
 import { useLenis } from '@studio-freight/react-lenis'
 import { useRouter } from 'next/router'
+import { useNextCssRemovalPrevention } from '@madeinhaus/nextjs-page-transition'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
@@ -10,6 +11,8 @@ export default function TransitionComponent({ children }){
 
 	const lenis = useLenis()
     const router = useRouter()
+
+	const removeExpiredStyles = useNextCssRemovalPrevention()
 
     return (
 		<SwitchTransition>
@@ -60,6 +63,7 @@ export default function TransitionComponent({ children }){
 						paused: true,
 						onComplete: () => {
 							ScrollTrigger.killAll()
+							removeExpiredStyles()
 						}
 					})
 
