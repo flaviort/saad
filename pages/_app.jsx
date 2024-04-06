@@ -8,7 +8,6 @@ import SmoothScrolling from '@/components/utils/smooth-scrolling'
 import Opening from '@/components/opening'
 import PageTransition from '@/components/page-transition'
 import Menu from '@/components/menu'
-//import Footer from '@/components/footer'
 
 // css
 import '@/assets/css/normalize.min.css'
@@ -33,8 +32,6 @@ export default function App({ Component, pageProps, router }) {
 		<div className={antarctica.className}>
 
 			<Opening />
-
-			{/* <PageTransition /> */}
 
 			<Menu />
 

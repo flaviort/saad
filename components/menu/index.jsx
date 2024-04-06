@@ -90,12 +90,14 @@ export default function Menu() {
         const pathnameWithoutSlash = pathname.substring(1)
 
         if (currentPageName  === pathnameWithoutSlash) {
-            setIsShown(!isShown)
+            if (isShown === true) {
+                setIsShown(!isShown)
 
-            if (!isShown) {
-                lenis.stop()
-            } else {
-                lenis.start()
+                if (!isShown) {
+                    lenis.stop()
+                } else {
+                    lenis.start()
+                }
             }
         } else {
             setTimeout(() => {
@@ -225,6 +227,7 @@ export default function Menu() {
                                         scroll={false}
 										href={routes.home}
 										className={styles.active}
+                                        onClick={closeFsMenu}
 									>
 										English
 									</Link>
@@ -234,6 +237,7 @@ export default function Menu() {
 									<Link
                                         scroll={false}
 										href='./pt-br'
+                                        onClick={closeFsMenu}
 									>
 										Portuguese
 									</Link>
