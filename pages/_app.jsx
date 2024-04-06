@@ -1,5 +1,7 @@
 // libraries
 import { useEffect } from 'react'
+import { useNextCssRemovalPrevention } from '@madeinhaus/nextjs-page-transition'
+
 import { GoogleTagManager } from '@next/third-parties/google'
 
 // components
@@ -22,6 +24,9 @@ const antarctica = localFont({
 })
 
 export default function App({ Component, pageProps, router }) {
+
+	const { phase } = useTransitionState()
+	const transitionClass = cx(styles.main, styles[`transition-${phase}`])
 
 	useEffect(() => {
 		const message = 'Design Gabriel Leon 🔗 www.behance.net/leonngabr \nCode Senz Design 🔗 www.senzdsn.com'
@@ -46,7 +51,7 @@ export default function App({ Component, pageProps, router }) {
 
 					<GoogleTagManager gtmId='GTM-W7HLMBNK' />
 
-					<PageTransition>
+					<PageTransition className={transitionClass}>
 						<Component key={router.route} {...pageProps} />
 					</PageTransition>
 
