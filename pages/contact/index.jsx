@@ -104,7 +104,7 @@ export default function Contact() {
 						<div className='grid-md-2-7 grid-xl-2-6'>
 
 							<p className='font-big-2 stagger-0'>
-								Olá Saad!
+								Hello Saad!
 							</p>
 
 							<Form className={styles.form}>

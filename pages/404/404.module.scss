@@ -1,0 +1,46 @@
+.main {
+    height: 100svh;
+    display: flex;
+    align-items: center;
+
+    .bg {
+        position: absolute;
+        z-index: -2;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: .15;
+    }
+
+    h1 {
+        position: relative;
+        font-size: 40vw;
+        color: $white;
+        display: flex;
+        line-height: 1;
+        margin-bottom: 1rem;
+
+        @media #{$mq-md-min} {
+            color: $gray-darker;
+            position: absolute;
+            z-index: -1;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 45vw;
+            opacity: .375;
+        }
+
+        span {
+            display: block;
+        }
+    }
+
+    p {
+        position: relative;
+        z-index: 2;
+        display: block;
+        margin-bottom: 1.5rem;
+    }
+}
