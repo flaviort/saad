@@ -7,7 +7,7 @@ import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
 
 // utils
-import { debounce, slugify } from '@/utils/functions'
+import { slugify } from '@/utils/functions'
 
 // svg
 import UxClose from '@/assets/svg/ux/close.svg'
