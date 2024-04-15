@@ -64,7 +64,7 @@ export default function SEOContainer({ pageTitle, pageDescription, bodyClass }) 
             <meta name='twitter:description' content={(pageDescription ?? defaultPageDesc)} />
             <meta name='twitter:url' content={urlAddress} />
             <meta name='twitter:image' content={image} />
-            <meta name="twitter:card" content="summary_large_image" />
+            <meta name='twitter:card' content='summary_large_image' />
 
         </Head>
     )
