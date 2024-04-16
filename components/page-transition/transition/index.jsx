@@ -13,7 +13,7 @@ export default function TransitionComponent({ children }){
     const router = useRouter()
 
 	// fix to avoid css removal too soon on page transition (only visible on build)
-	const removeExpiredStyles = useNextCssRemovalPrevention()
+	//const removeExpiredStyles = useNextCssRemovalPrevention()
 
     return (
 		<SwitchTransition>
@@ -38,6 +38,7 @@ export default function TransitionComponent({ children }){
 
 					tl.call(function() {
 						document.dispatchEvent(new Event('page-transition'))
+						console.log('test')
 						window.scrollTo({ top: 0 })
 						ScrollTrigger.clearScrollMemory('manual')
 						lenis?.start()
@@ -67,7 +68,7 @@ export default function TransitionComponent({ children }){
 						paused: true,
 						onComplete: () => {
 							ScrollTrigger.killAll()
-							removeExpiredStyles()
+							//removeExpiredStyles()
 							node.dispatchEvent(new Event('transitionend'))
 						}
 					})

@@ -1,3 +1,5 @@
+'use client'
+
 // libraries
 import clsx from 'clsx'
 import Link from 'next/link'
@@ -88,8 +90,19 @@ export default function Menu() {
         const { pathname } = router
         const hrefParts = e.currentTarget.href.split('/')
         const currentPageName = hrefParts[hrefParts.length - 1]
-        const pathnameWithoutSlash = pathname.substring(1)
+        //const pathnameWithoutSlash = pathname.substring(1)
 
+        if (isShown === true) {
+            setIsShown(!isShown)
+
+            if (!isShown) {
+                lenis.stop()
+            } else {
+                lenis.start()
+            }
+        }
+
+        /*
         if (currentPageName  === pathnameWithoutSlash) {
             if (isShown === true) {
                 setIsShown(!isShown)
@@ -108,6 +121,7 @@ export default function Menu() {
                 }
             }, 1000)
         }
+        */
 	}
 
     useEffect(() => {
