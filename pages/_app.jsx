@@ -20,7 +20,15 @@ const antarctica = localFont({
     src: '../assets/fonts/Antarctica-Regular.woff2'
 })
 
-export default function App({ Component, pageProps, router }) {
+// graphql
+import { getSiteSettings } from '@/utils/graphql'
+
+App.getInitialProps = async () => {
+	const settings = await getSiteSettings()
+  	return { settings }
+}
+
+export default function App({ settings, Component, pageProps, router }) {
 
 	useEffect(() => {
 		const message = 'Design Gabriel Leon 🔗 www.behance.net/leonngabr \nCode Senz Design 🔗 www.senzdsn.com'
@@ -44,7 +52,10 @@ export default function App({ Component, pageProps, router }) {
 					<GoogleTagManager gtmId='GTM-W7HLMBNK' />
 
 					<PageTransition>
-						<Component key={router.route} {...pageProps} />
+						<Component
+							key={router.route}
+							{...pageProps}
+						/>
 					</PageTransition>
 
 				</main>

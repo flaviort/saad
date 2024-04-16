@@ -1,4 +1,5 @@
 // libraries
+import { useEffect, useState  } from 'react'
 import clsx from 'clsx'
 import Link from 'next/link'
 import { useLenis } from '@studio-freight/react-lenis'
@@ -18,7 +19,23 @@ import UxArrowUp from '@/assets/svg/ux/arrow-up.svg'
 // css
 import styles from './footer.module.scss'
 
+// graphql
+import { getSiteSettings } from '@/utils/graphql'
+
 export default function Footer() {
+
+	const [settings, setSettings] = useState(null)
+
+	useEffect(() => {
+		const fetchSettings = async () => {
+            const fetchedSettings = await getSiteSettings()
+            setSettings(fetchedSettings)
+        }
+
+        if (!settings) {
+            fetchSettings()
+        }
+	}, [settings])
 
 	const lenis = useLenis()
 
@@ -42,12 +59,12 @@ export default function Footer() {
 			li: [
 				{
 					name: 'Linkedin',
-					url: routes.linkedin,
+					url: settings?.linkedin || routes.linkedin,
 					external: true
 				},
 				{
 					name: 'Instagram',
-					url: routes.instagram,
+					url: settings?.instagram || routes.instagram,
 					external: true
 				}
 			]
@@ -56,12 +73,12 @@ export default function Footer() {
 			ulClass: 'contact',
 			li: [
 				{
-					name: routes.email,
-					url: email(routes.email)
+					name: settings?.email || routes.email,
+					url: email(settings?.email || routes.email)
 				},
 				{
-					name: routes.phone,
-					url: phone(routes.phone)
+					name: settings?.phone || routes.phone,
+					url: phone(settings?.phone || routes.phone)
 				}
 			]
 		}

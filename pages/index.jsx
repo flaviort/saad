@@ -39,7 +39,6 @@ export default function Home() {
 	const titleRef = useRef()
 	
 	useGSAP(() => {
-
 		const banner = bannerRef.current
 		const video = videoRef.current
 		const title = titleRef.current
