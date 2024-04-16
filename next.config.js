@@ -1,6 +1,12 @@
 const path = require('path')
 
 module.exports = {
+	/*
+	i18n: {
+		locales: ['en', 'pt'],
+		defaultLocale: 'en'
+	},
+	*/
 	//assetPrefix: './',
 	//basePath: process.env.PUBLIC_URL,
 	sassOptions: {
@@ -13,7 +19,8 @@ module.exports = {
 	webpack(config) {
 		config.module.rules.push({
 			test: /\.svg$/i,
-			issuer: /\.[jt]sx?$/,
+			//issuer: /\.[jt]sx?$/,
+			//resourceQuery: /svgr/,
 			use: {
 				loader: '@svgr/webpack',
 				options: {

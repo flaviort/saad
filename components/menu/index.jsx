@@ -1,7 +1,7 @@
 // libraries
 import clsx from 'clsx'
 import Link from 'next/link'
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/navigation'
 import { useEffect, useState, useRef } from 'react'
 import { useLenis } from '@studio-freight/react-lenis'
 import gsap from 'gsap'
@@ -20,6 +20,9 @@ import Logo from '@/assets/svg/logos/logo.svg'
 import styles from './menu.module.scss'
 
 export default function Menu() {
+
+    // locales
+    const router = useRouter()
 
     // animation ref
     const menuAnimationRef = useRef(null)
@@ -80,8 +83,6 @@ export default function Menu() {
             lenis.start()
         }
 	}
-
-    const router = useRouter()
 
     const closeFsMenu = (e) => {
         const { pathname } = router
@@ -221,27 +222,28 @@ export default function Menu() {
 							</div>
 
 							<ul id='top-menu-language' className={styles.language}>
-
-								<li>
-									<Link
+                                
+                                <li>
+                                    <Link
                                         scroll={false}
-										href={routes.home}
-										className={styles.active}
+                                        href={'#'}
+                                        className={styles.active}
                                         onClick={closeFsMenu}
-									>
-										English
-									</Link>
-								</li>
+                                    >
+                                        English
+                                    </Link>
+                                </li>
 
-								<li>
-									<Link
+                                <li>
+                                    <Link
                                         scroll={false}
-										href='./pt-br'
+                                        href={'#'}
                                         onClick={closeFsMenu}
-									>
-										Portuguese
-									</Link>
-								</li>
+                                    >
+                                        Portuguese
+                                    </Link>
+                                </li>
+                                
 							</ul>
 
 						</div>

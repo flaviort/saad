@@ -2,7 +2,7 @@
 import { SwitchTransition, Transition } from 'react-transition-group'
 import { useNextCssRemovalPrevention } from '@madeinhaus/nextjs-page-transition'
 import { useLenis } from '@studio-freight/react-lenis'
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/navigation'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
@@ -40,7 +40,7 @@ export default function TransitionComponent({ children }){
 						document.dispatchEvent(new Event('page-transition'))
 						window.scrollTo({ top: 0 })
 						ScrollTrigger.clearScrollMemory('manual')
-						lenis.start()
+						lenis?.start()
 
 						setTimeout(() => {
 							ScrollTrigger.refresh()	
@@ -73,7 +73,7 @@ export default function TransitionComponent({ children }){
 					})
 
 					tl.call(function() {
-						lenis.stop()
+						lenis?.stop()
 					})
 
 					tl.to('[data-loader]', {

@@ -1,3 +1,5 @@
+'use client'
+
 // libraries
 import { useEffect } from 'react'
 import { GoogleTagManager } from '@next/third-parties/google'
@@ -20,37 +22,42 @@ const antarctica = localFont({
     src: '../assets/fonts/Antarctica-Regular.woff2'
 })
 
-export default function App({ Component, pageProps, router }) {
-
-	useEffect(() => {
+export default function RootLayout({ children }) {
+    
+    // console log dev msg
+    useEffect(() => {
 		const message = 'Design Gabriel Leon 🔗 www.behance.net/leonngabr \nCode Senz Design 🔗 www.senzdsn.com'
 		const style = 'color: #f8f8f8; font-size: 12px; font-weight: bold; background-color: #0d0e13; padding: 8px'
 		console.log(`%c${message}`, style)
 	}, [])
 
-	return (
-		<div className={antarctica.className}>
+    return (
+        <html lang='en'>
+            <body>
+                <div className={antarctica.className}>
 
-			<Opening />
+                    <Opening />
 
-			<Menu />
+                    <Menu />
 
-			<SmoothScrolling>
+                    <SmoothScrolling>
 
-				<CustomScrollbar />
+                        <CustomScrollbar />
 
-				<main role='main' data-scroll-container>
+                        <main role='main' data-scroll-container>
 
-					<GoogleTagManager gtmId='GTM-W7HLMBNK' />
+                            <GoogleTagManager gtmId='GTM-W7HLMBNK' />
 
-					<PageTransition>
-						<Component key={router.route} {...pageProps} />
-					</PageTransition>
+                            <PageTransition>
+                                {children}
+                            </PageTransition>
 
-				</main>
+                        </main>
 
-			</SmoothScrolling>
+                    </SmoothScrolling>
 
-		</div>
-	)
+                </div>
+            </body>
+        </html>
+    )
 }

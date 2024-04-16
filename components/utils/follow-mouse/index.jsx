@@ -1,3 +1,5 @@
+'use client'
+
 // libraries
 import clsx from 'clsx'
 import { useLenis } from '@studio-freight/react-lenis'

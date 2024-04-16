@@ -1,3 +1,5 @@
+'use client'
+
 // libraries
 import { useRef } from 'react'
 import Link from 'next/link'
@@ -19,7 +21,7 @@ import StandFor from '@/components/stand-for'
 import Testimonials from '@/components/testimonials'
 import ContactMarquee from '@/components/contact-marquee'
 
-// routes / utils
+// hooks / utils / etc
 import projects from '@/utils/projects'
 import routes from '@/utils/routes'
 import { vh } from '@/utils/functions'
@@ -65,6 +67,7 @@ export default function Home() {
 			}
 		})
 
+		/*
 		document.addEventListener('opening', () => {
 			gsap.from(title, {
 				yPercent: 100,
@@ -80,22 +83,23 @@ export default function Home() {
 				ease: 'power2.out'
 			})
 		})
+		*/
 	})
 
 	// counters
 	const counters = [
 		{
 			number: '13',
-			text: 'years of branding experience'
+			text: 'years of branding experience',
 		}, {
 			number: '16',
-			text: 'national and international awards'
+			text: 'national and international awards',
 		}, {
 			number: '18',
-			text: 'talks and events in Brazil and abroad'
+			text: 'talks and events in Brazil and abroad',
 		}, {
 			number: '50',
-			text: 'publications online and offline'
+			text: 'publications online and offline',
 		}
 	]
 

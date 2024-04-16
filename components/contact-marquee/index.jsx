@@ -1,3 +1,5 @@
+'use client'
+
 // libraries
 import clsx from 'clsx'
 import Link from 'next/link'

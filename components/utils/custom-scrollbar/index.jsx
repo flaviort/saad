@@ -1,3 +1,5 @@
+'use client'
+
 // libraries
 import { useRef } from 'react'
 import { useLenis } from '@studio-freight/react-lenis'
