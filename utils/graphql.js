@@ -1,7 +1,8 @@
 // define the website url with the graphql endpoint here
 const websiteUrl = 'https://senzdsn.com/sites/saad/graphql'
 
-export async function getProjects() {
+export async function getProjects(locale) {
+    const language = locale === 'en' ? 'EN' : 'PT';
     try {
         const res = await fetch(websiteUrl, {
             method: 'POST',
@@ -9,8 +10,8 @@ export async function getProjects() {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                query: `query {
-                    posts {
+                query: `query GetPosts($language: LanguageCodeFilterEnum!) {
+                    posts(where: {language: $language}) {
                         edges {
                             node {
                                 title
@@ -62,12 +63,21 @@ export async function getProjects() {
                             }
                         }
                     }
-                }`
+                }`,
+                variables: {
+                    language: language
+                }
             })
         })
 
-        const data = await res.json()
+        const responseBody = await res.text()
+        const data = JSON.parse(responseBody)
         
+        if (data.errors) {
+            console.error('GraphQL errors:', data.errors)
+            return null
+        }
+
         return data.data.posts
         
     } catch (error) {

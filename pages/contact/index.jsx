@@ -99,8 +99,8 @@ export default function Contact() {
     return (
 		<Layout
 			bodyClass='contact'
-			pageTitle='Contact'
-			pageDescription='Simple, fast, and efficient. Fill out our form and get in touch with us.'
+			pageTitle={t('pageTitle')}
+			pageDescription={t('pageDescription')}
 		>
 
 			<section className={clsx(styles.main, 'padding-top-bigger')} ref={scope}>
@@ -117,61 +117,61 @@ export default function Contact() {
 								<div className={clsx(styles.flex, 'stagger-1 font-big')}>
 
 									<p className='break-word'>
-										My name is
+										{t('Form.text_01')}
 									</p>
 
 									<Input
 										type='text'
 										label='Name'
-										placeholder='type your name'
+										placeholder={t('Form.label_01')}
 										required
 										maxLength={50}
 									/>
 
 									<p className='break-word'>
-										and I'm currently
+										{t('Form.text_02')}
 									</p>
 
 									<Input
 										type='text'
 										label='Position'
-										placeholder='type your position'
+										placeholder={t('Form.label_02')}
 										required
 										maxLength={50}
 									/>
 
 									<p className='break-word'>
-										at the company
+										{t('Form.text_03')}
 									</p>
 
 									<Input
 										type='text'
 										label='Company'
-										placeholder='company name'
+										placeholder={t('Form.label_03')}
 										required
 										maxLength={50}
 									/>
 
 									<p className='break-word'>
-										, we have a total of
+										{t('Form.text_04')}
 									</p>
 
 									<Input
 										type='text'
 										label='Employees'
-										placeholder='quantity'
+										placeholder={t('Form.label_04')}
 										required
 										maxLength={10}
 									/>
 
 									<p className='break-word'>
-										employees and my contact is related to an interest in the service of
+										{t('Form.text_05')}
 									</p>
 
 									<Input
 										type='text'
 										label='Service'
-										placeholder='type the service'
+										placeholder={t('Form.label_05')}
 										required
 										maxLength={100}
 									/>
@@ -185,25 +185,25 @@ export default function Contact() {
 								<div className={clsx(styles.flex, 'font-big stagger-2')}>
 
 									<p className='break-word'>
-										My corporate email is
+										{t('Form.text_06')}
 									</p>
 
 									<Input
 										type='email'
 										label='Email'
-										placeholder='name@email.com'
+										placeholder={t('Form.label_06')}
 										required
 										maxLength={50}
 									/>
 
 									<p className='break-word'>
-										and my phone is
+										{t('Form.text_07')}
 									</p>
 
 									<Input
 										type='tel'
 										label='Phone'
-										placeholder='+1 (123) 456-7890'
+										placeholder={t('Form.label_07')}
 										required
 										maxLength={40}
 									/>
@@ -215,13 +215,13 @@ export default function Contact() {
 								</div>
 
 								<div className={clsx(styles.consent, 'font-small stagger-3')}>
-									By clicking the “Submit form” button, I agree to&nbsp;<Fancybox><a className='hover-underline-white' href='#' data-fancybox>consent</a></Fancybox>.
+									{t('Form.popup_message')}&nbsp;<Fancybox><a className='hover-underline-white' href='#' data-fancybox>{t('Form.popup_button')}</a></Fancybox>.
 								</div>
 								
 								<button type='submit' className={styles.submit}>
 									
 									<span className='submit-text font-big'>
-										Submit form <UxArrowRight />
+										{t('Form.submit')} <UxArrowRight />
 									</span>
 
 									<span className={clsx(styles.spinner, 'spinner')} tabIndex={-1}>

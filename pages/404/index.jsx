@@ -26,8 +26,6 @@ export default function FourOhFour() {
 	const t = useTranslations('NotFound')
 	const title = useRef()
 
-	console.log(t)
-
 	useGSAP(() => {
 		const tl = gsap.timeline({
 			repeat: -1

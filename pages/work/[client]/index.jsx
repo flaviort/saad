@@ -295,10 +295,11 @@ export async function getStaticPaths() {
         const res = await getProjects()
         const data = res.edges
 
-        const paths = data.map((edge) => {
-            const title = edge.node.title
-            const slug = slugify(title)
-            return { params: { client: slug } }
+        const paths = data.flatMap((edge) => {
+            return ['en', 'pt'].map(locale => ({
+                params: { client: slugify(edge.node.title) },
+                locale
+            }))
         })
 
         return {
@@ -313,7 +314,7 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params, locale }) {
     try {
         const slug = params.client
-        const res = await getProjects()
+        const res = await getProjects(locale)
         const data = res.edges.find(edge => slugify(edge.node.title) === slug)
         const projects = res.edges
 

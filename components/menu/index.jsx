@@ -228,7 +228,7 @@ export default function Menu() {
 								<li>
 									<Link
                                         scroll={false}
-										href={route}
+										href={locale === 'en' ? '/pt' + router.asPath : router.asPath}
                                         locale='en'
 										className={clsx(locale === 'en' && styles.active)}
                                         onClick={closeFsMenu}
@@ -240,7 +240,7 @@ export default function Menu() {
 								<li>
 									<Link
                                         scroll={false}
-										href={route}
+										href={locale === 'pt' ? router.asPath : '/pt' + router.asPath}
                                         locale='pt'
                                         className={clsx(locale === 'pt' && styles.active)}
                                         onClick={closeFsMenu}

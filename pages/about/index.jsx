@@ -5,8 +5,8 @@ import clsx from 'clsx'
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
 
-// utils
-import { services, awards, talks, publications } from '@/utils/about'
+// i18n
+import { useTranslations } from 'next-intl'
 
 // components
 import Layout from '@/layout'
@@ -23,8 +23,9 @@ import lucas from '@/assets/img/lucas.jpg'
 // css
 import styles from './about.module.scss'
 
-export default function About() {
+export default function About({ services, awards, talks, publications }) {
 
+	const t = useTranslations('About')
 	const fadeRef1 = useRef()
 	const fadeRef2 = useRef()
 
@@ -72,13 +73,13 @@ export default function About() {
 				tl.play()
 			}, 200)
 		})
-	})	
+	})
 
     return (
 		<Layout
 			bodyClass='about'
-			pageTitle='About'
-			pageDescription='We help visionary leaders drive change and growth inside and outside your organizations in a creative and audacious way.'
+			pageTitle={t('pageTitle')}
+			pageDescription={t('pageDescription')}
 		>
 
 			<section className={clsx(styles.topPart, 'padding-top-bigger padding-bottom-big')}>
@@ -87,15 +88,15 @@ export default function About() {
 
 						<div className='grid-md-2-6'>
 							<h2 className='font-big-2' ref={fadeRef1}>
-								We help visionary leaders drive change and growth inside and outside their organizations in creative and bold ways.
+								{t('TopSection.title')}
 							</h2>
 						</div>
 
 						<div className='grid-md-2-5'>
 							<p ref={fadeRef2}>
-								We look for the uniqueness of each brand. Your authenticity. What makes you unique. Once we find it, we communicate it to the world through carefully crafted strategies, stories, design and experiences that people won't forget.<br /><br />
+								{t('TopSection.text_01')}<br /><br />
 
-								We believe that impactful brands can positively change the world – and we are here to help you build them through the perfect balance between strategy, design and technology, developing unique experiences for visionary brands.
+								{t('TopSection.text_02')}
 							</p>
 						</div>
 
@@ -136,9 +137,9 @@ export default function About() {
 							</h2>
 
 							<p>
-								Lucas Saad, founder and director of Saad, has a degree in Design from the Federal University of Santa Maria - RS and a postgraduate degree in Branding Strategic Brand Management from Universidade Positivo in Curitiba - PR, having completed part of his MBA at Brunel University in London . He also has a degree in Global Creative Leadership from THNK - The Amsterdam School of Creative Leadership.<br /><br />
+								{t('About.text_01')}<br /><br />
 
-								With more than 15 years of experience in Brazil and abroad, he has participated in projects with companies of the most varied sizes (from small brands to multinationals such as Dow AgroSciences and Brookfield Renewable Energy) and sectors such as technology, pharmaceutical industry, agribusiness, logistics, engineering and industry, energy, marketing and advertising, consumer goods, human resources, among others.
+								{t('About.text_02')}
 							</p>
 
 						</div>
@@ -176,9 +177,56 @@ export default function About() {
 }
 
 export async function getStaticProps({ locale }) {
+	const messages = await import(`../../i18n/${locale}.json`).then(m => m.default)
+
+	const services = {
+		title: messages.About.Services.title,
+		infos: messages.About.Services.Sub_item.map(category => ({
+			subTitle: category.sub_title,
+			items: category.items
+		}))
+	}
+  
+	const awards = {
+		title: messages.About.Awards.title,
+		infos: messages.About.Awards.Sub_item.map(category => ({
+			subTitle: category.sub_title,
+			items: category.items.map(item => ({
+				year: item.year,
+				text: item.text
+			}))
+		}))
+	}
+
+	const talks = {
+		title: messages.About.Talks.title,
+		infos: messages.About.Talks.Sub_item.map(category => ({
+			subTitle: category.sub_title,
+			items: category.items.map(item => ({
+				year: item.year,
+				text: item.text
+			}))
+		}))
+	}
+
+	const publications = {
+		title: messages.About.Publications.title,
+		infos: messages.About.Publications.Sub_item.map(category => ({
+			subTitle: category.sub_title,
+			items: category.items.map(item => ({
+				year: item.year,
+				text: item.text
+			}))
+		}))
+	}
+
 	return {
-	  	props: {
-			messages: (await import(`../../i18n/${locale}.json`)).default
-	  	}
+		props: {
+			messages,
+			services,
+			awards,
+			talks,
+			publications
+		}
 	}
 }

@@ -1,5 +1,9 @@
 // libraries
 import clsx from 'clsx'
+import { useRouter } from 'next/router'
+
+// i18n
+import { useTranslations } from 'next-intl'
 
 // components
 import Layout from '@/layout'
@@ -15,11 +19,17 @@ import styles from './work.module.scss'
 import { slugify } from '@/utils/functions'
 
 export default function Work({ data }) {
+
+	const { locale } = useRouter()
+	const t = useTranslations('Work')
+
+	console.log(data)
+
     return (
 		<Layout
 			bodyClass='work'
-			pageTitle='Work'
-			pageDescription='Creating the future for ambitious brands. We develop projects that transform visions and businesses.'
+			pageTitle={t('pageTitle')}
+			pageDescription={t('pageDescription')}
 		>
 
 			<section className={clsx(styles.topPart, 'padding-top-bigger padding-bottom-big')}>
@@ -27,8 +37,8 @@ export default function Work({ data }) {
 					<div className='grid-container'>
 						<div className='grid-md-2-7'>
 							<h2 className='font-big-2'>
-								Creating the future for ambitious brands. <br />
-								We develop projects that transform visions and businesses.
+								{t('Title.line_01')} <br />
+								{t('Title.line_02')}
 							</h2>
 						</div>
 					</div>
@@ -36,7 +46,7 @@ export default function Work({ data }) {
 			</section>
 
 			<section className={styles.projects}>
-				<FollowMouse text='View'>
+				<FollowMouse text={locale === 'en' ? 'View' : 'Ver'}>
 					{data.edges.map((edge, i) => (
 						<Project
 							key={i}
@@ -59,7 +69,7 @@ export default function Work({ data }) {
 }
 
 export async function getStaticProps({ locale }) {
-	const res = await getProjects()
+	const res = await getProjects(locale)
 	const data = res
 
 	return {

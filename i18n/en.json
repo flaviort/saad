@@ -43,15 +43,397 @@
     },
 
     "About": {
+        "pageTitle": "About",
+        "pageDescription": "We help visionary leaders drive change and growth inside and outside your organizations in a creative and audacious way.",
         
+        "TopSection": {
+            "title": "We help visionary leaders drive change and growth inside and outside their organizations in creative and bold ways.",
+            "text_01": "We look for the uniqueness of each brand. Your authenticity. What makes you unique. Once we find it, we communicate it to the world through carefully crafted strategies, stories, design and experiences that people won't forget.",
+            "text_02": "We believe that impactful brands can positively change the world - and we are here to help you build them through the perfect balance between strategy, design and technology, developing unique experiences for visionary brands."
+        },
+
+        "Services": {
+            "title": "Services",
+            "Sub_item": [
+                {
+                    "sub_title": "Brand Research",
+                    "items": [
+                        "Immersion in the company",
+                        "Market & trends",
+                        "Target audience",
+                        "Benchmarks",
+                        "Stakeholders",
+                        "Brand diagnosis"
+                    ]
+                }, {
+                    "sub_title": "Brand Strategy",
+                    "items": [
+                        "Positioning",
+                        "Purpose",
+                        "Brand architecture",
+                        "Brand platform",
+                        "Business model innovation",
+                        "Strategic recommendations"
+                    ]
+                }, {
+                    "sub_title": "Brand Identity",
+                    "items": [
+                        "Naming",
+                        "Tagline",
+                        "Key messages",
+                        "Voice tone",
+                        "Visual identity",
+                        "Brandbook"
+                    ]
+                }, {
+                    "sub_title": "Brand Experience",
+                    "items": [
+                        "Web design",
+                        "Packaging",
+                        "Brand communication",
+                        "Signage",
+                        "Brand activation",
+                        "Products & services"
+                    ]
+                }, {
+                    "sub_title": "Brand Management",
+                    "items": [
+                        "Brand measurement"
+                    ]
+                }
+            ]
+        },
+
+        "About": {
+            "text_01": "Lucas Saad, founder and director of Saad, has a degree in Design from the Federal University of Santa Maria - RS and a postgraduate degree in Branding Strategic Brand Management from Universidade Positivo in Curitiba - PR, having completed part of his MBA at Brunel University in London . He also has a degree in Global Creative Leadership from THNK - The Amsterdam School of Creative Leadership.",
+            "text_02": "With more than 15 years of experience in Brazil and abroad, he has participated in projects with companies of the most varied sizes (from small brands to multinationals such as Dow AgroSciences and Brookfield Renewable Energy) and sectors such as technology, pharmaceutical industry, agribusiness, logistics, engineering and industry, energy, marketing and advertising, consumer goods, human resources, among others."
+        },
+
+        "Awards": {
+            "title": "Awards",
+            "Sub_item": [
+                {
+                    "sub_title": "Internationals",
+                    "items": [
+                        {
+                            "year": "2023",
+                            "text": "Brandor (best naming), Spain. 9-6"
+                        }, {
+                            "year": "2022",
+                            "text": "Bienal Iberoamericana de Design, IDB, Spain. 9-6"
+                        }, {
+                            "year": "2022",
+                            "text": "Premios CLAP. Industrial Diseño and Graphic Diseño, Spain. 9-6"
+                        }, {
+                            "year": "2020",
+                            "text": "Bienal Iberoamericana de Design, IDB, Spain. Nagüeva"
+                        }, {
+                            "year": "2018",
+                            "text": "Lisbon International Health Festival, Portugal. Vuelo Pharma"
+                        }, {
+                            "year": "2018",
+                            "text": "Bienal Iberoamericana de Design, IDB, Spain. Vuelo Pharma"
+                        }, {
+                            "year": "2017",
+                            "text": "iF Design Award, Germany. RE"
+                        }, {
+                            "year": "2017",
+                            "text": "CLAP Awards. Industrial Diseño and Graphic Diseño, CLAP Platinum, Spain. Ipiranga Seeds"
+                        }, {
+                            "year": "2017",
+                            "text": "CLAP Awards. Industrial Diseño and Graphic Diseño, Spain. RE"
+                        }, {
+                            "year": "2017",
+                            "text": "Premios CLAP. Industrial Diseño and Graphic Diseño, Spain. Vuelo"
+                        }, {
+                            "year": "2014",
+                            "text": "iF Design Award, Germany. Ipiranga Seeds"
+                        }
+                    ]
+                }, {
+                    "sub_title": "Nationals",
+                    "items": [
+                        {
+                            "year": "2018",
+                            "text": "Brasil Design Award. Vuelo Pharma"
+                        }, {
+                            "year": "2017",
+                            "text": "12th Brazilian Graphic Design Biennial. Vuelo Pharma"
+                        }, {
+                            "year": "2015",
+                            "text": "Brazilian Design Biennial. Yon"
+                        }, {
+                            "year": "2015",
+                            "text": "11th Brazilian Biennial of Graphic Design. Yon"
+                        }, {
+                            "year": "2013",
+                            "text": "IDEA Brasil Awards. Ipiranga Seeds"
+                        }
+                    ]
+                }
+            ]
+        },
+
+        "Talks": {
+            "title": "Talks",
+            "Sub_item": [
+                {
+                    "sub_title": "Lectures & Events",
+                    "items": [
+                        {
+                            "year": "2019",
+                            "text": "Elali (Encuentro Latinoamericano de Limpieza e Innovación) Creating impactful brands that transform businesses. Lucas Saad, guest speaker. Cartagena, Colombia."
+                        }, {
+                            "year": "2019",
+                            "text": "Elali (Encuentro Latinoamericano de Limpieza e Innovación) Brand storytelling workshop “Creating impactful stories that transform businesses”. Lucas Saad, facilitator. Cartagena, Colombia."
+                        }, {
+                            "year": "2019",
+                            "text": "Household Summit - Creating impactful brands that transform businesses. Lucas Saad, guest speaker. Sao Paulo, Brazil."
+                        }, {
+                            "year": "2018",
+                            "text": "CUBO Itaú - Impactful tailored brands: creating businesses that transform markets. Lucas Saad, guest speaker. Sao Paulo, Brazil."
+                        }, {
+                            "year": "2018",
+                            "text": "Polyphony - Polyphonic Dialogues. Lucas Saad, guest speaker. Sao Paulo, Brazil."
+                        }, {
+                            "year": "2018",
+                            "text": "MBA in Branding from Universidade Positivo. Lucas Saad, guest speaker. Curitiba, Brazil."
+                        }, {
+                            "year": "2017",
+                            "text": "Campus Party 10 - What can innovation, branding and design do for the technology sector? Lucas Saad, guest speaker. Sao Paulo, Brazil."
+                        }, {
+                            "year": "2017",
+                            "text": "Campus Party 10 - Think design panel: the power to unite people, business and technology. Lucas Saad, guest speaker. Sao Paulo, Brazil."
+                        }, {
+                            "year": "2017",
+                            "text": "POPAI Brasil Award - Lucas Saad, juror. Sao Paulo, Brazil."
+                        }, {
+                            "year": "2017",
+                            "text": "Brand’s Up Conference - Lucas Saad, guest speaker. Brazil."
+                        }, {
+                            "year": "2017",
+                            "text": "Pontifical Catholic University of Paraná (PUC PR) Charneira. Lucas Saad, guest speaker. Curitiba, Brazil."
+                        }, {
+                            "year": "2017",
+                            "text": "Positivo University - Meeting with the market. Lucas Saad, guest speaker. Curitiba, Brazil."
+                        }, {
+                            "year": "2016",
+                            "text": "Festival Picnic - RE. Rio de Janeiro, Brazil."
+                        }, {
+                            "year": "2016",
+                            "text": "MBA in Branding from Univali - Brands that dialogue. Lucas Saad, guest speaker. Balneário Camboriú, Brazil."
+                        }, {
+                            "year": "2015",
+                            "text": "Brazilian Institute of Productivity and Quality (IBQP) Is your brand prepared for the future? Lucas Saad, guest speaker. Curitiba, Brazil."
+                        }, {
+                            "year": "2014",
+                            "text": "Semana D - 600 seconds. Lucas Saad, guest speaker. Curitiba, Brazil."
+                        }, {
+                            "year": "2014",
+                            "text": "Pre-Brazilian Design Biennial - Index/SC Design for All. Lucas Saad, guest speaker. Chapecó, Brazil."
+                        }, {
+                            "year": "2013",
+                            "text": "Positivo University - Portfolio Concept '13. Lucas Saad, guest speaker. Curitiba, Brazil."
+                        }
+                    ]
+                }
+            ]
+        },
+
+        "Publications": {
+            "title": "Publications",
+            "Sub_item": [
+                {
+                    "sub_title": "Online",
+                    "items": [
+                        {
+                            "year": "2018",
+                            "text": "Revista Mundo Corporativo (Deloitte). Saad branding consultancy is one of the highlights of the article on Scale-Ups in the 'Innovation' section. Brazil."
+                        }, {
+                            "year": "2018",
+                            "text": "Design and Design, France. Yon"
+                        }, {
+                            "year": "2017",
+                            "text": "The Dieline, United States. RE"
+                        }, {
+                            "year": "2017",
+                            "text": "Favourite Design, France. Oigo."
+                        }, {
+                            "year": "2017",
+                            "text": "Administrators — articles on Naming, Brand Essence and Trends. Brazil."
+                        }, {
+                            "year": "2017",
+                            "text": "Brasil Econômico (iG). Eight tips to improve your business. Article published in the 'Economy' section. Brazil."
+                        }, {
+                            "year": "2017",
+                            "text": "Design and Design, France. Vuelo Pharma"
+                        }, {
+                            "year": "2017",
+                            "text": "DesignBrasil, Brazil. RE"
+                        }, {
+                            "year": "2016",
+                            "text": "The Dieline, United States. Vuelo Pharma"
+                        }, {
+                            "year": "2016",
+                            "text": "Packaging of the World, Singapore. RE"
+                        }, {
+                            "year": "2016",
+                            "text": "Packaging of the World, Singapore. Vuelo Pharma"
+                        }, {
+                            "year": "2016",
+                            "text": "Visualgraphc, United States. Ipiranga Seeds"
+                        }, {
+                            "year": "2016",
+                            "text": "Design and Design, France. Oigo"
+                        }, {
+                            "year": "2016",
+                            "text": "Favourite Design, France. Vuelo Pharma"
+                        }, {
+                            "year": "2016",
+                            "text": "Ohmycode, Russia. Ipiranga Seeds"
+                        }, {
+                            "year": "2016",
+                            "text": "Balagem Marca, Brazil. Vuelo Pharma"
+                        }, {
+                            "year": "2016",
+                            "text": "Administradores. Articles on Branding, Strategic Planning, Brand Positioning, Ethnography and Dynamic Identities. Brazil."
+                        }, {
+                            "year": "2016",
+                            "text": "Design Clever, England. Ipiranga Seeds"
+                        }, {
+                            "year": "2016",
+                            "text": "Retail Design Blog, Hungary. RE"
+                        }, {
+                            "year": "2016",
+                            "text": "Milk With One Sugar, United States. Ipiranga Seeds"
+                        }, {
+                            "year": "2016",
+                            "text": "We And The Color, United States. Oigo"
+                        }, {
+                            "year": "2016",
+                            "text": "We And The Color, United States. Saad"
+                        }, {
+                            "year": "2016",
+                            "text": "DesignBrasil, Brazil. Vuelo Pharma"
+                        }, {
+                            "year": "2016",
+                            "text": "DesignBrazil. Aticles about Branding and Ethnography, Brazil."
+                        }, {
+                            "year": "2016",
+                            "text": "InfoBranding. Aticle about Ethnography, Brazil."
+                        }, {
+                            "year": "2016",
+                            "text": "Trend List, United States. Saad"
+                        }, {
+                            "year": "2016",
+                            "text": "Raw (Abduzeedo), United States. Vuelo Pharma"
+                        }, {
+                            "year": "2015",
+                            "text": "DesignBrazil. Brand change requires attention and care. Article published in the section 'Design'. Brazil."
+                        }, {
+                            "year": "2014",
+                            "text": "For Print Only (UnderConsideration), United States. Sementes Ipiranga"
+                        }, {
+                            "year": "2014",
+                            "text": "For Print Only (UnderConsideration), United States. Saad"
+                        }, {
+                            "year": "2014",
+                            "text": "Design and Design, France. Saad"
+                        }, {
+                            "year": "2014",
+                            "text": "TheArtHunters (Daily Inspiration), Netherlands. Yon"
+                        }, {
+                            "year": "2014",
+                            "text": "Identity Designed, Ireland. Yon"
+                        }, {
+                            "year": "2014",
+                            "text": "Paper Specs, United States. Saad"
+                        }, {
+                            "year": "2014",
+                            "text": "DesignBrasil, Brazil. Sementes Ipiranga"
+                        }, {
+                            "year": "2014",
+                            "text": "Packaging of the World, Singapore. Yon"
+                        }, {
+                            "year": "2014",
+                            "text": "Creative Inspiration, England. Yon"
+                        }, {
+                            "year": "2014",
+                            "text": "New Grids, France. Saad"
+                        }, {
+                            "year": "2014",
+                            "text": "Branding Served (Behance), United States. Oigo"
+                        }, {
+                            "year": "2014",
+                            "text": "Branding Served (Behance), United States. Saad"
+                        }
+                    ]
+                }, {
+                    "sub_title": "Offline",
+                    "items": [
+                        {
+                            "year": "2017",
+                            "text": "Magazine 'Pequenas Empresas & Grandes Negócios'. Saad branding consultancy is one of the highlights of the cover story. Brazil."
+                        }, {
+                            "year": "2016",
+                            "text": "Magazine 'abcDesign', Brazil. Vuelo Pharma"
+                        }, {
+                            "year": "2016",
+                            "text": "Favourite Design Book, France. Vuelo Pharma"
+                        }, {
+                            "year": "2016",
+                            "text": "Correio Braziliense - How are businesses in 2017? Article published in the Entrepreneurship section. Brazil."
+                        }, {
+                            "year": "2016",
+                            "text": "Magazine 'abcDesign', Brazil. Sementes Ipiranga"
+                        }, {
+                            "year": "2015",
+                            "text": "Meio&Mensagem Advertising Yearbook, Brazil. Ipiranga Seeds"
+                        }, {
+                            "year": "2014",
+                            "text": "The Design and Design Book of the Year Vol. 7, France. Sementes Ipiranga"
+                        }, {
+                            "year": "2014",
+                            "text": "Monochrome: Branding in Black and White Book, China. Saad"
+                        }
+                    ]
+                }
+            ]
+        }
     },
 
     "Work": {
-        
+        "pageTitle": "Work",
+        "pageDescription": "Creating the future for ambitious brands. We develop projects that transform visions and businesses.",
+        "Title": {
+            "line_01": "Creating the future for ambitious brands.",
+            "line_02": "We develop projects that transform visions and businesses."
+        }
     },
 
     "Contact": {
-        "title": "Hello Saad!"
+        "pageTitle": "Contact",
+        "pageDescription": "Simple, fast, and efficient. Fill out our form and get in touch with us.",
+        "title": "Hello Saad!",
+        "Form": {
+            "text_01": "My name is",
+            "label_01": "type your name",
+            "text_02": "and I'm currently",
+            "label_02": "type your position",
+            "text_03": "at the company",
+            "label_03": "company name",
+            "text_04": ", we have a total of",
+            "label_04": "quantity",
+            "text_05": "employees and my contact is related to an interest in the service of",
+            "label_05": "type the service",
+            "text_06": "My corporate email is",
+            "label_06": "name@email.com",
+            "text_07": "and my phone is",
+            "label_07": "+1 (123) 456-7890",
+            "popup_message": "By clicking the 'Submit form' button, I agree to",
+            "popup_button": "consent",
+            "submit": "Submit form"
+        }
     },
 
     "NotFound": {
