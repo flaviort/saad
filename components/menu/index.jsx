@@ -24,7 +24,7 @@ import styles from './menu.module.scss'
 
 export default function Menu() {
 
-    const { locale, route } = useRouter()
+    const { locale } = useRouter()
     const router = useRouter()
 
     const messages = useMessages()
@@ -228,10 +228,10 @@ export default function Menu() {
 								<li>
 									<Link
                                         scroll={false}
-										href={locale === 'en' ? '/pt' + router.asPath : router.asPath}
+										href={router.asPath}
                                         locale='en'
 										className={clsx(locale === 'en' && styles.active)}
-                                        onClick={closeFsMenu}
+                                        onClick={openCloseFsMenu}
 									>
 										English
 									</Link>
@@ -240,10 +240,10 @@ export default function Menu() {
 								<li>
 									<Link
                                         scroll={false}
-										href={locale === 'pt' ? router.asPath : '/pt' + router.asPath}
+										href={'/pt' + router.asPath}
                                         locale='pt'
                                         className={clsx(locale === 'pt' && styles.active)}
-                                        onClick={closeFsMenu}
+                                        onClick={openCloseFsMenu}
 									>
 										Português
 									</Link>

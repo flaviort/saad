@@ -23,13 +23,6 @@ export default function Work({ data }) {
 	const { locale } = useRouter()
 	const t = useTranslations('Work')
 
-	if (data && data.edges) {
-		// render your components
-	} else {
-		// handle the case where data or data.edges is null
-		console.log('Data not available');
-	}
-
     return (
 		<Layout
 			bodyClass='work'
