@@ -6,6 +6,9 @@ import { useGSAP } from '@gsap/react'
 import { SplitText } from 'gsap/dist/SplitText'
 gsap.registerPlugin(SplitText)
 
+// i18n
+import { useTranslations } from 'next-intl'
+
 // components
 import Layout from '@/layout'
 import Fancybox from '@/components/utils/fancybox'
@@ -19,6 +22,8 @@ import UxSpinner from '@/assets/svg/ux/spinner.svg'
 import styles from './contact.module.scss'
 
 export default function Contact() {
+
+	const t = useTranslations('Contact')
 
 	const scope = useRef()
 
@@ -104,7 +109,7 @@ export default function Contact() {
 						<div className='grid-md-2-7 grid-xl-2-6'>
 
 							<p className='font-big-2 stagger-0'>
-								Hello Saad!
+								{t('title')}
 							</p>
 
 							<Form className={styles.form}>
@@ -234,4 +239,12 @@ export default function Contact() {
 
 		</Layout>
     )
+}
+
+export async function getStaticProps({ locale }) {
+	return {
+	  	props: {
+			messages: (await import(`../../i18n/${locale}.json`)).default
+	  	}
+	}
 }

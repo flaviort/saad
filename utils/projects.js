@@ -2,7 +2,7 @@ import routes from '@/utils/routes'
 
 const projects = [
 	{
-        link: routes.workInner('inner'),
+        link: '/work/9-6',
         image: '/img/projects/9-6.jpg',
         darkText: false,
         client: '9-6',

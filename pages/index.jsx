@@ -1,11 +1,15 @@
 // libraries
 import { useRef } from 'react'
+import { useRouter } from 'next/router'
 import Link from 'next/link'
 import clsx from 'clsx'
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
+
+// i18n
+import { useTranslations } from 'next-intl'
 
 // components
 import Layout from '@/layout'
@@ -19,10 +23,11 @@ import StandFor from '@/components/stand-for'
 import Testimonials from '@/components/testimonials'
 import ContactMarquee from '@/components/contact-marquee'
 
-// routes / utils
-import projects from '@/utils/projects'
+// routes / utils / hooks
+import { getProjects } from '@/utils/graphql'
 import routes from '@/utils/routes'
 import { vh } from '@/utils/functions'
+import { slugify } from '@/utils/functions'
 
 // svgs
 import UxArrowRight from '@/assets/svg/ux/arrow-right.svg'
@@ -31,7 +36,10 @@ import OthersImpactfulTailoredBrands from '@/assets/svg/others/impactful-tailore
 // css
 import styles from './home.module.scss'
 
-export default function Home() {
+export default function Home({ data }) {
+
+	const t = useTranslations('Home')
+	const { locale } = useRouter()
 
 	// scroll trigger pin effect
 	const bannerRef = useRef()
@@ -86,16 +94,16 @@ export default function Home() {
 	const counters = [
 		{
 			number: '13',
-			text: 'years of branding experience'
+			text: t('Counters.first')
 		}, {
 			number: '16',
-			text: 'national and international awards'
+			text: t('Counters.second')
 		}, {
 			number: '18',
-			text: 'talks and events in Brazil and abroad'
+			text: t('Counters.third')
 		}, {
 			number: '50',
-			text: 'publications online and offline'
+			text: t('Counters.fourth')
 		}
 	]
 
@@ -122,8 +130,8 @@ export default function Home() {
     return (
 		<Layout
 			bodyClass='home'
-			pageTitle='Impactful Tailored Brands'
-			pageDescription='Saad® is an internationally award-winning boutique brand consultancy specialized in building and transforming the future of businesses.'
+			pageTitle={t('pageTitle')}
+			pageDescription={t('pageDescription')}
 		>
 
 			<section className={clsx(styles.banner, 'padding-bottom')} ref={bannerRef}>
@@ -133,10 +141,10 @@ export default function Home() {
 					
 						<Fancybox options={{ dragToClose: false }}>
 							<a href='https://vimeo.com/875961835' data-fancybox='showreel' className={styles.video} ref={videoRef}>
-								<FollowMouse text='Play' big scrollTrigger>
+								<FollowMouse text={locale === 'en' ? 'Play' : 'Assistir'} big scrollTrigger>
 
 									<div className={styles.play}>
-										Play
+										{locale === 'en' ? 'Play' : 'Assistir'}
 									</div>
 
 									<Video
@@ -158,17 +166,17 @@ export default function Home() {
 			</section>
 
 			<section className={styles.projects}>
-				<FollowMouse text='View'>
-					{projects.slice(0, 3).map((item, i) => (
+				<FollowMouse text={locale === 'en' ? 'View' : 'Ver'} className={styles.viewAll}>
+					{data.edges.slice(0, 3).map((edge, i) => (
 						<Project
 							key={i}
-							link={item.link}
-							image={item.image}
-							darkText={item.darkText}
-							client={item.client}
-							title={item.title}
-							category={item.category}
-							tags={item.tags}
+							link={'/work/' + slugify(edge.node.title)}
+							image={edge.node.featuredImage.node.sourceUrl}
+							darkText={edge.node.darkText}
+							client={edge.node.title}
+							title={edge.node.projects.title}
+							category={edge.node.category}
+							tags={edge.node.tags.nodes.map(tag => tag.name)}
 						/>
 					))}
 				</FollowMouse>
@@ -178,7 +186,7 @@ export default function Home() {
 					href={routes.work}
 					className={clsx(styles.viewAll, 'padding-y-smaller', 'font-medium')}
 				>
-					View all projects <UxArrowRight />
+					{locale === 'en' ? 'View all projects' : 'Ver todos os projetos'} <UxArrowRight />
 				</Link>
 
 				<AnimatedLine />
@@ -190,7 +198,7 @@ export default function Home() {
 					<div className={clsx(styles.grid, 'grid-container')}>
 
 						<p className={clsx(styles.left, 'grid-md-1-3')}>
-							Who we are
+							{locale === 'en' ? 'Who we are' : 'Quem somos'}
 						</p>
 
 						<div className={clsx(styles.right, 'grid-md-3-7')}>
@@ -223,4 +231,16 @@ export default function Home() {
 
 		</Layout>
     )
+}
+
+export async function getStaticProps({ locale }) {
+	const res = await getProjects()
+	const data = res
+
+	return {
+		props: {
+			data,
+			messages: (await import(`../i18n/${locale}.json`)).default
+		}
+	}
 }

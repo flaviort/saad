@@ -174,3 +174,11 @@ export default function About() {
 		</Layout>
     )
 }
+
+export async function getStaticProps({ locale }) {
+	return {
+	  	props: {
+			messages: (await import(`../../i18n/${locale}.json`)).default
+	  	}
+	}
+}

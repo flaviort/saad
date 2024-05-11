@@ -7,6 +7,9 @@ import { useGSAP } from '@gsap/react'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
 
+// i18n
+import { useMessages } from 'next-intl'
+
 // routes / utils
 import routes from '@/utils/routes'
 import { phone, email } from '@/utils/functions'
@@ -20,6 +23,7 @@ import styles from './footer.module.scss'
 
 export default function Footer() {
 
+	const messages = useMessages()
 	const lenis = useLenis()
 
 	const scrollTop = () => {
@@ -122,12 +126,12 @@ export default function Footer() {
 							
 							<p>
 								Est. 2011<br />
-								Curitiba, Brazil
+								Curitiba, {messages.Footer.location}
 							</p>
 
 							<p>
 								Saad® @ {new Date().getFullYear()}<br />
-								All rights reserved.
+								{messages.Footer.copyright}
 							</p>
 
 						</div>

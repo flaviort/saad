@@ -1,9 +1,11 @@
 // libraries
 import { useRef } from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
+
+// i18n
+import { useTranslations } from 'next-intl'
 
 // hooks
 import routes from '@/utils/routes'
@@ -21,7 +23,10 @@ import styles from './404.module.scss'
 
 export default function FourOhFour() {
 
+	const t = useTranslations('NotFound')
 	const title = useRef()
+
+	console.log(t)
 
 	useGSAP(() => {
 		const tl = gsap.timeline({
@@ -45,8 +50,8 @@ export default function FourOhFour() {
     return (
 		<Layout
 			bodyClass='error-404'
-			pageTitle='Page not found'
-			pageDescription="Oops! We've searched high and low, but unfortunately, what you're seeking seems to elude us."
+			pageTitle={t('title')}
+			pageDescription={t('message')}
 		>
 
 			<FollowMouse text='404'>
@@ -63,15 +68,15 @@ export default function FourOhFour() {
 						<div className="grid-container">
 							<div className="grid-md-2-7">
 
-								<h1 className='text-bigger' ref={title}>
+								<h1 className='font-bigger' ref={title}>
 									<span>4</span>
 									<span>0</span>
 									<span>4</span>
 								</h1>
 
 								<p className={styles.desc}>
-									Oops! <br />
-									We've searched high and low, but unfortunately, what you're seeking seems to elude us.
+									<b>Oops!</b><br />
+									{t('message')}
 								</p>
 
 								<Link
@@ -79,7 +84,7 @@ export default function FourOhFour() {
 									href={routes.home}
 									className='hover-underline'
 								>
-									Back home
+									{t('button')}
 								</Link>
 
 							</div>
@@ -92,4 +97,12 @@ export default function FourOhFour() {
 			
 		</Layout>
     )
+}
+
+export async function getStaticProps({ locale }) {
+	return {
+	  	props: {
+			messages: (await import(`../../i18n/${locale}.json`)).default
+	  	}
+	}
 }

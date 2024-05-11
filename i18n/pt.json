@@ -1,0 +1,62 @@
+{
+    "Menu": {
+        "description": "Saad® é uma consultoria de marcas boutique premiada internacionalmente <br />especializada em construir e transformar o futuro dos negócios.",
+        "tags": "Negócios <span>•</span> Marcas <span>•</span> Design"
+    },
+
+    "Marquee": {
+        "mouse": "Contato",
+        "message": "Vamos criar o futuro da sua marca.",
+        "button": "Entre em contato"
+    },
+
+    "StandFor": {
+        "title": "O que defendemos",
+        "first": {
+            "title": "Estratégia Clara",
+            "text": "Analisamos todos os aspectos do negócio e nos aprofundamos em cada um deles para criar estratégias de negócios. Marcas claras, precisas e distintas."
+        },
+        "second": {
+            "title": "Design Inteligente",
+            "text": "Comunicamos a singularidade da sua marca ao mundo através de um design elegante, inteligente e atemporal."
+        },
+        "third": {
+            "title": "Feito sob medida",
+            "text": "Somos uma boutique, o que significa: trabalhar mais próximo dos nossos clientes, mais foco, qualidade em vez de quantidade, muita atenção aos detalhes e controlo em todo o processo."
+        }
+    },
+    
+    "Footer": {
+        "location": "Brasil",
+        "copyright": "Todos os direitos reservados."
+    },
+
+    "Home": {
+        "pageTitle": "Marcas personalizadas impactantes",
+        "pageDescription": "Saad® é uma consultoria de marcas boutique premiada internacionalmente, especializada em construir e transformar o futuro dos negócios.",
+        "Counters": {
+            "first": "anos de experiência em branding",
+            "second": "premiações nacionais e internacionais",
+            "third": "palestras e eventos no Brazil e afora",
+            "fourth": "publicações online e offline"
+        }
+    },
+
+    "About": {
+        
+    },
+
+    "Work": {
+        
+    },
+
+    "Contact": {
+        "title": "Olá Saad!"
+    },
+
+    "NotFound": {
+        "title": "Página não encontrada",
+        "message": "Procuramos de cima a baixo mas, infelizmente, o que você está procurando parece estar fora de nosso alcance.",
+        "button": "Voltar ao Início"
+    }
+}

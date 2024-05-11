@@ -1,6 +1,7 @@
 // libraries
 import { useEffect } from 'react'
 import { GoogleTagManager } from '@next/third-parties/google'
+import { NextIntlClientProvider } from 'next-intl'
 
 // components
 import CustomScrollbar from '@/components/utils/custom-scrollbar'
@@ -20,7 +21,7 @@ const antarctica = localFont({
     src: '../assets/fonts/Antarctica-Regular.woff2'
 })
 
-export default function App({ Component, pageProps, router }) {
+export default function App({ Component, pageProps, router }){
 
 	useEffect(() => {
 		const message = 'Design Gabriel Leon 🔗 www.behance.net/leonngabr \nCode Senz Design 🔗 www.senzdsn.com'
@@ -29,28 +30,34 @@ export default function App({ Component, pageProps, router }) {
 	}, [])
 
 	return (
-		<div className={antarctica.className}>
+		<NextIntlClientProvider
+			locale={router.locale}
+      		messages={pageProps.messages}
+			now={new Date(pageProps.now)}
+		>
+			<div className={antarctica.className}>
 
-			<Opening />
+				<Opening />
 
-			<Menu />
+				<Menu />
 
-			<SmoothScrolling>
+				<SmoothScrolling>
 
-				<CustomScrollbar />
+					<CustomScrollbar />
 
-				<main role='main' data-scroll-container>
+					<main role='main' data-scroll-container>
 
-					<GoogleTagManager gtmId='GTM-W7HLMBNK' />
+						<GoogleTagManager gtmId='GTM-W7HLMBNK' />
 
-					<PageTransition>
-						<Component key={router.route} {...pageProps} />
-					</PageTransition>
+						<PageTransition>
+							<Component key={router.route} {...pageProps} />
+						</PageTransition>
 
-				</main>
+					</main>
 
-			</SmoothScrolling>
+				</SmoothScrolling>
 
-		</div>
+			</div>
+		</NextIntlClientProvider>
 	)
 }

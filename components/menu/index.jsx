@@ -9,6 +9,9 @@ import { useGSAP } from '@gsap/react'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
 
+// i18n
+import { useMessages } from 'next-intl'
+
 // routes / utils
 import routes from '@/utils/routes'
 import { debounce } from '@/utils/functions'
@@ -20,6 +23,11 @@ import Logo from '@/assets/svg/logos/logo.svg'
 import styles from './menu.module.scss'
 
 export default function Menu() {
+
+    const { locale, route } = useRouter()
+    const router = useRouter()
+
+    const messages = useMessages()
 
     // animation ref
     const menuAnimationRef = useRef(null)
@@ -51,19 +59,19 @@ export default function Menu() {
     // menu items
 	const menuItems = [
 		{
-			name: 'Home',
+			name: locale === 'en' ? 'Home' : 'Início',
 			url: routes.home
 		},
 		{
-			name: 'Work',
+			name: locale === 'en' ? 'Work' : 'Projetos',
 			url: routes.work
 		},
 		{
-			name: 'About',
+			name: locale === 'en' ? 'About' : 'Sobre',
 			url: routes.about
 		},
 		{
-			name: 'Contact',
+			name: locale === 'en' ? 'Contact' : 'Contato',
 			url: routes.contact
 		}
 	]
@@ -80,8 +88,6 @@ export default function Menu() {
             lenis.start()
         }
 	}
-
-    const router = useRouter()
 
     const closeFsMenu = (e) => {
         const { pathname } = router
@@ -205,18 +211,15 @@ export default function Menu() {
 							
 							<div className={clsx(styles.texts, 'top-menu-texts')}>
 
-								<div className={clsx(styles.first, 'top-menu-texts-static')}>
-									<p>
-										Saad® is an internationally award-winning boutique brand consultancy <br />
-										specialized in building and transforming the future of businesses.
-									</p>
-								</div>
+								<div
+                                    className={clsx(styles.first, 'top-menu-texts-static')}
+                                    dangerouslySetInnerHTML={{ __html: messages.Menu.description }}
+                                />
 
-								<div className={clsx(styles.second, 'top-menu-texts-scroll')}>
-									<p>
-										Business <span>•</span> Branding <span>•</span> Design
-									</p>
-								</div>
+								<div
+                                    className={clsx(styles.second, 'top-menu-texts-scroll')}
+                                    dangerouslySetInnerHTML={{ __html: messages.Menu.tags }}
+                                />
 
 							</div>
 
@@ -225,8 +228,9 @@ export default function Menu() {
 								<li>
 									<Link
                                         scroll={false}
-										href={routes.home}
-										className={styles.active}
+										href={route}
+                                        locale='en'
+										className={clsx(locale === 'en' && styles.active)}
                                         onClick={closeFsMenu}
 									>
 										English
@@ -236,10 +240,12 @@ export default function Menu() {
 								<li>
 									<Link
                                         scroll={false}
-										href='./pt-br'
+										href={route}
+                                        locale='pt'
+                                        className={clsx(locale === 'pt' && styles.active)}
                                         onClick={closeFsMenu}
 									>
-										Portuguese
+										Português
 									</Link>
 								</li>
 							</ul>
@@ -251,7 +257,7 @@ export default function Menu() {
 								
 								<span className={styles.text}>
 									<span className='fs-text-open'>Menu</span>
-                                    <span className='fs-text-close'>Close</span>
+                                    <span className='fs-text-close'>{locale === 'en' ? 'Close' : 'Fechar'}</span>
 								</span>
 
 								<span className={styles.block}></span>

@@ -8,6 +8,9 @@ import { useGSAP } from '@gsap/react'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
 
+// i18n
+import { useMessages } from 'next-intl'
+
 // components
 import FollowMouse from '@/components/utils/follow-mouse'
 
@@ -23,6 +26,7 @@ import styles from './contact-marquee.module.scss'
 
 export default function ContactMarquee() {
 
+    const messages = useMessages()
     const directionRef = useRef()
 
     const lenis = useLenis(({direction}) => {
@@ -56,25 +60,25 @@ export default function ContactMarquee() {
 
     return (
         <section className={styles.contactMarquee}>
-            <FollowMouse text='Contact' big>
+            <FollowMouse text={messages.Marquee.mouse} big>
                 <div className='container padding-y-smaller'>
                     <Link scroll={false} href={routes.contact}>
 
                         <div className={clsx(styles.marquee, 'uppercase')}>
                             
                             <span className='marquee-span'>
-                                Let's create the future of your brand.&nbsp;
+                                {messages.Marquee.message}&nbsp;
                             </span>
 
                             <span className='marquee-span'>
-                                Let's create the future of your brand.&nbsp;
+                                {messages.Marquee.message}&nbsp;
                             </span>
 
                         </div>
 
                         <div className={clsx(styles.grid, 'grid-container')}>
                             <p className={clsx(styles.flex, 'grid-md-6-7')}>
-                                Contact us
+                                {messages.Marquee.button}
                                 <UxArrowRight />
                             </p>
                         </div>

@@ -1,7 +1,6 @@
 // libraries
 import clsx from 'clsx'
 import Image from 'next/image'
-import { useEffect, useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { FreeMode, Autoplay } from 'swiper/modules'
 import 'swiper/css'
@@ -12,19 +11,6 @@ import 'swiper/css/autoplay'
 import styles from './logos-slider.module.scss'
 
 export default function LogosSlider() {
-
-    /*
-    const [logos, setLogos] = useState([])
-
-    useEffect(() => {
-        async function fetchLogos() {
-            const res = await fetch('https://wp.findluxuryrehabs.com/?cmd=get_logos')
-            const data = await res.json()
-            setLogos(data.logos);
-        }
-        fetchLogos()
-    }, [])
-    */
 
     const logos = [
         {

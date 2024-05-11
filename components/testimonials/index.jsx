@@ -1,4 +1,5 @@
 // libraries
+import { useRouter } from 'next/router'
 import clsx from 'clsx'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, EffectFade } from 'swiper/modules'
@@ -16,13 +17,16 @@ import UxArrowRight from '@/assets/svg/ux/arrow-right.svg'
 import styles from './testimonials.module.scss'
 
 export default function Testimonials({ testimonials }) {
+
+    const { locale } = useRouter()
+
     return (
         <section className={clsx(styles.testimonials, 'padding-y')}>
             <div className='container'>
                 <div className={clsx(styles.grid, 'grid-container')}>
                     
                     <p className={clsx(styles.left, 'grid-md-1-3')}>
-                        Testimonials
+                        {locale === 'en' ? 'Testimonials' : 'Depoimentos'}
                     </p>
 
                     <div className={clsx(styles.right, 'grid-md-3-7')}>

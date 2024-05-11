@@ -1,0 +1,124 @@
+[
+	{
+		"image": "/img/projects/9-6.jpg",
+		"darkText": false,
+		"client": "9-6",
+		"title": "Plural uniqueness",
+		"category": "Human Resources",
+		"tags": ["Visual Identity", "Strategy"],
+		"body": [
+			{
+				"about": {
+					"title": "About",
+					"text": "<p>Guilherme “Nagüeva” is a multidisciplinary professional who had a very unusual trajectory within design: he was one of the pioneers in WordPress and SEO in southern Brazil, he was Chief Design Officer in a car sharing startup working in areas such as service design, business intelligence and design leadership and held the position of Senior UX Designer at Philips Brasil, being responsible for automating design processes for Tasy EMR, a leading product in the healthcare sector in Latin America.</p><p>In order to project himself professionally, Nagüeva sought out Saad to develop a personal branding project, understanding its differences, exploring market opportunities and defining its positioning.</p><h3>Giving a voice to ideas</h3><p>In During the research and workshops with the professional himself, in addition to interviews with people close to him and work partners, Nagüeva's main difference became clear: solving complex challenges in an unusual and effective way through design and technology translated through the brand idea “ Cha(lle)nger” (changer + challenger).</p><p>In addition, some characteristics stood out: phrases such as “I am the synthesis of excess”, “I don’t fit into anything and, at the same time, I I adapt to everything” and “I run away from what is mainstream”, together with the meaning of the name (“Nagüeva” came from a joke between friends and means “what is in my throat, what I want to say”), led to the creation of a minimalist identity in black and white that uses only texts (the main element of the brand, referring to the meaning of the name) that adapt to the most different sizes, formats and platforms, translating attributes such as intensity, transformation and experimentation in a direct, full way personality and unconventional.</p><h3>Big new cha(lle)nges</h3><p>The personal branding project included the definition of the entire brand platform (buyer personas, drivers, archetype, purpose, positioning, mission and brand persona, in addition to of the main communication channels, tone of voice and strategic recommendations) and less than a year after the project, Nagüeva was promoted and transferred from Brazil to Philips' global headquarters in Eindhoven – Netherlands, where he holds the position of Senior Design Technologist.</p><p>In Nagüeva's own words: “I used the brand a lot in the way I positioned myself in meetings, conversations, as a team leader and project leader and that was essential for what I am experiencing today. Here (in Europe) I took the projects that were less relevant, that no one was paying attention to and that no one wanted and the first of them ended up becoming part of Philips' global scalability strategy and the other, a low priority project at the beginning of the year. year, it is now one of the priority projects and is directly linked to one of Philips Design's KPIs. It's a year-long journey here in the Netherlands that is unbelievable and, if I hadn't had a direction, if back then we hadn't stopped to think strategically about how I would position myself, I wouldn't have achieved this, I honestly wouldn't have.”</p>"
+				}
+			},
+			{
+				"awards": {
+					"title": "Awards",
+					"infos": [
+						{
+							"items": [
+								{
+									"text": "Bienal Iberoamericana de Diseño, BID. Espanha."
+								}
+							]
+						}
+					]
+				}
+			},
+			{
+				"credits": {
+					"title": "Credits",
+					"infos": [
+						{
+							"items": [
+								{
+									"text": "Gabriel Leon | UX Designer"
+								}, {
+									"text": "Flávio R. Troszczanczuk | Developer"
+								}, {
+									"text": "Jhonny Jessé | Copywriter & SEO"
+								}
+							]
+						}
+					]
+				}
+			},
+			{
+				"gallery": [
+					{
+						"src": "/img/projects/nagueva/01.jpg",
+						"alt": "Nagüeva"
+					}, {
+						"src": "/img/projects/nagueva/02.jpg",
+						"alt": "Nagüeva"
+					}, {
+						"id": "385588398"
+					}, {
+						"src": "/img/projects/nagueva/03.jpg",
+						"alt": "Nagüeva"
+					}, {
+						"src": "/img/projects/nagueva/04.jpg",
+						"alt": "Nagüeva"
+					}
+				]
+			},
+			{
+				"testimonials": [
+					{
+						"company": "Nagüeva",
+						"testimonial": "At various times – many of them difficult –, I revisited the strategy to support my decisions and remember my medium and long-term goals. It's no exaggeration to say that I wouldn't be living in the Netherlands and working at Philips Design if it weren't for Saad's excellent work.",
+						"name": "Guilherme Nagüeva",
+						"position": "Philips Design"
+					}, {
+						"company": "Nagüeva",
+						"testimonial": "One thing that really surprised me was the fact that the same strategy that worked in Brazil also worked here in the Netherlands, dealing with a global team and a much bigger mission.",
+						"name": "Guilherme Nagüeva",
+						"position": "Philips Design"
+					}
+				]
+			}
+		]
+	},
+	{
+		"image": "/img/projects/nagueva.jpg",
+		"darkText": true,
+		"client": "Nagüeva",
+		"title": "Making the brand personal",
+		"category": "Personal Branding",
+		"tags": ["Visual Identity", "Strategy"]
+	},
+	{
+		"image": "/img/projects/vuelo.jpg",
+		"darkText": true,
+		"client": "Vuelo",
+		"title": "New Possibilities",
+		"category": "Pharmaceutical",
+		"tags": ["Visual Identity", "Strategy"]
+	},
+	{
+		"image": "/img/projects/oigo.jpg",
+		"darkText": false,
+		"client": "Oigo",
+		"title": "Simplified audio",
+		"category": "Audiovisual",
+		"tags": ["Visual Identity", "Strategy"]
+	},
+	{
+		"image": "/img/projects/re.jpg",
+		"darkText": false,
+		"client": "RE",
+		"title": "Rethink your life",
+		"category": "Sustainability",
+		"tags": ["Visual Identity", "Strategy"]
+	},
+	{
+		"image": "/img/projects/ipiranga-seeds.jpg",
+		"darkText": false,
+		"client": "Ipiranga Seeds",
+		"title": "Generating value for agribusiness",
+		"category": "Agriculture",
+		"tags": ["Visual Identity", "Strategy"]
+	}
+]

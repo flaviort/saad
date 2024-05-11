@@ -1,4 +1,5 @@
 // libraries
+import { useRouter } from 'next/router'
 import clsx from 'clsx'
 import { Fancybox } from '@fancyapps/ui'
 import { useRef, useState, useEffect } from 'react'
@@ -17,6 +18,7 @@ import styles from './form.module.scss'
 
 export const Form = ({ className, children }) => {
 
+    const { locale } = useRouter()
     const form = useRef(null)
 
     // form validations
@@ -40,7 +42,7 @@ export const Form = ({ className, children }) => {
             if (response.ok) {
                 return response.json()
             } else {
-                throw new Error('Failed to send message.')
+                throw new Error(locale === 'en' ? 'Failed to send message.' : 'Falha ao enviar mensagem.')
             }
         })
 
@@ -84,17 +86,17 @@ export const Form = ({ className, children }) => {
             <div className={styles.popup} id='success'>
                 <div className={styles.wrapper}>
 
-                <p className={clsx(styles.title, 'font-bigger')}>
-                        Success
+                    <p className={clsx(styles.title, 'font-bigger')}>
+                        {locale === 'en' ? 'Success' : 'Sucesso'}
                     </p>
 
                     <p className={styles.text}>
-                        Your message has been sent! <br />
-                        We will contact you as soon as possible.
+                        {locale === 'en' ? 'Your message has been sent.' : 'Sua mensagem foi enviada.'} <br />
+                        {locale === 'en' ? 'We will contact you as soon as possible.' : 'Iremos entrar em contato o mais breve possível.'}
                     </p>
 
                     <button className={clsx(styles.button, 'font-small')} data-fancybox-close>
-                        Close <UxClose />
+                        {locale === 'en' ? 'Close' : 'Fechar'} <UxClose />
                     </button>
 
                 </div>
@@ -104,16 +106,16 @@ export const Form = ({ className, children }) => {
                 <div className={styles.wrapper}>
 
                     <p className={clsx(styles.title, styles.error, 'font-bigger')}>
-                        Error
+                        {locale === 'en' ? 'Error' : 'Erro'}
                     </p>
 
                     <p className={styles.text}>
-                        An error occurred while sending your message! <br />
-                        Please wait a moment and try again.
+                        {locale === 'en' ? 'An error occurred while sending your message!' : 'Ocorreu um erro ao enviar sua mensagem!'} <br />
+                        {locale === 'en' ? 'Please wait a moment and try again.' : 'Por favor, espere um momento e tente novamente.'}
                     </p>
 
                     <button className={clsx(styles.button, 'font-small')} data-fancybox-close>
-                        Close <UxClose />
+                        {locale === 'en' ? 'Close' : 'Fechar'} <UxClose />
                     </button>
 
                 </div>
@@ -125,13 +127,14 @@ export const Form = ({ className, children }) => {
 
 export const Input = ({ label, type, placeholder, required, maxLength }) => {
 
+    const { locale } = useRouter()
     const { register, formState: { errors } } = useFormContext()
 
     let validations = {
-        required: required && 'This field is required',
+        required: required && locale === 'en' ? 'This field is required' : 'Este campo é obrigatório',
         maxLength: maxLength && {
             value: maxLength,
-            message: `Maximum character limit reached`,
+            message: locale === 'en' ? 'Maximum characters limit reached' : 'Limite máximo de caracteres alcançado',
         }
     }
 
@@ -141,7 +144,7 @@ export const Input = ({ label, type, placeholder, required, maxLength }) => {
             ...validations,
             pattern: {
                 value: /\S+@\S+\.\S+/,
-                message: 'Invalid email',
+                message: locale === 'en' ? 'Invalid email address' : 'Endereço de e-mail inválido',
             },
         }
     }

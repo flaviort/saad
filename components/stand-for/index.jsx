@@ -5,6 +5,9 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
 
+// i18n
+import { useMessages } from 'next-intl'
+
 // components
 import FillTitle from '@/components/utils/fill-title'
 import AnimatedLine from '@/components/utils/animated-line'
@@ -17,16 +20,18 @@ import styles from './stand-for.module.scss'
 
 export default function StandFor() {
 
+    const messages = useMessages()
+
     const standFor = [
         {
-            title: 'Clear-Cut Strategy',
-            text: 'We look at all aspects of the business and delve into each of them to create business strategies. Clear, precise and distinct brands.'
+            title: messages.StandFor.first.title,
+            text: messages.StandFor.first.text
         }, {
-            title: 'Clever Design',
-            text: 'We communicate your brand’s uniqueness to the world through sharp, smart and timeless design.'
+            title: messages.StandFor.second.title,
+            text: messages.StandFor.second.text
         }, {
-            title: 'Tailor-Made',
-            text: 'We are a boutique, which means: working closer to our clients, more focus, quality over quantity, high attention to details and control throughout the whole process.'
+            title: messages.StandFor.third.title,
+            text: messages.StandFor.third.text
         }
     ]
 
@@ -50,7 +55,7 @@ export default function StandFor() {
             <div className='container'>
 
                 <p className={styles.topTitle}>
-                    What we stand for
+                    {messages.StandFor.title}
                 </p>
 
                 <div className={styles.accordion}>

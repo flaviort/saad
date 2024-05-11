@@ -1,11 +1,28 @@
 const path = require('path')
 
 module.exports = {
+	i18n: {
+        locales: ['en', 'pt'],
+		defaultLocale: 'en',
+		localeDetection: false,
+		localePath: path.resolve('./i18n')
+    },
 	//assetPrefix: './',
 	//basePath: process.env.PUBLIC_URL,
 	sassOptions: {
 		includePaths: [path.join(__dirname, 'assets/scss')],
 		prependData: `@import 'atoms/variables.scss';`
+	},
+	images: {
+		//unoptimized: true,
+		remotePatterns: [
+		  	{
+				protocol: 'https',
+				hostname: 'senzdsn.com',
+				//port: '443',
+				//pathname: '**',
+		  	},
+		],
 	},
 	eslint: {
 		ignoreDuringBuilds: true,

@@ -1,19 +1,20 @@
 // libraries
 import clsx from 'clsx'
 
-// routes / utils
-import projects from '@/utils/projects'
-
 // components
 import Layout from '@/layout'
 import FollowMouse from '@/components/utils/follow-mouse'
 import Project from '@/components/project'
 import ContactMarquee from '@/components/contact-marquee'
 
+// hooks
+import { getProjects } from '@/utils/graphql'
+
 // css
 import styles from './work.module.scss'
+import { slugify } from '@/utils/functions'
 
-export default function Work() {
+export default function Work({ data }) {
     return (
 		<Layout
 			bodyClass='work'
@@ -36,16 +37,16 @@ export default function Work() {
 
 			<section className={styles.projects}>
 				<FollowMouse text='View'>
-					{projects.map((item, i) => (
+					{data.edges.map((edge, i) => (
 						<Project
 							key={i}
-							link={item.link}
-							image={item.image}
-							darkText={item.darkText}
-							client={item.client}
-							title={item.title}
-							category={item.category}
-							tags={item.tags}
+							link={'/work/' + slugify(edge.node.title)}
+							image={edge.node.featuredImage.node.sourceUrl}
+							darkText={edge.node.darkText}
+							client={edge.node.title}
+							title={edge.node.projects.title}
+							category={edge.node.category}
+							tags={edge.node.tags.nodes.map(tag => tag.name)}
 						/>
 					))}
 				</FollowMouse>
@@ -55,4 +56,16 @@ export default function Work() {
 
 		</Layout>
     )
+}
+
+export async function getStaticProps({ locale }) {
+	const res = await getProjects()
+	const data = res
+
+	return {
+		props: {
+			data,
+			messages: (await import(`../../i18n/${locale}.json`)).default
+		}
+	}
 }

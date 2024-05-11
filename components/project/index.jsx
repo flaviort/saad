@@ -1,4 +1,5 @@
 // libraries
+import { useRouter } from 'next/router'
 import clsx from 'clsx'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -13,6 +14,8 @@ import UxArrowRight from '@/assets/svg/ux/arrow-right.svg'
 import styles from './project.module.scss'
 
 export default function Project({ link, image, darkText = false, client, title, category, tags }) {
+
+    const { locale } = useRouter()
 
     return (
         <Link
@@ -69,7 +72,7 @@ export default function Project({ link, image, darkText = false, client, title, 
                         </div>
 
                         <p className={clsx(styles.viewMobile, 'font-small')}>
-                            View <UxArrowRight />
+                            {locale === 'en' ? 'View' : 'Ver projeto'} <UxArrowRight />
                         </p>
 
                     </div>

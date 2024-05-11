@@ -11,6 +11,7 @@ export default function TransitionComponent({ children }){
 
 	const lenis = useLenis()
     const router = useRouter()
+	const { locale } = useRouter()
 
 	// fix to avoid css removal too soon on page transition (only visible on build)
 	const removeExpiredStyles = useNextCssRemovalPrevention()
@@ -18,7 +19,7 @@ export default function TransitionComponent({ children }){
     return (
 		<SwitchTransition>
 			<Transition
-				key={router.pathname}
+				key={router.pathname + router.asPath + locale}
 				//timeout={{ enter: 10, exit: 2500 }}
 				addEndListener={(node, done) => {
 					node.addEventListener('transitionend', (e) => {

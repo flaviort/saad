@@ -1,0 +1,62 @@
+{
+    "Menu": {
+        "description": "Saad® is an internationally award-winning boutique brand consultancy <br />specialized in building and transforming the future of businesses.",
+        "tags": "Business <span>•</span> Branding <span>•</span> Design"
+    },
+
+    "Marquee": {
+        "mouse": "Contact",
+        "message": "Let's create the future of your brand.",
+        "button": "Contact us"
+    },
+
+    "StandFor": {
+        "title": "What we stand for",
+        "first": {
+            "title": "Clear-Cut Strategy",
+            "text": "We look at all aspects of the business and delve into each of them to create business strategies. Clear, precise and distinct brands."
+        },
+        "second": {
+            "title": "Clever Design",
+            "text": "We communicate your brand's uniqueness to the world through sharp, smart and timeless design."
+        },
+        "third": {
+            "title": "Tailor-Made",
+            "text": "We are a boutique, which means: working closer to our clients, more focus, quality over quantity, high attention to details and control throughout the whole process."
+        }
+    },
+    
+    "Footer": {
+        "location": "Brazil",
+        "copyright": "All Rights Reserved"
+    },
+
+    "Home": {
+        "pageTitle": "Impactful Tailored Brands",
+        "pageDescription": "Saad® is an internationally award-winning boutique brand consultancy specialized in building and transforming the future of businesses.",
+        "Counters": {
+            "first": "years of branding experience",
+            "second": "national and international awards",
+            "third": "talks and events in Brazil and abroad",
+            "fourth": "publications online and offline"
+        }
+    },
+
+    "About": {
+        
+    },
+
+    "Work": {
+        
+    },
+
+    "Contact": {
+        "title": "Hello Saad!"
+    },
+
+    "NotFound": {
+        "title": "Page not found",
+        "message": "We've searched high and low, but unfortunately, what you're seeking seems to elude us.",
+        "button": "Back to Home"
+    }
+}
