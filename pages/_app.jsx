@@ -34,6 +34,7 @@ export default function App({ Component, pageProps, router }){
 			locale={router.locale}
       		messages={pageProps.messages}
 			now={new Date(pageProps.now)}
+			timeZone='America/Sao_Paulo'
 		>
 			<div className={antarctica.className}>
 

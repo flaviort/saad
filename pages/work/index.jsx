@@ -23,7 +23,12 @@ export default function Work({ data }) {
 	const { locale } = useRouter()
 	const t = useTranslations('Work')
 
-	console.log(data)
+	if (data && data.edges) {
+		// render your components
+	} else {
+		// handle the case where data or data.edges is null
+		console.log('Data not available');
+	}
 
     return (
 		<Layout
@@ -47,18 +52,24 @@ export default function Work({ data }) {
 
 			<section className={styles.projects}>
 				<FollowMouse text={locale === 'en' ? 'View' : 'Ver'}>
-					{data.edges.map((edge, i) => (
-						<Project
-							key={i}
-							link={'/work/' + slugify(edge.node.title)}
-							image={edge.node.featuredImage.node.sourceUrl}
-							darkText={edge.node.darkText}
-							client={edge.node.title}
-							title={edge.node.projects.title}
-							category={edge.node.category}
-							tags={edge.node.tags.nodes.map(tag => tag.name)}
-						/>
-					))}
+					{data && data.edges ? (
+						data.edges.map((edge, i) => (
+							<Project
+								key={i}
+								link={'/work/' + slugify(edge.node.title)}
+								image={edge.node.featuredImage.node.sourceUrl}
+								darkText={edge.node.darkText}
+								client={edge.node.title}
+								title={edge.node.projects.title}
+								category={edge.node.category}
+								tags={edge.node.tags.nodes.map(tag => tag.name)}
+							/>
+						))
+					) : (
+						<p>
+							No projects found.
+						</p>
+					)}
 				</FollowMouse>
 			</section>
 

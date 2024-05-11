@@ -4,8 +4,7 @@ module.exports = {
 	i18n: {
         locales: ['en', 'pt'],
 		defaultLocale: 'en',
-		localeDetection: false,
-		localePath: path.resolve('./i18n')
+		localeDetection: false
     },
 	//assetPrefix: './',
 	//basePath: process.env.PUBLIC_URL,
