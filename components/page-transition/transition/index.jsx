@@ -1,7 +1,7 @@
 // libraries
 import { SwitchTransition, Transition } from 'react-transition-group'
 import { useNextCssRemovalPrevention } from '@madeinhaus/nextjs-page-transition'
-import { useLenis } from '@studio-freight/react-lenis'
+import { useLenis } from 'lenis/react'
 import { useRouter } from 'next/router'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'

@@ -3,9 +3,6 @@ import { useRef } from 'react'
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
 
-// svgs
-import Logo from '@/assets/svg/logos/logo.svg'
-
 // css
 import styles from './opening.module.scss'
 
@@ -18,11 +15,10 @@ export default function Opening(){
             delay: .3
         })
 
-        tl.to('svg path', {
-            yPercent: -110,
-            stagger: .3,
-            duration: .6,
-            ease: 'power2.out'
+        tl.to('[data-line]', {
+            transform: 'scaleX(1) scaleY(.01)',
+            duration: 3,
+            ease: 'power4.inOut'
         })
 
         tl.call(function() {
@@ -31,12 +27,11 @@ export default function Opening(){
             }, 600)
         })
 
-        tl.to('svg path', {
-            yPercent: -220,
-            stagger: .2,
-            duration: .6,
-            ease: 'power2.in'
-        })
+        tl.to('[data-line]', {
+            transform: 'scaleY(1) scaleX(1)',
+            duration: 1,
+            ease: 'power2.out'
+        }, '+=.3')
 
         tl.to(container.current, {
             autoAlpha: 0,
@@ -49,7 +44,7 @@ export default function Opening(){
 
     return (
         <aside className={styles.opening} ref={container}>
-            <Logo />
+            <div className={styles.line} data-line />
         </aside>
     )
 }

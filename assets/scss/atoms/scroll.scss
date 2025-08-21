@@ -1,11 +1,16 @@
-body::-webkit-scrollbar {
-    display: none;
+::-webkit-scrollbar {
+	width: .25rem;
 }
- 
-body {
-    -ms-overflow-style: none;
+
+::-webkit-scrollbar-track {
+	background: $white;
 }
- 
-html {
-    scrollbar-width: none;
+
+::-webkit-scrollbar-thumb {
+	background: $black;
+	border-radius: 1rem;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	cursor: grab;
 }

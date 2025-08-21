@@ -1,7 +1,8 @@
 // libraries
 import clsx from 'clsx'
 import Link from 'next/link'
-import { useLenis } from '@studio-freight/react-lenis'
+import { useRouter } from 'next/router'
+import { useLenis } from 'lenis/react'
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
@@ -12,7 +13,6 @@ import { useMessages } from 'next-intl'
 
 // routes / utils
 import routes from '@/utils/routes'
-import { phone, email } from '@/utils/functions'
 
 // svgs
 import Logo from '@/assets/svg/logos/logo.svg'
@@ -25,6 +25,7 @@ export default function Footer() {
 
 	const messages = useMessages()
 	const lenis = useLenis()
+	const { locale } = useRouter()
 
 	const scrollTop = () => {
 
@@ -40,34 +41,14 @@ export default function Footer() {
 	}
 
 	// contact links
-	const contact_links = [
+	const social = [
 		{
-			ulClass: 'social',
-			li: [
-				{
-					name: 'Linkedin',
-					url: routes.linkedin,
-					external: true
-				},
-				{
-					name: 'Instagram',
-					url: routes.instagram,
-					external: true
-				}
-			]
+			name: 'Linkedin',
+			url: routes.linkedin
 		},
 		{
-			ulClass: 'contact',
-			li: [
-				{
-					name: routes.email,
-					url: email(routes.email)
-				},
-				{
-					name: routes.phone,
-					url: phone(routes.phone)
-				}
-			]
+			name: 'Instagram',
+			url: routes.instagram
 		}
 	]
 
@@ -104,22 +85,34 @@ export default function Footer() {
 						</button>
 
 						<div className={clsx(styles.texts, 'grid-md-3-5 grid-xl-5-6')}>
-							{contact_links.map((item, i) => (
-								<ul className={item.ulClass} key={i}>
-									{item.li.map((subItem, i2) => (
-										<li key={i2}>
-											<Link
-												scroll={false}
-												href={subItem.url}
-												target={subItem.external ? '_blank' : null}
-												className='hover-underline'
-											>
-												{subItem.name}
-											</Link>
-										</li>    
-									))}
-								</ul>
-							))}
+
+							<ul className={styles.social}>
+								{social.map((item, i) => (
+									<li key={i}>
+										<Link
+											scroll={false}
+											href={item.url}
+											target='_blank'
+											className='hover-underline'
+										>
+											{item.name}
+										</Link>
+									</li>    
+								))}
+							</ul>
+
+							<ul className={styles.contact}>
+								<li>
+									<Link
+										scroll={false}
+										href={routes.privacy}
+										className='hover-underline'
+									>
+										{locale === 'en' ? 'Privacy Policy' : 'Política de Privacidade'}
+									</Link>
+								</li>    
+							</ul>
+
 						</div>
 
 						<div className={clsx(styles.texts, 'grid-md-5-7 grid-xl-6-7')}>

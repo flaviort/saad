@@ -141,7 +141,7 @@ export default function Home({ data }) {
 					
 						<Fancybox options={{ dragToClose: false }}>
 							<a href='https://vimeo.com/875961835' data-fancybox='showreel' className={styles.video} ref={videoRef}>
-								<FollowMouse text={locale === 'en' ? 'Play' : 'Assistir'} big scrollTrigger>
+								<FollowMouse text={locale === 'en' ? 'Play' : 'Assistir'} scrollTrigger>
 
 									<div className={styles.play}>
 										{locale === 'en' ? 'Play' : 'Assistir'}
@@ -213,7 +213,7 @@ export default function Home({ data }) {
 										{item.text}
 									</p>
 
-									<AnimatedLine opacity={.5} />
+									<div className={styles.line} />
 
 								</div>
 							))}
@@ -221,6 +221,9 @@ export default function Home({ data }) {
 
 					</div>
 				</div>
+
+				<AnimatedLine />
+				
 			</section>
 
 			<StandFor />

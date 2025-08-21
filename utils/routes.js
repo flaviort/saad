@@ -6,6 +6,7 @@ const routes = {
 	workInner: (id) => `/work/${id}`,
 	about: '/about',
 	contact: '/contact',
+	privacy: '/privacy-policy',
 
 	// social
 	instagram: 'https://www.instagram.com/wearesaadcx/',

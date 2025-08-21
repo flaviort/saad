@@ -31,6 +31,7 @@ import styles from './work-inner.module.scss'
 export default function WorkInner({ data, prevProject, nextProject }) {
 
     const bannerRef = useRef()
+    const { locale } = useRouter()
 
     // banner animation
     useGSAP(() => {
@@ -72,59 +73,66 @@ export default function WorkInner({ data, prevProject, nextProject }) {
 
                     <div className={clsx(styles.container, 'container')}>
                         <div className={clsx(styles.grid, 'grid-container')}>
-                            <div className='grid-md-5-7'>
+                            <div className='grid-xl-1-3'>
+                                
+                                <h1 className={styles.title}>
+                                    {data.node.title}
+                                </h1>
+
+                                <h2 className='font-big'>
+                                    {data.node.projects.title}
+                                </h2>
 
                             </div>
+
+                            <div className='grid-xl-3-7'>
+                                <p className={styles.category}>
+                                    {data.node.categories.nodes[0].name}
+                                </p>
+                            </div>
+
+                            {/*
+                            <div className='grid-md-5-7 grid-xl-6-7'>
+                                <p className={styles.tags}>
+                                    {data.node.tags.nodes.map((tag, i) => (
+                                        <span key={i}>
+                                            {tag.name}
+                                        </span>
+                                    ))}
+                                </p>
+                            </div>
+                            */}
+
                         </div>
                     </div>
 
                 </FollowMouse>
             </section>
 
-            <section className={clsx(styles.projectDetails, 'padding-y-small')}>
-                <div className='container'>
-                    <div className={clsx(styles.grid, 'grid-container')}>
-
-                        <div className='grid-md-1-3 grid-xl-1-4'>
-                            
-                            <h1 className={styles.title}>
-                                {data.node.title}
-                            </h1>
-
-                            <h2 className='font-big'>
-                                <FillTitle text={data.node.projects.title} />
-                            </h2>
-
-                        </div>
-
-                        <div className='grid-md-4-5 grid-xl-5-6'>
-                            <p className={styles.category}>
-                                {data.node.categories.nodes[0].name}
-                            </p>
-                        </div>
-
-                        <div className='grid-md-5-7 grid-xl-6-7'>
-                            <p className={styles.tags}>
-                                {data.node.tags.nodes.map((tag, i) => (
-                                    <span key={i}>
-                                        {tag.name}
-                                    </span>
-                                ))}
-                            </p>
-                        </div>
-
-                    </div>
-                </div>
-            </section>
-
-            <AnimatedLine />
-
             {data.node.projects.about && (
                 <>
                     <ListSection
-                        title='About'
+                        title={locale === 'en' ? 'About' : 'Sobre'}
                         about={data.node.projects.about}
                         singleColumn
+                        noScroll
+                    />
+
+                    <AnimatedLine />
+                </>
+            )}
+
+            {data.node.projects.services && (
+                <>
+                    <ListSection
+                        title={locale === 'en' ? 'What we did' : 'O que fizemos'}
+                        infos={[{
+                            items: data.node.projects.services.map( service => ({
+                                text: service.service
+                            }))
+                        }]}
+                        singleColumn
+                        noScroll
                     />
 
                     <AnimatedLine />
@@ -134,7 +142,7 @@ export default function WorkInner({ data, prevProject, nextProject }) {
             {data.node.projects.awards && (
                 <>
                     <ListSection
-                        title='Awards'
+                        title={locale === 'en' ? 'Awards & Publications' : 'Prêmios & Publicações'}
                         infos={[{
                             items: data.node.projects.awards.map( award => ({
                                 text: award.award
@@ -151,7 +159,7 @@ export default function WorkInner({ data, prevProject, nextProject }) {
             {data.node.projects.credits && (
                 <>
                     <ListSection
-                        title='Credits'
+                        title={locale === 'en' ? 'Credits' : 'Créditos'}
                         infos={[{
                             items: data.node.projects.credits.map( credit => ({
                                 text: credit.credit
@@ -172,15 +180,13 @@ export default function WorkInner({ data, prevProject, nextProject }) {
                             
                             {item.image && (
                                 <div className={styles.image}>
-                                    <ScrollingImage>
-                                        <Image
-                                            src={item.image.node.sourceUrl}
-                                            alt={item.imageDescription}
-                                            fill
-                                            sizes='100vw'
-                                            className='cover'
-                                        />
-                                    </ScrollingImage>
+                                    <Image
+                                        src={item.image.node.sourceUrl}
+                                        alt={item.imageDescription}
+                                        fill
+                                        sizes='100vw'
+                                        className='cover'
+                                    />
                                 </div>
                             )}
 

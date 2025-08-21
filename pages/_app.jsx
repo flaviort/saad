@@ -4,7 +4,6 @@ import { GoogleTagManager } from '@next/third-parties/google'
 import { NextIntlClientProvider } from 'next-intl'
 
 // components
-import CustomScrollbar from '@/components/utils/custom-scrollbar'
 import SmoothScrolling from '@/components/utils/smooth-scrolling'
 import Opening from '@/components/opening'
 import PageTransition from '@/components/page-transition'
@@ -43,8 +42,6 @@ export default function App({ Component, pageProps, router }){
 				<Menu />
 
 				<SmoothScrolling>
-
-					<CustomScrollbar />
 
 					<main role='main' data-scroll-container>
 

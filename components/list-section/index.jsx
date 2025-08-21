@@ -1,11 +1,5 @@
 // libraries
 import clsx from 'clsx'
-import { useRef } from 'react'
-import { useLenis } from '@studio-freight/react-lenis'
-import gsap from 'gsap'
-import { useGSAP } from '@gsap/react'
-import ScrollTrigger from 'gsap/dist/ScrollTrigger'
-gsap.registerPlugin(ScrollTrigger)
 
 // components
 import AnimatedLine from '@/components/utils/animated-line'
@@ -18,29 +12,17 @@ import UxArrowRight from '@/assets/svg/ux/arrow-right.svg'
 import styles from './list-section.module.scss'
 
 export default function ListSection({ className, title, infos, small, about, singleColumn, noScroll }) {
-
-    const section = useRef()
-    const lenis = useLenis()
-
-    useGSAP(() => {
-        if (!noScroll && window.innerWidth > 768) {
-            ScrollTrigger.create({
-                trigger: '.grid-md-1-2',
-                pin: '.title',
-                start: 'top 50%',
-                end: '97% 50%',
-                scrub: 3
-            })
-        }
-    }, {scope: section, dependencies: [lenis]})
-
     return (
-        <section className={clsx(styles.listSection, className)} ref={section}>
-            <div className='container padding-top-big'>
+        <section className={clsx(styles.listSection, className)}>
+            <div className='container padding-top'>
                 <div className='grid-container'>
 
                     <div className='grid-md-1-2'>
-                        <h2 className={clsx(styles.title, 'title')}>
+                        <h2 className={clsx(
+                            styles.title,
+                            noScroll && styles.noScroll,
+                            'title'
+                        )}>
                             {title}
                         </h2>
                     </div>

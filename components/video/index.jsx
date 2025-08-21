@@ -1,7 +1,7 @@
 // libraries
 import { useState, useRef } from 'react'
 import Vimeo from '@u-wave/react-vimeo'
-import { useLenis } from '@studio-freight/react-lenis'
+import { useLenis } from 'lenis/react'
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
 import ScrollTrigger from 'gsap/dist/ScrollTrigger'

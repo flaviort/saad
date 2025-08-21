@@ -3,7 +3,7 @@ import clsx from 'clsx'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useEffect, useState, useRef } from 'react'
-import { useLenis } from '@studio-freight/react-lenis'
+import { useLenis } from 'lenis/react'
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
@@ -32,7 +32,23 @@ export default function Menu() {
     // animation ref
     const menuAnimationRef = useRef(null)
     
+    // state to track if current route is homepage
+    const [isHomepage, setIsHomepage] = useState(
+        router.pathname === '/'
+    )
+    
+    // ref to track the current homepage state for lenis callback
+    const isHomepageRef = useRef(isHomepage)
+    
+    // update ref when state changes
+    useEffect(() => {
+        isHomepageRef.current = isHomepage
+    }, [isHomepage])
+
     const lenis = useLenis(({progress}) => {
+        // Only enable scroll animations on homepage
+        if (!isHomepageRef.current) return
+        
         if(progress > .01) {
             debounce(() => {
                 gsap.to('.top-menu-texts-static', {
@@ -78,6 +94,25 @@ export default function Menu() {
 
     // open / close fs menu
     const [isShown, setIsShown] = useState(false)
+
+    // track route changes
+    useEffect(() => {
+        const handleRouteChange = (url) => {
+            // Check if the URL is the homepage (considering localized routes)
+            const newIsHomepage = url === '/' || url === '/en' || url === '/pt'
+            setIsHomepage(newIsHomepage)
+        }
+
+        // Set initial state
+        handleRouteChange(router.asPath)
+
+        // Listen for route changes
+        router.events.on('routeChangeComplete', handleRouteChange)
+
+        return () => {
+            router.events.off('routeChangeComplete', handleRouteChange)
+        }
+    }, [router])
 
 	const openCloseFsMenu = () => {
 		setIsShown(!isShown)
@@ -126,6 +161,29 @@ export default function Menu() {
             }
         }
 	}, [isShown])
+
+    // Set initial menu text state based on route and handle route changes
+    useEffect(() => {
+        if (isHomepage) {
+            // On homepage, show static text initially (animation will handle scroll behavior)
+            gsap.set('.top-menu-texts-static', {
+                autoAlpha: 1
+            })
+
+            gsap.set('.top-menu-texts-scroll', {
+                autoAlpha: 0
+            })
+        } else {
+            // On all other pages, show scroll text only
+            gsap.set('.top-menu-texts-static', {
+                autoAlpha: 0
+            })
+
+            gsap.set('.top-menu-texts-scroll', {
+                autoAlpha: 1
+            })
+        }
+    }, [isHomepage])
 
     // menu animation
     useGSAP(() => {

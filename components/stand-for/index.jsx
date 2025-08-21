@@ -67,7 +67,7 @@ export default function StandFor() {
                         >
                             
                             <h3 className={clsx(styles.title, 'font-bigger')}>
-                                <FillTitle text={item.title} />
+                                {item.title}
                             </h3>
 
                             <div className={styles.flex}>
