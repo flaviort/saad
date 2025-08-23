@@ -1,8 +1,31 @@
 .cookies {
     position: fixed;
-    bottom: 1rem;
-    right: 1rem;
+    bottom: .5rem;
+    right: .5rem;
     z-index: 20;
-    background-color: $pure-black;
+    background-color: rgba($black, .975);
+    color: $white;
+    width: 32rem;
+    max-width: 90%;
+    padding: 1.75rem;
     
+    .buttons {
+        display: flex;
+        gap: .5rem;
+        margin-top: 1rem;
+
+        button {
+            display: block;
+            width: fit-content;
+            padding: .5rem 1rem;
+            border: 1px solid $white;
+            transition: .2s ease-in-out;
+
+            &:hover,
+            &:focus-visible {
+                background-color: $white;
+                color: $black;
+            }
+        }
+    }
 }

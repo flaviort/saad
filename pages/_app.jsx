@@ -1,6 +1,8 @@
 // libraries
 import { GoogleTagManager } from '@next/third-parties/google'
 import { NextIntlClientProvider } from 'next-intl'
+import { useRouter } from 'next/router'
+import { useEffect } from 'react'
 
 // components
 import SmoothScrolling from '@/components/utils/smooth-scrolling'
@@ -21,6 +23,13 @@ const antarctica = localFont({
 })
 
 export default function App({ Component, pageProps, router }){
+	
+	// Disable browser's automatic scroll restoration
+	useEffect(() => {
+		if (typeof window !== 'undefined' && 'scrollRestoration' in window.history) {
+			window.history.scrollRestoration = 'manual'
+		}
+	}, [])
 	return (
 		<NextIntlClientProvider
 			locale={router.locale}

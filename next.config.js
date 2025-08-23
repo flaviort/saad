@@ -1,6 +1,9 @@
 const path = require('path')
 
 module.exports = {
+	experimental: {
+		scrollRestoration: true,
+	},
 	i18n: {
         locales: ['en', 'pt'],
 		defaultLocale: 'en',
