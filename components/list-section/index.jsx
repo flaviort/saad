@@ -1,10 +1,6 @@
 // libraries
 import clsx from 'clsx'
 
-// components
-import AnimatedLine from '@/components/utils/animated-line'
-import FillTitle from '@/components/utils/fill-title'
-
 // svgs
 import UxArrowRight from '@/assets/svg/ux/arrow-right.svg'
 
@@ -43,7 +39,7 @@ export default function ListSection({ className, title, infos, small, about, sin
 
                                         {item.subTitle && (
                                             <h3 className={styles.subTitle}>
-                                                <FillTitle text={item.subTitle} />
+                                                {item.subTitle}
                                             </h3>
                                         )}
 
@@ -85,7 +81,7 @@ export default function ListSection({ className, title, infos, small, about, sin
                                         
                                     </div>
 
-                                    <AnimatedLine opacity={.5} />
+                                    <div className={styles.line} />
 
                                 </div>
                             ))}

@@ -21,6 +21,12 @@ module.exports = {
 				//port: '443',
 				//pathname: '**',
 		  	},
+			{
+				protocol: 'http',
+				hostname: 'localhost',
+				//port: '443',
+				//pathname: '**',
+		  	},
 		],
 	},
 	eslint: {

@@ -430,8 +430,8 @@
             "label_06": "nome@email.com",
             "text_07": "e meu telefone é",
             "label_07": "+00 (00) 00000-0000",
-            "popup_message": "Ao clicar no botão 'Enviar formulário', concordo com o",
-            "popup_button": "consentimento",
+            "popup_message": "Ao clicar no botão 'Enviar formulário', concordo com a",
+            "popup_button": "Política de Privacidade",
             "submit": "Enviar formulário"
         }
     },
@@ -440,5 +440,15 @@
         "title": "Página não encontrada",
         "message": "Procuramos de cima a baixo mas, infelizmente, o que você está procurando parece estar fora de nosso alcance.",
         "button": "Voltar ao Início"
+    },
+
+    "PrivacyPolicy": {
+        "pageTitle": "Política de Privacidade",
+        "pageDescription": "Nosso objetivo é garantir transparência e fornecer controle sobre seus dados pessoais.",
+        
+        "TopSection": {
+            "title": "Respeitamos sua privacidade e estamos comprometidos em proteger suas informações pessoais.",
+            "text": "Esta Política de Privacidade explica como coletamos, usamos, armazenamos e divulgamos seus dados, e as escolhas que você tem em relação às suas informações. Nosso objetivo é garantir transparência e fornecer controle sobre seus dados pessoais. Ao usar nosso site ou serviços, você concorda com as práticas descritas nesta política."
+        }
     }
 }

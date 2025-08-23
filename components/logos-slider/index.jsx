@@ -115,7 +115,7 @@ export default function LogosSlider() {
                                     <Image
                                         alt={item.alt}
                                         src={item.src}
-                                        fill={true}
+                                        fill
                                         sizes='
                                             (max-width: 575px) 33vw,
                                             (max-width: 992px) 25vw,

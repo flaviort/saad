@@ -1,20 +1,21 @@
-// define the website url with the graphql endpoint here
+//const websiteUrl = 'http://localhost/clients/saad/graphql'
 const websiteUrl = 'https://senzdsn.com/sites/saad/graphql'
 
 export async function getProjects(locale) {
-    const language = locale === 'en' ? 'EN' : 'PT';
     try {
         const res = await fetch(websiteUrl, {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json',
+                'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                query: `query GetPosts($language: LanguageCodeFilterEnum!) {
-                    posts(where: {language: $language}) {
+                query: `query GetPosts {
+                    posts(first: 10) {
                         edges {
                             node {
+                                id
                                 title
+                                slug
                                 categories {
                                     nodes {
                                         name
@@ -31,6 +32,8 @@ export async function getProjects(locale) {
                                     }
                                 }
                                 projects {
+                                    title
+                                    darkText
                                     about
                                     awards {
                                         award
@@ -38,7 +41,15 @@ export async function getProjects(locale) {
                                     credits {
                                         credit
                                     }
-                                    darkText
+                                    testimonials {
+                                        company
+                                        name
+                                        position
+                                        testimonial
+                                    }
+                                    services {
+                                        service
+                                    }
                                     gallery {
                                         ... on ProjectsGalleryImageLayout {
                                             imageDescription
@@ -52,36 +63,49 @@ export async function getProjects(locale) {
                                             videoId
                                         }
                                     }
-                                    testimonials {
-                                        company
-                                        name
-                                        position
-                                        testimonial
-                                    }
-                                    title
                                 }
                             }
                         }
                     }
-                }`,
-                variables: {
-                    language: language
-                }
+                }`
             })
         })
+
+        if (!res.ok) {
+            return { edges: [] }
+        }
 
         const responseBody = await res.text()
         const data = JSON.parse(responseBody)
         
-        if (data.errors) {
-            console.error('GraphQL errors:', data.errors)
-            return null
+        if (data.errors || !data.data || !data.data.posts) {
+            return { edges: [] }
         }
 
-        return data.data.posts
+        // Filter by language based on slug patterns
+        let filteredPosts = data.data.posts.edges
+        
+        if (locale) {
+            filteredPosts = data.data.posts.edges.filter(edge => {
+                const slug = edge.node.slug || ''
+                
+                if (locale === 'en') {
+                    // English posts typically don't have numbers or language suffixes
+                    // Look for slugs without "-2" or similar patterns that indicate duplicates/translations
+                    return !slug.endsWith('-2') && !slug.includes('-pt')
+                } else {
+                    // Portuguese posts might have "-2" suffix or "-pt" 
+                    // or contain accented characters in the slug
+                    return slug.endsWith('-2') || slug.includes('-pt') || /[àáâãäåæçèéêëìíîïñòóôõöøùúûüýÿ]/.test(slug)
+                }
+            })
+        }
+        
+        return {
+            edges: filteredPosts
+        }
         
     } catch (error) {
-        console.error('Error fetching site settings:', error)
-        return null
+        return { edges: [] }
     }
 }

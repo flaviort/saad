@@ -54,7 +54,7 @@ export default function WorkInner({ data, prevProject, nextProject }) {
         <Layout
             bodyClass='work-inner'
             pageTitle={data.node.title}
-            pageDescription={data.node.projects.title}
+            pageDescription={data.node.projects?.title || data.node.title}
         >
 
             <section className={styles.banner} ref={bannerRef}>
@@ -80,14 +80,14 @@ export default function WorkInner({ data, prevProject, nextProject }) {
                                 </h1>
 
                                 <h2 className='font-big'>
-                                    {data.node.projects.title}
+                                    {data.node.projects?.title}
                                 </h2>
 
                             </div>
 
                             <div className='grid-xl-3-7'>
                                 <p className={styles.category}>
-                                    {data.node.categories.nodes[0].name}
+                                    {data.node.categories?.nodes?.[0]?.name}
                                 </p>
                             </div>
 

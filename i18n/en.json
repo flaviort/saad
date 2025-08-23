@@ -430,8 +430,8 @@
             "label_06": "name@email.com",
             "text_07": "and my phone is",
             "label_07": "+1 (123) 456-7890",
-            "popup_message": "By clicking the 'Submit form' button, I agree to",
-            "popup_button": "consent",
+            "popup_message": "By clicking the 'Submit form' button, I agree to the",
+            "popup_button": "Privacy Policy",
             "submit": "Submit form"
         }
     },
@@ -440,5 +440,15 @@
         "title": "Page not found",
         "message": "We've searched high and low, but unfortunately, what you're seeking seems to elude us.",
         "button": "Back to Home"
+    },
+
+    "PrivacyPolicy": {
+        "pageTitle": "Privacy Policy",
+        "pageDescription": "Our goal is to ensure transparency and provide you with control over your personal data.",
+        
+        "TopSection": {
+            "title": "We respect your privacy and are committed to protecting your personal information.",
+            "text": "This Privacy Policy explains how we collect, use, store, and disclose your data, and the choices you have regarding your information. Our goal is to ensure transparency and provide you with control over your personal data. By using our website or services, you agree to the practices described in this policy."
+        }
     }
 }

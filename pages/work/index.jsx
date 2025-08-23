@@ -50,12 +50,12 @@ export default function Work({ data }) {
 							<Project
 								key={i}
 								link={'/work/' + slugify(edge.node.title)}
-								image={edge.node.featuredImage.node.sourceUrl}
-								darkText={edge.node.darkText}
+								image={edge.node.featuredImage?.node?.sourceUrl}
+								darkText={edge.node.projects?.darkText || false}
 								client={edge.node.title}
-								title={edge.node.projects.title}
-								category={edge.node.category}
-								tags={edge.node.tags.nodes.map(tag => tag.name)}
+								title={edge.node.projects?.title}
+								category={edge.node.categories?.nodes?.[0]?.name}
+								tags={edge.node.tags?.nodes?.map(tag => tag.name) || []}
 							/>
 						))
 					) : (
@@ -74,11 +74,10 @@ export default function Work({ data }) {
 
 export async function getStaticProps({ locale }) {
 	const res = await getProjects(locale)
-	const data = res
 
 	return {
 		props: {
-			data,
+			data: res || { edges: [] },
 			messages: (await import(`../../i18n/${locale}.json`)).default
 		}
 	}

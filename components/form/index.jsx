@@ -158,8 +158,11 @@ export const Input = ({ label, type, placeholder, required, maxLength }) => {
 
     // set min width for input
     const [minWidth, setMinWidth] = useState('')
+    const [isClient, setIsClient] = useState(false)
 
     useEffect(() => {
+        setIsClient(true)
+        
         const handleResize = () => {
             const width = window.innerWidth
             const newMinWidth = width > 768 ? `calc(${placeholder.length}rem)` : `calc(${placeholder.length}rem - 3.75rem)`
@@ -209,7 +212,7 @@ export const Input = ({ label, type, placeholder, required, maxLength }) => {
                 contentEditable='true'
                 suppressContentEditableWarning={true}
                 tabIndex={-1}
-                style={{ minWidth: minWidth }}
+                style={isClient ? { minWidth: minWidth } : {}}
             >
                 {content || placeholder}
             </p>
@@ -223,9 +226,83 @@ export const Input = ({ label, type, placeholder, required, maxLength }) => {
                 onInput={handleContentChange}
                 autoComplete='none'
                 role='presentation'
-                style={{ minWidth: minWidth }}
+                style={isClient ? { minWidth: minWidth } : {}}
                 {...register(label, validations)}
             />
+
+            {errors[label] && (
+                <p ref={error} className={clsx(styles.errorMsg, 'gsap-error font-smaller')}>
+                    {errors[label].message}
+                </p>
+            )}
+
+        </div>
+    )
+}
+
+export const Select = ({ label, required, children }) => {
+
+    const { locale } = useRouter()
+    const { register, formState: { errors }, watch } = useFormContext()
+    
+    // Watch the value of this select field
+    const selectValue = watch(label)
+    
+    // State to track if an option has been selected
+    const [hasSelection, setHasSelection] = useState(false)
+
+    let validations = {
+        required: required && locale === 'en' ? 'This field is required' : 'Este campo é obrigatório'
+    }
+
+    // timeout
+    const scope = useRef()
+    const error = useRef()
+    
+    // Check if user has made a selection (value is not empty and not the default disabled option)
+    useEffect(() => {
+        if (selectValue && selectValue !== '') {
+            setHasSelection(true)
+        } else {
+            setHasSelection(false)
+        }
+    }, [selectValue])
+
+    useGSAP(() => {
+        if(error.current) {
+            const tl = gsap.timeline({
+                paused: true,
+                onComplete: () => {
+                    tl.seek(0).pause()
+                }
+            })
+
+            tl.to('.gsap-error', {
+                opacity: 1,
+                y: 0,
+            })
+            
+            tl.to('.gsap-error', {
+                opacity: 0,
+                y: -20,
+                delay: 2
+            })
+
+            tl.play()
+        }
+    }, { dependencies: [errors[label]], scope: scope })
+
+    return (
+        <div className={clsx(styles.inputWrapper, errors[label] && styles.error)} ref={scope}>
+
+            <select
+                id={slugify(label)}
+                className={clsx(styles.input, styles.select, hasSelection && styles.selected)}
+                defaultValue=""
+                {...register(label, validations)}
+            >
+                {children}
+            </select>
 
             {errors[label] && (
                 <p ref={error} className={clsx(styles.errorMsg, 'gsap-error font-smaller')}>

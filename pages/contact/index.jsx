@@ -1,5 +1,6 @@
 // libraries
 import clsx from 'clsx'
+import Link from 'next/link'
 import { useRef } from 'react'
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
@@ -12,7 +13,7 @@ import { useTranslations } from 'next-intl'
 // components
 import Layout from '@/layout'
 import Fancybox from '@/components/utils/fancybox'
-import { Form, Input } from '@/components/form'
+import { Form, Input, Select } from '@/components/form'
 
 // svgs
 import UxArrowRight from '@/assets/svg/ux/arrow-right.svg'
@@ -20,6 +21,7 @@ import UxSpinner from '@/assets/svg/ux/spinner.svg'
 
 // css
 import styles from './contact.module.scss'
+import routes from '@/utils/routes'
 
 export default function Contact() {
 
@@ -39,22 +41,22 @@ export default function Contact() {
 
 		gsap.set('.stagger-0', {
 			opacity: 0,
-			y: '25vh'
+			y: '5vh'
 		})
 
 		gsap.set('.stagger-1', {
 			opacity: 0,
-			y: '25vh'
+			y: '5vh'
 		})
 
 		gsap.set('.stagger-2', {
 			opacity: 0,
-			y: '25vh'
+			y: '5vh'
 		})
 
 		gsap.set('.stagger-3', {
 			opacity: 0,
-			y: '25vh'
+			y: '5vh'
 		})
 
 		tl.to('.stagger-0', {
@@ -156,13 +158,17 @@ export default function Contact() {
 										{t('Form.text_04')}
 									</p>
 
-									<Input
-										type='text'
+									<Select
 										label='Employees'
-										placeholder={t('Form.label_04')}
 										required
-										maxLength={10}
-									/>
+									>
+										<option value='' disabled>{t('Form.label_04')}</option>
+										<option value='1-10'>1-10</option>
+										<option value='10-25'>10-25</option>
+										<option value='25-50'>25-50</option>
+										<option value='50-100'>50-100</option>
+										<option value='100+'>100+</option>
+									</Select>
 
 									<p className='break-word'>
 										{t('Form.text_05')}
@@ -215,7 +221,7 @@ export default function Contact() {
 								</div>
 
 								<div className={clsx(styles.consent, 'font-small stagger-3')}>
-									{t('Form.popup_message')}&nbsp;<Fancybox><a className='hover-underline-white' href='#' data-fancybox>{t('Form.popup_button')}</a></Fancybox>.
+									{t('Form.popup_message')}&nbsp;<Link href={routes.privacy} className='hover-underline-white'>{t('Form.popup_button')}</Link>.
 								</div>
 								
 								<button type='submit' className={styles.submit}>

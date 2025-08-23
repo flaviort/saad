@@ -30,7 +30,6 @@ export default function Project({ link, image, darkText = false, client, title, 
                         <Image
                             src={image}
                             alt={title}
-                            format='webp'
                             fill
                             style={{ objectFit: 'cover' }}
                             quality={100}

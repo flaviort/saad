@@ -2,6 +2,43 @@
     background-color: $white;
     color: $black;
     overflow: hidden;
+    min-height: 100svh;
+    display: flex;
+
+    & :global {
+        .container {
+            height: auto;
+
+            .grid-container {
+                height: 100%;
+
+                form {
+                    position: relative;
+                    height: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    padding-bottom: 5rem;
+
+                    button {
+                        position: absolute;
+                        bottom: 3.55rem;
+
+                        @media #{$mq-sm-min} {
+                            bottom: 3.8rem;
+                        }
+
+                        @media #{$mq-md-min} {
+                            bottom: 3.95rem;
+                        }
+
+                        @media #{$mq-lg-min} {
+                            bottom: 4.3rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
 
     .form {
         display: block;

@@ -10,8 +10,6 @@ import { useTranslations } from 'next-intl'
 
 // components
 import Layout from '@/layout'
-import AnimatedLine from '@/components/utils/animated-line'
-import FillTitle from '@/components/utils/fill-title'
 import { FadeIn } from '@/components/utils/animations'
 import ListSection from '@/components/list-section'
 import LogosSlider from '@/components/logos-slider'
@@ -108,6 +106,7 @@ export default function About({ services, awards, talks, publications }) {
 				title={services.title}
 				infos={services.infos}
 				small
+				noScroll
 			/>
 
 			<LogosSlider />
@@ -119,7 +118,7 @@ export default function About({ services, awards, talks, publications }) {
 						<Image
 							src={lucas}
 							alt='Lucas Saad'
-							fill={true}
+							fill
 							sizes='
 								(max-width: 575px) 100vw,
 								80vw
@@ -133,7 +132,7 @@ export default function About({ services, awards, talks, publications }) {
 						<div className={clsx(styles.content, 'grid-md-4-7 grid-xl-5-7')}>
 
 							<h2 className='font-big-2'>
-								<FillTitle text='Lucas Saad' />
+								Lucas Saad
 							</h2>
 
 							<p>
@@ -147,28 +146,31 @@ export default function About({ services, awards, talks, publications }) {
 				</div>
 			</section>
 
-			<AnimatedLine />
+			<div className={styles.line} />
 
 			<ListSection
 				title={awards.title}
 				infos={awards.infos}
+				noScroll
 			/>
 
-			<AnimatedLine />
+			<div className={styles.line} />
 
 			<ListSection
 				title={talks.title}
 				infos={talks.infos}
+				noScroll
 			/>
 
-			<AnimatedLine />
+			<div className={styles.line} />
 
 			<ListSection
 				title={publications.title}
 				infos={publications.infos}
+				noScroll
 			/>
 
-			<AnimatedLine />
+			<div className={styles.line} />
 
 			<ContactMarquee />
 			
