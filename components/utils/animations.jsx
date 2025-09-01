@@ -1,5 +1,6 @@
 // libraries
 import { useRef } from 'react'
+import { useRouter } from 'next/router'
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
 import ScrollTrigger from 'gsap/dist/ScrollTrigger'
@@ -9,19 +10,26 @@ gsap.registerPlugin(ScrollTrigger)
 export function FadeIn({ children }) {
 
     const image = useRef()
+    const router = useRouter()
 
     useGSAP(() => {
-        gsap.from(image.current, {
-            autoAlpha: 0,
-            scrollTrigger: {
-                trigger: image.current,
-                start: 'top 80%',
-                end: 'top 40%',
-                scrub: 3
-            }
-        })
+        const trigger = image.current
+        if (!trigger) return
 
-    })
+        const timer = setTimeout(() => {
+            gsap.from(trigger, {
+                autoAlpha: 0,
+                scrollTrigger: {
+                    trigger: trigger,
+                    start: 'top 80%',
+                    end: 'top 40%',
+                    scrub: 3
+                }
+            })
+        }, 100)
+
+        return () => clearTimeout(timer)
+    }, { dependencies: [router.asPath] })
 
     return (
         <div
@@ -41,6 +49,7 @@ export function FadeIn({ children }) {
 export function ScrollingImage({ children }) {
 
     const item = useRef()
+    const router = useRouter()
 
     let calcSize
     let size
@@ -54,26 +63,33 @@ export function ScrollingImage({ children }) {
     }
 
     useGSAP(() => {
-        const children = item.current.children
+        const trigger = item.current
+        if (!trigger) return
 
-        Array.from(children).forEach(child => {
-            child.classList.add('cover')
-        })
+        const timer = setTimeout(() => {
+            const children = trigger.children
 
-        gsap.set(children, {
-            height: calcSize,
-            display: 'block'
-        })
+            Array.from(children).forEach(child => {
+                child.classList.add('cover')
+            })
 
-        gsap.from(children, {
-            y: size,
-            scrollTrigger: {
-                trigger: item.current,
-                scrub: 3,
-                end: 'bottom top'
-            }
-        })
-	})
+            gsap.set(children, {
+                height: calcSize,
+                display: 'block'
+            })
+
+            gsap.from(children, {
+                y: size,
+                scrollTrigger: {
+                    trigger: trigger,
+                    scrub: 3,
+                    end: 'bottom top'
+                }
+            })
+        }, 100)
+
+        return () => clearTimeout(timer)
+	}, { dependencies: [router.asPath] })
 
     return (
         <div

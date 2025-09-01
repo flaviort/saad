@@ -108,7 +108,19 @@ export default function TransitionComponent({ children }){
 										lenis.scrollTo(0, { immediate: true })
 									}
 								}
+								
+								// Enhanced refresh strategy for new page content
 								ScrollTrigger.refresh()
+								
+								// Additional refresh after content likely loads (for lazy images)
+								setTimeout(() => {
+									ScrollTrigger.refresh()
+								}, 1000)
+								
+								// Final refresh after images have had time to load
+								setTimeout(() => {
+									ScrollTrigger.refresh()
+								}, 2500)
 							}, 50)
 						}, 10)
 					})

@@ -25,7 +25,8 @@ export default function Footer() {
 
 	const messages = useMessages()
 	const lenis = useLenis()
-	const { locale } = useRouter()
+	const router = useRouter()
+	const { locale } = router
 
 	const scrollTop = () => {
 
@@ -53,22 +54,30 @@ export default function Footer() {
 	]
 
 	useGSAP(() => {
-		const tl = gsap.timeline({
-			paused: true,
-			scrollTrigger: {
-				trigger: '#footer-logo',
-				toggleActions: 'restart none resume none',
-				start: '-10% 100%'
-			}
-		})
-	
-		tl.from('#footer-logo svg path', {
-			yPercent: 100,
-			stagger: .25,
-			duration: 1,
-			ease: 'power2.out'
-		})
-	})
+		const trigger = document.getElementById('footer-logo')
+		if (!trigger) return
+
+		// Small delay to ensure DOM is ready after route change
+		const timer = setTimeout(() => {
+			const tl = gsap.timeline({
+				paused: true,
+				scrollTrigger: {
+					trigger: '#footer-logo',
+					toggleActions: 'restart none resume none',
+					start: '-10% 100%'
+				}
+			})
+		
+			tl.from('#footer-logo svg path', {
+				yPercent: 100,
+				stagger: .25,
+				duration: 1,
+				ease: 'power2.out'
+			})
+		}, 150) // Slightly longer delay for footer
+
+		return () => clearTimeout(timer)
+	}, { dependencies: [router.asPath] })
 
 	return (
 		<footer className={styles.footer}>

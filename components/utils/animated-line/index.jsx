@@ -1,6 +1,7 @@
 // libraries
 import clsx from 'clsx'
 import { useRef } from 'react'
+import { useRouter } from 'next/router'
 import { useGSAP } from '@gsap/react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
@@ -12,20 +13,29 @@ import styles from './animated-line.module.scss'
 export default function AnimatedLine({ dark, opacity = 1 }) {
     
     const item = useRef(null)
+    const router = useRouter()
 
 	useGSAP(() => {
-		gsap.to(item.current, {
-			scaleX: 1,
-			duration: 1,
-			ease: 'power1.inOut',
-			scrollTrigger: {
-				trigger: item.current,
-				scrub: 2,
-				start: 'top 95%',
-				end: 'bottom 70%'
-			}
-		})
-	})
+        const trigger = item.current
+        if (!trigger) return
+
+        // Small delay to ensure DOM is ready after route change
+        const timer = setTimeout(() => {
+            gsap.to(trigger, {
+                scaleX: 1,
+                duration: 1,
+                ease: 'power1.inOut',
+                scrollTrigger: {
+                    trigger: trigger,
+                    scrub: 2,
+                    start: 'top 95%',
+                    end: 'bottom 70%'
+                }
+            })
+        }, 150) // Slightly longer delay for AnimatedLine
+
+        return () => clearTimeout(timer)
+	}, { dependencies: [router.asPath] })
 
     return (
         <div

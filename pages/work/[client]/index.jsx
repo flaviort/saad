@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import Link from 'next/link'
 import clsx from 'clsx'
 import Image from 'next/image'
-import { useRef } from 'react'
+import { useRef, useEffect } from 'react'
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
 import ScrollTrigger from 'gsap/dist/ScrollTrigger'
@@ -31,24 +31,46 @@ import styles from './work-inner.module.scss'
 export default function WorkInner({ data, prevProject, nextProject }) {
 
     const bannerRef = useRef()
-    const { locale } = useRouter()
+    const router = useRouter()
+    const { locale } = router
+
+    // Force cleanup of all ScrollTrigger instances when route changes
+    useEffect(() => {
+        // Kill all ScrollTrigger instances to ensure clean slate
+        ScrollTrigger.killAll()
+        
+        // Small delay then refresh to ensure everything is ready
+        const timer = setTimeout(() => {
+            ScrollTrigger.refresh()
+        }, 200)
+        
+        return () => clearTimeout(timer)
+    }, [router.asPath])
 
     // banner animation
     useGSAP(() => {
-        gsap.to('.bg img', {
-            autoAlpha: .1,
-            scale: 1.1,
-            scrollTrigger: {
-                trigger: bannerRef.current,
-                start: 'top top',
-                anticipatePin: true,
-                pin: '.bg',
-                end: 'bottom top',
-                scrub: true,
-                pinSpacing: false
-            }
-        })
-    }, { scope: bannerRef })
+        const trigger = bannerRef.current
+        if (!trigger) return
+
+        // Small delay to ensure DOM is ready after route change
+        const timer = setTimeout(() => {
+            gsap.to('.bg img', {
+                autoAlpha: .1,
+                scale: 1.1,
+                scrollTrigger: {
+                    trigger: trigger,
+                    start: 'top top',
+                    anticipatePin: true,
+                    pin: '.bg',
+                    end: 'bottom top',
+                    scrub: true,
+                    pinSpacing: false
+                }
+            })
+        }, 100)
+
+        return () => clearTimeout(timer)
+    }, { scope: bannerRef, dependencies: [router.asPath] })
 
     return (
         <Layout
@@ -56,216 +78,178 @@ export default function WorkInner({ data, prevProject, nextProject }) {
             pageTitle={data.node.title}
             pageDescription={data.node.projects?.title || data.node.title}
         >
+            <div key={router.asPath}>
 
-            <section className={styles.banner} ref={bannerRef}>
-                <FollowMouse text='Scroll'>
+                <section className={styles.banner} ref={bannerRef}>
+                    <FollowMouse text='Scroll'>
 
-                    <div className={clsx(styles.bg, 'bg')}>
-                        <Image
-                            src={data.node.featuredImage.node.sourceUrl}
-                            alt={data.node.title}
-                            priority
-                            fill
-                            quality={100}
-                            className='cover'
-                        />
-                    </div>
-
-                    <div className={clsx(styles.container, 'container')}>
-                        <div className={clsx(styles.grid, 'grid-container')}>
-                            <div className='grid-xl-1-3'>
-                                
-                                <h1 className={styles.title}>
-                                    {data.node.title}
-                                </h1>
-
-                                <h2 className='font-big'>
-                                    {data.node.projects?.title}
-                                </h2>
-
-                            </div>
-
-                            <div className='grid-xl-3-7'>
-                                <p className={styles.category}>
-                                    {data.node.categories?.nodes?.[0]?.name}
-                                </p>
-                            </div>
-
-                            {/*
-                            <div className='grid-md-5-7 grid-xl-6-7'>
-                                <p className={styles.tags}>
-                                    {data.node.tags.nodes.map((tag, i) => (
-                                        <span key={i}>
-                                            {tag.name}
-                                        </span>
-                                    ))}
-                                </p>
-                            </div>
-                            */}
-
+                        <div className={clsx(styles.bg, 'bg')}>
+                            <Image
+                                src={data.node.featuredImage.node.sourceUrl}
+                                alt={data.node.title}
+                                priority
+                                fill
+                                quality={100}
+                                className='cover'
+                            />
                         </div>
-                    </div>
 
-                </FollowMouse>
-            </section>
+                        <div className={clsx(styles.container, 'container')}>
+                            <div className={clsx(styles.grid, 'grid-container')}>
+                                <div className='grid-xl-1-3'>
+                                    
+                                    <h1 className={styles.title}>
+                                        {data.node.title}
+                                    </h1>
 
-            {data.node.projects.about && (
-                <>
-                    <ListSection
-                        title={locale === 'en' ? 'About' : 'Sobre'}
-                        about={data.node.projects.about}
-                        singleColumn
-                        noScroll
-                    />
+                                    <h2 className='font-big'>
+                                        {data.node.projects?.title}
+                                    </h2>
 
-                    <AnimatedLine />
-                </>
-            )}
-
-            {data.node.projects.services && (
-                <>
-                    <ListSection
-                        title={locale === 'en' ? 'What we did' : 'O que fizemos'}
-                        infos={[{
-                            items: data.node.projects.services.map( service => ({
-                                text: service.service
-                            }))
-                        }]}
-                        singleColumn
-                        noScroll
-                    />
-
-                    <AnimatedLine />
-                </>
-            )}
-
-            {data.node.projects.awards && (
-                <>
-                    <ListSection
-                        title={locale === 'en' ? 'Awards & Publications' : 'Prêmios & Publicações'}
-                        infos={[{
-                            items: data.node.projects.awards.map( award => ({
-                                text: award.award
-                            }))
-                        }]}
-                        singleColumn
-                        noScroll
-                    />
-
-                    <AnimatedLine />
-                </>
-            )}
-
-            {data.node.projects.credits && (
-                <>
-                    <ListSection
-                        title={locale === 'en' ? 'Credits' : 'Créditos'}
-                        infos={[{
-                            items: data.node.projects.credits.map( credit => ({
-                                text: credit.credit
-                            }))
-                        }]}
-                        singleColumn
-                        noScroll
-                    />
-
-                    <AnimatedLine />
-                </>
-            )}
-
-            {data.node.projects.gallery && (
-                <section className={styles.gallery}>
-                    {data.node.projects.gallery.map((item, i) => (
-                        <div key={i}>
-                            
-                            {item.image && (
-                                <div className={styles.image}>
-                                    <Image
-                                        src={item.image.node.sourceUrl}
-                                        alt={item.imageDescription}
-                                        fill
-                                        sizes='100vw'
-                                        className='cover'
-                                    />
                                 </div>
-                            )}
 
-                            {item.videoId && (
-                                <div className={styles.video}>
-                                    <Video id={item.videoId} />
+                                <div className='grid-xl-3-7'>
+                                    <p className={styles.category}>
+                                        {data.node.categories?.nodes?.[0]?.name}
+                                    </p>
                                 </div>
-                            )}
 
+                                {/*
+                                <div className='grid-md-5-7 grid-xl-6-7'>
+                                    <p className={styles.tags}>
+                                        {data.node.tags.nodes.map((tag, i) => (
+                                            <span key={i}>
+                                                {tag.name}
+                                            </span>
+                                        ))}
+                                    </p>
+                                </div>
+                                */}
+
+                            </div>
                         </div>
-                    ))}
+
+                    </FollowMouse>
                 </section>
-            )}
 
-            {data.node.projects.testimonials && (
-                <>
-                    <Testimonials testimonials={data.node.projects.testimonials} />
-                    <AnimatedLine />
-                </>
-            )}
+                {data.node.projects.about && (
+                    <>
+                        <ListSection
+                            title={locale === 'en' ? 'About' : 'Sobre'}
+                            about={data.node.projects.about}
+                            singleColumn
+                            noScroll
+                        />
 
-            <section className={clsx(styles.previousNext, 'padding-top')}>
-                
-                <div className='container'>
-                    <div className={styles.top}>
+                        <AnimatedLine />
+                    </>
+                )}
 
-                        <Link
-                            scroll={false}
-                            href={'/work/' + slugify(prevProject.title)}
-                            className={styles.link}
-                        >
-                            
-                            <span className={clsx(styles.small, 'font-small')}>
-                                Previous
-                            </span>
+                {data.node.projects.services && (
+                    <>
+                        <ListSection
+                            title={locale === 'en' ? 'What we did' : 'O que fizemos'}
+                            infos={[{
+                                items: data.node.projects.services.map( service => ({
+                                    text: service.service
+                                }))
+                            }]}
+                            singleColumn
+                            noScroll
+                        />
 
-                            <span className='font-big'>
-                                {prevProject.title}
-                            </span>
+                        <AnimatedLine />
+                    </>
+                )}
 
-                        </Link>
+                {data.node.projects.awards && (
+                    <>
+                        <ListSection
+                            title={locale === 'en' ? 'Awards & Publications' : 'Prêmios & Publicações'}
+                            infos={[{
+                                items: data.node.projects.awards.map( award => ({
+                                    text: award.award
+                                }))
+                            }]}
+                            singleColumn
+                            noScroll
+                        />
 
-                        <Link
-                            scroll={false}
-                            href={'/work/' + slugify(nextProject.title)}
-                            className={styles.link}
-                        >
-                            
-                            <span className={clsx(styles.small, 'font-small')}>
-                                Next
-                            </span>
+                        <AnimatedLine />
+                    </>
+                )}
 
-                            <span className='font-big'>
-                                {nextProject.title}
-                            </span>
+                {data.node.projects.credits && (
+                    <>
+                        <ListSection
+                            title={locale === 'en' ? 'Credits' : 'Créditos'}
+                            infos={[{
+                                items: data.node.projects.credits.map( credit => ({
+                                    text: credit.credit
+                                }))
+                            }]}
+                            singleColumn
+                            noScroll
+                        />
 
-                        </Link>
+                        <AnimatedLine />
+                    </>
+                )}
 
-                    </div>
-                </div>
+                {data.node.projects.gallery && (
+                    <section className={styles.gallery}>
+                        {data.node.projects.gallery.map((item, i) => (
+                            <div key={i}>
+                                
+                                {item.image && (
+                                    <div className={styles.image}>
+                                        <Image
+                                            src={item.image.node.sourceUrl}
+                                            alt={item.imageDescription}
+                                            fill
+                                            sizes='100vw'
+                                            className='cover'
+                                        />
+                                    </div>
+                                )}
 
-                <div className={styles.bottom}>
-                    <FollowMouse text='View'>
-                        <div className={styles.flex}>
+                                {item.videoId && (
+                                    <div className={styles.video}>
+                                        <Video id={item.videoId} />
+                                    </div>
+                                )}
+
+                            </div>
+                        ))}
+                    </section>
+                )}
+
+                {data.node.projects.testimonials && (
+                    <>
+                        <Testimonials testimonials={data.node.projects.testimonials} />
+                        <AnimatedLine />
+                    </>
+                )}
+
+                <section className={clsx(styles.previousNext, 'padding-top')}>
+                    
+                    <div className='container'>
+                        <div className={styles.top}>
 
                             <Link
                                 scroll={false}
                                 href={'/work/' + slugify(prevProject.title)}
                                 className={styles.link}
                             >
-                                <ScrollingImage>
-                                    <Image
-                                        src={prevProject.featuredImage.node.sourceUrl}
-                                        alt={prevProject.title}
-                                        fill
-                                        className='cover'
-                                        sizes='50vw'
-                                    />
-                                </ScrollingImage>
+                                
+                                <span className={clsx(styles.small, 'font-small')}>
+                                    Previous
+                                </span>
+
+                                <span className='font-big'>
+                                    {prevProject.title}
+                                </span>
+
                             </Link>
 
                             <Link
@@ -273,25 +257,65 @@ export default function WorkInner({ data, prevProject, nextProject }) {
                                 href={'/work/' + slugify(nextProject.title)}
                                 className={styles.link}
                             >
-                                <ScrollingImage>
-                                    <Image
-                                        src={nextProject.featuredImage.node.sourceUrl}
-                                        alt={nextProject.title}
-                                        fill
-                                        className='cover'
-                                        sizes='50vw'
-                                    />
-                                </ScrollingImage>
+                                
+                                <span className={clsx(styles.small, 'font-small')}>
+                                    Next
+                                </span>
+
+                                <span className='font-big'>
+                                    {nextProject.title}
+                                </span>
+
                             </Link>
 
                         </div>
-                    </FollowMouse>
-                </div>
+                    </div>
 
-            </section>
+                    <div className={styles.bottom}>
+                        <FollowMouse text='View'>
+                            <div className={styles.flex}>
 
-            <ContactMarquee />
+                                <Link
+                                    scroll={false}
+                                    href={'/work/' + slugify(prevProject.title)}
+                                    className={styles.link}
+                                >
+                                    <ScrollingImage>
+                                        <Image
+                                            src={prevProject.featuredImage.node.sourceUrl}
+                                            alt={prevProject.title}
+                                            fill
+                                            className='cover'
+                                            sizes='50vw'
+                                        />
+                                    </ScrollingImage>
+                                </Link>
 
+                                <Link
+                                    scroll={false}
+                                    href={'/work/' + slugify(nextProject.title)}
+                                    className={styles.link}
+                                >
+                                    <ScrollingImage>
+                                        <Image
+                                            src={nextProject.featuredImage.node.sourceUrl}
+                                            alt={nextProject.title}
+                                            fill
+                                            className='cover'
+                                            sizes='50vw'
+                                        />
+                                    </ScrollingImage>
+                                </Link>
+
+                            </div>
+                        </FollowMouse>
+                    </div>
+
+                </section>
+
+                <ContactMarquee />
+                
+            </div>
         </Layout>
     )
 }
