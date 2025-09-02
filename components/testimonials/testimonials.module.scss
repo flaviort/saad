@@ -25,6 +25,14 @@
                     }
                 }
 
+                .line {
+                    display: block;
+                    width: 100%;
+                    height: 1px;
+                    background-color: $white;
+                    opacity: .5;
+                }
+
                 .namePosition {
                     display: block;
                     margin-top: 1.5rem;

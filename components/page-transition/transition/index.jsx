@@ -37,7 +37,7 @@ export default function TransitionComponent({ children }){
 			<Transition
 				nodeRef={nodeRef}
 				key={router.pathname + router.asPath + locale}
-				timeout={{ enter: 1500, exit: 1000 }}
+				timeout={{ enter: 3000, exit: 2000 }}
 				addEndListener={(done) => {
 					const node = nodeRef.current
 					if (node) {

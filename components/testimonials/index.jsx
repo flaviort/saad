@@ -57,7 +57,7 @@ export default function Testimonials({ testimonials }) {
                                         {item.testimonial}
                                     </p>
 
-                                    <AnimatedLine opacity={.5} />
+                                    <div className={styles.line} />
 
                                     <p className={styles.namePosition}>
                                         {item.name}<br />

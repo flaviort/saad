@@ -86,7 +86,7 @@ export default function StandFor() {
                                 </button>
                             </div>
 
-                            <AnimatedLine opacity={.5} />
+                            <div className={styles.line} />
 
                         </div>
                     ))}

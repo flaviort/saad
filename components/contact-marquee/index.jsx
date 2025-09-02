@@ -7,6 +7,9 @@ import { useGSAP } from '@gsap/react'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
 
+// components
+import FollowMouse from '@/components/utils/follow-mouse'
+
 // i18n
 import { useMessages } from 'next-intl'
 
@@ -38,33 +41,35 @@ export default function ContactMarquee() {
 
     return (
         <section className={styles.contactMarquee}>
-            <div className='container padding-bottom-smaller'>
-                <Link
-                    scroll={false}
-                    href={routes.contact}
-                >
+            <FollowMouse text={messages.Marquee.mouse}>
+                <div className='container padding-bottom-smaller'>
+                    <Link
+                        scroll={false}
+                        href={routes.contact}
+                    >
 
-                    <div className={clsx(styles.marquee, 'uppercase')}>
-                        
-                        <span className='marquee-span'>
-                            {messages.Marquee.message}&nbsp;
-                        </span>
+                        <div className={clsx(styles.marquee, 'uppercase')}>
+                            
+                            <span className='marquee-span'>
+                                {messages.Marquee.message}&nbsp;
+                            </span>
 
-                        <span className='marquee-span'>
-                            {messages.Marquee.message}&nbsp;
-                        </span>
+                            <span className='marquee-span'>
+                                {messages.Marquee.message}&nbsp;
+                            </span>
 
-                    </div>
+                        </div>
 
-                    <div className={clsx(styles.grid, 'grid-container')}>
-                        <p className={clsx(styles.flex, 'grid-md-6-7')}>
-                            {messages.Marquee.button}
-                            <UxArrowRight />
-                        </p>
-                    </div>
+                        <div className={clsx(styles.grid, 'grid-container')}>
+                            <p className={clsx(styles.flex, 'grid-md-6-7')}>
+                                {messages.Marquee.button}
+                                <UxArrowRight />
+                            </p>
+                        </div>
 
-                </Link>
-            </div>
+                    </Link>
+                </div>
+            </FollowMouse>
         </section>
     )
 }

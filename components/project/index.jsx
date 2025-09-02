@@ -13,7 +13,7 @@ import UxArrowRight from '@/assets/svg/ux/arrow-right.svg'
 // css
 import styles from './project.module.scss'
 
-export default function Project({ link, image, darkText = false, client, title, subtitle, category, tags }) {
+export default function Project({ link, image, darkText = false, title, subtitle, category, tags }) {
 
     const { locale } = useRouter()
 

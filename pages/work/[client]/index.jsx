@@ -99,11 +99,11 @@ export default function WorkInner({ data, prevProject, nextProject }) {
                                 <div className='grid-xl-1-3'>
                                     
                                     <h1 className={styles.title}>
-                                        {data.node.title}
+                                        {data.node.projects?.title}
                                     </h1>
 
                                     <h2 className='font-big'>
-                                        {data.node.projects?.title}
+                                        {data.node.projects?.subtitle}
                                     </h2>
 
                                 </div>

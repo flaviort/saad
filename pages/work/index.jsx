@@ -52,7 +52,6 @@ export default function Work({ data }) {
 								link={'/work/' + slugify(edge.node.title)}
 								image={edge.node.featuredImage?.node?.sourceUrl}
 								darkText={edge.node.projects?.darkText || false}
-								client={edge.node.title}
 								title={edge.node.projects?.title}
 								subtitle={edge.node.projects?.subtitle}
 								category={edge.node.projects?.category}

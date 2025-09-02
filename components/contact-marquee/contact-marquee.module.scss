@@ -1,15 +1,14 @@
 .contactMarquee {
-    background: $white;
-    color: $black;
+    background: $black;
+    color: $white;
     border-top: 1px solid $white;
     border-bottom: 1px solid $white;
     transition: .6s ease-in-out;
-    padding-top: clamp(3.5rem, 6vw, 5.5rem);
     overflow: hidden;
 
     &:hover {
-        color: $white;
-        background: $black;
+        color: $black;
+        background: $white;
 
         .grid {
             .flex {
@@ -25,6 +24,7 @@
         line-height: 1;
         display: flex;
         white-space: nowrap;
+        padding-top: clamp(3.5rem, 6vw, 5.5rem);
     }
 
     .grid {
