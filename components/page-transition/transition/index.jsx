@@ -18,34 +18,17 @@ export default function TransitionComponent({ children }){
 	// fix to avoid css removal too soon on page transition (only visible on build)
 	const removeExpiredStyles = useNextCssRemovalPrevention()
 
-	// Additional safeguard: Reset scroll on route change
+	// Minimal route change handling - no scroll reset here
 	useEffect(() => {
 		const handleRouteChangeStart = () => {
-			// Immediate scroll reset when route starts changing
-			window.scrollTo(0, 0)
-			document.documentElement.scrollTop = 0
-			document.body.scrollTop = 0
-		}
-
-		const handleRouteChangeComplete = () => {
-			// Final scroll reset when route change is complete
-			setTimeout(() => {
-				window.scrollTo(0, 0)
-				document.documentElement.scrollTop = 0
-				document.body.scrollTop = 0
-				
-				if (lenis && lenis.scrollTo) {
-					lenis.scrollTo(0, { immediate: true })
-				}
-			}, 100)
+			// Just stop Lenis to prevent scroll during transition
+			lenis?.stop()
 		}
 
 		router.events.on('routeChangeStart', handleRouteChangeStart)
-		router.events.on('routeChangeComplete', handleRouteChangeComplete)
 
 		return () => {
 			router.events.off('routeChangeStart', handleRouteChangeStart)
-			router.events.off('routeChangeComplete', handleRouteChangeComplete)
 		}
 	}, [lenis, router.events])
 
@@ -54,7 +37,7 @@ export default function TransitionComponent({ children }){
 			<Transition
 				nodeRef={nodeRef}
 				key={router.pathname + router.asPath + locale}
-				//timeout={{ enter: 10, exit: 2500 }}
+				timeout={{ enter: 1500, exit: 1000 }}
 				addEndListener={(done) => {
 					const node = nodeRef.current
 					if (node) {
@@ -74,58 +57,27 @@ export default function TransitionComponent({ children }){
 						}
 					})
 
+					// Prepare for transition - content is still hidden
 					tl.call(function() {
-						// Multiple scroll reset strategies to ensure it always works
-						
-						// 1. Stop Lenis first to prevent interference
+						// Stop Lenis and reset scroll
 						lenis.stop()
-						
-						// 2. Force immediate scroll reset
 						window.scrollTo(0, 0)
 						document.documentElement.scrollTop = 0
 						document.body.scrollTop = 0
 						
-						// 3. Reset Lenis scroll position
 						if (lenis && lenis.scrollTo) {
 							lenis.scrollTo(0, { immediate: true })
 						}
 						
-						// 4. Clear scroll memory
+						// Clear scroll memory
 						ScrollTrigger.clearScrollMemory('manual')
-						
-						// 5. Dispatch page transition event
+
+						// Dispatch page transition event for components
 						document.dispatchEvent(new Event('page-transition'))
-						
-						// 6. Start Lenis again after a small delay
-						setTimeout(() => {
-							lenis.start()
-							
-							// 7. Final scroll position check and correction
-							setTimeout(() => {
-								if (window.scrollY !== 0) {
-									window.scrollTo(0, 0)
-									if (lenis && lenis.scrollTo) {
-										lenis.scrollTo(0, { immediate: true })
-									}
-								}
-								
-								// Enhanced refresh strategy for new page content
-								ScrollTrigger.refresh()
-								
-								// Additional refresh after content likely loads (for lazy images)
-								setTimeout(() => {
-									ScrollTrigger.refresh()
-								}, 1000)
-								
-								// Final refresh after images have had time to load
-								setTimeout(() => {
-									ScrollTrigger.refresh()
-								}, 2500)
-							}, 50)
-						}, 10)
 					})
 
-					tl.to('[data-loader-logo', {
+					// Exit animation - content is still hidden during this
+					tl.to('[data-loader-logo]', {
 						y: 50,
 						duration: .7,
 						ease: 'power2.inOut'
@@ -136,6 +88,34 @@ export default function TransitionComponent({ children }){
 						duration: .7,
 						ease: 'power2.inOut'
 					}, '-=.7')
+
+					// NOW the content becomes visible and we setup the new page
+					tl.call(function() {
+						
+						// Start Lenis again
+						lenis.start()
+						
+						// Setup ScrollTrigger for new page
+						setTimeout(() => {
+							if (window.scrollY !== 0) {
+								window.scrollTo(0, 0)
+								if (lenis && lenis.scrollTo) {
+									lenis.scrollTo(0, { immediate: true })
+								}
+							}
+							
+							// Progressive refresh strategy
+							ScrollTrigger.refresh()
+							
+							setTimeout(() => {
+								ScrollTrigger.refresh()
+							}, 1000)
+							
+							setTimeout(() => {
+								ScrollTrigger.refresh()
+							}, 2500)
+						}, 50)
+					})
 
 					tl.play()
 				}}
@@ -153,14 +133,7 @@ export default function TransitionComponent({ children }){
 						}
 					})
 
-					tl.call(function() {
-						// Early scroll reset during exit to prepare for next page
-						lenis.stop()
-						window.scrollTo(0, 0)
-						document.documentElement.scrollTop = 0
-						document.body.scrollTop = 0
-					})
-
+					// Start loader entrance animation first
 					tl.to('[data-loader]', {
 						clipPath: 'inset(0% 0% 0% 0%)',
 						ease: 'power2.inOut',
@@ -172,6 +145,15 @@ export default function TransitionComponent({ children }){
 						duration: .7,
 						ease: 'power2.inOut',
 					}, '-=.8')
+
+					// AFTER loader covers screen, reset scroll (hidden from user)
+					tl.call(function() {
+						// Now it's safe to reset scroll - user can't see it
+						lenis?.stop()
+						window.scrollTo(0, 0)
+						document.documentElement.scrollTop = 0
+						document.body.scrollTop = 0
+					})
 					
 					tl.play()
 				}}

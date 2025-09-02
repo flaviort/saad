@@ -54,8 +54,8 @@ export default function Work({ data }) {
 								darkText={edge.node.projects?.darkText || false}
 								client={edge.node.title}
 								title={edge.node.projects?.title}
-								category={edge.node.categories?.nodes?.[0]?.name}
-								tags={edge.node.tags?.nodes?.map(tag => tag.name) || []}
+								category={edge.node.projects?.category}
+								tags={edge.node.projects?.tags?.map(tag => tag.tag) || []}
 							/>
 						))
 					) : (

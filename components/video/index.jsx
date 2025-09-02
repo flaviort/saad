@@ -14,7 +14,7 @@ import FollowMouse from '@/components/utils/follow-mouse'
 // css
 import styles from './video.module.scss'
 
-export default function Video({ id }) {
+export default function Video({ id, sound }) {
 
     const videoRef = useRef()
     const timeoutRef = useRef()
@@ -130,31 +130,41 @@ export default function Video({ id }) {
         }, 1000)
     }, [])
 
+    const handleSoundClick = useCallback(() => {
+        console.log('sound')
+    }, [])
+
     return (
         <div className={styles.video}>
             <FollowMouse text={play ? 'Pause' : 'Play'} >
                 <div ref={videoRef} onClick={handleVideoClick}>
                     {!playerError && (
-                        <Vimeo
-                            video={id}
-                            className={styles.player}
-                            autoplay={false}
-                            showByline={false}
-                            showPortrait={false}
-                            showTitle={false}
-                            muted={true}
-                            loop={true}
-                            paused={!play}
-                            background={false}
-                            controls={false}
-                            responsive={true}
-                            onError={handlePlayerError}
-                        />
-                    )}
-                    {playerError && (
-                        <div className={styles.playerError}>
-                            Video temporarily unavailable
-                        </div>
+                        <>
+
+                            {sound && (
+                                <div className={styles.sound}>
+                                    <button onClick={handleSoundClick}>
+                                        Enable Sound
+                                    </button>
+                                </div>
+                            )}
+
+                            <Vimeo
+                                video={id}
+                                className={styles.player}
+                                autoplay={false}
+                                showByline={false}
+                                showPortrait={false}
+                                showTitle={false}
+                                muted={true}
+                                loop={true}
+                                paused={!play}
+                                background={false}
+                                controls={false}
+                                responsive={true}
+                                onError={handlePlayerError}
+                            />
+                        </>
                     )}
                 </div>
             </FollowMouse>

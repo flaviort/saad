@@ -110,16 +110,16 @@ export default function WorkInner({ data, prevProject, nextProject }) {
 
                                 <div className='grid-xl-3-7'>
                                     <p className={styles.category}>
-                                        {data.node.categories?.nodes?.[0]?.name}
+                                        {data.node.projects?.category}
                                     </p>
                                 </div>
 
                                 {/*
                                 <div className='grid-md-5-7 grid-xl-6-7'>
                                     <p className={styles.tags}>
-                                        {data.node.tags.nodes.map((tag, i) => (
+                                        {data.node.projects?.tags?.map((tag, i) => (
                                             <span key={i}>
-                                                {tag.name}
+                                                {tag.tag}
                                             </span>
                                         ))}
                                     </p>
@@ -215,7 +215,10 @@ export default function WorkInner({ data, prevProject, nextProject }) {
 
                                 {item.videoId && (
                                     <div className={styles.video}>
-                                        <Video id={item.videoId} />
+                                        <Video
+                                            id={item.videoId}
+                                            sound={item.enable_sound}
+                                        />
                                     </div>
                                 )}
 
@@ -314,7 +317,7 @@ export default function WorkInner({ data, prevProject, nextProject }) {
                 </section>
 
                 <ContactMarquee />
-                
+
             </div>
         </Layout>
     )

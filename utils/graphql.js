@@ -10,22 +10,11 @@ export async function getProjects(locale) {
             },
             body: JSON.stringify({
                 query: `query GetPosts {
-                    posts(first: 10) {
+                    projects(first: 99) {
                         edges {
                             node {
-                                id
                                 title
                                 slug
-                                categories {
-                                    nodes {
-                                        name
-                                    }
-                                }
-                                tags {
-                                    nodes {
-                                        name
-                                    }
-                                }
                                 featuredImage {
                                     node {
                                         sourceUrl
@@ -34,13 +23,12 @@ export async function getProjects(locale) {
                                 projects {
                                     title
                                     darkText
+                                    category
+                                    tags {
+                                        tag
+                                    }
+                                    language
                                     about
-                                    awards {
-                                        award
-                                    }
-                                    credits {
-                                        credit
-                                    }
                                     testimonials {
                                         company
                                         name
@@ -49,6 +37,12 @@ export async function getProjects(locale) {
                                     }
                                     services {
                                         service
+                                    }
+                                    awards {
+                                        award
+                                    }
+                                    credits {
+                                        credit
                                     }
                                     gallery {
                                         ... on ProjectsGalleryImageLayout {
@@ -61,6 +55,7 @@ export async function getProjects(locale) {
                                         }
                                         ... on ProjectsGalleryVideoLayout {
                                             videoId
+                                            enable_sound
                                         }
                                     }
                                 }
@@ -78,31 +73,32 @@ export async function getProjects(locale) {
         const responseBody = await res.text()
         const data = JSON.parse(responseBody)
         
-        if (data.errors || !data.data || !data.data.posts) {
+        if (data.errors || !data.data || !data.data.projects) {
             return { edges: [] }
         }
 
-        // Filter by language based on slug patterns
-        let filteredPosts = data.data.posts.edges
+        // Filter by language using the language field from WordPress
+        let filteredProjects = data.data.projects.edges
         
         if (locale) {
-            filteredPosts = data.data.posts.edges.filter(edge => {
-                const slug = edge.node.slug || ''
+            filteredProjects = data.data.projects.edges.filter(edge => {
+                const projectLanguage = edge.node.projects?.language
                 
                 if (locale === 'en') {
-                    // English posts typically don't have numbers or language suffixes
-                    // Look for slugs without "-2" or similar patterns that indicate duplicates/translations
-                    return !slug.endsWith('-2') && !slug.includes('-pt')
-                } else {
-                    // Portuguese posts might have "-2" suffix or "-pt" 
-                    // or contain accented characters in the slug
-                    return slug.endsWith('-2') || slug.includes('-pt') || /[àáâãäåæçèéêëìíîïñòóôõöøùúûüýÿ]/.test(slug)
+                    // Show projects with 'en_us' language or no language set (fallback to English)
+                    return projectLanguage === 'en_us' || !projectLanguage
+                } else if (locale === 'pt') {
+                    // Show projects with 'pt_br' language
+                    return projectLanguage === 'pt_br'
                 }
+                
+                // Default fallback
+                return true
             })
         }
         
         return {
-            edges: filteredPosts
+            edges: filteredProjects
         }
         
     } catch (error) {
