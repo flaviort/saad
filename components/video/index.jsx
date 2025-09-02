@@ -89,7 +89,7 @@ export default function Video({ id, sound }) {
                 onLeave: onLeave,
                 onEnterBack: onEnter,
                 onLeaveBack: onLeave,
-                markers: true,
+                //markers: true,
                 refreshPriority: -1,
                 invalidateOnRefresh: true
             })

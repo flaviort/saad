@@ -22,6 +22,7 @@ export async function getProjects(locale) {
                                 }
                                 projects {
                                     title
+                                    subtitle
                                     darkText
                                     category
                                     tags {

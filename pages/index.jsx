@@ -175,6 +175,7 @@ export default function Home({ data }) {
 							darkText={edge.node.projects?.darkText || false}
 							client={edge.node.title}
 							title={edge.node.projects?.title}
+							subtitle={edge.node.projects?.subtitle}
 							category={edge.node.projects?.category}
 							tags={edge.node.projects?.tags?.map(tag => tag.tag) || []}
 						/>

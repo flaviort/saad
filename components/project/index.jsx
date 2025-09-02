@@ -13,7 +13,7 @@ import UxArrowRight from '@/assets/svg/ux/arrow-right.svg'
 // css
 import styles from './project.module.scss'
 
-export default function Project({ link, image, darkText = false, client, title, category, tags }) {
+export default function Project({ link, image, darkText = false, client, title, subtitle, category, tags }) {
 
     const { locale } = useRouter()
 
@@ -45,11 +45,11 @@ export default function Project({ link, image, darkText = false, client, title, 
                         <div className={clsx(styles.fullLine, 'grid-md-1-5')}>
 
                             <p>
-                                {client}
+                                {title}
                             </p>
 
                             <h3 className='font-medium'>
-                                {title}
+                                {subtitle}
                             </h3>
 
                         </div>
