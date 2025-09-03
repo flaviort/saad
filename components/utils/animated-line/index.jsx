@@ -28,8 +28,8 @@ export default function AnimatedLine({ dark, opacity = 1 }) {
                 scrollTrigger: {
                     trigger: trigger,
                     scrub: 2,
-                    start: 'top 95%',
-                    end: 'bottom 70%'
+                    start: 'top 100%',
+                    end: 'bottom 90%'
                 }
             })
         }, 150) // Slightly longer delay for AnimatedLine

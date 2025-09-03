@@ -31,6 +31,12 @@
         "copyright": "All Rights Reserved"
     },
 
+    "Cookies": {
+        "message": "We’re all about crafting experiences, even here. Our cookies are designed to enhance your journey, offering insights that help us shape a more tailored, thoughtful interaction.",
+        "accept": "Accept",
+        "reject": "No, thanks"
+    },
+
     "Home": {
         "pageTitle": "Impactful Tailored Brands",
         "pageDescription": "Saad® is an internationally award-winning boutique brand consultancy specialized in building and transforming the future of businesses.",
@@ -58,47 +64,47 @@
                 {
                     "sub_title": "Brand Research",
                     "items": [
-                        "Immersion in the company",
-                        "Market & trends",
-                        "Target audience",
-                        "Benchmarks",
-                        "Stakeholders",
-                        "Brand diagnosis"
+                        { "text": "Immersion in the company" },
+                        { "text": "Market & trends" },
+                        { "text": "Target audience" },
+                        { "text": "Benchmarks" },
+                        { "text": "Stakeholders" },
+                        { "text": "Brand diagnosis" }
                     ]
                 }, {
                     "sub_title": "Brand Strategy",
                     "items": [
-                        "Positioning",
-                        "Purpose",
-                        "Brand architecture",
-                        "Brand platform",
-                        "Business model innovation",
-                        "Strategic recommendations"
+                        { "text": "Positioning" },
+                        { "text": "Purpose" },
+                        { "text": "Brand architecture" },
+                        { "text": "Brand platform" },
+                        { "text": "Business model innovation" },
+                        { "text": "Strategic recommendations" }
                     ]
                 }, {
                     "sub_title": "Brand Identity",
                     "items": [
-                        "Naming",
-                        "Tagline",
-                        "Key messages",
-                        "Voice tone",
-                        "Visual identity",
-                        "Brandbook"
+                        { "text": "Naming" },
+                        { "text": "Tagline" },
+                        { "text": "Key messages" },
+                        { "text": "Voice tone" },
+                        { "text": "Visual identity" },
+                        { "text": "Brandbook" }
                     ]
                 }, {
                     "sub_title": "Brand Experience",
                     "items": [
-                        "Web design",
-                        "Packaging",
-                        "Brand communication",
-                        "Signage",
-                        "Brand activation",
-                        "Products & services"
+                        { "text": "Web design" },
+                        { "text": "Packaging" },
+                        { "text": "Brand communication" },
+                        { "text": "Signage" },
+                        { "text": "Brand activation" },
+                        { "text": "Products & services" }
                     ]
                 }, {
                     "sub_title": "Brand Management",
                     "items": [
-                        "Brand measurement"
+                        { "text": "Brand measurement" }
                     ]
                 }
             ]

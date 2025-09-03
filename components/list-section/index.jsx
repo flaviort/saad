@@ -48,7 +48,7 @@ export default function ListSection({ className, title, infos, small, about, sin
                                                 {item.items.map((subItem, i2) => (
                                                     <div className={styles.item} key={i2}>
 
-                                                        <UxArrowRight />
+                                                        {/* <UxArrowRight /> */}
 
                                                         <p>
                                                             {subItem}
@@ -62,7 +62,7 @@ export default function ListSection({ className, title, infos, small, about, sin
                                                 {item.items.map((subItem, i2) => (
                                                     <div className={styles.item} key={i2}>
 
-                                                        <UxArrowRight />
+                                                        {/* <UxArrowRight /> */}
 
                                                         {subItem.year && (
                                                             <p className={styles.year}>

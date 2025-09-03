@@ -42,7 +42,7 @@ export default function Project({ link, image, darkText = false, title, subtitle
                 <div className={clsx(styles.container, 'container')}>
                     <div className={clsx(styles.grid, 'grid-container')}>
 
-                        <div className={clsx(styles.fullLine, 'grid-md-1-5')}>
+                        <div className={clsx(styles.fullLine, 'grid-xl-1-3')}>
 
                             <p>
                                 {title}
@@ -54,12 +54,13 @@ export default function Project({ link, image, darkText = false, title, subtitle
 
                         </div>
 
-                        <div className={clsx(styles.hideMobile, 'grid-md-5-6')}>
+                        <div className={clsx(styles.hideMobile, 'grid-xl-3-7')}>
                             <p className={styles.small}>
                                 {category}
                             </p>
                         </div>
 
+                        {/*
                         <div className={clsx(styles.hideMobile, 'grid-md-6-7')}>
                             <p className={clsx(styles.tags, styles.small)}>
                                 {tags.map((item, i) => (
@@ -69,6 +70,7 @@ export default function Project({ link, image, darkText = false, title, subtitle
                                 ))}
                             </p>
                         </div>
+                        */}
 
                         <p className={clsx(styles.viewMobile, 'font-small')}>
                             {locale === 'en' ? 'View' : 'Ver projeto'} <UxArrowRight />

@@ -64,6 +64,19 @@
                 align-items: flex-end;
                 justify-content: space-between;
 
+                @media #{$mq-xl-max} {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    gap: 1rem;
+                }
+
+                @media #{$mq-md-max} {
+                    flex-direction: row;
+                    align-items: flex-end;
+                    justify-content: space-between;
+                }
+
                 .fullLine {
                     position: relative;
                     //width: 100%;

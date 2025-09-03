@@ -105,7 +105,6 @@ export default function About({ services, awards, talks, publications }) {
 			<ListSection
 				title={services.title}
 				infos={services.infos}
-				small
 				noScroll
 			/>
 

@@ -25,6 +25,12 @@
             "text": "Somos uma boutique, o que significa: trabalhar mais próximo dos nossos clientes, mais foco, qualidade em vez de quantidade, muita atenção aos detalhes e controlo em todo o processo."
         }
     },
+
+    "Cookies": {
+        "message": "Nosso objetivo é criar experiências, mesmo aqui. Nossos cookies são projetados para aprimorar sua jornada, oferecendo insights que nos ajudam a moldar uma interação mais personalizada e atenciosa.",
+        "accept": "Aceitar",
+        "reject": "Não, obrigado"
+    },
     
     "Footer": {
         "location": "Brasil",
@@ -58,47 +64,47 @@
                 {
                     "sub_title": "Brand Research",
                     "items": [
-                        "Immersion in the company",
-                        "Market & trends",
-                        "Target audience",
-                        "Benchmarks",
-                        "Stakeholders",
-                        "Brand diagnosis"
+                        { "text": "Immersion in the company" },
+                        { "text": "Market & trends" },
+                        { "text": "Target audience" },
+                        { "text": "Benchmarks" },
+                        { "text": "Stakeholders" },
+                        { "text": "Brand diagnosis" }
                     ]
                 }, {
                     "sub_title": "Brand Strategy",
                     "items": [
-                        "Positioning",
-                        "Purpose",
-                        "Brand architecture",
-                        "Brand platform",
-                        "Business model innovation",
-                        "Strategic recommendations"
+                        { "text": "Positioning" },
+                        { "text": "Purpose" },
+                        { "text": "Brand architecture" },
+                        { "text": "Brand platform" },
+                        { "text": "Business model innovation" },
+                        { "text": "Strategic recommendations" }
                     ]
                 }, {
                     "sub_title": "Brand Identity",
                     "items": [
-                        "Naming",
-                        "Tagline",
-                        "Key messages",
-                        "Voice tone",
-                        "Visual identity",
-                        "Brandbook"
+                        { "text": "Naming" },
+                        { "text": "Tagline" },
+                        { "text": "Key messages" },
+                        { "text": "Voice tone" },
+                        { "text": "Visual identity" },
+                        { "text": "Brandbook" }
                     ]
                 }, {
                     "sub_title": "Brand Experience",
                     "items": [
-                        "Web design",
-                        "Packaging",
-                        "Brand communication",
-                        "Signage",
-                        "Brand activation",
-                        "Products & services"
+                        { "text": "Web design" },
+                        { "text": "Packaging" },
+                        { "text": "Brand communication" },
+                        { "text": "Signage" },
+                        { "text": "Brand activation" },
+                        { "text": "Products & services" }
                     ]
                 }, {
                     "sub_title": "Brand Management",
                     "items": [
-                        "Brand measurement"
+                        { "text": "Brand measurement" }
                     ]
                 }
             ]

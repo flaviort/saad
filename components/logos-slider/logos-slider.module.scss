@@ -1,4 +1,6 @@
 .logosSlider {
+    overflow: hidden;
+    
     & :global {
         .swiper-wrapper {
             display: flex;

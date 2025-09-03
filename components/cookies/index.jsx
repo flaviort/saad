@@ -3,7 +3,7 @@ import clsx from 'clsx'
 import Link from 'next/link'
 import { useState, useEffect, useRef } from 'react'
 import gsap from 'gsap'
-import { useGSAP } from '@gsap/react'
+import { useMessages } from 'next-intl'
 
 // routes / utils
 import routes from '@/utils/routes'
@@ -14,6 +14,8 @@ import styles from './cookies.module.scss'
 export default function Cookies() {
 	const [isVisible, setIsVisible] = useState(true)
 	const cookiesRef = useRef(null)
+
+    const messages = useMessages()
 
     useEffect(() => {
         
@@ -58,18 +60,18 @@ export default function Cookies() {
 		<aside ref={cookiesRef} className={styles.cookies}>
 			<div className={styles.wrapper}>
 
-				<p>
-					Our website uses cookies to improve your experience. By continuing to use our site, you agree to our <Link href={routes.privacy} className='hover-underline-white'>Privacy Policy</Link>.
+				<p className='font-small'>
+					{messages.Cookies.message}
 				</p>
 
 				<div className={clsx(styles.buttons, 'font-small')}>
 
 					<button onClick={() => handleConsent(true)}>
-						Accept
+						{messages.Cookies.accept}
 					</button>
 
 					<button onClick={() => handleConsent(false)}>
-						Reject
+						{messages.Cookies.reject}
 					</button>
 
 				</div>
