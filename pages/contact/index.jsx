@@ -12,7 +12,6 @@ import { useTranslations } from 'next-intl'
 
 // components
 import Layout from '@/layout'
-import Fancybox from '@/components/utils/fancybox'
 import { Form, Input, Select } from '@/components/form'
 
 // svgs
@@ -163,11 +162,11 @@ export default function Contact() {
 										required
 									>
 										<option value='' disabled>{t('Form.label_04')}</option>
-										<option value='1-10'>1-10</option>
-										<option value='10-25'>10-25</option>
-										<option value='25-50'>25-50</option>
-										<option value='50-100'>50-100</option>
-										<option value='100+'>100+</option>
+										<option value='25'>25</option>
+										<option value='26-50'>26-50</option>
+										<option value='51-100'>51-100</option>
+										<option value='101-250'>101-250</option>
+										<option value='250+'>250+</option>
 									</Select>
 
 									<p className='break-word'>
@@ -200,6 +199,7 @@ export default function Contact() {
 										placeholder={t('Form.label_06')}
 										required
 										maxLength={50}
+										className={styles.noTransform}
 									/>
 
 									<p className='break-word'>
@@ -212,6 +212,7 @@ export default function Contact() {
 										placeholder={t('Form.label_07')}
 										required
 										maxLength={40}
+										className={styles.noTransform}
 									/>
 
 									<p className='break-word'>

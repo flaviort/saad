@@ -1,12 +1,12 @@
 {
     "Menu": {
-        "description": "Saad® is an internationally award-winning boutique brand consultancy <br />specialized in building and transforming the future of businesses.",
-        "tags": "Business <span>•</span> Branding <span>•</span> Design"
+        "description": "Saad® is an internationally award-winning boutique consultancy in business & brand innovation building organizations that disrupt markets, fuel genuine growth, and set new benchmarks — crafted for the future, never for the ordinary.",
+        "tags": "Business <span>•</span> Branding <span>•</span> Design <span>•</span> Experience"
     },
 
     "Marquee": {
         "mouse": "Contact",
-        "message": "Let's create the future of your brand.",
+        "message": "Let's create the future of your business.",
         "button": "Contact us"
     },
 
@@ -39,7 +39,7 @@
 
     "Home": {
         "pageTitle": "Impactful Tailored Brands",
-        "pageDescription": "Saad® is an internationally award-winning boutique brand consultancy specialized in building and transforming the future of businesses.",
+        "pageDescription": "Saad® is an internationally award-winning boutique consultancy in business & brand innovation building organizations that disrupt markets, fuel genuine growth, and set new benchmarks — crafted for the future, never for the ordinary.",
         "Counters": {
             "first": "years creating impactful brands",
             "second": "national and international awards",
@@ -423,19 +423,19 @@
         "title": "Hello Saad!",
         "Form": {
             "text_01": "My name is",
-            "label_01": "type your name",
-            "text_02": "and I'm currently",
-            "label_02": "type your position",
-            "text_03": "at the company",
+            "label_01": "your name",
+            "text_02": "and I'm",
+            "label_02": "your position",
+            "text_03": "at",
             "label_03": "company name",
-            "text_04": ", we have a total of",
-            "label_04": "quantity",
-            "text_05": "employees and my contact is related to an interest in the service of",
-            "label_05": "type the service",
+            "text_04": ". We have",
+            "label_04": "select quantity",
+            "text_05": "employees and would like to talk about",
+            "label_05": "brief description of your project or challenge",
             "text_06": "My corporate email is",
-            "label_06": "name@email.com",
+            "label_06": "your@email.com",
             "text_07": "and my phone is",
-            "label_07": "+1 (123) 456-7890",
+            "label_07": "+55 (11) 99999-9999",
             "popup_message": "By clicking the 'Submit form' button, I agree to the",
             "popup_button": "Privacy Policy",
             "submit": "Submit form"

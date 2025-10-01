@@ -14,7 +14,7 @@ export default function SEOContainer({ pageTitle, pageDescription, bodyClass }) 
     const siteName = 'Saad'
 
 	const defaultPageTitle = 'Impactful Tailored Brands'
-	const defaultPageDesc = 'Saad® is an internationally award-winning boutique brand consultancy specialized in building and transforming the future of businesses.'
+	const defaultPageDesc = 'Saad® is an internationally award-winning boutique consultancy in business & brand innovation building organizations that disrupt markets, fuel genuine growth, and set new benchmarks — crafted for the future, never for the ordinary.'
 
 	const image = router.basePath + '/img/og-image.gif'
 

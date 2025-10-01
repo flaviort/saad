@@ -1,12 +1,12 @@
 {
     "Menu": {
-        "description": "Saad® é uma consultoria de marcas boutique premiada internacionalmente <br />especializada em construir e transformar o futuro dos negócios.",
-        "tags": "Negócios <span>•</span> Marcas <span>•</span> Design"
+        "description": "A Saad® é uma consultoria boutique de business & brand innovation premiada internacionalmente especializada em criar negócios e marcas que desafiam mercados, aceleram o crescimento real e estabelecem novos padrões — pensada para o futuro, nunca para o convencional.",
+        "tags": "Business <span>•</span> Branding <span>•</span> Design <span>•</span> Experience"
     },
 
     "Marquee": {
         "mouse": "Contato",
-        "message": "Vamos criar o futuro da sua marca.",
+        "message": "Vamos criar o futuro do seu negócio.",
         "button": "Entre em contato"
     },
 
@@ -39,7 +39,7 @@
 
     "Home": {
         "pageTitle": "Marcas personalizadas impactantes",
-        "pageDescription": "Saad® é uma consultoria de marcas boutique premiada internacionalmente, especializada em construir e transformar o futuro dos negócios.",
+        "pageDescription": "A Saad® é uma consultoria boutique de business & brand innovation premiada internacionalmente especializada em criar negócios e marcas que desafiam mercados, aceleram o crescimento real e estabelecem novos padrões — pensada para o futuro, nunca para o convencional.",
         "Counters": {
             "first": "anos criando marcas impactantes",
             "second": "premiações nacionais e internacionais",
@@ -422,20 +422,20 @@
         "pageDescription": "Simples, rápido e eficiente. Preencha nosso formulário e entre em contato conosco.",
         "title": "Olá Saad!",
         "Form": {
-            "text_01": "Me chamo",
-            "label_01": "digite seu nome",
-            "text_02": "e atualmente sou",
-            "label_02": "digite seu cargo",
-            "text_03": "da empresa",
+            "text_01": "Meu nome é",
+            "label_01": "seu nome",
+            "text_02": "e eu sou",
+            "label_02": "seu cargo",
+            "text_03": "na empresa",
             "label_03": "nome da empresa",
-            "text_04": ", contamos com",
-            "label_04": "quantidade",
-            "text_05": "funcionários e meu contato é referente a um interesse ao/a serviço de",
-            "label_05": "digite o serviço",
+            "text_04": ". Nós temos",
+            "label_04": "selecione a quantidade",
+            "text_05": "funcionários e eu gostaria de conversar sobre",
+            "label_05": "breve descrição do seu projeto ou desafio",
             "text_06": "Meu email coorporativo é",
-            "label_06": "nome@email.com",
+            "label_06": "seu@email.com.br",
             "text_07": "e meu telefone é",
-            "label_07": "+00 (00) 00000-0000",
+            "label_07": "+55 (11) 99999-9999",
             "popup_message": "Ao clicar no botão 'Enviar formulário', concordo com a",
             "popup_button": "Política de Privacidade",
             "submit": "Enviar formulário"

@@ -52,6 +52,7 @@
         height: calc(2rem - 5px);
         appearance: textfield;
         min-width: 6rem;
+        transform: translateY(.1rem);
 
         @media #{$mq-xs-min} {
             height: calc(2rem - 1px);
@@ -84,7 +85,7 @@
             position: relative;
             top: auto;
             left: auto;
-            width: 8rem;
+            width: 14.5rem;
             margin-right: .5rem;
             color: rgba($black, .5);
 

@@ -125,7 +125,7 @@ export const Form = ({ className, children }) => {
     )
 }
 
-export const Input = ({ label, type, placeholder, required, maxLength }) => {
+export const Input = ({ label, type, placeholder, required, maxLength, className }) => {
 
     const { locale } = useRouter()
     const { register, formState: { errors } } = useFormContext()
@@ -165,7 +165,7 @@ export const Input = ({ label, type, placeholder, required, maxLength }) => {
         
         const handleResize = () => {
             const width = window.innerWidth
-            const newMinWidth = width > 768 ? `calc(${placeholder.length}rem)` : `calc(${placeholder.length}rem - 3.75rem)`
+            const newMinWidth = width > 768 ? `calc(${placeholder.length}em / 1.75)` : `calc(${placeholder.length}em - 3.75rem)`
             setMinWidth(newMinWidth)
         }
 
@@ -221,7 +221,7 @@ export const Input = ({ label, type, placeholder, required, maxLength }) => {
                 type={type}
                 id={slugify(label)}
                 placeholder={placeholder}
-                className={styles.input}
+                className={clsx(styles.input, className)}
                 onChange={handleContentChange}
                 onInput={handleContentChange}
                 autoComplete='none'
@@ -240,7 +240,7 @@ export const Input = ({ label, type, placeholder, required, maxLength }) => {
     )
 }
 
-export const Select = ({ label, required, children }) => {
+export const Select = ({ label, required, children, className }) => {
 
     const { locale } = useRouter()
     const { register, formState: { errors }, watch } = useFormContext()
@@ -297,7 +297,7 @@ export const Select = ({ label, required, children }) => {
 
             <select
                 id={slugify(label)}
-                className={clsx(styles.input, styles.select, hasSelection && styles.selected)}
+                className={clsx(styles.input, styles.select, hasSelection && styles.selected, className)}
                 defaultValue=""
                 {...register(label, validations)}
             >

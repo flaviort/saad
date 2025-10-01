@@ -8,6 +8,9 @@ import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
 import ScrollTrigger from 'gsap/dist/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Autoplay, Navigation } from 'swiper/modules'
+import 'swiper/css'
 
 // routes / utils / hooks
 import { getProjects } from '@/utils/graphql'
@@ -33,7 +36,7 @@ export default function WorkInner({ data, prevProject, nextProject }) {
     const router = useRouter()
     const { locale } = router
 
-    //console.log(data.node.projects.gallery)
+    console.log(data.node.projects.gallery)
 
     // Force cleanup of all ScrollTrigger instances when route changes
     useEffect(() => {
@@ -237,16 +240,36 @@ export default function WorkInner({ data, prevProject, nextProject }) {
                                 )}
 
                                 {item.slides && (
-                                    <div className={styles.slider}>
-                                        {item.slides.map((slide, i2) => (
-                                            <Image
-                                                key={i2}
-                                                src={slide.image.node.sourceUrl}
-                                                alt={slide.imageDescription}
-                                                fill
-                                                className='cover'
-                                            />
-                                        ))}
+                                    <div className='relative'>
+                                        <FollowMouse text={locale === 'en' ? 'Drag' : 'Arraste'}>
+                                            <Swiper
+                                                modules={[Navigation, Autoplay]}
+                                                className={styles.slider}
+                                                spaceBetween={0}
+                                                slidesPerView={1}
+                                                allowTouchMove={true}
+                                                autoplay={{
+                                                    delay: 3000,
+                                                    disableOnInteraction: false
+                                                }}
+                                                speed={1000}
+                                                grabCursor={true}
+                                            >
+                                                {item.slides.map((slide, i2) => (
+                                                    <SwiperSlide
+                                                        key={i2}
+                                                        data-slide
+                                                    >
+                                                        <Image
+                                                            src={slide.image.node.sourceUrl}
+                                                            alt={slide.imageDescription || 'Image'}
+                                                            fill
+                                                            className='cover'
+                                                        />
+                                                    </SwiperSlide>
+                                                ))}
+                                            </Swiper>
+                                        </FollowMouse>
                                     </div>
                                 )}
 

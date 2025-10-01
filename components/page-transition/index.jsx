@@ -15,10 +15,6 @@ export default function PageTransition({ children }) {
 					
                 <div data-loader-bg className={styles.loaderBg}></div>
 
-                <div data-loader-logo className={styles.loaderLogo}>
-                    <Logo />
-                </div>
-
             </aside>
 
             <TransitionComponent>

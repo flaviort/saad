@@ -51,7 +51,7 @@ export default function TransitionComponent({ children }){
 					const tl = gsap.timeline({
 						paused: true,
 						onComplete: () => {
-							gsap.set('[data-loader-logo], [data-loader]', {
+							gsap.set('[data-loader]', {
 								clearProps: true
 							})
 						}
@@ -77,17 +77,11 @@ export default function TransitionComponent({ children }){
 					})
 
 					// Exit animation - content is still hidden during this
-					tl.to('[data-loader-logo]', {
-						y: 50,
-						duration: .7,
-						ease: 'power2.inOut'
-					})
-
 					tl.to('[data-loader]', {
 						clipPath: 'inset(100% 0% 0% 0%)',
 						duration: .7,
 						ease: 'power2.inOut'
-					}, '-=.7')
+					}, 0)
 
 					// NOW the content becomes visible and we setup the new page
 					tl.call(function() {
@@ -139,12 +133,6 @@ export default function TransitionComponent({ children }){
 						ease: 'power2.inOut',
 						duration: 1
 					})
-					
-					tl.from('[data-loader-logo]', {
-						y: -50,
-						duration: .7,
-						ease: 'power2.inOut',
-					}, '-=.8')
 
 					// AFTER loader covers screen, reset scroll (hidden from user)
 					tl.call(function() {

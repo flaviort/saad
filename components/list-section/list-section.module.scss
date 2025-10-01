@@ -158,6 +158,10 @@
                             @media #{$mq-xl-min} {
                                 padding-right: 2rem;
                             }
+
+                            @media #{$mq-2xl-min} {
+                                padding-right: 7rem;
+                            }
                         }
                     }
                 }

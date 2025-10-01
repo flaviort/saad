@@ -74,8 +74,12 @@ export default function Home({ data }) {
 		})
 
 		document.addEventListener('opening', () => {
-			gsap.from(title, {
-				yPercent: 100,
+			gsap.set(title, {
+				yPercent: 100
+			})
+
+			gsap.to(title, {
+				yPercent: 0,
 				duration: 2,
 				ease: 'power2.out'
 			})
