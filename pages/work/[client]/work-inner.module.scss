@@ -97,6 +97,40 @@
             height: 110vh;
         }
     }
+
+    .featuredVideo {
+        position: relative;
+        overflow: hidden;
+        display: block;
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16 / 9;
+
+        .play {
+            position: absolute;
+            z-index: 2;
+            //top: 50%;
+            //left: 50%;
+            //transform: translate(-50%, -50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 8rem;
+            height: 8rem;
+            border-radius: 50%;
+            background-color: $pure-white;
+            color: $black;
+            text-transform: uppercase;
+
+            @media #{$mq-md-min} {
+                display: none;
+            }
+        }
+    }
+
+    .slider {
+        position: relative;
+    }
 }
 
 .previousNext {

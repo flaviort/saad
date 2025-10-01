@@ -10,7 +10,6 @@ import ScrollTrigger from 'gsap/dist/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
 
 // routes / utils / hooks
-import routes from '@/utils/routes'
 import { getProjects } from '@/utils/graphql'
 import { slugify } from '@/utils/functions'
 
@@ -23,7 +22,7 @@ import Video from '@/components/video'
 import ListSection from '@/components/list-section'
 import Testimonials from '@/components/testimonials'
 import ContactMarquee from '@/components/contact-marquee'
-import FillTitle from '@/components/utils/fill-title'
+import Fancybox from '@/components/utils/fancybox'
 
 // css
 import styles from './work-inner.module.scss'
@@ -33,6 +32,8 @@ export default function WorkInner({ data, prevProject, nextProject }) {
     const bannerRef = useRef()
     const router = useRouter()
     const { locale } = router
+
+    //console.log(data.node.projects.gallery)
 
     // Force cleanup of all ScrollTrigger instances when route changes
     useEffect(() => {
@@ -200,12 +201,28 @@ export default function WorkInner({ data, prevProject, nextProject }) {
                     <section className={styles.gallery}>
                         {data.node.projects.gallery.map((item, i) => (
                             <div key={i}>
+
+                                {item.fullVideo && (
+                                    <Fancybox options={{ dragToClose: false }}>
+                                        <a
+                                            href={'https://vimeo.com/' + item.fullVideo}
+                                            data-fancybox='showreel'
+                                            className={styles.featuredVideo}
+                                        >
+                                            <Video
+                                                id={item.smallVideo || item.fullVideo}
+                                                className='cover'
+                                                featured
+                                            />
+                                        </a>
+                                    </Fancybox>
+                                )}
                                 
                                 {item.image && (
                                     <div className={styles.image}>
                                         <Image
                                             src={item.image.node.sourceUrl}
-                                            alt={item.imageDescription}
+                                            alt={item.imageDescription || 'Image'}
                                             fill
                                             sizes='100vw'
                                             className='cover'
@@ -215,10 +232,21 @@ export default function WorkInner({ data, prevProject, nextProject }) {
 
                                 {item.videoId && (
                                     <div className={styles.video}>
-                                        <Video
-                                            id={item.videoId}
-                                            sound={item.enable_sound}
-                                        />
+                                        <Video id={item.videoId} />
+                                    </div>
+                                )}
+
+                                {item.slides && (
+                                    <div className={styles.slider}>
+                                        {item.slides.map((slide, i2) => (
+                                            <Image
+                                                key={i2}
+                                                src={slide.image.node.sourceUrl}
+                                                alt={slide.imageDescription}
+                                                fill
+                                                className='cover'
+                                            />
+                                        ))}
                                     </div>
                                 )}
 

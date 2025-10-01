@@ -56,7 +56,19 @@ export async function getProjects(locale) {
                                         }
                                         ... on ProjectsGalleryVideoLayout {
                                             videoId
-                                            enable_sound
+                                        }
+                                        ... on ProjectsGallerySliderLayout {
+                                            slides {
+                                                image {
+                                                    node {
+                                                        sourceUrl
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        ... on ProjectsGalleryFeaturedVideoLayout {
+                                            fullVideo
+                                            smallVideo
                                         }
                                     }
                                 }
