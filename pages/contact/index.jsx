@@ -187,7 +187,7 @@ export default function Contact() {
 
 								</div>
 
-								<div className={clsx(styles.flex, 'font-big stagger-2')}>
+								<div className={clsx(styles.flex, 'font-big-2 stagger-2')}>
 
 									<p className='break-word'>
 										{t('Form.text_06')}

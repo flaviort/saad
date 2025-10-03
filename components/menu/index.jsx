@@ -332,7 +332,7 @@ export default function Menu() {
                     <div className='grid-container'>
                         <ul className={clsx(styles.menu, 'grid-md-2-7')}>
                             {menuItems.map((item, i) => (
-                                <li key={i} className='fsMenuLi'>
+                                <li key={i} className={clsx('fsMenuLi', locale === 'pt' && styles.pt)}>
                                     <Link
                                         scroll={false}
                                         href={item.url}
