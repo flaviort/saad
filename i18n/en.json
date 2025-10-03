@@ -14,15 +14,15 @@
         "title": "What we stand for",
         "first": {
             "title": "Clear-Cut Strategy",
-            "text": "We look at all aspects of the business and delve into each of them to create business strategies. Clear, precise and distinct brands."
+            "text": "We dive deep into your business to craft razor-sharp, adaptable strategies. Through rigorous diagnosis and immersion, we map every facet — from market forces to cultural nuances — to create a living blueprint for authentic transformation and lasting advantage."
         },
         "second": {
             "title": "Clever Design",
-            "text": "We communicate your brand's uniqueness to the world through sharp, smart and timeless design."
+            "text": "We turn your brand’s singularity into timeless design and a sophisticated narrative. Every visual and verbal element breaks from the generic to spark resonance, forge enduring experiences, and build distinctive value across all touchpoints. You'll cut through the noise, not just echo."
         },
         "third": {
-            "title": "Tailor-Made",
-            "text": "We are a boutique, which means: working closer to our clients, more focus, quality over quantity, high attention to details and control throughout the whole process."
+            "title": "Tailor-made",
+            "text": "As a true boutique, we obsess over every detail, co-creating a universe bespoke to your context through a seamless approach. From initial insight to full rollout, we deliver competitive differentiation and measurable results — business value that lasts, not dusty drawer projects."
         }
     },
     
@@ -41,78 +41,86 @@
         "pageTitle": "Impactful Tailored Brands",
         "pageDescription": "Saad® is an internationally award-winning boutique consultancy in business & brand innovation building organizations that disrupt markets, fuel genuine growth, and set new benchmarks — crafted for the future, never for the ordinary.",
         "Counters": {
-            "first": "years creating impactful brands",
+            "first": "years transforming businesses and brands",
             "second": "national and international awards",
-            "third": "talks and events in Brazil and abroad",
-            "fourth": "publications online and offline"
+            "third": "talks, panels, and exhibitions",
+            "fourth": "online and offline publications"
         }
     },
 
     "About": {
         "pageTitle": "About",
-        "pageDescription": "We help visionary leaders drive change and growth inside and outside your organizations in a creative and audacious way.",
+        "pageDescription": "What we do goes beyond any label. We don't just imagine new futures — we design, build and deliver them, side by side with our clients.",
         
         "TopSection": {
-            "title": "We help visionary leaders drive change and growth inside and outside their organizations in creative and bold ways.",
-            "text_01": "We look for the uniqueness of each brand. Your authenticity. What makes you unique. Once we find it, we communicate it to the world through carefully crafted strategies, stories, design and experiences that people won't forget.",
-            "text_02": "We believe that impactful brands can positively change the world - and we are here to help you build them through the perfect balance between strategy, design and technology, developing unique experiences for visionary brands."
+            "title": "What we do goes beyond any label. We don't just imagine new futures — we design, build and deliver them, side by side with our clients.",
+            "text_01": "We are a boutique transformation consultancy that fuses strategy, business model innovation, branding, design, experience, and end-to-end implementation to create adaptive and resilient organizations.",
+            "text_02": "Every project is uniquely crafted — from in-depth diagnosis through execution and continuous evolution — measured by concrete results, not mere intentions.",
+            "text_03": "This isn’t off-the-shelf consulting, nor is it surface-level change. It’s about driving authentic transformation powered by rigorous methodology, creative originality, and relentless execution."
         },
 
         "Services": {
             "title": "Services",
             "Sub_item": [
                 {
-                    "sub_title": "Brand Research",
+                    "sub_title": "Discovery",
                     "items": [
-                        { "text": "Immersion in the company" },
-                        { "text": "Market & trends" },
-                        { "text": "Target audience" },
-                        { "text": "Benchmarks" },
-                        { "text": "Stakeholders" },
-                        { "text": "Brand diagnosis" }
+                        { "text": "In-company immersion" },
+                        { "text": "Market intelligence and strategic foresight" },
+                        { "text": "Competitive intelligence and benchmarking" },
+                        { "text": "Customer insights and stakeholder research" },
+                        { "text": "Strategic diagnosis and opportunity mapping" }
                     ]
                 }, {
-                    "sub_title": "Brand Strategy",
+                    "sub_title": "Strategy & Innovation",
                     "items": [
-                        { "text": "Positioning" },
-                        { "text": "Purpose" },
-                        { "text": "Brand architecture" },
-                        { "text": "Brand platform" },
-                        { "text": "Business model innovation" },
+                        { "text": "Business model innovation and design" },
+                        { "text": "Brand positioning and strategic platform" },
+                        { "text": "Brand architecture and portfolio strategy" },
+                        { "text": "Product and service concept design" },
                         { "text": "Strategic recommendations" }
                     ]
                 }, {
-                    "sub_title": "Brand Identity",
+                    "sub_title": "Brand Identity & Systems",
                     "items": [
-                        { "text": "Naming" },
-                        { "text": "Tagline" },
-                        { "text": "Key messages" },
-                        { "text": "Voice tone" },
+                        { "text": "Verbal identity" },
+                        { "text": "Naming and tagline" },
+                        { "text": "Brand voice and messaging" },
+                        { "text": "Brand narrative and manifesto" },
                         { "text": "Visual identity" },
-                        { "text": "Brandbook" }
+                        { "text": "Logo and visual identity system" },
+                        { "text": "Motion identity" },
+                        { "text": "Brand toolkit and guidelines" }
                     ]
                 }, {
-                    "sub_title": "Brand Experience",
+                    "sub_title": "Experience & Activation",
                     "items": [
-                        { "text": "Web design" },
-                        { "text": "Packaging" },
-                        { "text": "Brand communication" },
-                        { "text": "Signage" },
-                        { "text": "Brand activation" },
-                        { "text": "Products & services" }
+                        { "text": "On and offline experience design" },
+                        { "text": "Web design and apps" },
+                        { "text": "Packaging and editorial design" },
+                        { "text": "Environmental graphics and signage" },
+                        { "text": "Experience ecosystem design" },
+                        { "text": "Journey mapping and optimization" },
+                        { "text": "Experience ecosystems and guidelines" },
+                        { "text": "Culture and engagement" },
+                        { "text": "Employee experience (EVP)" },
+                        { "text": "Culture strategy and activation" }
                     ]
                 }, {
-                    "sub_title": "Brand Management",
+                    "sub_title": "Implementation & Evolution",
                     "items": [
-                        { "text": "Brand measurement" }
+                        { "text": "Strategy implementation and rollout" },
+                        { "text": "Performance tracking and optimization" },
+                        { "text": "Brand evolution" },
+                        { "text": "Ongoing strategic partnership" }
                     ]
                 }
             ]
         },
 
         "About": {
-            "text_01": "Lucas Saad, founder and director of Saad, has a degree in Design from the Federal University of Santa Maria - RS and a postgraduate degree in Branding Strategic Brand Management from Universidade Positivo in Curitiba - PR, having completed part of his MBA at Brunel University in London . He also has a degree in Global Creative Leadership from THNK - The Amsterdam School of Creative Leadership.",
-            "text_02": "With more than 15 years of experience in Brazil and abroad, he has participated in projects with companies of the most varied sizes (from small brands to multinationals such as Dow AgroSciences and Brookfield Renewable Energy) and sectors such as technology, pharmaceutical industry, agribusiness, logistics, engineering and industry, energy, marketing and advertising, consumer goods, human resources, among others."
+            "text_01": "Lucas Saad, founder and director of Saad, holds a degree in Design and a postgraduate specialization in Branding, with an extension of his MBA at Brunel University in London. He also participated in the Global Creative Leadership program at THNK — The Amsterdam School of Creative Leadership and completed the Management for Organizations of the Future (TEAL) executive program at CESAR School.",
+            "text_02": "With over 20 years of experience in Brazil and abroad, he has led projects for companies of all sizes — from emerging brands to multinationals such as Dow AgroSciences and Brookfield Renewable Energy — across sectors including technology, consumer goods, healthcare, energy, agribusiness, mobility, engineering, services, media and entertainment, among others."
         },
 
         "Awards": {

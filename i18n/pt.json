@@ -13,16 +13,16 @@
     "StandFor": {
         "title": "O que defendemos",
         "first": {
-            "title": "Estratégia Clara",
-            "text": "Analisamos todos os aspectos do negócio e nos aprofundamos em cada um deles para criar estratégias de negócios. Marcas claras, precisas e distintas."
+            "title": "Clear-cut Strategy",
+            "text": "Mergulhamos nas dinâmicas ocultas do seu negócio para forjar estratégias precisas, distintivas e adaptáveis a contextos dinâmicos. Por meio de um diagnóstico cirúrgico e imersão minuciosa, mapeamos cada faceta — das forças de mercado às nuances culturais —, estabelecendo o alicerce que impulsiona a transformação concreta e sustenta vantagem competitiva."
         },
         "second": {
-            "title": "Design Inteligente",
-            "text": "Comunicamos a singularidade da sua marca ao mundo através de um design elegante, inteligente e atemporal."
+            "title": "Clever Design",
+            "text": "Transformamos a singularidade da sua marca em design atemporal e narrativa sofisticada. Cada expressão visual e cada história são pensadas estrategicamente para romper com o genérico, gerar ressonância e construir valor distintivo — ao eliminar o que é desnecessário, trazemos clareza e evidenciamos a essência que se sobrepõe ao ruído."
         },
         "third": {
-            "title": "Feito sob medida",
-            "text": "Somos uma boutique, o que significa: trabalhar mais próximo dos nossos clientes, mais foco, qualidade em vez de quantidade, muita atenção aos detalhes e controlo em todo o processo."
+            "title": "Tailor-made",
+            "text": "Como uma verdadeira boutique, somos obsessivos em cada detalhe, co-criando soluções sob medida para o seu contexto por meio de uma abordagem sem costuras. Do primeiro insight à execução final, entregamos diferenciação competitiva e resultados mensuráveis — e não apenas projetos bonitos esquecidos em gavetas."
         }
     },
 
@@ -41,78 +41,87 @@
         "pageTitle": "Marcas personalizadas impactantes",
         "pageDescription": "A Saad® é uma consultoria boutique de business & brand innovation premiada internacionalmente especializada em criar negócios e marcas que desafiam mercados, aceleram o crescimento real e estabelecem novos padrões — pensada para o futuro, nunca para o convencional.",
         "Counters": {
-            "first": "anos criando marcas impactantes",
-            "second": "premiações nacionais e internacionais",
-            "third": "palestras e eventos no Brasil e afora",
-            "fourth": "publicações online e offline"
+            "first": "anos transformando negócios e marcas",
+            "second": "prêmios nacionais e internacionais",
+            "third": "palestras, júris e exposições",
+            "fourth": "publicações online and offline"
         }
     },
 
     "About": {
         "pageTitle": "Sobre",
-        "pageDescription": "Ajudamos líderes visionários a impulsionar a mudança e o crescimento dentro e fora das suas organizações de uma forma criativa e audaciosa.",
+        "pageDescription": "O que fazemos vai além de qualquer rótulo. Não nos limitamos a imaginar novos futuros — nós os projetamos, construímos e entregamos, lado a lado com nossos clientes.",
 
         "TopSection": {
-            "title": "Ajudamos líderes visionários a impulsionar a mudança e o crescimento dentro e fora das suas organizações de uma forma criativa e audaciosa.",
-            "text_01": "Procuramos a singularidade de cada marca. Sua autenticidade. O que o torna único. Depois de o encontrarmos, comunicamo-lo ao mundo através de estratégias, histórias, design e experiências cuidadosamente elaboradas que as pessoas não esquecerão.",
-            "text_02": "Acreditamos que marcas impactantes podem mudar o mundo positivamente - e estamos aqui para ajudá-lo a construí-las através do equilíbrio perfeito entre estratégia, design e tecnologia, desenvolvendo experiências únicas para marcas visionárias."
+            "title": "O que fazemos vai além de qualquer rótulo. Não nos limitamos a imaginar novos futuros — nós os projetamos, construímos e entregamos, lado a lado com nossos clientes.",
+            "text_01": "Somos uma consultoria boutique de transformação que funde estratégia, novos modelos de negócio, branding, design, experiência e implementação end-to-end para criar organizações  adaptáveis e resilientes.",
+            "text_02": "Cada projeto é feito de forma única — do diagnóstico minucioso até a execução e evolução contínua —, sempre medido por resultados tangíveis, não por discursos.",
+            "text_03": "Aqui não temos frameworks genéricos e mudanças superficiais: entregamos transformação real sustentada por metodologia rigorosa, originalidade criativa e execução incansável."
         },
 
         "Services": {
-            "title": "Services",
+            "title": "Serviços",
             "Sub_item": [
                 {
-                    "sub_title": "Brand Research",
+                    "sub_title": "Discovery",
                     "items": [
-                        { "text": "Immersion in the company" },
-                        { "text": "Market & trends" },
-                        { "text": "Target audience" },
-                        { "text": "Benchmarks" },
-                        { "text": "Stakeholders" },
-                        { "text": "Brand diagnosis" }
+                        { "text": "Imersão in company" },
+                        { "text": "Inteligência de mercado e foresight estratégico" },
+                        { "text": "Inteligência competitiva e benchmarking" },
+                        { "text": "Insights e pesquisas de stakeholders" },
+                        { "text": "Diagnóstico estratégico e mapeamento de oportunidades" }
                     ]
                 }, {
-                    "sub_title": "Brand Strategy",
+                    "sub_title": "Strategy & Innovation",
                     "items": [
-                        { "text": "Positioning" },
-                        { "text": "Purpose" },
-                        { "text": "Brand architecture" },
-                        { "text": "Brand platform" },
-                        { "text": "Business model innovation" },
-                        { "text": "Strategic recommendations" }
+                        { "text": "Inovação e design de modelo de negócios" },
+                        { "text": "Posicionamento e plataforma de marca" },
+                        { "text": "Arquitetura de marca e estratégia de portfólio" },
+                        { "text": "Produtos e serviços (design de conceito)" },
+                        { "text": "Diretrizes e recomendações estratégicas" }
                     ]
                 }, {
-                    "sub_title": "Brand Identity",
+                    "sub_title": "Brand Identity & Systems",
                     "items": [
-                        { "text": "Naming" },
-                        { "text": "Tagline" },
-                        { "text": "Key messages" },
-                        { "text": "Voice tone" },
-                        { "text": "Visual identity" },
-                        { "text": "Brandbook" }
+                        { "text": "Identidade verbal" },
+                        { "text": "Naming e tagline" },
+                        { "text": "Tom de voz e mensagens-chave" },
+                        { "text": "Narrativa da marca e manifesto" },
+                        { "text": "Identidade visual" },
+                        { "text": "Logo e sistema de identidade visual" },
+                        { "text": "Motion identity" },
+                        { "text": "Toolkit e diretrizes de marca" }
                     ]
                 }, {
-                    "sub_title": "Brand Experience",
+                    "sub_title": "Experience & Activation",
                     "items": [
-                        { "text": "Web design" },
-                        { "text": "Packaging" },
-                        { "text": "Brand communication" },
-                        { "text": "Signage" },
-                        { "text": "Brand activation" },
-                        { "text": "Products & services" }
+                        { "text": "Online e offline" },
+                        { "text": "Website e apps" },
+                        { "text": "Embalagem" },
+                        { "text": "Editorial" },
+                        { "text": "Sinalização e ambientação" },
+                        { "text": "Experience Design (CX)" },
+                        { "text": "Jornada do usuário e otimização" },
+                        { "text": "Ecossistemas e diretrizes de experiência" },
+                        { "text": "Cultura e engajamento interno" },
+                        { "text": "Employee experience (EVP)" },
+                        { "text": "Estratégia de cultura e ativação" }
                     ]
                 }, {
-                    "sub_title": "Brand Management",
+                    "sub_title": "Implementation & Evolution",
                     "items": [
-                        { "text": "Brand measurement" }
+                        { "text": "Implementação e rollout" },
+                        { "text": "Mensuração de performance da marca" },
+                        { "text": "Evolução da marca" },
+                        { "text": "Consultoria contínua" }
                     ]
                 }
             ]
         },
 
         "About": {
-            "text_01": "Lucas Saad, founder and director of Saad, has a degree in Design from the Federal University of Santa Maria - RS and a postgraduate degree in Branding Strategic Brand Management from Universidade Positivo in Curitiba - PR, having completed part of his MBA at Brunel University in London . He also has a degree in Global Creative Leadership from THNK - The Amsterdam School of Creative Leadership.",
-            "text_02": "With more than 15 years of experience in Brazil and abroad, he has participated in projects with companies of the most varied sizes (from small brands to multinationals such as Dow AgroSciences and Brookfield Renewable Energy) and sectors such as technology, pharmaceutical industry, agribusiness, logistics, engineering and industry, energy, marketing and advertising, consumer goods, human resources, among others."
+            "text_01": "Lucas Saad, fundador e diretor da Saad, é graduado em Design e pós-graduado em Branding, com extensão de seu MBA na Brunel University em Londres. Também participou do programa Global Creative Leadership pela THNK — The Amsterdam School of Creative Leadership e é especialista em Gestão para Organizações do Futuro pela CESAR School.",
+            "text_02": "Com mais de 20 anos de experiência no Brasil e no exterior, liderou projetos de empresas dos mais variados tamanhos — de marcas emergentes a multinacionais como Dow AgroSciences e Brookfield Renewable Energy — em setores como tecnologia, bens de consumo, saúde, energia, agronegócio, mobilidade, engenharia, serviços, mídia e entretenimento, entre outros."
         },
 
         "Awards": {

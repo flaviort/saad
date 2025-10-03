@@ -94,7 +94,9 @@ export default function About({ services, awards, talks, publications }) {
 							<p ref={fadeRef2}>
 								{t('TopSection.text_01')}<br /><br />
 
-								{t('TopSection.text_02')}
+								{t('TopSection.text_02')}<br /><br />
+
+								{t('TopSection.text_03')}
 							</p>
 						</div>
 

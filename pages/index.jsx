@@ -97,7 +97,7 @@ export default function Home({ data }) {
 	// counters
 	const counters = [
 		{
-			number: '13',
+			number: '14',
 			text: t('Counters.first')
 		}, {
 			number: '16',
@@ -106,7 +106,7 @@ export default function Home({ data }) {
 			number: '18',
 			text: t('Counters.third')
 		}, {
-			number: '48',
+			number: '50',
 			text: t('Counters.fourth')
 		}
 	]
@@ -114,20 +114,59 @@ export default function Home({ data }) {
 	// testimonials
     const testimonials = [
         {
-            company: 'Vuelo',
-            testimonial: "It's different from everything we're used to, the all white, lifeless packaging. It's an innovative vision. Vuelo's packaging makes you forget you have a problem.",
-            name: 'Viviane Oliveira',
-            position: 'Vuelo Client'
+            company: 'Ipiranga Seeds',
+            testimonial: "With repositioning and annual brand management, combined with other initiatives, Ipiranga Seeds increased its revenue by 875% in the nine years following the start of the project.",
+            name: 'André Adams',
+            position: 'CEO'
         }, {
-            company: 'Vuelo 02',
-            testimonial: "It's different from everything we're used to, the all white, lifeless packaging. It's an innovative vision. Vuelo's packaging makes you forget you have a problem.",
-            name: 'Viviane Oliveira',
-            position: 'Vuelo Client'
+            company: 'Nastek',
+            testimonial: "The project was essential for our product to stand out against the competition. In addition to increasing the perceived value of our brand, we were also able to optimize our pricing strategy.",
+            name: 'José Wanderley Scucuglia',
+            position: 'CEO'
         }, {
-            company: 'Vuelo 03',
-            testimonial: "It's different from everything we're used to, the all white, lifeless packaging. It's an innovative vision. Vuelo's packaging makes you forget you have a problem.",
-            name: 'Viviane Oliveira',
-            position: 'Vuelo Client'
+            company: 'Elera Renewables (formerly Brookfield Renewable Energy)',
+            testimonial: "Saad’s skills were fundamental in bringing together all stakeholders — from the CEO to operational teams — fully engaging them in every phase of the project.",
+            name: 'Francis de Asevedo',
+            position: 'Marketing and Sales Executive'
+        }, {
+            company: 'Centro Brasil Design',
+            testimonial: "Saad led Vuelo Pharma’s rebranding with boldness and, as a result, the company earned national and international recognition, gained clients abroad, and won the trust of its consumers.",
+            name: 'Rodrigo Kneib',
+            position: 'Project Coordinator'
+        }, {
+            company: 'Seragini Farné Guardado Design',
+            testimonial: "It is rare to find consultancies with excellence in design, branding, and business modeling. Rarer still is a firm that truly integrates these talents, making the right connections and translating unique ideas into results that are both clear and inspiring.",
+            name: 'Sérgio Guardado',
+            position: 'Managing Partner'
+        }
+    ]
+
+	const testimonials_pt = [
+        {
+            company: 'Sementes Ipiranga',
+            testimonial: "Com o reposicionamento e a gestão anual da marca e somadas a outras iniciativas, a Sementes Ipiranga aumentou seu faturamento em 875% nos nove anos seguintes ao início do projeto.",
+            name: 'André Adams',
+            position: 'CEO'
+        }, {
+            company: 'Nastek',
+            testimonial: "O projeto foi essencial para que o produto se sobressaísse frente à concorrência. Além de ter aumentado a percepção de valor de nossa marca, pudemos otimizar também a estratégia de precificação.",
+            name: 'José Wanderley Scucuglia',
+            position: 'CEO'
+        }, {
+            company: 'Elera Renováveis (ex-Brookfield Energia Renovável)',
+            testimonial: "As habilidades da Saad foram fundamentais para reunir todos os stakeholders, do CEO às equipes operacionais, envolvendo-as completamente em cada fase do projeto.",
+            name: 'Francis de Asevedo',
+            position: 'Executivo de marketing'
+        }, {
+            company: 'Centro Brasil Design',
+            testimonial: "A Saad conduziu o rebranding da Vuelo Pharma com ousadia e, como resultado, a empresa conquistou prêmios de design, clientes internacionais e a confiança de seus consumidores.",
+            name: 'Rodrigo Kneib',
+            position: 'Coordenador de projetos'
+        }, {
+            company: 'Seragini Farné Guardado Design',
+            testimonial: "É raro encontrar consultorias com excelência em design, branding e modelagem de negócios. Mais raro ainda é uma empresa que integre esses talentos de fato, fazendo as sinapses necessárias e traduzindo ideias únicas em resultados compreensíveis e motivadores.",
+            name: 'Sérgio Guardado',
+            position: 'Sócio-diretor'
         }
     ]
 
@@ -211,6 +250,9 @@ export default function Home({ data }) {
 									
 									<p className={clsx(styles.number, 'font-biggest')}>
 										<Counter number={item.number} />
+										{i === counters.length - 1 && (
+											<span>+</span>
+										)}
 									</p>
 
 									<p className={clsx(styles.text, 'font-medium')}>
