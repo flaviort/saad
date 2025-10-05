@@ -169,7 +169,7 @@ export default function WorkInner({ data, prevProject, nextProject }) {
                 {data.node.projects.awards && (
                     <>
                         <ListSection
-                            title={locale === 'en' ? 'Awards & Publications' : 'Prêmios & Publicações'}
+                            title={locale === 'en' ? 'Awards & Recognitions' : 'Prêmios & Reconhecimentos'}
                             infos={[{
                                 items: data.node.projects.awards.map( award => ({
                                     text: award.award

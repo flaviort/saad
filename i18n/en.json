@@ -127,61 +127,56 @@
             "title": "Awards",
             "Sub_item": [
                 {
-                    "sub_title": "Internationals",
+                    "sub_title": "Awards & Publications",
                     "items": [
                         {
                             "year": "2023",
-                            "text": "Brandor (best naming), Spain. 9-6"
+                            "text": "Brandor – 9–6 (Best Naming), Spain"
                         }, {
                             "year": "2022",
-                            "text": "Bienal Iberoamericana de Design, IDB, Spain. 9-6"
+                            "text": "Bienal Iberoamericana de Diseño (BID) – 9–6, Spain"
                         }, {
                             "year": "2022",
-                            "text": "Premios CLAP. Industrial Diseño and Graphic Diseño, Spain. 9-6"
+                            "text": "Premios CLAP – 9–6, Spain"
                         }, {
                             "year": "2020",
-                            "text": "Bienal Iberoamericana de Design, IDB, Spain. Nagüeva"
+                            "text": "Bienal Iberoamericana de Diseño (BID) – Nagüeva, Spain"
                         }, {
                             "year": "2018",
-                            "text": "Lisbon International Health Festival, Portugal. Vuelo Pharma"
+                            "text": "Lisbon International Health Festival – Vuelo Pharma (Bronze), Portugal"
                         }, {
                             "year": "2018",
-                            "text": "Bienal Iberoamericana de Design, IDB, Spain. Vuelo Pharma"
+                            "text": "Bienal Iberoamericana de Diseño (BID) – Vuelo Pharma, Spain"
+                        }, {
+                            "year": "2018",
+                            "text": "Brasil Design Award – Vuelo Pharma, Brazil"
                         }, {
                             "year": "2017",
-                            "text": "iF Design Award, Germany. RE"
+                            "text": "iF Design Award – RE, Germany"
                         }, {
                             "year": "2017",
-                            "text": "CLAP Awards. Industrial Diseño and Graphic Diseño, CLAP Platinum, Spain. Ipiranga Seeds"
+                            "text": "Premios CLAP – Ipiranga Seeds (CLAP Platinum), Spain"
                         }, {
                             "year": "2017",
-                            "text": "CLAP Awards. Industrial Diseño and Graphic Diseño, Spain. RE"
+                            "text": "Premios CLAP – RE, Spain"
                         }, {
                             "year": "2017",
-                            "text": "Premios CLAP. Industrial Diseño and Graphic Diseño, Spain. Vuelo"
+                            "text": "Premios CLAP – Vuelo Pharma, Spain"
+                        }, {
+                            "year": "2017",
+                            "text": "12ª Bienal Brasileira de Design Gráfico – Vuelo Pharma, Brazil"
+                        }, {
+                            "year": "2015",
+                            "text": "Bienal Brasileira de Design – Yon, Brazil"
+                        }, {
+                            "year": "2015",
+                            "text": "11ª Bienal Brasileira de Design Gráfico – Yon, Brazil"
                         }, {
                             "year": "2014",
-                            "text": "iF Design Award, Germany. Ipiranga Seeds"
-                        }
-                    ]
-                }, {
-                    "sub_title": "Nationals",
-                    "items": [
-                        {
-                            "year": "2018",
-                            "text": "Brasil Design Award. Vuelo Pharma"
-                        }, {
-                            "year": "2017",
-                            "text": "12th Brazilian Graphic Design Biennial. Vuelo Pharma"
-                        }, {
-                            "year": "2015",
-                            "text": "Brazilian Design Biennial. Yon"
-                        }, {
-                            "year": "2015",
-                            "text": "11th Brazilian Biennial of Graphic Design. Yon"
+                            "text": "iF Design Award – Ipiranga Seeds, Germany"
                         }, {
                             "year": "2013",
-                            "text": "IDEA Brasil Awards. Ipiranga Seeds"
+                            "text": "IDEA Brasil Awards – Ipiranga Seeds (Silver), Brazil"
                         }
                     ]
                 }
@@ -192,62 +187,62 @@
             "title": "Talks",
             "Sub_item": [
                 {
-                    "sub_title": "Lectures & Events",
+                    "sub_title": "Panels & exhibitions",
                     "items": [
                         {
                             "year": "2019",
-                            "text": "Elali (Encuentro Latinoamericano de Limpieza e Innovación) Creating impactful brands that transform businesses. Lucas Saad, guest speaker. Cartagena, Colombia."
+                            "text": "Elali Novozymes (Encuentro Latinoamericano de Limpieza e Innovación) – Lecture. Cartagena, Colombia"
                         }, {
                             "year": "2019",
-                            "text": "Elali (Encuentro Latinoamericano de Limpieza e Innovación) Brand storytelling workshop “Creating impactful stories that transform businesses”. Lucas Saad, facilitator. Cartagena, Colombia."
+                            "text": "Elali Novozymes (Encuentro Latinoamericano de Limpieza e Innovación) – Workshop. Cartagena, Colombia"
                         }, {
                             "year": "2019",
-                            "text": "Household Summit - Creating impactful brands that transform businesses. Lucas Saad, guest speaker. Sao Paulo, Brazil."
+                            "text": "Household Summit – Lecture. São Paulo, Brazil"
                         }, {
                             "year": "2018",
-                            "text": "CUBO Itaú - Impactful tailored brands: creating businesses that transform markets. Lucas Saad, guest speaker. Sao Paulo, Brazil."
+                            "text": "CUBO Itaú – Lecture. São Paulo, Brazil"
                         }, {
                             "year": "2018",
-                            "text": "Polyphony - Polyphonic Dialogues. Lucas Saad, guest speaker. Sao Paulo, Brazil."
+                            "text": "Polifonia – Lecture. São Paulo, Brazil"
                         }, {
                             "year": "2018",
-                            "text": "MBA in Branding from Universidade Positivo. Lucas Saad, guest speaker. Curitiba, Brazil."
+                            "text": "MBA in Branding (Universidade Positivo) – Lecture. Curitiba, Brazil"
                         }, {
                             "year": "2017",
-                            "text": "Campus Party 10 - What can innovation, branding and design do for the technology sector? Lucas Saad, guest speaker. Sao Paulo, Brazil."
+                            "text": "Campus Party – Lecture. São Paulo, Brazil"
                         }, {
                             "year": "2017",
-                            "text": "Campus Party 10 - Think design panel: the power to unite people, business and technology. Lucas Saad, guest speaker. Sao Paulo, Brazil."
+                            "text": "Campus Party – Panel. São Paulo, Brazil"
                         }, {
                             "year": "2017",
-                            "text": "POPAI Brasil Award - Lucas Saad, juror. Sao Paulo, Brazil."
+                            "text": "POPAI Brasil Award – Jury role. São Paulo, Brazil"
                         }, {
                             "year": "2017",
-                            "text": "Brand’s Up Conference - Lucas Saad, guest speaker. Brazil."
+                            "text": "Brand’s Up Conference – Lecture. Brazil"
                         }, {
                             "year": "2017",
-                            "text": "Pontifical Catholic University of Paraná (PUC PR) Charneira. Lucas Saad, guest speaker. Curitiba, Brazil."
+                            "text": "Charneira Design (PUCPR) – Lecture. Curitiba, Brazil"
                         }, {
                             "year": "2017",
-                            "text": "Positivo University - Meeting with the market. Lucas Saad, guest speaker. Curitiba, Brazil."
+                            "text": "Encounter with the Market (Universidade Positivo) – Lecture. Curitiba, Brazil"
                         }, {
                             "year": "2016",
-                            "text": "Festival Picnic - RE. Rio de Janeiro, Brazil."
+                            "text": "Picnic Festival – RE (Project feature). Rio de Janeiro, Brazil"
                         }, {
                             "year": "2016",
-                            "text": "MBA in Branding from Univali - Brands that dialogue. Lucas Saad, guest speaker. Balneário Camboriú, Brazil."
+                            "text": "MBA in Branding (Univali) – Lecture. Balneário Camboriú, Brazil"
                         }, {
                             "year": "2015",
-                            "text": "Brazilian Institute of Productivity and Quality (IBQP) Is your brand prepared for the future? Lucas Saad, guest speaker. Curitiba, Brazil."
+                            "text": "Instituto Brasileiro de Qualidade e Produtividade (IBQP) – Lecture. Curitiba, Brazil"
                         }, {
                             "year": "2014",
-                            "text": "Semana D - 600 seconds. Lucas Saad, guest speaker. Curitiba, Brazil."
+                            "text": "Semana D – Lecture. Curitiba, Brazil"
                         }, {
                             "year": "2014",
-                            "text": "Pre-Brazilian Design Biennial - Index/SC Design for All. Lucas Saad, guest speaker. Chapecó, Brazil."
+                            "text": "Pré-Bienal Brasileira de Design (Index/SC Design For All) – Lecture. Chapecó, Brazil"
                         }, {
                             "year": "2013",
-                            "text": "Positivo University - Portfolio Concept '13. Lucas Saad, guest speaker. Curitiba, Brazil."
+                            "text": "Portfolio Concept (Universidade Positivo) – Lecture. Curitiba, Brazil"
                         }
                     ]
                 }
@@ -258,157 +253,163 @@
             "title": "Publications",
             "Sub_item": [
                 {
-                    "sub_title": "Online",
+                    "sub_title": "Print Publications",
                     "items": [
                         {
-                            "year": "2018",
-                            "text": "Revista Mundo Corporativo (Deloitte). Saad branding consultancy is one of the highlights of the article on Scale-Ups in the 'Innovation' section. Brazil."
-                        }, {
-                            "year": "2018",
-                            "text": "Design and Design, France. Yon"
-                        }, {
                             "year": "2017",
-                            "text": "The Dieline, United States. RE"
-                        }, {
-                            "year": "2017",
-                            "text": "Favourite Design, France. Oigo."
-                        }, {
-                            "year": "2017",
-                            "text": "Administrators — articles on Naming, Brand Essence and Trends. Brazil."
-                        }, {
-                            "year": "2017",
-                            "text": "Brasil Econômico (iG). Eight tips to improve your business. Article published in the 'Economy' section. Brazil."
-                        }, {
-                            "year": "2017",
-                            "text": "Design and Design, France. Vuelo Pharma"
-                        }, {
-                            "year": "2017",
-                            "text": "DesignBrasil, Brazil. RE"
+                            "text": "Pequenas Empresas & Grandes Negócios Magazine – Saad Branding+Design (Mentioned in the main cover story “100 Ideas to Start Your Business”), Brazil"
                         }, {
                             "year": "2016",
-                            "text": "The Dieline, United States. Vuelo Pharma"
+                            "text": "abcDesign Magazine – Vuelo Pharma, Brazil"
                         }, {
                             "year": "2016",
-                            "text": "Packaging of the World, Singapore. RE"
+                            "text": "Favourite Design Book – Vuelo Pharma, France"
                         }, {
                             "year": "2016",
-                            "text": "Packaging of the World, Singapore. Vuelo Pharma"
+                            "text": "Correio Braziliense – Article (Entrepreneurship section), Brazil"
                         }, {
                             "year": "2016",
-                            "text": "Visualgraphc, United States. Ipiranga Seeds"
+                            "text": "Color Code: Branding & Identity Book – Yon, China"
                         }, {
                             "year": "2016",
-                            "text": "Design and Design, France. Oigo"
-                        }, {
-                            "year": "2016",
-                            "text": "Favourite Design, France. Vuelo Pharma"
-                        }, {
-                            "year": "2016",
-                            "text": "Ohmycode, Russia. Ipiranga Seeds"
-                        }, {
-                            "year": "2016",
-                            "text": "Balagem Marca, Brazil. Vuelo Pharma"
-                        }, {
-                            "year": "2016",
-                            "text": "Administradores. Articles on Branding, Strategic Planning, Brand Positioning, Ethnography and Dynamic Identities. Brazil."
-                        }, {
-                            "year": "2016",
-                            "text": "Design Clever, England. Ipiranga Seeds"
-                        }, {
-                            "year": "2016",
-                            "text": "Retail Design Blog, Hungary. RE"
-                        }, {
-                            "year": "2016",
-                            "text": "Milk With One Sugar, United States. Ipiranga Seeds"
-                        }, {
-                            "year": "2016",
-                            "text": "We And The Color, United States. Oigo"
-                        }, {
-                            "year": "2016",
-                            "text": "We And The Color, United States. Saad"
-                        }, {
-                            "year": "2016",
-                            "text": "DesignBrasil, Brazil. Vuelo Pharma"
-                        }, {
-                            "year": "2016",
-                            "text": "DesignBrazil. Aticles about Branding and Ethnography, Brazil."
-                        }, {
-                            "year": "2016",
-                            "text": "InfoBranding. Aticle about Ethnography, Brazil."
-                        }, {
-                            "year": "2016",
-                            "text": "Trend List, United States. Saad"
-                        }, {
-                            "year": "2016",
-                            "text": "Raw (Abduzeedo), United States. Vuelo Pharma"
+                            "text": "abcDesign Magazine – Ipiranga Seeds, Brazil"
                         }, {
                             "year": "2015",
-                            "text": "DesignBrazil. Brand change requires attention and care. Article published in the section 'Design'. Brazil."
+                            "text": "Meio & Mensagem Advertising Yearbook – Ipiranga Seeds, Brazil"
                         }, {
                             "year": "2014",
-                            "text": "For Print Only (UnderConsideration), United States. Sementes Ipiranga"
+                            "text": "The Design and Design Book of the Year – Ipiranga Seeds, France"
                         }, {
                             "year": "2014",
-                            "text": "For Print Only (UnderConsideration), United States. Saad"
-                        }, {
-                            "year": "2014",
-                            "text": "Design and Design, France. Saad"
-                        }, {
-                            "year": "2014",
-                            "text": "TheArtHunters (Daily Inspiration), Netherlands. Yon"
-                        }, {
-                            "year": "2014",
-                            "text": "Identity Designed, Ireland. Yon"
-                        }, {
-                            "year": "2014",
-                            "text": "Paper Specs, United States. Saad"
-                        }, {
-                            "year": "2014",
-                            "text": "DesignBrasil, Brazil. Sementes Ipiranga"
-                        }, {
-                            "year": "2014",
-                            "text": "Packaging of the World, Singapore. Yon"
-                        }, {
-                            "year": "2014",
-                            "text": "Creative Inspiration, England. Yon"
-                        }, {
-                            "year": "2014",
-                            "text": "New Grids, France. Saad"
-                        }, {
-                            "year": "2014",
-                            "text": "Branding Served (Behance), United States. Oigo"
-                        }, {
-                            "year": "2014",
-                            "text": "Branding Served (Behance), United States. Saad"
+                            "text": "Monochrome: Branding in Black and White Book – Saad Branding+Design, China"
                         }
                     ]
                 }, {
-                    "sub_title": "Offline",
+                    "sub_title": "Online Publications",
                     "items": [
                         {
+                            "year": "2018",
+                            "text": "Mundo Corporativo Magazine (Deloitte) – Saad Branding+Design (Highlight: Scale-Ups article, Innovation section), Brazil"
+                        }, {
+                            "year": "2018",
+                            "text": "Design and Design – Yon, France"
+                        }, {
                             "year": "2017",
-                            "text": "Magazine 'Pequenas Empresas & Grandes Negócios'. Saad branding consultancy is one of the highlights of the cover story. Brazil."
+                            "text": "The Dieline – RE, United States"
+                        }, {
+                            "year": "2017",
+                            "text": "Favourite Design – Oigo, France"
+                        }, {
+                            "year": "2017",
+                            "text": "Administradores – Articles (Naming, Brand Essence, Trends), Brazil"
+                        }, {
+                            "year": "2017",
+                            "text": "Brasil Econômico (iG) – Article (Economy section), Brazil"
+                        }, {
+                            "year": "2017",
+                            "text": "Design and Design – Vuelo Pharma, France"
+                        }, {
+                            "year": "2017",
+                            "text": "DesignBrasil – RE, Brazil"
                         }, {
                             "year": "2016",
-                            "text": "Magazine 'abcDesign', Brazil. Vuelo Pharma"
+                            "text": "The Dieline – Vuelo Pharma, United States"
                         }, {
                             "year": "2016",
-                            "text": "Favourite Design Book, France. Vuelo Pharma"
+                            "text": "Packaging of the World – RE, United States"
                         }, {
                             "year": "2016",
-                            "text": "Correio Braziliense - How are businesses in 2017? Article published in the Entrepreneurship section. Brazil."
+                            "text": "Packaging of the World – Vuelo Pharma, United States"
                         }, {
                             "year": "2016",
-                            "text": "Magazine 'abcDesign', Brazil. Sementes Ipiranga"
+                            "text": "Visualgraphc – Ipiranga Seeds, United States"
+                        }, {
+                            "year": "2016",
+                            "text": "Design and Design – Oigo, France"
+                        }, {
+                            "year": "2016",
+                            "text": "Favourite Design – Vuelo Pharma, France"
+                        }, {
+                            "year": "2016",
+                            "text": "Ohmycode – Ipiranga Seeds, Russia"
+                        }, {
+                            "year": "2016",
+                            "text": "Embalagem Marca – Vuelo Pharma, Brazil"
+                        }, {
+                            "year": "2016",
+                            "text": "Embalagem Marca – Article (Marketing section), Brazil"
+                        }, {
+                            "year": "2016",
+                            "text": "Administradores – Articles (Branding, Strategic Planning, Ethnography, Brand Positioning, Dynamic Identities), Brazil"
+                        }, {
+                            "year": "2016",
+                            "text": "Design Clever – Ipiranga Seeds, England"
+                        }, {
+                            "year": "2016",
+                            "text": "Retail Design Blog – RE, Hungary"
+                        }, {
+                            "year": "2016",
+                            "text": "Milk With One Sugar – Ipiranga Seeds, United States"
+                        }, {
+                            "year": "2016",
+                            "text": "We And The Color – Oigo, United States"
+                        }, {
+                            "year": "2016",
+                            "text": "We And The Color – Saad Branding+Design, United States"
+                        }, {
+                            "year": "2016",
+                            "text": "DesignBrasil – Vuelo Pharma, Brazil"
+                        }, {
+                            "year": "2016",
+                            "text": "DesignBrasil – Articles (Branding, Ethnography), Brazil"
+                        }, {
+                            "year": "2016",
+                            "text": "InfoBranding – Article: Ethnography, Brazil"
+                        }, {
+                            "year": "2016",
+                            "text": "Trend List – Saad Branding+Design, United States"
+                        }, {
+                            "year": "2016",
+                            "text": "Raw (Abduzeedo) – Vuelo Pharma, United States"
                         }, {
                             "year": "2015",
-                            "text": "Meio&Mensagem Advertising Yearbook, Brazil. Ipiranga Seeds"
+                            "text": "DesignBrasil – Article (Design section), Brazil"
                         }, {
                             "year": "2014",
-                            "text": "The Design and Design Book of the Year Vol. 7, France. Sementes Ipiranga"
+                            "text": "For Print Only (UnderConsideration) – Ipiranga Seeds, United States"
                         }, {
                             "year": "2014",
-                            "text": "Monochrome: Branding in Black and White Book, China. Saad"
+                            "text": "For Print Only (UnderConsideration) – Saad Branding+Design, United States"
+                        }, {
+                            "year": "2014",
+                            "text": "Design and Design – Saad Branding+Design, France"
+                        }, {
+                            "year": "2014",
+                            "text": "tEdits (TheArtHunters) – Yon, Netherlands"
+                        }, {
+                            "year": "2014",
+                            "text": "Identity Designed – Yon, Ireland"
+                        }, {
+                            "year": "2014",
+                            "text": "Paper Specs – Saad Branding+Design, United States"
+                        }, {
+                            "year": "2014",
+                            "text": "DesignBrasil – Ipiranga Seeds, Brazil"
+                        }, {
+                            "year": "2014",
+                            "text": "Packaging of the World – Yon, United States"
+                        }, {
+                            "year": "2014",
+                            "text": "Creative Inspiration – Yon, United Kingdom"
+                        }, {
+                            "year": "2014",
+                            "text": "New Grids – Saad Branding+Design, France"
+                        }, {
+                            "year": "2014",
+                            "text": "Branding Served (Behance) – Oigo, United States"
+                        }, {
+                            "year": "2014",
+                            "text": "Branding Served (Behance) – Saad Branding+Design, United States"
                         }
                     ]
                 }
