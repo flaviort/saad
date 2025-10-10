@@ -36,7 +36,7 @@ export default function WorkInner({ data, prevProject, nextProject }) {
     const router = useRouter()
     const { locale } = router
 
-    console.log(data.node.projects.gallery)
+    //console.log(data.node.projects.gallery)
 
     // Force cleanup of all ScrollTrigger instances when route changes
     useEffect(() => {
