@@ -14,7 +14,7 @@
         justify-content: center;
         width: 7rem;
         height: 7rem;
-        background-color: transparentize($black, .05);
+        background-color: rgba($black, .95);
         color: $white;
         pointer-events: none;
         transform: scale(0);

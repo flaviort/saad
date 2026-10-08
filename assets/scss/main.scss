@@ -1,9 +1,11 @@
-//@import 'atoms/breakpoints.scss';
-@import 'atoms/global.scss';
-@import 'atoms/reusable.scss';
-@import 'atoms/scroll.scss';
-@import 'atoms/fonts.scss';
-@import 'atoms/containers.scss';
-@import 'atoms/buttons.scss';
-@import 'atoms/texts.scss';
-@import 'atoms/fancybox.scss';
+//@use 'atoms/breakpoints';
+@use 'atoms/global';
+@use 'atoms/reusable';
+@use 'atoms/scroll';
+@use 'atoms/fonts';
+@use 'atoms/containers';
+@use 'atoms/buttons';
+@use 'atoms/texts';
+@use 'atoms/fancybox';
+@use 'atoms/view-transitions';
+

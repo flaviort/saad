@@ -1,3 +1,5 @@
+@use 'variables' as *;
+
 sub,
 sup {
     font-size: 65%;
@@ -153,16 +155,6 @@ body {
 	font-size: 16px;
 	font-size: clamp(16px, 1.33vw, 18px);
 	line-height: 1.6;
-}
-
-body {
-	&.no-scroll {
-		overflow: hidden;
-	}
-
-	&.no-pointer-events {
-		pointer-events: none;
-	}
 }
 
 :root {

@@ -121,7 +121,18 @@
             border-top: .275rem solid $red;
         }
     }
+
+    // inputs grow with their placeholder (--placeholder-length is set inline)
+    .text,
+    .input {
+        min-width: calc(var(--placeholder-length) * 1em - 3.75rem);
+
+        @media only screen and (min-width: 769px) {
+            min-width: calc(var(--placeholder-length) * 1em / 1.75);
+        }
+    }
 }
+
 
 .popup {
     display: none;
@@ -129,13 +140,11 @@
     color: $black;
     max-width: calc(100% - 1rem);
 
-    & :global {
-        .f-button.is-close-btn {
-            background-color: transparent;
+    :global(.f-button):global(.is-close-btn) {
+        background-color: transparent;
 
-            @media #{$mq-sm-max} {
-                color: $black;
-            }
+        @media #{$mq-sm-max} {
+            color: $black;
         }
     }
 

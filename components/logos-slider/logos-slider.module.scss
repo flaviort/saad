@@ -1,11 +1,9 @@
 .logosSlider {
     overflow: hidden;
     
-    & :global {
-        .swiper-wrapper {
-            display: flex;
-            align-items: center;
-        }
+    :global(.swiper-wrapper) {
+        display: flex;
+        align-items: center;
     }
 
     .slider {

@@ -1,7 +1,15 @@
 {
     "Menu": {
+        "open": "Menu",
+        "close": "Close",
+        "Items": {
+            "home": "Home",
+            "work": "Work",
+            "about": "About",
+            "contact": "Contact"
+        },
         "description": "Saad® is an internationally award-winning boutique consultancy in business & brand innovation building organizations that disrupt markets, fuel genuine growth, and set new benchmarks — crafted for the future, never for the ordinary.",
-        "tags": "Business <span>•</span> Branding <span>•</span> Design <span>•</span> Experience"
+        "tags": "Business <dot>•</dot> Branding <dot>•</dot> Design <dot>•</dot> Experience"
     },
 
     "Marquee": {
@@ -27,6 +35,7 @@
     },
     
     "Footer": {
+        "privacy": "Privacy Policy",
         "location": "Brazil",
         "copyright": "All Rights Reserved"
     },
@@ -38,6 +47,41 @@
     },
 
     "Home": {
+        "Testimonials": [
+            {
+                "company": "Ipiranga Seeds",
+                "testimonial": "With repositioning and annual brand management, combined with other initiatives, Ipiranga Seeds increased its revenue by 875% in the nine years following the start of the project.",
+                "name": "André Adams",
+                "position": "CEO"
+            },
+            {
+                "company": "Nastek",
+                "testimonial": "The project was essential for our product to stand out against the competition. In addition to increasing the perceived value of our brand, we were also able to optimize our pricing strategy.",
+                "name": "José Wanderley Scucuglia",
+                "position": "CEO"
+            },
+            {
+                "company": "Elera Renewables (formerly Brookfield Renewable Energy)",
+                "testimonial": "Saad’s skills were fundamental in bringing together all stakeholders — from the CEO to operational teams — fully engaging them in every phase of the project.",
+                "name": "Francis de Asevedo",
+                "position": "Marketing and Sales Executive"
+            },
+            {
+                "company": "Centro Brasil Design",
+                "testimonial": "Saad led Vuelo Pharma’s rebranding with boldness and, as a result, the company earned national and international recognition, gained clients abroad, and won the trust of its consumers.",
+                "name": "Rodrigo Kneib",
+                "position": "Project Coordinator"
+            },
+            {
+                "company": "Seragini Farné Guardado Design",
+                "testimonial": "It is rare to find consultancies with excellence in design, branding, and business modeling. Rarer still is a firm that truly integrates these talents, making the right connections and translating unique ideas into results that are both clear and inspiring.",
+                "name": "Sérgio Guardado",
+                "position": "Managing Partner"
+            }
+        ],
+        "view": "View",
+        "viewAll": "View all projects",
+        "whoWeAre": "Who we are",
         "pageTitle": "Impactful Tailored Brands",
         "pageDescription": "Saad® is an internationally award-winning boutique consultancy in business & brand innovation building organizations that disrupt markets, fuel genuine growth, and set new benchmarks — crafted for the future, never for the ordinary.",
         "Counters": {
@@ -418,6 +462,7 @@
     },
 
     "Work": {
+        "view": "View",
         "pageTitle": "Work",
         "pageDescription": "Creating the future for ambitious brands. We develop projects that transform visions and businesses.",
         "Title": {
@@ -465,5 +510,51 @@
             "title": "We respect your privacy and are committed to protecting your personal information.",
             "text": "This Privacy Policy explains how we collect, use, store, and disclose your data, and the choices you have regarding your information. Our goal is to ensure transparency and provide you with control over your personal data. By using our website or services, you agree to the practices described in this policy."
         }
+    },
+
+    "Testimonials": {
+        "title": "Testimonials"
+    },
+
+    "Form": {
+        "sendFailed": "Failed to send message.",
+        "close": "Close",
+        "Success": {
+            "title": "Success",
+            "line_01": "Your message has been sent.",
+            "line_02": "We will contact you as soon as possible."
+        },
+        "Error": {
+            "title": "Error",
+            "line_01": "An error occurred while sending your message!",
+            "line_02": "Please wait a moment and try again."
+        },
+        "Validation": {
+            "required": "This field is required",
+            "maxLength": "Maximum characters limit reached",
+            "email": "Invalid email address"
+        }
+    },
+
+    "Project": {
+        "view": "View"
+    },
+
+    "Video": {
+        "play": "Play",
+        "pause": "Pause"
+    },
+
+    "WorkInner": {
+        "scroll": "Scroll",
+        "drag": "Drag",
+        "view": "View",
+        "imageAlt": "Image",
+        "about": "About",
+        "whatWeDid": "What we did",
+        "awards": "Awards & Recognitions",
+        "credits": "Credits",
+        "previous": "Previous",
+        "next": "Next"
     }
 }

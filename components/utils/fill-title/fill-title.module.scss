@@ -2,7 +2,7 @@
     background: linear-gradient(
 		to right,
 		$white 50%,
-		transparentize($white, .75) 50%
+		rgba($white, .25) 50%
 	);
 	background-size: 200% 100%;
 	background-position-x: 100%;

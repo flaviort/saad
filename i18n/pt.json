@@ -1,7 +1,15 @@
 {
     "Menu": {
+        "open": "Menu",
+        "close": "Fechar",
+        "Items": {
+            "home": "Início",
+            "work": "Projetos",
+            "about": "Sobre",
+            "contact": "Contato"
+        },
         "description": "A Saad® é uma consultoria boutique de business & brand innovation premiada internacionalmente especializada em criar negócios e marcas que desafiam mercados, aceleram o crescimento real e estabelecem novos padrões — pensada para o futuro, nunca para o convencional.",
-        "tags": "Business <span>•</span> Branding <span>•</span> Design <span>•</span> Experience"
+        "tags": "Business <dot>•</dot> Branding <dot>•</dot> Design <dot>•</dot> Experience"
     },
 
     "Marquee": {
@@ -33,11 +41,47 @@
     },
     
     "Footer": {
+        "privacy": "Política de Privacidade",
         "location": "Brasil",
         "copyright": "Todos os direitos reservados."
     },
 
     "Home": {
+        "Testimonials": [
+            {
+                "company": "Sementes Ipiranga",
+                "testimonial": "Com o reposicionamento e a gestão anual da marca e somadas a outras iniciativas, a Sementes Ipiranga aumentou seu faturamento em 875% nos nove anos seguintes ao início do projeto.",
+                "name": "André Adams",
+                "position": "CEO"
+            },
+            {
+                "company": "Nastek",
+                "testimonial": "O projeto foi essencial para que o produto se sobressaísse frente à concorrência. Além de ter aumentado a percepção de valor de nossa marca, pudemos otimizar também a estratégia de precificação.",
+                "name": "José Wanderley Scucuglia",
+                "position": "CEO"
+            },
+            {
+                "company": "Elera Renováveis (ex-Brookfield Energia Renovável)",
+                "testimonial": "As habilidades da Saad foram fundamentais para reunir todos os stakeholders, do CEO às equipes operacionais, envolvendo-as completamente em cada fase do projeto.",
+                "name": "Francis de Asevedo",
+                "position": "Executivo de marketing"
+            },
+            {
+                "company": "Centro Brasil Design",
+                "testimonial": "A Saad conduziu o rebranding da Vuelo Pharma com ousadia e, como resultado, a empresa conquistou prêmios de design, clientes internacionais e a confiança de seus consumidores.",
+                "name": "Rodrigo Kneib",
+                "position": "Coordenador de projetos"
+            },
+            {
+                "company": "Seragini Farné Guardado Design",
+                "testimonial": "É raro encontrar consultorias com excelência em design, branding e modelagem de negócios. Mais raro ainda é uma empresa que integre esses talentos de fato, fazendo as sinapses necessárias e traduzindo ideias únicas em resultados compreensíveis e motivadores.",
+                "name": "Sérgio Guardado",
+                "position": "Sócio-diretor"
+            }
+        ],
+        "view": "Ver",
+        "viewAll": "Ver todos os projetos",
+        "whoWeAre": "Quem somos",
         "pageTitle": "Marcas personalizadas impactantes",
         "pageDescription": "A Saad® é uma consultoria boutique de business & brand innovation premiada internacionalmente especializada em criar negócios e marcas que desafiam mercados, aceleram o crescimento real e estabelecem novos padrões — pensada para o futuro, nunca para o convencional.",
         "Counters": {
@@ -419,6 +463,7 @@
     },
 
     "Work": {
+        "view": "Ver",
         "pageTitle": "Projetos",
         "pageDescription": "Criando o futuro para marcas ambiciosas. Desenvolvemos projetos que transformam visões e negócios.",
         "Title": {
@@ -466,5 +511,51 @@
             "title": "Respeitamos sua privacidade e estamos comprometidos em proteger suas informações pessoais.",
             "text": "Esta Política de Privacidade explica como coletamos, usamos, armazenamos e divulgamos seus dados, e as escolhas que você tem em relação às suas informações. Nosso objetivo é garantir transparência e fornecer controle sobre seus dados pessoais. Ao usar nosso site ou serviços, você concorda com as práticas descritas nesta política."
         }
+    },
+
+    "Testimonials": {
+        "title": "Depoimentos"
+    },
+
+    "Form": {
+        "sendFailed": "Falha ao enviar mensagem.",
+        "close": "Fechar",
+        "Success": {
+            "title": "Sucesso",
+            "line_01": "Sua mensagem foi enviada.",
+            "line_02": "Iremos entrar em contato o mais breve possível."
+        },
+        "Error": {
+            "title": "Erro",
+            "line_01": "Ocorreu um erro ao enviar sua mensagem!",
+            "line_02": "Por favor, espere um momento e tente novamente."
+        },
+        "Validation": {
+            "required": "Este campo é obrigatório",
+            "maxLength": "Limite máximo de caracteres alcançado",
+            "email": "Endereço de e-mail inválido"
+        }
+    },
+
+    "Project": {
+        "view": "Ver projeto"
+    },
+
+    "Video": {
+        "play": "Assistir",
+        "pause": "Pausar"
+    },
+
+    "WorkInner": {
+        "scroll": "Rolar",
+        "drag": "Arraste",
+        "view": "Ver",
+        "imageAlt": "Imagem",
+        "about": "Sobre",
+        "whatWeDid": "O que fizemos",
+        "awards": "Prêmios & Reconhecimentos",
+        "credits": "Créditos",
+        "previous": "Anterior",
+        "next": "Próximo"
     }
 }

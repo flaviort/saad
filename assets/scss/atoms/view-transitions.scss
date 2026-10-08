@@ -1,0 +1,86 @@
+@use 'variables' as *;
+
+// page navigation: a black curtain drops from the top, the page swaps while
+// it covers the screen, then the curtain leaves through the bottom.
+// keep $curtain-in in sync with CURTAIN_IN_MS in components/page-transition
+$curtain-in: 1s;
+$curtain-out: .7s;
+$curtain-total: $curtain-in + $curtain-out;
+$curtain-ease: cubic-bezier(.45, 0, .55, 1); // gsap power2.inOut
+
+
+@keyframes curtain {
+    0% {
+        clip-path: inset(0 0 100% 0);
+        animation-timing-function: $curtain-ease;
+    }
+
+    58.8% {
+        clip-path: inset(0 0 0 0);
+        animation-timing-function: $curtain-ease;
+    }
+
+    100% {
+        clip-path: inset(100% 0 0 0);
+    }
+}
+
+// old content stays visible until covered, new content shows up right after
+@keyframes swap-out {
+    0%, 58.7% { opacity: 1; }
+    58.8%, 100% { opacity: 0; }
+}
+
+@keyframes swap-in {
+    0%, 58.7% { opacity: 0; }
+    58.8%, 100% { opacity: 1; }
+}
+
+::view-transition-group(page-curtain) {
+    z-index: 2;
+    background-color: $pure-black;
+    animation: curtain $curtain-total both;
+}
+
+// the curtain element itself is empty, only its group paints
+::view-transition-old(page-curtain),
+::view-transition-new(page-curtain) {
+    display: none;
+}
+
+// fixed ui (menu, cookie banner) stays above the pages and below the curtain
+::view-transition-group(site-menu),
+::view-transition-group(cookie-banner) {
+    z-index: 1;
+}
+
+// everything changes under the curtain: pages, fixed ui, and the rest (root)
+::view-transition-group(.page-exit),
+::view-transition-group(.page-enter),
+::view-transition-group(site-menu),
+::view-transition-group(cookie-banner),
+::view-transition-group(root) {
+    animation-duration: $curtain-total;
+}
+
+::view-transition-old(.page-exit),
+::view-transition-old(site-menu),
+::view-transition-old(cookie-banner),
+::view-transition-old(root) {
+    animation: swap-out $curtain-total both;
+}
+
+::view-transition-new(.page-enter),
+::view-transition-new(site-menu),
+::view-transition-new(cookie-banner),
+::view-transition-new(root) {
+    animation: swap-in $curtain-total both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    ::view-transition-group(*),
+    ::view-transition-old(*),
+    ::view-transition-new(*) {
+        animation: none !important;
+    }
+}

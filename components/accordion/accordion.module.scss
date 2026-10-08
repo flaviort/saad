@@ -8,8 +8,8 @@
 
     &.active {
         .question {
-            background-color: transparentize($main-color, .75);
-            border-color: transparentize($main-color, 1);
+            background-color: rgba($main-color, .25);
+            border-color: rgba($main-color, 0);
 
             .icon {
                 transform: rotate(180deg);
@@ -40,7 +40,7 @@
         justify-content: space-between;
         gap: 1rem;
         padding: 1rem;
-        border: 1px solid transparentize($main-color, .75);
+        border: 1px solid rgba($main-color, .25);
         color: $main-color;
         border-radius: .25rem;
         cursor: pointer;
@@ -51,7 +51,7 @@
         }
 
         &:hover {
-            background-color: transparentize($main-color, .75);
+            background-color: rgba($main-color, .25);
         }
 
         .icon {
