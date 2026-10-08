@@ -139,6 +139,7 @@ export default function Home({ data }: HomeProps) {
 
 								<Video
 									video='/videos/showreel.mp4'
+									poster='/videos/showreel-poster.jpg'
 									className='cover'
 								/>
 

@@ -73,9 +73,10 @@ export default function WorkInner({ data, prevProject, nextProject }: WorkInnerP
                             <Image
                                 src={data.node.featuredImage.node.sourceUrl}
                                 alt={data.node.title}
-                                priority
+                                preload
                                 fill
-                                quality={100}
+                                sizes='100vw'
+                                quality={90}
                                 className='cover'
                             />
                         </div>
@@ -207,6 +208,7 @@ export default function WorkInner({ data, prevProject, nextProject }: WorkInnerP
                                             alt={item.imageDescription || t('imageAlt')}
                                             fill
                                             sizes='100vw'
+                                            quality={90}
                                             className='cover'
                                         />
                                     </div>
@@ -243,6 +245,8 @@ export default function WorkInner({ data, prevProject, nextProject }: WorkInnerP
                                                             src={slide.image.node.sourceUrl}
                                                             alt={slide.imageDescription || t('imageAlt')}
                                                             fill
+                                                            sizes='100vw'
+                                                            quality={90}
                                                             className='cover'
                                                         />
                                                     </SwiperSlide>
@@ -320,6 +324,7 @@ export default function WorkInner({ data, prevProject, nextProject }: WorkInnerP
                                             fill
                                             className='cover'
                                             sizes='50vw'
+                                            quality={90}
                                         />
                                     </ScrollingImage>
                                 </Link>
@@ -336,6 +341,7 @@ export default function WorkInner({ data, prevProject, nextProject }: WorkInnerP
                                             fill
                                             className='cover'
                                             sizes='50vw'
+                                            quality={90}
                                         />
                                     </ScrollingImage>
                                 </Link>

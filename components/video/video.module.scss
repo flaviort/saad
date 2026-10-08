@@ -19,4 +19,9 @@
     .player {
         pointer-events: none;
     }
+
+    // holds the space until the player loads, so the page doesn't jump
+    .placeholder {
+        aspect-ratio: 16 / 9;
+    }
 }

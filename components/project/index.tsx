@@ -24,9 +24,11 @@ type ProjectProps = {
     category?: string | null
     // only shown in the commented-out tags row below
     tags?: string[]
+    // load the image right away instead of lazily (for a card that starts in view)
+    eager?: boolean
 }
 
-export default function Project({ link, image, darkText = false, title, subtitle, category }: ProjectProps) {
+export default function Project({ link, image, darkText = false, title, subtitle, category, eager = false }: ProjectProps) {
 
     const t = useTranslations('Project')
 
@@ -46,7 +48,9 @@ export default function Project({ link, image, darkText = false, title, subtitle
                                 alt={title ?? ''}
                                 fill
                                 style={{ objectFit: 'cover' }}
-                                quality={100}
+                                sizes='100vw'
+                                quality={90}
+                                loading={eager ? 'eager' : 'lazy'}
                             />
                         </ScrollingImage>
                     )}

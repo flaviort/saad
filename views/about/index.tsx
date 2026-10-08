@@ -131,6 +131,7 @@ export default function About({ services, awards, talks, publications }: AboutPr
 								(max-width: 575px) 100vw,
 								80vw
 							'
+							quality={90}
 						/>
 					</FadeIn>
 				</div>

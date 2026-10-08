@@ -30,7 +30,9 @@ const nextConfig: NextConfig = {
 	},
 	images: {
 		//unoptimized: true,
-		qualities: [75, 100],
+		// 90 keeps photos visually lossless for the portfolio (100 roughly doubles the file size for no visible gain).
+		// any other quality value is coerced to 90
+		qualities: [90],
 		// saad.local resolves to 127.0.0.1, which Next blocks by default (SSRF protection).
 		// only allowed in `next dev`, production builds keep the protection
 		dangerouslyAllowLocalIP: process.env.NODE_ENV === 'development',

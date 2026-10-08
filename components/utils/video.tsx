@@ -9,10 +9,11 @@ gsap.registerPlugin(ScrollTrigger)
 
 type VideoProps = {
     video: string
+    poster?: string
     className?: string
 }
 
-export default function Video({ video, className }: VideoProps) {
+export default function Video({ video, poster, className }: VideoProps) {
 
     const videoRef = useRef<HTMLVideoElement>(null)
 
@@ -32,12 +33,16 @@ export default function Video({ video, className }: VideoProps) {
             onLeaveBack: () => videoRef.current?.pause()
         })
     })
-    
+
+    // preload='metadata' leaves the file alone until play() asks for it (half a screen
+    // before it shows up), the poster covers the gap
     return (
         <video
             loop
             muted
             playsInline
+            preload='metadata'
+            poster={poster}
             ref={videoRef}
             className={className}
         >

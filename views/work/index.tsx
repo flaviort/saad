@@ -56,6 +56,7 @@ export default function Work({ data }: WorkProps) {
 								subtitle={edge.node.projects?.subtitle}
 								category={edge.node.projects?.category}
 								tags={edge.node.projects?.tags?.map(tag => tag.tag) || []}
+								eager={i === 0}
 							/>
 						))
 					) : (

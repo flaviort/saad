@@ -2,6 +2,7 @@
 
 // libraries
 import { useState, useRef, useEffect } from 'react'
+import clsx from 'clsx'
 import Vimeo, { type VimeoProps } from '@u-wave/react-vimeo'
 import { useTranslations } from 'next-intl'
 import { useLenis } from 'lenis/react'
@@ -56,6 +57,10 @@ export default function Video({
     const [play, setPlay] = useState(false)
     const [playerError, setPlayerError] = useState(false)
     const [playerReady, setPlayerReady] = useState(false)
+
+    // the vimeo iframe only mounts once the video gets close to the viewport,
+    // otherwise every player on the page loads up front
+    const [inRange, setInRange] = useState(false)
 
     const lenis = useLenis()
 
@@ -133,6 +138,22 @@ export default function Video({
             safeSetPlayState(shouldPlay)
         }, 200) // Further increased debounce time for stability
     }
+
+    useEffect(() => {
+        const element = videoRef.current
+        if (!element) return
+
+        const observer = new IntersectionObserver(([entry]) => {
+            if (entry.isIntersecting) {
+                setInRange(true)
+                observer.disconnect()
+            }
+        }, { rootMargin: '200% 0px' })
+
+        observer.observe(element)
+
+        return () => observer.disconnect()
+    }, [])
 
     // Global error handler for unhandled promise rejections from Vimeo
     useEffect(() => {
@@ -226,6 +247,13 @@ export default function Video({
         playerRef.current = player
         setPlayerReady(true)
         setPlayerError(false)
+
+        // scrolled into the play zone while the player was still loading
+        if (scrollTriggerRef.current?.isActive && !manualOverrideRef.current) {
+            player.play()
+                .then(() => setPlay(true))
+                .catch(() => {})
+        }
     }
 
     // Handle Vimeo player errors
@@ -252,8 +280,12 @@ export default function Video({
                 text={play ? t('pause') : t('play')}
                 soundIcon={featured}
             >
-                <div ref={videoRef} onClick={featured ? undefined : handleVideoClick}>
-                    {!playerError && (
+                <div
+                    ref={videoRef}
+                    onClick={featured ? undefined : handleVideoClick}
+                    className={clsx(!playerReady && styles.placeholder)}
+                >
+                    {inRange && !playerError && (
                         <Vimeo
                             video={id}
                             className={styles.player}
