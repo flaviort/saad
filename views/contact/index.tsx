@@ -111,9 +111,9 @@ export default function Contact() {
 					<div className='grid-container'>
 						<div className='grid-md-2-7 grid-xl-2-6'>
 
-							<p className='font-big-2 stagger-0'>
+							<h1 className='font-big-2 stagger-0'>
 								{t('title')}
-							</p>
+							</h1>
 
 							<Form className={styles.form}>
 								
@@ -161,6 +161,7 @@ export default function Contact() {
 
 									<Select
 										label='Employees'
+										placeholder={t('Form.label_04')}
 										required
 									>
 										<option value='' disabled>{t('Form.label_04')}</option>

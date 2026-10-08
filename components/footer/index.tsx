@@ -80,6 +80,7 @@ export default function Footer() {
 						<button
 							className={styles.backToTop}
 							onClick={scrollTop}
+							aria-label={t('backToTop')}
 						>
 							<UxArrowUp />
 							<UxArrowUp />

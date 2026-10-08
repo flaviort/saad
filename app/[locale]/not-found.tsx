@@ -10,7 +10,7 @@ export default async function NotFound() {
 
 	return (
 		<>
-			<title>{`Saad | ${t('title')}`}</title>
+			<title>{`${t('title')} | Saad`}</title>
 			<FourOhFour />
 		</>
 	)

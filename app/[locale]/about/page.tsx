@@ -7,9 +7,14 @@ import { resolveLocale } from '@/i18n/locale'
 
 // utils
 import { pageMetadata } from '@/utils/metadata'
+import { breadcrumbs, founder, organizationId, webPage } from '@/utils/structured-data'
+import routes from '@/utils/routes'
 
 // types
 import type { ListSectionData, ListSectionItem } from '@/components/list-section'
+
+// components
+import JsonLd from '@/components/json-ld'
 
 // views
 import About from '@/views/about'
@@ -50,12 +55,34 @@ export default async function Page({ params }: PageProps<'/[locale]/about'>) {
 
 	const { About: messages } = await getMessages({ locale })
 
+	const t = await getTranslations({ locale, namespace: 'About' })
+	const tMenu = await getTranslations({ locale, namespace: 'Menu.Items' })
+	const tSeo = await getTranslations({ locale, namespace: 'Seo' })
+
 	return (
-		<About
+		<>
+			<JsonLd data={[
+				webPage({
+					locale,
+					path: routes.about,
+					type: 'AboutPage',
+					name: t('pageTitle'),
+					description: t('pageDescription'),
+					extra: { mainEntity: { '@id': organizationId } }
+				}),
+				founder(tSeo('founderTitle')),
+				breadcrumbs(locale, [
+					{ name: tMenu('home'), path: routes.home },
+					{ name: tMenu('about'), path: routes.about }
+				])
+			]} />
+
+			<About
 			services={toListSection(messages.Services)}
 			awards={toListSection(messages.Awards)}
 			talks={toListSection(messages.Talks)}
 			publications={toListSection(messages.Publications)}
-		/>
+			/>
+		</>
 	)
 }

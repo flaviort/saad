@@ -202,7 +202,6 @@ export const Input = ({ label, type, placeholder, required, maxLength, className
                 placeholder={placeholder}
                 className={clsx(styles.input, className)}
                 autoComplete='none'
-                role='presentation'
                 {...register(label, validations)}
             />
 
@@ -218,12 +217,14 @@ export const Input = ({ label, type, placeholder, required, maxLength, className
 
 type SelectProps = {
     label: string
+    // screen readers read this (the first option is only a visual placeholder)
+    placeholder: string
     required?: boolean
     children: ReactNode
     className?: string
 }
 
-export const Select = ({ label, required, children, className }: SelectProps) => {
+export const Select = ({ label, placeholder, required, children, className }: SelectProps) => {
 
     const t = useTranslations('Form')
     const { register, formState: { errors }, watch } = useFormContext()
@@ -272,6 +273,7 @@ export const Select = ({ label, required, children, className }: SelectProps) =>
 
             <select
                 id={slugify(label)}
+                aria-label={placeholder}
                 className={clsx(styles.input, styles.select, hasSelection && styles.selected, className)}
                 defaultValue=""
                 {...register(label, validations)}

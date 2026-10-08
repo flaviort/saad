@@ -23,6 +23,7 @@ export const getProjects = cache(async (locale?: Locale): Promise<ProjectsRespon
                             node {
                                 title
                                 slug
+                                modifiedGmt
                                 featuredImage {
                                     node {
                                         sourceUrl

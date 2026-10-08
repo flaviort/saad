@@ -7,6 +7,11 @@ import { resolveLocale } from '@/i18n/locale'
 
 // utils
 import { pageMetadata } from '@/utils/metadata'
+import { breadcrumbs, webPage } from '@/utils/structured-data'
+import routes from '@/utils/routes'
+
+// components
+import JsonLd from '@/components/json-ld'
 
 // views
 import Contact from '@/views/contact'
@@ -27,5 +32,26 @@ export default async function Page({ params }: PageProps<'/[locale]/contact'>) {
 	const locale = await resolveLocale(params)
 	setRequestLocale(locale)
 
-	return <Contact />
+	const t = await getTranslations({ locale, namespace: 'Contact' })
+	const tMenu = await getTranslations({ locale, namespace: 'Menu.Items' })
+
+	return (
+		<>
+			<JsonLd data={[
+				webPage({
+					locale,
+					path: routes.contact,
+					type: 'ContactPage',
+					name: t('pageTitle'),
+					description: t('pageDescription')
+				}),
+				breadcrumbs(locale, [
+					{ name: tMenu('home'), path: routes.home },
+					{ name: tMenu('contact'), path: routes.contact }
+				])
+			]} />
+
+			<Contact />
+		</>
+	)
 }

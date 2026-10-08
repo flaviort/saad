@@ -3,6 +3,7 @@
 // libraries
 import { useState, type ReactNode, type Ref } from 'react'
 import Vimeo from '@u-wave/react-vimeo'
+import { useTranslations } from 'next-intl'
 
 // components
 import Dialog from '@/components/dialog'
@@ -22,6 +23,7 @@ type VideoLightboxProps = {
 // (without javascript the link still works)
 export default function VideoLightbox({ videoId, label, className, ref, children }: VideoLightboxProps) {
 
+    const t = useTranslations('Video')
     const [isOpen, setIsOpen] = useState(false)
 
     return (
@@ -30,6 +32,7 @@ export default function VideoLightbox({ videoId, label, className, ref, children
                 ref={ref}
                 href={`https://vimeo.com/${videoId}`}
                 className={className}
+                aria-label={t('watch', { title: label })}
                 onClick={(e) => {
                     e.preventDefault()
                     setIsOpen(true)
@@ -48,6 +51,7 @@ export default function VideoLightbox({ videoId, label, className, ref, children
                     video={videoId}
                     className={styles.player}
                     autoplay
+                    dnt
                     responsive={false}
                 />
             </Dialog>

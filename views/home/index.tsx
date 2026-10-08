@@ -149,7 +149,8 @@ export default function Home({ data }: HomeProps) {
 					</div>
 
 					<h1 ref={titleRef}>
-						<OthersImpactfulTailoredBrands />
+						<span className='sr-only'>{t('pageTitle')}</span>
+						<OthersImpactfulTailoredBrands aria-hidden='true' />
 					</h1>
 
 				</div>

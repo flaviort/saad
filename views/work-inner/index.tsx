@@ -45,6 +45,9 @@ export default function WorkInner({ data, prevProject, nextProject }: WorkInnerP
     const bannerRef = useRef<HTMLElement>(null)
     const t = useTranslations('WorkInner')
 
+    // names gallery images that have no description in WordPress
+    const projectName = data.node.projects?.title || data.node.title
+
     // banner image fades and grows while the banner scrolls away
     useGSAP(() => {
         gsap.to('.bg img', {
@@ -205,7 +208,7 @@ export default function WorkInner({ data, prevProject, nextProject }: WorkInnerP
                                     <div className={styles.image}>
                                         <Image
                                             src={item.image.node.sourceUrl}
-                                            alt={item.imageDescription || t('imageAlt')}
+                                            alt={item.imageDescription || t('imageAlt', { project: projectName, number: i + 1 })}
                                             fill
                                             sizes='100vw'
                                             quality={90}
@@ -243,7 +246,7 @@ export default function WorkInner({ data, prevProject, nextProject }: WorkInnerP
                                                     >
                                                         <Image
                                                             src={slide.image.node.sourceUrl}
-                                                            alt={slide.imageDescription || t('imageAlt')}
+                                                            alt={slide.imageDescription || t('imageAlt', { project: projectName, number: `${i + 1}.${i2 + 1}` })}
                                                             fill
                                                             sizes='100vw'
                                                             quality={90}

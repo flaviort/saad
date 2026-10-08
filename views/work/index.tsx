@@ -34,10 +34,10 @@ export default function Work({ data }: WorkProps) {
 				<div className='container'>
 					<div className='grid-container'>
 						<div className='grid-md-2-7'>
-							<h2 className='font-big-2'>
+							<h1 className='font-big-2'>
 								{t('Title.line_01')} <br />
 								{t('Title.line_02')}
-							</h2>
+							</h1>
 						</div>
 					</div>
 				</div>

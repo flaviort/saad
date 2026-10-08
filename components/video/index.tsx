@@ -298,6 +298,7 @@ export default function Video({
                             background={false}
                             controls={false}
                             responsive={true}
+                            dnt
                             onReady={handlePlayerReady}
                             onError={handlePlayerError}
                         />

@@ -43,6 +43,8 @@ export type ProjectFields = {
 export type ProjectNode = {
 	title: string
 	slug: string
+	// last edit in WordPress (UTC, without the Z), used for the sitemap
+	modifiedGmt?: string | null
 	featuredImage: WpImage
 	projects: ProjectFields
 }

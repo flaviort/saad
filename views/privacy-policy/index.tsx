@@ -90,9 +90,9 @@ export default function PrivacyPolicy() {
 					<div className='grid-container'>
 
 						<div className='grid-md-2-6'>
-							<h2 className='font-big-2' ref={fadeRef1}>
+							<h1 className='font-big-2' ref={fadeRef1}>
 								{t('TopSection.title')}
-							</h2>
+							</h1>
 						</div>
 
 						<div className='grid-md-2-5'>

@@ -51,6 +51,7 @@ export default function Project({ link, image, darkText = false, title, subtitle
                                 sizes='100vw'
                                 quality={90}
                                 loading={eager ? 'eager' : 'lazy'}
+                                fetchPriority={eager ? 'high' : 'auto'}
                             />
                         </ScrollingImage>
                     )}
@@ -67,9 +68,9 @@ export default function Project({ link, image, darkText = false, title, subtitle
                                 {title}
                             </p>
 
-                            <h3 className='font-medium'>
+                            <h2 className='font-medium'>
                                 {subtitle}
-                            </h3>
+                            </h2>
 
                         </div>
 

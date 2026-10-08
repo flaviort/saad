@@ -97,7 +97,8 @@
                     grid-column: 2 / 7;
                     column-gap: 1rem;
                     break-inside: avoid-column;
-                    opacity: .5;
+                    // .55 is the lowest that passes WCAG AA contrast (4.5:1) on black
+                    opacity: .55;
 
                     @media #{$mq-xl-min} {
                         column-count: 2;

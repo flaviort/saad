@@ -2,9 +2,14 @@
 import type { MetadataRoute } from 'next'
 
 // utils
-import { siteUrl } from '@/utils/metadata'
+import { isIndexable, siteUrl } from '@/utils/metadata'
 
 export default function robots(): MetadataRoute.Robots {
+	// preview and branch deployments (stage) stay out of search engines
+	if (!isIndexable) {
+		return { rules: { userAgent: '*', disallow: '/' } }
+	}
+
 	return {
 		rules: {
 			userAgent: '*',

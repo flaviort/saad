@@ -1,5 +1,6 @@
 {
     "Menu": {
+        "home": "Saad, home page",
         "open": "Menu",
         "close": "Close",
         "Items": {
@@ -35,6 +36,7 @@
     },
     
     "Footer": {
+        "backToTop": "Back to top",
         "privacy": "Privacy Policy",
         "location": "Brazil",
         "copyright": "All Rights Reserved"
@@ -83,7 +85,7 @@
         "viewAll": "View all projects",
         "whoWeAre": "Who we are",
         "pageTitle": "Impactful Tailored Brands",
-        "pageDescription": "Saad® is an internationally award-winning boutique consultancy in business & brand innovation building organizations that disrupt markets, fuel genuine growth, and set new benchmarks — crafted for the future, never for the ordinary.",
+        "pageDescription": "Saad® is an award-winning boutique consultancy in business and brand innovation, building brands that disrupt markets and fuel genuine growth.",
         "Counters": {
             "first": "years transforming businesses and brands",
             "second": "national and international awards",
@@ -94,7 +96,7 @@
 
     "About": {
         "pageTitle": "About",
-        "pageDescription": "What we do goes beyond any label. We don't just imagine new futures — we design, build and deliver them, side by side with our clients.",
+        "pageDescription": "Saad® is a boutique transformation consultancy led by Lucas Saad, fusing strategy, business model innovation, branding and design.",
         
         "TopSection": {
             "title": "What we do goes beyond any label. We don't just imagine new futures — we design, build and deliver them, side by side with our clients.",
@@ -464,7 +466,7 @@
     "Work": {
         "view": "View",
         "pageTitle": "Work",
-        "pageDescription": "Creating the future for ambitious brands. We develop projects that transform visions and businesses.",
+        "pageDescription": "Creating the future for ambitious brands. See how Saad® transforms businesses through strategy, brand positioning and visual identity.",
         "Title": {
             "line_01": "Creating the future for ambitious brands.",
             "line_02": "We develop projects that transform visions and businesses."
@@ -473,7 +475,7 @@
 
     "Contact": {
         "pageTitle": "Contact",
-        "pageDescription": "Simple, fast, and efficient. Fill out our form and get in touch with us.",
+        "pageDescription": "Tell us about your business and your challenge. Saad® partners with ambitious companies on business and brand innovation.",
         "title": "Hello Saad!",
         "Form": {
             "text_01": "My name is",
@@ -513,6 +515,8 @@
     },
 
     "Testimonials": {
+        "previous": "Previous testimonial",
+        "next": "Next testimonial",
         "title": "Testimonials"
     },
 
@@ -541,6 +545,7 @@
     },
 
     "Video": {
+        "watch": "Watch {title}",
         "play": "Play",
         "pause": "Pause"
     },
@@ -549,7 +554,7 @@
         "scroll": "Scroll",
         "drag": "Drag",
         "view": "View",
-        "imageAlt": "Image",
+        "imageAlt": "{project}, image {number}",
         "about": "About",
         "whatWeDid": "What we did",
         "awards": "Awards & Recognitions",
@@ -567,5 +572,10 @@
 
     "Dialog": {
         "close": "Close"
+    },
+
+    "Seo": {
+        "projectDescription": "{title}: {subtitle}. {category} case study by Saad®, the award-winning boutique consultancy in business and brand innovation.",
+        "founderTitle": "Founder and Director"
     }
 }

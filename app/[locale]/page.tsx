@@ -8,6 +8,11 @@ import { resolveLocale } from '@/i18n/locale'
 // utils
 import { getProjects } from '@/utils/graphql'
 import { pageMetadata } from '@/utils/metadata'
+import { webPage } from '@/utils/structured-data'
+import routes from '@/utils/routes'
+
+// components
+import JsonLd from '@/components/json-ld'
 
 // views
 import Home from '@/views/home'
@@ -30,5 +35,20 @@ export default async function Page({ params }: PageProps<'/[locale]'>) {
 
 	const data = await getProjects(locale)
 
-	return <Home data={data} />
+	const t = await getTranslations({ locale, namespace: 'Home' })
+
+	return (
+		<>
+			<JsonLd data={[
+				webPage({
+					locale,
+					path: routes.home,
+					name: t('pageTitle'),
+					description: t('pageDescription')
+				})
+			]} />
+
+			<Home data={data} />
+		</>
+	)
 }

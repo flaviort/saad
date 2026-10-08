@@ -76,11 +76,11 @@ export default function Testimonials({ testimonials }: TestimonialsProps) {
 
                         <div className={styles.arrows}>
                             
-                            <button className='testimonials-arrow prev'>
+                            <button className='testimonials-arrow prev' aria-label={t('previous')}>
                                 <UxArrowLeft />
                             </button>
 
-                            <button className='testimonials-arrow next'>
+                            <button className='testimonials-arrow next' aria-label={t('next')}>
                                 <UxArrowRight />
                             </button>
 

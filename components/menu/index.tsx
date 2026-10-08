@@ -221,6 +221,7 @@ export default function Menu() {
 							href={routes.home}
 							className={styles.logo}
                             onClick={closeFsMenu}
+							aria-label={t('home')}
 						>
 
 							<div className={styles.original}>
