@@ -134,18 +134,14 @@
 }
 
 
+// the panel of the result dialog
 .popup {
-    display: none;
     background-color: $white;
     color: $black;
-    max-width: calc(100% - 1rem);
+    padding: 1.5rem;
 
-    :global(.f-button):global(.is-close-btn) {
-        background-color: transparent;
-
-        @media #{$mq-sm-max} {
-            color: $black;
-        }
+    @media #{$mq-sm-min} {
+        padding: 2rem;
     }
 
     .wrapper {

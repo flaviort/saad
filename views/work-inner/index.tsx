@@ -26,7 +26,7 @@ import Video from '@/components/video'
 import ListSection from '@/components/list-section'
 import Testimonials from '@/components/testimonials'
 import ContactMarquee from '@/components/contact-marquee'
-import Fancybox from '@/components/utils/fancybox'
+import VideoLightbox from '@/components/video-lightbox'
 
 // types
 import type { ProjectEdge, ProjectNode } from '@/types/wordpress'
@@ -188,18 +188,16 @@ export default function WorkInner({ data, prevProject, nextProject }: WorkInnerP
                             <div key={i}>
 
                                 {item.fullVideo && (
-                                    <Fancybox options={{ dragToClose: false }}>
-                                        <a
-                                            href={'https://vimeo.com/' + item.fullVideo}
-                                            data-fancybox='showreel'
-                                            className={styles.featuredVideo}
-                                        >
-                                            <Video
-                                                id={item.smallVideo || item.fullVideo}
-                                                featured
-                                            />
-                                        </a>
-                                    </Fancybox>
+                                    <VideoLightbox
+                                        videoId={item.fullVideo}
+                                        label={data.node.title}
+                                        className={styles.featuredVideo}
+                                    >
+                                        <Video
+                                            id={item.smallVideo || item.fullVideo}
+                                            featured
+                                        />
+                                    </VideoLightbox>
                                 )}
                                 
                                 {item.image && (

@@ -19,7 +19,7 @@ export const siteUrl = new URL(
 )
 
 // english has no prefix, portuguese lives under /pt
-const localizedPath = (locale: Locale, path: string) => (locale === 'pt' ? `/pt${path === '/' ? '' : path}` : path)
+export const localizedPath = (locale: Locale, path: string) => (locale === 'pt' ? `/pt${path === '/' ? '' : path}` : path)
 
 type PageMetadataOptions = {
 	locale: Locale

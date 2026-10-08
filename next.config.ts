@@ -10,7 +10,9 @@ const svgrOptions = {
 			name: 'preset-default',
 			params: {
 				overrides: {
-					removeViewBox: false
+					removeViewBox: false,
+					// keep every shape its own <path>, the logo animations stagger them
+					mergePaths: false
 				}
 			}
 		}]
@@ -18,6 +20,8 @@ const svgrOptions = {
 }
 
 const nextConfig: NextConfig = {
+	// automatic memoization, replaces hand-written useMemo / useCallback
+	reactCompiler: true,
 	//assetPrefix: './',
 	//basePath: process.env.PUBLIC_URL,
 	sassOptions: {

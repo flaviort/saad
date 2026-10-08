@@ -557,5 +557,16 @@
         "credits": "Créditos",
         "previous": "Anterior",
         "next": "Próximo"
+    },
+
+    "Error": {
+        "title": "Algo deu errado",
+        "message": "Ocorreu um erro inesperado. Tente novamente em instantes.",
+        "retry": "Tentar novamente",
+        "home": "Voltar ao Início"
+    },
+
+    "Dialog": {
+        "close": "Fechar"
     }
 }

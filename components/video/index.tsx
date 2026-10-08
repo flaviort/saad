@@ -1,7 +1,7 @@
 'use client'
 
 // libraries
-import { useState, useRef, useCallback, useEffect } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import Vimeo, { type VimeoProps } from '@u-wave/react-vimeo'
 import { useTranslations } from 'next-intl'
 import { useLenis } from 'lenis/react'
@@ -63,7 +63,7 @@ export default function Video({
     const safeSetPlayStateRef = useRef<(shouldPlay: boolean) => Promise<void>>(null)
 
     // Safe play state management to prevent race conditions
-    const safeSetPlayState = useCallback(async (shouldPlay: boolean) => {
+    const safeSetPlayState = async (shouldPlay: boolean) => {
         // If we're already transitioning, queue the request
         if (isTransitioningRef.current) {
             pendingPlayStateRef.current = shouldPlay
@@ -116,14 +116,15 @@ export default function Video({
                 setTimeout(() => safeSetPlayStateRef.current?.(pendingState), 100)
             }
         }
-    }, [play, playerReady, playerError])
+    }
 
+    // keep the ref pointing at the latest version after every render
     useEffect(() => {
         safeSetPlayStateRef.current = safeSetPlayState
-    }, [safeSetPlayState])
+    })
 
     // Debounced play state setter to prevent rapid changes
-    const debouncedSetPlay = useCallback((shouldPlay: boolean) => {
+    const debouncedSetPlay = (shouldPlay: boolean) => {
         if (timeoutRef.current) {
             clearTimeout(timeoutRef.current)
         }
@@ -131,7 +132,7 @@ export default function Video({
         timeoutRef.current = setTimeout(() => {
             safeSetPlayState(shouldPlay)
         }, 200) // Further increased debounce time for stability
-    }, [safeSetPlayState])
+    }
 
     // Global error handler for unhandled promise rejections from Vimeo
     useEffect(() => {
@@ -201,7 +202,7 @@ export default function Video({
     }, { dependencies: [lenis, debouncedSetPlay] })
 
     // Handle manual play/pause toggle with debouncing
-    const handleVideoClick = useCallback(() => {
+    const handleVideoClick = () => {
         // Set manual override to prevent ScrollTrigger interference
         manualOverrideRef.current = true
         
@@ -218,17 +219,17 @@ export default function Video({
         manualOverrideTimeoutRef.current = setTimeout(() => {
             manualOverrideRef.current = false
         }, 3000) // 3 seconds of manual control
-    }, [play, safeSetPlayState])
+    }
 
     // Handle Vimeo player ready event
-    const handlePlayerReady = useCallback((player: VimeoPlayer) => {
+    const handlePlayerReady = (player: VimeoPlayer) => {
         playerRef.current = player
         setPlayerReady(true)
         setPlayerError(false)
-    }, [])
+    }
 
     // Handle Vimeo player errors
-    const handlePlayerError = useCallback((error: VimeoError) => {
+    const handlePlayerError = (error: VimeoError) => {
         // Completely ignore PlayInterrupted and related errors
         if (isInterruption(error)) {
             return
@@ -243,7 +244,7 @@ export default function Video({
             setPlayerError(false)
             setPlay(false)
         }, 1000)
-    }, [])
+    }
 
     return (
         <div className={styles.video}>

@@ -3,11 +3,13 @@
 // libraries
 import { useTranslations } from 'next-intl'
 import clsx from 'clsx'
-import { Fancybox } from '@fancyapps/ui/dist/fancybox/fancybox.js'
 import { useRef, useState, type CSSProperties, type ReactNode } from 'react'
 import { useForm, FormProvider, useFormContext, type RegisterOptions } from 'react-hook-form'
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
+
+// components
+import Dialog from '@/components/dialog'
 
 // utils
 import { slugify } from '@/utils/functions'
@@ -31,56 +33,51 @@ export const Form = ({ className, children }: FormProps) => {
     const t = useTranslations('Form')
     const [isSending, setIsSending] = useState(false)
 
+    // the result dialog, the result outlives isOpen so the content stays put while it fades out
+    const [result, setResult] = useState<'success' | 'error'>('success')
+    const [isResultOpen, setIsResultOpen] = useState(false)
+
     // form validations
     const methods = useForm<FormValues>({
         criteriaMode: 'all',
         mode: 'onBlur'
     })
+
+    const showResult = (next: 'success' | 'error') => {
+        // a short beat so the spinner doesn't just flash
+        setTimeout(() => {
+            setResult(next)
+            setIsResultOpen(true)
+            setIsSending(false)
+
+            if (next === 'success') {
+                methods.reset()
+            }
+        }, 500)
+    }
     
     // submit function
-    const onSubmit = (data: FormValues) => {
+    const onSubmit = async (data: FormValues) => {
         setIsSending(true)
 
-        fetch('/api/sendgrid', {
-            method: 'post',
-            body: JSON.stringify(data)
-        })
+        try {
+            const response = await fetch('/api/sendgrid', {
+                method: 'post',
+                body: JSON.stringify(data)
+            })
 
-        .then(response => {
-            //console.log(JSON.stringify(data))
-
-            if (response.ok) {
-                return response.json()
-            } else {
+            if (!response.ok) {
                 throw new Error(t('sendFailed'))
             }
-        })
 
-        // if success
-        .then(() => {
-            setTimeout(() => {
-                Fancybox.show([{
-                    src: '#success',
-                    type: 'inline',
-                }])
-                setIsSending(false)
-                methods.reset()
-            }, 500)
-        })
-
-        // if error
-        .catch(error => {
+            showResult('success')
+        } catch (error) {
             console.error('Error:', error)
-
-            setTimeout(() => {
-                Fancybox.show([{
-                    src: '#error',
-                    type: 'inline'
-                }])
-                setIsSending(false)
-            }, 500)
-        })
+            showResult('error')
+        }
     }
+
+    const isSuccess = result === 'success'
 
     return (
         <FormProvider {...methods}>
@@ -91,43 +88,34 @@ export const Form = ({ className, children }: FormProps) => {
                 {children}
             </form>
 
-            <div className={styles.popup} id='success'>
+            <Dialog
+                open={isResultOpen}
+                onClose={() => setIsResultOpen(false)}
+                label={t(isSuccess ? 'Success.title' : 'Error.title')}
+                closeButton={false}
+                panelClassName={styles.popup}
+            >
                 <div className={styles.wrapper}>
 
-                    <p className={clsx(styles.title, 'font-bigger')}>
-                        {t('Success.title')}
+                    <p className={clsx(styles.title, !isSuccess && styles.error, 'font-bigger')}>
+                        {t(isSuccess ? 'Success.title' : 'Error.title')}
                     </p>
 
                     <p className={styles.text}>
-                        {t('Success.line_01')} <br />
-                        {t('Success.line_02')}
+                        {t(isSuccess ? 'Success.line_01' : 'Error.line_01')} <br />
+                        {t(isSuccess ? 'Success.line_02' : 'Error.line_02')}
                     </p>
 
-                    <button className={clsx(styles.button, 'font-small')} data-fancybox-close>
+                    <button
+                        type='button'
+                        className={clsx(styles.button, 'font-small')}
+                        onClick={() => setIsResultOpen(false)}
+                    >
                         {t('close')} <UxClose />
                     </button>
 
                 </div>
-            </div>
-
-            <div className={styles.popup} id='error'>
-                <div className={styles.wrapper}>
-
-                    <p className={clsx(styles.title, styles.error, 'font-bigger')}>
-                        {t('Error.title')}
-                    </p>
-
-                    <p className={styles.text}>
-                        {t('Error.line_01')} <br />
-                        {t('Error.line_02')}
-                    </p>
-
-                    <button className={clsx(styles.button, 'font-small')} data-fancybox-close>
-                        {t('close')} <UxClose />
-                    </button>
-
-                </div>
-            </div>
+            </Dialog>
 
         </FormProvider>
     )

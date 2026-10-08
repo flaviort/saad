@@ -6,6 +6,14 @@ mail.setApiKey(process.env.SG_KEY ?? '')
 const from = 'flavioczuk@gmail.com'
 const to = 'flavioczuk@gmail.com'
 
+// form values end up inside the email's html, so never trust them as markup
+const escapeHtml = (value: unknown) => String(value)
+	.replace(/&/g, '&amp;')
+	.replace(/</g, '&lt;')
+	.replace(/>/g, '&gt;')
+	.replace(/"/g, '&quot;')
+	.replace(/'/g, '&#39;')
+
 export async function POST(request: Request) {
 
 	const body: Record<string, string> = await request.json()
@@ -17,10 +25,10 @@ export async function POST(request: Request) {
     const formattedData = keyValuePairs.map(([key, value]) => `
 		<tr style='vertical-align: top;'>
 			<td style='padding: 10px; border: 1px solid #ccc; background-color: #f2f2f2; font-size: 14px; line-height: 1.25; color: #030304;'>
-				<strong>${key}:</strong>
+				<strong>${escapeHtml(key)}:</strong>
 			</td>
 			<td style='padding: 10px; border: 1px solid #ccc; font-size: 14px; line-height: 1.25; color: #030304;'>
-				${value}
+				${escapeHtml(value)}
 			</td>
 		</tr>
 	`).join('')

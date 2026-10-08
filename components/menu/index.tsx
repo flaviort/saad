@@ -2,7 +2,7 @@
 
 // libraries
 import clsx from 'clsx'
-import { useEffect, useState, useRef, type MouseEvent } from 'react'
+import { useEffect, useId, useState, useRef, type MouseEvent } from 'react'
 import { useLenis } from 'lenis/react'
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
@@ -76,6 +76,7 @@ export default function Menu() {
 
     // open / close fs menu
     const [isShown, setIsShown] = useState(false)
+    const fsMenuId = useId()
 
 	const openCloseFsMenu = () => {
 		setIsShown(!isShown)
@@ -267,7 +268,13 @@ export default function Menu() {
 						</div>
 
 						<div className={clsx(styles.last, 'grid-md-6-7')}>
-							<button className={styles.openFs} onClick={openCloseFsMenu}>
+							<button
+                                type='button'
+                                className={styles.openFs}
+                                onClick={openCloseFsMenu}
+                                aria-expanded={isShown}
+                                aria-controls={fsMenuId}
+                            >
 								
 								<span className={styles.text}>
 									<span className='fs-text-open'>{t('open')}</span>
@@ -283,7 +290,8 @@ export default function Menu() {
 				</div>
 			</section>
 
-            <section ref={fsMenuRef} className={styles.fsMenu}>
+            {/* inert while closed: it's only clipped off screen, so keep its links out of tab order */}
+            <section ref={fsMenuRef} id={fsMenuId} className={styles.fsMenu} inert={!isShown}>
                 <div className='container'>
                     <div className='grid-container'>
                         <ul className={clsx(styles.menu, 'grid-md-2-7')}>

@@ -16,7 +16,7 @@ import { useMessages, useTranslations } from 'next-intl'
 import { useSiteEvent } from '@/components/site-events'
 import Layout from '@/layout'
 import Video from '@/components/utils/video'
-import Fancybox from '@/components/utils/fancybox'
+import VideoLightbox from '@/components/video-lightbox'
 import Counter from '@/components/utils/counter'
 import AnimatedLine from '@/components/utils/animated-line'
 import FollowMouse from '@/components/utils/follow-mouse'
@@ -130,22 +130,20 @@ export default function Home({ data }: HomeProps) {
 
 					<div className={styles.firstSection}>
 					
-						<Fancybox options={{ dragToClose: false }}>
-							<a href='https://vimeo.com/875961835' data-fancybox='showreel' className={styles.video} ref={videoRef}>
-								<FollowMouse text={tVideo('play')} scrollTrigger>
+						<VideoLightbox videoId='875961835' label='Showreel' className={styles.video} ref={videoRef}>
+							<FollowMouse text={tVideo('play')} scrollTrigger>
 
-									<div className={styles.play}>
-										{tVideo('play')}
-									</div>
+								<div className={styles.play}>
+									{tVideo('play')}
+								</div>
 
-									<Video
-										video='/videos/showreel.mp4'
-										className='cover'
-									/>
+								<Video
+									video='/videos/showreel.mp4'
+									className='cover'
+								/>
 
-								</FollowMouse>
-							</a>
-						</Fancybox>
+							</FollowMouse>
+						</VideoLightbox>
 						
 					</div>
 

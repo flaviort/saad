@@ -556,5 +556,16 @@
         "credits": "Credits",
         "previous": "Previous",
         "next": "Next"
+    },
+
+    "Error": {
+        "title": "Something went wrong",
+        "message": "An unexpected error occurred. Please try again in a moment.",
+        "retry": "Try again",
+        "home": "Back to Home"
+    },
+
+    "Dialog": {
+        "close": "Close"
     }
 }

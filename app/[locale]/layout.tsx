@@ -1,6 +1,5 @@
 // libraries
 import type { Metadata } from 'next'
-import { GoogleTagManager } from '@next/third-parties/google'
 import { NextIntlClientProvider, hasLocale } from 'next-intl'
 import { setRequestLocale } from 'next-intl/server'
 import { notFound } from 'next/navigation'
@@ -15,6 +14,7 @@ import Opening from '@/components/opening'
 import PageTransition from '@/components/page-transition'
 import Menu from '@/components/menu'
 import Cookies from '@/components/cookies'
+import Analytics from '@/components/analytics'
 import { SiteEventsProvider } from '@/components/site-events'
 
 // i18n
@@ -62,7 +62,6 @@ export default async function LocaleLayout({ children, params }: LayoutProps<'/[
 
 	return (
 		<html lang={localeTags[locale].html}>
-			<GoogleTagManager gtmId='GTM-W7HLMBNK' />
 			<body>
 				<NextIntlClientProvider>
 					<SiteEventsProvider>
@@ -73,6 +72,8 @@ export default async function LocaleLayout({ children, params }: LayoutProps<'/[
 							<Menu />
 
 							<Cookies />
+
+							<Analytics />
 
 							<SmoothScrolling>
 

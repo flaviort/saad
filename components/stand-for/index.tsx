@@ -72,7 +72,12 @@ export default function StandFor() {
                             </div>
 
                             <div className={styles.last}>
-                                <button>
+                                {/* clicks bubble up to the item, this gives keyboards and screen readers a control */}
+                                <button
+                                    type='button'
+                                    aria-label={item.title}
+                                    aria-expanded={activeItems[index]}
+                                >
                                     <UxArrowDown />
                                 </button>
                             </div>
